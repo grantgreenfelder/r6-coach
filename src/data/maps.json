@@ -4,6 +4,8 @@
     "displayName": "Bank",
     "rating": "strong",
     "ratingLabel": "Strong",
+    "rankedPool": "both",
+    "inRankedPool": true,
     "stratCount": {
       "total": 8,
       "developed": 4,
@@ -477,6 +479,8 @@
     "displayName": "Border",
     "rating": "strong",
     "ratingLabel": "Strong",
+    "rankedPool": "both",
+    "inRankedPool": true,
     "stratCount": {
       "total": 8,
       "developed": 6,
@@ -984,6 +988,8 @@
     "displayName": "Chalet",
     "rating": "strong",
     "ratingLabel": "Strong",
+    "rankedPool": "both",
+    "inRankedPool": true,
     "stratCount": {
       "total": 8,
       "developed": 0,
@@ -1553,6 +1559,8 @@
     "displayName": "Clubhouse",
     "rating": "strong",
     "ratingLabel": "Protect",
+    "rankedPool": "both",
+    "inRankedPool": true,
     "stratCount": {
       "total": 8,
       "developed": 1,
@@ -2065,6 +2073,8 @@
     "displayName": "Coastline",
     "rating": "unknown",
     "ratingLabel": "Situational",
+    "rankedPool": "first",
+    "inRankedPool": true,
     "stratCount": {
       "total": 0,
       "developed": 0,
@@ -2081,6 +2091,8 @@
     "displayName": "Consulate",
     "rating": "weak",
     "ratingLabel": "Weak",
+    "rankedPool": "both",
+    "inRankedPool": true,
     "stratCount": {
       "total": 8,
       "developed": 0,
@@ -2650,6 +2662,8 @@
     "displayName": "Emerald Plains",
     "rating": "unknown",
     "ratingLabel": "Hard ban",
+    "rankedPool": "first",
+    "inRankedPool": true,
     "stratCount": {
       "total": 0,
       "developed": 0,
@@ -2666,6 +2680,8 @@
     "displayName": "Favela",
     "rating": "unknown",
     "ratingLabel": "Unknown",
+    "rankedPool": "second",
+    "inRankedPool": false,
     "stratCount": {
       "total": 0,
       "developed": 0,
@@ -2682,6 +2698,8 @@
     "displayName": "Fortress",
     "rating": "avoid",
     "ratingLabel": "Avoid",
+    "rankedPool": "both",
+    "inRankedPool": true,
     "stratCount": {
       "total": 0,
       "developed": 0,
@@ -2698,6 +2716,8 @@
     "displayName": "Kafe Dostoyevsky",
     "rating": "moderate",
     "ratingLabel": "Moderate",
+    "rankedPool": "both",
+    "inRankedPool": true,
     "stratCount": {
       "total": 0,
       "developed": 0,
@@ -2714,6 +2734,8 @@
     "displayName": "Kanal",
     "rating": "unknown",
     "ratingLabel": "—",
+    "rankedPool": null,
+    "inRankedPool": false,
     "stratCount": {
       "total": 0,
       "developed": 0,
@@ -2730,6 +2752,8 @@
     "displayName": "Lair",
     "rating": "avoid",
     "ratingLabel": "Avoid",
+    "rankedPool": "both",
+    "inRankedPool": true,
     "stratCount": {
       "total": 0,
       "developed": 0,
@@ -2746,6 +2770,8 @@
     "displayName": "Nighthaven Labs",
     "rating": "avoid",
     "ratingLabel": "Avoid",
+    "rankedPool": "both",
+    "inRankedPool": true,
     "stratCount": {
       "total": 0,
       "developed": 0,
@@ -2762,6 +2788,8 @@
     "displayName": "Oregon",
     "rating": "unknown",
     "ratingLabel": "Mixed",
+    "rankedPool": "first",
+    "inRankedPool": true,
     "stratCount": {
       "total": 8,
       "developed": 1,
@@ -3250,6 +3278,8 @@
     "displayName": "Outback",
     "rating": "unknown",
     "ratingLabel": "—",
+    "rankedPool": null,
+    "inRankedPool": false,
     "stratCount": {
       "total": 0,
       "developed": 0,
@@ -3266,6 +3296,8 @@
     "displayName": "Skyscraper",
     "rating": "moderate",
     "ratingLabel": "Moderate",
+    "rankedPool": "second",
+    "inRankedPool": false,
     "stratCount": {
       "total": 8,
       "developed": 0,
@@ -3835,6 +3867,8 @@
     "displayName": "Stadium Bravo",
     "rating": "unknown",
     "ratingLabel": "Unknown",
+    "rankedPool": "second",
+    "inRankedPool": false,
     "stratCount": {
       "total": 0,
       "developed": 0,
@@ -3851,6 +3885,8 @@
     "displayName": "Theme Park",
     "rating": "strong",
     "ratingLabel": "Strong",
+    "rankedPool": "second",
+    "inRankedPool": false,
     "stratCount": {
       "total": 8,
       "developed": 0,
@@ -4420,6 +4456,8 @@
     "displayName": "Villa",
     "rating": "avoid",
     "ratingLabel": "Avoid",
+    "rankedPool": "first",
+    "inRankedPool": true,
     "stratCount": {
       "total": 8,
       "developed": 8,
