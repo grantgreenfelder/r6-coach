@@ -83,10 +83,21 @@ function parsePlayer(name) {
   const teamMatch = profile.match(/\*\*Team:\*\*\s*(Main|B Team|C Team)/i)
   const team = teamMatch ? teamMatch[1] : 'Main'
 
-  // Extract role
+  // Extract role — strip any trailing email segment (| Email: ...) and markdown
   const roleMatch = profile.match(/\*\*Role[^:]*:\*\*\s*([^\n]+)/) ||
                     profile.match(/Role[^:]*:\*\*\s*([^\n]+)/)
-  const role = roleMatch ? roleMatch[1].replace(/[*_]/g, '').trim() : ''
+  const role = roleMatch
+    ? roleMatch[1]
+        .replace(/[*_]/g, '')                    // strip markdown bold/italic first
+        .replace(/\s*\|\s*Email:[^\n|]*/i, '')   // strip "| Email: ..." segment
+        .replace(/\s*\|\s*[\w._%+-]+@[\w.-]+\.[a-z]{2,}/i, '') // strip any bare email
+        .trim()
+    : ''
+
+  // Extract bio from Identity section — use **Strengths:** line as player description
+  const identitySection = extractSection(profile, 'Identity')
+  const strengthsMatch = identitySection.match(/\*\*Strengths?:\*\*\s*([^\n]+)/)
+  const bio = strengthsMatch ? strengthsMatch[1].replace(/[*_]/g, '').trim() : ''
 
   // Extract top ops from season file ATK/DEF identity lines
   // e.g. "**ATK identity:** Ash is the primary ATK pick (29r / 44.8% / 1.56 K/D). Secondary: Twitch (27r / 40.7%)."
@@ -142,6 +153,7 @@ function parsePlayer(name) {
     tracker,
     team,
     role,
+    bio,
     atkOps,
     defOps,
     season: seasonName,
