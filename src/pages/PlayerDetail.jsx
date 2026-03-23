@@ -16,10 +16,6 @@ export default function PlayerDetail() {
     )
   }
 
-  const isMain = playersData.mainStack.some(p => p.name === player.name)
-  const teamLabel = isMain ? 'Main Stack' : 'B Team'
-  const teamColor = isMain ? 'text-siege-gold' : 'text-siege-blue'
-
   return (
     <div className="p-6 max-w-5xl mx-auto space-y-6">
       {/* Header */}
@@ -34,7 +30,6 @@ export default function PlayerDetail() {
         <div className="flex-1">
           <div className="flex items-center gap-3 flex-wrap">
             <h1 className="text-2xl font-bold text-white">{player.name}</h1>
-            <span className={`text-sm font-medium ${teamColor}`}>{teamLabel}</span>
             {player.tracker && (
               <a
                 href={`https://r6.tracker.network/r6siege/profile/ubi/${player.tracker}/overview`}

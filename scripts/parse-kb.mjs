@@ -83,19 +83,12 @@ function parsePlayer(name) {
   const teamMatch = profile.match(/\*\*Team:\*\*\s*(Main|B Team|C Team)/i)
   const team = teamMatch ? teamMatch[1] : 'Main'
 
-  // Extract role — strip any trailing email segment (| Email: ...) and markdown
-  const roleMatch = profile.match(/\*\*Role[^:]*:\*\*\s*([^\n]+)/) ||
-                    profile.match(/Role[^:]*:\*\*\s*([^\n]+)/)
-  const role = roleMatch
-    ? roleMatch[1]
-        .replace(/[*_]/g, '')                    // strip markdown bold/italic first
-        .replace(/\s*\|\s*Email:[^\n|]*/i, '')   // strip "| Email: ..." segment
-        .replace(/\s*\|\s*[\w._%+-]+@[\w.-]+\.[a-z]{2,}/i, '') // strip any bare email
-        .trim()
-    : ''
-
-  // Extract bio from Identity section — use **Strengths:** line as player description
+  // Extract role from Identity → **Role fit:** for a full descriptive label
   const identitySection = extractSection(profile, 'Identity')
+  const roleFitMatch = identitySection.match(/\*\*Role fit:\*\*\s*([^\n]+)/)
+  const role = roleFitMatch ? roleFitMatch[1].replace(/[*_]/g, '').trim() : ''
+
+  // Extract bio from Identity → **Strengths:** as a playstyle description
   const strengthsMatch = identitySection.match(/\*\*Strengths?:\*\*\s*([^\n]+)/)
   const bio = strengthsMatch ? strengthsMatch[1].replace(/[*_]/g, '').trim() : ''
 
