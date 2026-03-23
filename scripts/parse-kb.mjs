@@ -239,7 +239,22 @@ function buildMapsData(playersData) {
     }
   }
 
+  // Parse ranked pool membership from STACK_05 pool lists
+  function extractPoolList(text, sectionHeader) {
+    const re = new RegExp(`###\\s+${sectionHeader}[^\\n]*\\n([^\\n]+)`, 'i')
+    const m = text.match(re)
+    if (!m) return new Set()
+    return new Set(
+      m[1].split(',')
+        .map(s => s.replace(/\s*_\([^)]*\)_/, '').trim())  // strip _(13 maps)_ suffix
+        .filter(Boolean)
+    )
+  }
+  const firstHalfMaps = extractPoolList(stack05, 'First Half Launch')
+  const secondHalfMaps = extractPoolList(stack05, 'Second Half Pool')
+
   return mapNames.map(mapName => {
+    const displayName = mapName.replace(/_/g, ' ')
     const mapDir = path.join(KB, 'MAPS', mapName)
     const overview = readFile(path.join(mapDir, '_OVERVIEW.md'))
     const reference = readFile(path.join(mapDir, `${mapName}.md`))
@@ -254,19 +269,25 @@ function buildMapsData(playersData) {
     const devCount = strats.filter(s => s.status === 'developed').length
     const partialCount = strats.filter(s => s.status === 'partial').length
 
-    // Team win% for this map (weighted average across main stack players)
-    // Normalize: folder may have spaces or underscores; player data always has spaces → normalize both to underscores
+    // Team win% for this map
     const wr = winRateByMap[mapName.replace(/ /g, '_')]
     const teamWinRate = wr && wr.totalMatches > 0
       ? Math.round((wr.weightedSum / wr.totalMatches) * 10) / 10
       : null
     const teamWinRateMatches = wr ? wr.totalMatches : 0
 
+    // Ranked pool membership (match by display name since pool lists use display names)
+    const inFirst = firstHalfMaps.has(displayName)
+    const inSecond = secondHalfMaps.has(displayName)
+    const rankedPool = inFirst && inSecond ? 'both' : inFirst ? 'first' : inSecond ? 'second' : null
+
     return {
       name: mapName,
-      displayName: mapName.replace(/_/g, ' '),
+      displayName,
       rating,
       ratingLabel,
+      rankedPool,           // 'first' | 'second' | 'both' | null  (relative to full season)
+      inRankedPool: inFirst,  // true = currently active in Y11S1 First Half (first || both)
       stratCount: { total: strats.length, developed: devCount, partial: partialCount },
       teamWinRate,
       teamWinRateMatches,

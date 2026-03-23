@@ -41,6 +41,32 @@ export default function MapDetail() {
           <RatingBadge rating={map.rating} label={map.ratingLabel} size="lg" />
         </div>
 
+        {/* Pool status banner */}
+        {map.inRankedPool && map.rankedPool === 'first' && (
+          <div className="mt-3 flex items-center gap-2 px-3 py-2 rounded bg-yellow-500/10 border border-yellow-500/30 text-yellow-400 text-sm">
+            <span>⚠</span>
+            <span>In ranked pool now — <strong>leaving at the Y11S1 mid-season split</strong>. Strat this map before it rotates out.</span>
+          </div>
+        )}
+        {map.inRankedPool && map.rankedPool === 'both' && (
+          <div className="mt-3 flex items-center gap-2 px-3 py-2 rounded bg-siege-green/10 border border-siege-green/30 text-siege-green text-sm">
+            <span>✓</span>
+            <span>In ranked pool for the <strong>full Y11S1 season</strong>.</span>
+          </div>
+        )}
+        {!map.inRankedPool && map.rankedPool === 'second' && (
+          <div className="mt-3 flex items-center gap-2 px-3 py-2 rounded bg-siege-blue/10 border border-siege-blue/30 text-blue-300 text-sm">
+            <span>↩</span>
+            <span>Not in the current pool — <strong>returns at the Y11S1 mid-season split</strong>. Good time to build strats now.</span>
+          </div>
+        )}
+        {!map.inRankedPool && !map.rankedPool && (
+          <div className="mt-3 flex items-center gap-2 px-3 py-2 rounded bg-siege-border/30 border border-siege-border text-siege-muted text-sm">
+            <span>—</span>
+            <span>Not in the Y11S1 ranked pool.</span>
+          </div>
+        )}
+
         {/* Strat summary */}
         <div className="mt-4 flex gap-6 text-sm">
           <Stat label="Total Sites" value={map.stratCount.total} />

@@ -6,17 +6,34 @@ import StatusDot from '../components/StatusDot'
 
 const RATING_ORDER = ['strong', 'moderate', 'weak', 'avoid', 'unknown']
 
+// rankedPool values:
+//   'both'   = active all season (First + Second Half)
+//   'first'  = active now, LEAVING at mid-season split
+//   'second' = NOT active now, returning at mid-season split
+//   null     = not in ranked pool this season
+export const POOL_LABEL = {
+  both:   { text: 'Full Season',            color: 'text-siege-green',  icon: '✓' },
+  first:  { text: 'Leaving at mid-season',  color: 'text-yellow-400',   icon: '⚠' },
+  second: { text: 'Returns at mid-season',  color: 'text-siege-blue',   icon: '↩' },
+}
+
 export default function Maps() {
   const [filter, setFilter] = useState('all')
   const [search, setSearch] = useState('')
 
-  const filtered = mapsData
+  const applyFilters = (maps) => maps
     .filter(m => filter === 'all' || m.rating === filter)
     .filter(m => m.displayName.toLowerCase().includes(search.toLowerCase()))
     .sort((a, b) => RATING_ORDER.indexOf(a.rating) - RATING_ORDER.indexOf(b.rating))
 
+  const ranked = applyFilters(mapsData.filter(m => m.inRankedPool))
+  // Split unranked: returning mid-season vs fully out of pool
+  const returningMaps = applyFilters(mapsData.filter(m => !m.inRankedPool && m.rankedPool === 'second'))
+  const unrankedMaps  = applyFilters(mapsData.filter(m => !m.inRankedPool && m.rankedPool !== 'second'))
+
   return (
-    <div className="p-6 max-w-6xl mx-auto space-y-6">
+    <div className="p-6 max-w-6xl mx-auto space-y-8">
+      {/* Header + filters */}
       <div className="flex items-center justify-between flex-wrap gap-4">
         <h1 className="text-2xl font-bold text-white">Maps</h1>
         <div className="flex gap-2 flex-wrap">
@@ -43,13 +60,49 @@ export default function Maps() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {filtered.map(map => (
-          <MapCard key={map.name} map={map} />
-        ))}
-      </div>
+      {/* Ranked Pool */}
+      {ranked.length > 0 && (
+        <div>
+          <div className="flex items-center gap-3 mb-4">
+            <h2 className="text-white font-semibold text-sm uppercase tracking-wider">Y11S1 Ranked Pool</h2>
+            <div className="flex-1 h-px bg-siege-border" />
+            <span className="text-siege-muted text-xs">{ranked.length} maps</span>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {ranked.map(map => <MapCard key={map.name} map={map} />)}
+          </div>
+        </div>
+      )}
 
-      {filtered.length === 0 && (
+      {/* Returning mid-season */}
+      {returningMaps.length > 0 && (
+        <div>
+          <div className="flex items-center gap-3 mb-4">
+            <h2 className="text-siege-blue font-semibold text-sm uppercase tracking-wider">↩ Returning at Mid-Season</h2>
+            <div className="flex-1 h-px bg-siege-border/50" />
+            <span className="text-siege-muted text-xs">{returningMaps.length} maps</span>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 opacity-70">
+            {returningMaps.map(map => <MapCard key={map.name} map={map} />)}
+          </div>
+        </div>
+      )}
+
+      {/* Unranked */}
+      {unrankedMaps.length > 0 && (
+        <div>
+          <div className="flex items-center gap-3 mb-4">
+            <h2 className="text-siege-muted font-semibold text-sm uppercase tracking-wider">Unranked</h2>
+            <div className="flex-1 h-px bg-siege-border/40" />
+            <span className="text-siege-muted text-xs">{unrankedMaps.length} maps</span>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 opacity-50">
+            {unrankedMaps.map(map => <MapCard key={map.name} map={map} />)}
+          </div>
+        </div>
+      )}
+
+      {ranked.length === 0 && returningMaps.length === 0 && unrankedMaps.length === 0 && (
         <p className="text-siege-muted text-center py-12">No maps match this filter.</p>
       )}
     </div>
@@ -69,12 +122,17 @@ function MapCard({ map }) {
       to={`/maps/${map.name}`}
       className="card hover:border-siege-accent transition-colors block group"
     >
-      <div className="flex items-start justify-between mb-3">
+      <div className="flex items-start justify-between mb-1">
         <h2 className="text-white font-semibold text-lg group-hover:text-siege-accent transition-colors">
           {map.displayName}
         </h2>
         <RatingBadge rating={map.rating} label={map.ratingLabel} />
       </div>
+      {map.rankedPool && POOL_LABEL[map.rankedPool] && (
+        <p className={`text-xs mb-2 ${POOL_LABEL[map.rankedPool].color}`}>
+          {POOL_LABEL[map.rankedPool].text}
+        </p>
+      )}
 
       {/* Win rate bar */}
       <div className="mb-3">
