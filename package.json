@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "node scripts/parse-kb.mjs && vite build",
+    "build": "vite build",
+    "build:local": "node scripts/parse-kb.mjs && vite build",
     "parse-kb": "node scripts/parse-kb.mjs",
     "preview": "vite preview"
   },
