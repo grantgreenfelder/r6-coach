@@ -5,15 +5,15 @@
       "tracker": "Eh_Grant",
       "team": "Main",
       "role": "IGL / Flex | Email: grantgreenfelder@gmail.com",
-      "atkOps": "",
-      "defOps": "",
+      "atkOps": "Thatcher / Lion",
+      "defOps": "Mute / Kapkan",
       "season": "Y11S1",
       "stats": {
-        "rank": "—",
-        "rp": "—",
-        "kd": "—",
-        "winRate": "—",
-        "matches": "—"
+        "rank": "Emerald III",
+        "rp": "3728",
+        "kd": "1.19",
+        "winRate": "45.5%",
+        "matches": "99"
       },
       "coachingPriorities": [
         "Operators — DEF",
@@ -29,15 +29,15 @@
       "tracker": "Eh_Peej",
       "team": "Main",
       "role": "Entry fragger (Ash/Brava ATK) | Intel/Roam anchor (Maestro/Caveira DEF). The only B Team player with a genuine entry fragger identity.",
-      "atkOps": "Capable in solo positions — his Ash/Caveira picks are designed for independent action.",
-      "defOps": "Has significantly evolved his operator pool over his career — moved from an older Amaru/Thorn/Bandit era to Ash/Brava attacker and Maestro/Caveira/Azami defender. Approaching main-stack scrim eligibility.",
+      "atkOps": "Ash / Twitch",
+      "defOps": "Caveira / Maestro",
       "season": "Y11S1",
       "stats": {
-        "rank": "—",
-        "rp": "—",
-        "kd": "—",
-        "winRate": "—",
-        "matches": "—"
+        "rank": "Gold III",
+        "rp": "2761",
+        "kd": "1.21",
+        "winRate": "47.7%",
+        "matches": "44"
       },
       "coachingPriorities": [
         "Operators — DEF",
@@ -53,15 +53,15 @@
       "tracker": "Eh_Hound",
       "team": "Main",
       "role": "Support | Email: shadowhound6193@gmail.com",
-      "atkOps": "Hound provides the breach/gadget clearance. Someone else gets the kills. This is working — don't break it.",
-      "defOps": "Hound provides the breach/gadget clearance. Someone else gets the kills. This is working — don't break it.",
+      "atkOps": "Osa / Thermite",
+      "defOps": "Castle / Bandit",
       "season": "Y11S1",
       "stats": {
-        "rank": "—",
-        "rp": "—",
-        "kd": "—",
-        "winRate": "—",
-        "matches": "—"
+        "rank": "Emerald IV",
+        "rp": "3684",
+        "kd": "0.86",
+        "winRate": "48.1%",
+        "matches": "77"
       },
       "coachingPriorities": [
         "Operators — ATK",
@@ -77,15 +77,15 @@
       "tracker": "Eh_tooten",
       "team": "Main",
       "role": "Support",
-      "atkOps": "",
-      "defOps": "",
+      "atkOps": "Thermite / Hibana",
+      "defOps": "Aruni / Kaid",
       "season": "Y11S1",
       "stats": {
-        "rank": "—",
-        "rp": "—",
-        "kd": "—",
-        "winRate": "—",
-        "matches": "—"
+        "rank": "Silver III",
+        "rp": "2261",
+        "kd": "1.13",
+        "winRate": "46.2%",
+        "matches": "26"
       },
       "coachingPriorities": [
         "Operators — DEF",
@@ -101,15 +101,15 @@
       "tracker": "Eh_SiegeyBodeez",
       "team": "Main",
       "role": "Entry / Fragger",
-      "atkOps": "",
-      "defOps": "Entry fragger (role label) — but data consistently shows a defense-dominant identity. Best used as sub-group IGL on attack, primary anchor on defense.",
+      "atkOps": "Zofia / Jackal",
+      "defOps": "Vigil / Azami",
       "season": "Y11S1",
       "stats": {
-        "rank": "—",
-        "rp": "—",
-        "kd": "—",
-        "winRate": "—",
-        "matches": "—"
+        "rank": "Gold II",
+        "rp": "2832",
+        "kd": "1.00",
+        "winRate": "43.8%",
+        "matches": "89"
       },
       "coachingPriorities": [
         "Operators — DEF",
@@ -127,15 +127,15 @@
       "tracker": "Eh_Slugwini",
       "team": "B Team",
       "role": "Flex / Flank | Team: B Team (moved from Main Stack 2026-03-21)",
-      "atkOps": "",
-      "defOps": "",
+      "atkOps": "Buck / Solid",
+      "defOps": "Valkyrie / Solis",
       "season": "Y11S1",
       "stats": {
-        "rank": "—",
-        "rp": "—",
-        "kd": "—",
-        "winRate": "—",
-        "matches": "—"
+        "rank": "Platinum III",
+        "rp": "3200",
+        "kd": "1.08",
+        "winRate": "46.3%",
+        "matches": "54"
       },
       "coachingPriorities": [
         "Operators — DEF",
@@ -151,15 +151,15 @@
       "tracker": "Eh_KraftySmokes",
       "team": "B Team",
       "role": "DEF anchor (Lesion-first, passive trap identity). ATK still developing.",
-      "atkOps": "DEF anchor (Lesion-first, passive trap identity). ATK still developing.",
-      "defOps": "Newest and least experienced player. Decisions and positioning are the primary gap — not aim. Plays passive utility-heavy DEF well (Lesion traps). ATK pool has been fragmented and inconsistent.",
+      "atkOps": "Iana / Blackbeard",
+      "defOps": "Thorn / Castle",
       "season": "Y11S1",
       "stats": {
-        "rank": "—",
-        "rp": "—",
-        "kd": "—",
-        "winRate": "—",
-        "matches": "—"
+        "rank": "Bronze III",
+        "rp": "1746",
+        "kd": "0.33",
+        "winRate": "46.6%",
+        "matches": "58"
       },
       "coachingPriorities": [
         "Operators — DEF",
@@ -175,15 +175,15 @@
       "tracker": "Eh_Nastybob",
       "team": "B Team",
       "role": "DEF anchor (Kapkan-first). ATK side still developing toward a stable identity.",
-      "atkOps": "DEF anchor (Kapkan-first). ATK side still developing toward a stable identity.",
-      "defOps": "Career DEF identity is trap/anchor (Kapkan/Frost historically). ATK pool has been inconsistent — different picks each season with mixed results. Current Y10S4 ATK pool (Dokkaebi/Glaz/Denari) is underperforming; conventional ATK picks would likely serve him better.",
+      "atkOps": "Thatcher / Thermite",
+      "defOps": "Kapkan / Thorn",
       "season": "Y11S1",
       "stats": {
-        "rank": "—",
-        "rp": "—",
-        "kd": "—",
-        "winRate": "—",
-        "matches": "—"
+        "rank": "Copper II",
+        "rp": "1340",
+        "kd": "0.72",
+        "winRate": "19.0%",
+        "matches": "21"
       },
       "coachingPriorities": [
         "Operators — DEF",
@@ -199,15 +199,15 @@
       "tracker": "Meh_Hunter",
       "team": "B Team",
       "role": "DEF anchor / intel operator. Caveira/Valkyrie are intel-gathering ops played at high WR. Aruni is a hard-anchor gadget op. Mira (24r, 70.8% WR) is a standout small-sample op worth developing — could be Hunter's best DEF pick with more reps.",
-      "atkOps": "DEF anchor / intel operator. Caveira/Valkyrie are intel-gathering ops played at high WR. Aruni is a hard-anchor gadget op. Mira (24r, 70.8% WR) is a standout small-sample op worth developing — could be Hunter's best DEF pick with more reps.",
-      "defOps": "ATK side is Ash-dominant (612r) but consistently loses — 44.4% career WR on the #1 ATK op. The entire ATK pool is sub-50%. Hunter earns rounds on DEF, not ATK. Despite this, K/D stays near 1.0 all-time, which suggests individual combat is fine — round wins on ATK come from better coordination, not aim.",
+      "atkOps": "",
+      "defOps": "",
       "season": "Y10S4",
       "stats": {
-        "rank": "—",
-        "rp": "—",
-        "kd": "—",
-        "winRate": "—",
-        "matches": "—"
+        "rank": "2,148 RP (Unranked — below placement threshold)",
+        "rp": "2148",
+        "kd": "0.63",
+        "winRate": "— (not exposed at this sample via overview)",
+        "matches": "22"
       },
       "coachingPriorities": [],
       "profileContent": "# Hunter — Player Profile\n\n**Callsign:** Hunter | **Tracker:** Meh_Hunter | **Team:** B Team\n\n_Added: 2026-03-14 | ALL_TIME + Y10S4 pulled: 2026-03-15 | Previous username: Eh_Burttis (Aug 2023)_\n\n---\n\n## Identity\n\n**Strengths:** DEF specialist with a deep, high-performing pool. Aruni (527r, 56.9% WR, 1.19 K/D), Caveira (320r, 60.6%, 1.21 K/D), Valkyrie (291r, 60.5%, 1.12 K/D), Thorn (99r, 60.6%, 1.22 K/D) — four anchor ops above 56% WR with meaningful rounds. Kaid, Fenrir, Warden also strong. One of the better DEF pools in the entire group.\n\n**Tendencies:** ATK side is Ash-dominant (612r) but consistently loses — 44.4% career WR on the #1 ATK op. The entire ATK pool is sub-50%. Hunter earns rounds on DEF, not ATK. Despite this, K/D stays near 1.0 all-time, which suggests individual combat is fine — round wins on ATK come from better coordination, not aim.\n\n**Role fit:** DEF anchor / intel operator. Caveira/Valkyrie are intel-gathering ops played at high WR. Aruni is a hard-anchor gadget op. Mira (24r, 70.8% WR) is a standout small-sample op worth developing — could be Hunter's best DEF pick with more reps.\n\n**Solo vs. Group:** Career data (1,069 ranked) shows a real, experienced player. Best season was Deadly Omen (205 matches, 3,457 RP). Y10S4 was light (22M). Activity has dropped in recent seasons — B Team classification based on career metrics (0.98 K/D, deep DEF pool, meaningful map data).\n\n---\n\n## Career Coaching Notes\n\n- **Career metrics are B Team level.** K/D 0.98, 1,069 ranked career, deep DEF op pool, 155 map matches tracked — this is a real player. Activity has been low recently; pull Y11S1 at 10+ matches like other B Team players.\n- **DEF pool is exceptional.** Aruni/Caveira/Valkyrie/Thorn all above 56% WR with 99+ rounds — consistent across all four. Kaid (65.3%), Fenrir (64.3%), Warden (62.9%) are also solid secondary picks.\n- **Mira (24r, 70.8% WR)** is the highest-WR op with 20+ rounds career-wide. Underplayed — worth leaning into.\n- **ATK needs direction.** Drop Ying (61r, 31.1% WR) and Iana (33r, 30.3%) entirely. Gridlock (29r, 55.2%) is actually the best ATK WR in the pool — counterintuitive but worth noting. Ash stays as the primary but needs site-reading improvement.\n- **Oregon (25%, 8M)** — hard avoid in any combined game. Chalet (60%, 10M) and Kanal (85.7%, 7M) are strong picks with Hunter in the group.\n- First useful repull target: 10+ Y11S1 ranked matches.\n\n---\n\n## Season Files\n\n| Season | File | Status |\n|--------|------|--------|\n| Y11S1 | Y11S1.md | 🔲 Not yet pulled — 3 ranked matches as of 2026-03-15 (too small) |\n| Y10S4 | Y10S4.md | ✅ Pulled 2026-03-15 — ⚠️ 22 matches, below 30M threshold |\n| All-Time | ALL_TIME.md | ✅ Pulled 2026-03-15 |\n",
@@ -221,15 +221,15 @@
       "tracker": "Eh_D-Man",
       "team": "C Team",
       "role": "Hard-anchor DEF specialist. Mira (11r, 72.7% WR, 1.14 K/D) is a standout small-sample stat — could develop into a primary Mira main. Fenrir (6r, 1.50 K/D) also noteworthy.",
-      "atkOps": "Hard-anchor DEF specialist. Mira (11r, 72.7% WR, 1.14 K/D) is a standout small-sample stat — could develop into a primary Mira main. Fenrir (6r, 1.50 K/D) also noteworthy.",
-      "defOps": "Breach-utility on ATK (Buck/Thatcher/Thermite high-volume) with below-average results. The raw K/D (0.65) undersells DEF contributions — utility placements, traps, and anchor positioning generate round wins that don't show up in K/D. Zero (70r, 45.7% WR, 0.72 K/D) is the most efficient ATK op and a better choice than Buck/Thatcher.",
+      "atkOps": "",
+      "defOps": "",
       "season": "Y10S4",
       "stats": {
-        "rank": "—",
-        "rp": "—",
-        "kd": "0.17",
-        "winRate": "—",
-        "matches": "—"
+        "rank": "Unranked (1,074 RP)",
+        "rp": "1074",
+        "kd": "0.21",
+        "winRate": "~50% (1W 1L from match log)",
+        "matches": "2"
       },
       "coachingPriorities": [],
       "profileContent": "# D-Man — Player Profile\n\n**Callsign:** D-Man | **Tracker:** Eh_D-Man | **Team:** C Team\n\n_Added: 2026-03-14 | ALL_TIME + Y10S4 pulled: 2026-03-14 | Previous username: TheMighty-i002 (Feb 2021)_\n\n---\n\n## Identity\n\n**Strengths:** DEF anchor with strong hard-denial pool. Bandit (67.4% WR), Frost (65.1%), Azami (63.0%), Castle (61.2%), Kaid (55.4%), Kapkan (57.9%) — multiple DEF ops above 55% WR with 30+ rounds. Consistent hard-anchor identity.\n\n**Tendencies:** Breach-utility on ATK (Buck/Thatcher/Thermite high-volume) with below-average results. The raw K/D (0.65) undersells DEF contributions — utility placements, traps, and anchor positioning generate round wins that don't show up in K/D. Zero (70r, 45.7% WR, 0.72 K/D) is the most efficient ATK op and a better choice than Buck/Thatcher.\n\n**Role fit:** Hard-anchor DEF specialist. Mira (11r, 72.7% WR, 1.14 K/D) is a standout small-sample stat — could develop into a primary Mira main. Fenrir (6r, 1.50 K/D) also noteworthy.\n\n**Solo vs. Group:** Insufficient recent data. 307 career ranked matches shows experience. Best season was High Calibre (Y8S4): 44M, 2,884 MMR, 0.72 K/D. Recent seasons near-absent (2M in Y10S4, 0M in Y11S1).\n\n---\n\n## Career Coaching Notes\n\n- **Buck/Thatcher ATK is high-volume but losing** — Buck 148r at 37.2% WR, Thatcher 97r at 36.1%. These ops are losing rounds consistently. Zero (45.7%) and Thermite (51.2%) are better ATK options by WR.\n- **DEF is the genuine strength.** Bandit leading at 67.4% WR (43r) is rare for a non-main-stack player. Multiple DEF ops consistently above 60% — strong anchor identity.\n- **Mira is the hidden gem** — 72.7% WR, 1.14 K/D in 11r. Worth developing. If D-Man can reliably play Mira, that's a legitimate stack asset on DEF.\n- **Fenrir (6r, 1.50 K/D)** — tiny sample but the highest K/D of any op with 5+ rounds. Possible fragger upside on DEF.\n- First useful pull target: 10+ Y11S1 ranked matches.\n\n---\n\n## Season Files\n\n| Season | File | Status |\n|--------|------|--------|\n| Y11S1 | Y11S1.md | 🔲 Not yet pulled — 0 ranked matches as of 2026-03-14 |\n| Y10S4 | Y10S4.md | ✅ Pulled 2026-03-14 — ⚠️ 2 matches only, limited data |\n| All-Time | ALL_TIME.md | ✅ Pulled 2026-03-14 |\n",
@@ -241,15 +241,15 @@
       "tracker": "TazRathmus",
       "team": "C Team",
       "role": "DEF anchor / support. Rook opener is ideal — sets up the team. Mute, Mozzie, Kapkan all show solid career WRs. Not a roamer; likely plays close and holds.",
-      "atkOps": "DEF anchor / support. Rook opener is ideal — sets up the team. Mute, Mozzie, Kapkan all show solid career WRs. Not a roamer; likely plays close and holds.",
-      "defOps": "Hard-utility breach on ATK (Thermite/Sledge/Gridlock all high-volume), but with losing WRs across the board. The ATK side is functional, not a strength. DEF is clearly the more natural role.",
+      "atkOps": "",
+      "defOps": "",
       "season": "Y10S4",
       "stats": {
-        "rank": "—",
-        "rp": "—",
-        "kd": "—",
-        "winRate": "—",
-        "matches": "—"
+        "rank": "Unranked (1,063 RP)",
+        "rp": "1063",
+        "kd": "0.22",
+        "winRate": "~33% (1W 2L from match log)",
+        "matches": "3"
       },
       "coachingPriorities": [],
       "profileContent": "# TazRathmus — Player Profile\n\n**Callsign:** TazRathmus | **Tracker:** TazRathmus | **Team:** C Team\n\n_Added: 2026-03-14 | ALL_TIME + Y10S4 pulled: 2026-03-14 | Previous username: Eh_Tyrone (Jul 2023)_\n\n---\n\n## Identity\n\n**Strengths:** DEF anchor. Rook (1,106r, 62.0% WR) is the dominant career identity — reliable anchor with consistent win rates across Mute, Mozzie, Kapkan, Kaid. DEF side is where TazRathmus earns rounds.\n\n**Tendencies:** Hard-utility breach on ATK (Thermite/Sledge/Gridlock all high-volume), but with losing WRs across the board. The ATK side is functional, not a strength. DEF is clearly the more natural role.\n\n**Role fit:** DEF anchor / support. Rook opener is ideal — sets up the team. Mute, Mozzie, Kapkan all show solid career WRs. Not a roamer; likely plays close and holds.\n\n**Solo vs. Group:** Insufficient recent data to assess. Career volume (1,238 ranked) suggests experience, but recent inactivity (3 ranked Y10S4, 0 Y11S1) means current form is unknown.\n\n---\n\n## Career Coaching Notes\n\n- **DEF anchor is the strongest contribution.** Rook/Mute/Mozzie/Kapkan/Kaid all above 54% WR with meaningful rounds — consistent, not a fluke.\n- **ATK side loses rounds.** Thermite (753r, 41.4% WR), Gridlock (717r, 41.6%), Sledge (667r, 41.8%) — huge volume, below 50% WR across all three. ATK needs work or op pool needs rethinking.\n- **Smoke (26r, 50.0% WR, 1.00 K/D)** is a potential upside op — better K/D than most DEF pool, has rounds. Could develop into a plant-denial closer.\n- **Very low recent activity.** Peak was Deadly Omen season (298 matches, 2,886 RP). Recent seasons are near-absent. Treat current skill level as unknown until meaningful Y11S1 data exists.\n- First useful pull target: 10+ Y11S1 ranked matches.\n\n---\n\n## Season Files\n\n| Season | File | Status |\n|--------|------|--------|\n| Y11S1 | Y11S1.md | 🔲 Not yet pulled — 0 ranked matches as of 2026-03-14 |\n| Y10S4 | Y10S4.md | ✅ Pulled 2026-03-14 — ⚠️ 3 matches only, limited data |\n| All-Time | ALL_TIME.md | ✅ Pulled 2026-03-14 |\n",

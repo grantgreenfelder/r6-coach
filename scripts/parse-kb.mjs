@@ -88,23 +88,37 @@ function parsePlayer(name) {
                     profile.match(/Role[^:]*:\*\*\s*([^\n]+)/)
   const role = roleMatch ? roleMatch[1].replace(/[*_]/g, '').trim() : ''
 
-  // Extract ops from profile
-  const atkMatch = profile.match(/ATK[^:]*:\*\*\s*([^\n|]+)/i)
-  const defMatch = profile.match(/DEF[^:]*:\*\*\s*([^\n|]+)/i)
-  const atkOps = atkMatch ? atkMatch[1].replace(/[*_]/g, '').trim() : ''
-  const defOps = defMatch ? defMatch[1].replace(/[*_]/g, '').trim() : ''
+  // Extract top ops from season file ATK/DEF identity lines
+  // e.g. "**ATK identity:** Ash is the primary ATK pick (29r / 44.8% / 1.56 K/D). Secondary: Twitch (27r / 40.7%)."
+  // → "Ash / Twitch"
+  function extractOpsFromIdentity(content, side) {
+    // "**ATK identity:** Ash is the primary ATK pick (29r / 44.8%). Secondary: Twitch (27r / 40.7%)."
+    const reWithSecondary = new RegExp(`\\*\\*${side} identity:\\*\\*\\s*(\\w+) is the primary[^S]*Secondary:\\s*(\\w+)`, 'i')
+    const m = content.match(reWithSecondary)
+    if (m) return `${m[1]} / ${m[2]}`
+    const rePrimary = new RegExp(`\\*\\*${side} identity:\\*\\*\\s*(\\w+) is the primary`, 'i')
+    const mp = content.match(rePrimary)
+    return mp ? mp[1] : ''
+  }
+  const atkOps = extractOpsFromIdentity(latestSeason, 'ATK')
+  const defOps = extractOpsFromIdentity(latestSeason, 'DEF')
 
-  // Extract stats from season file
-  const rankMatch = latestSeason.match(/\*\*Rank[:\*\s]+([^\n|*]+)/) ||
-                    latestSeason.match(/Rank\*\*[:\s]+([^\n|]+)/)
-  const kdMatch = latestSeason.match(/K\/D[:\*\s]+([\d.]+)/) ||
-                  latestSeason.match(/\*\*K\/D:\*\*\s*([\d.]+)/)
-  const wrMatch = latestSeason.match(/Win\s*Rate[:\*\s]+([\d.]+%?)/) ||
-                  latestSeason.match(/\*\*Win Rate:\*\*\s*([\d.%]+)/)
-  const matchesMatch = latestSeason.match(/\*\*Matches:\*\*\s*(\d+)/) ||
-                       latestSeason.match(/Matches[:\s]+(\d+)/)
-  const rpMatch = latestSeason.match(/\*\*RP:\*\*\s*([\d,]+)/) ||
-                  latestSeason.match(/RP[:\s]+([\d,]+)/)
+  // Extract stats from season file — KB uses a | Stat | Value | table under ## Core Stats
+  const coreStatsSection = extractSection(latestSeason, 'Core Stats')
+  const coreStatsRows = parseMarkdownTable(coreStatsSection)
+  // Build a case-insensitive lookup: { rank: "Emerald III", "k/d": "1.19", ... }
+  const statsLookup = {}
+  for (const row of coreStatsRows) {
+    const key = (row['Stat'] || row['stat'] || '').toLowerCase().trim()
+    const val = (row['Value'] || row['value'] || '').trim()
+    if (key) statsLookup[key] = val
+  }
+  // Fallback inline regexes for non-table formats
+  const rankFallback = latestSeason.match(/\*\*Rank[:\*\s]+([^\n|*]+)/)
+  const kdFallback   = latestSeason.match(/\*\*K\/D:\*\*\s*([\d.]+)/)
+  const wrFallback   = latestSeason.match(/\*\*Win Rate:\*\*\s*([\d.%]+)/)
+  const mFallback    = latestSeason.match(/\*\*Matches:\*\*\s*(\d+)/)
+  const rpFallback   = latestSeason.match(/\*\*RP:\*\*\s*([\d,]+)/)
 
   // Extract top coaching priorities
   const coachingLines = coaching.split('\n')
@@ -122,11 +136,11 @@ function parsePlayer(name) {
     defOps,
     season: seasonName,
     stats: {
-      rank: rankMatch ? rankMatch[1].replace(/[*_]/g, '').trim() : '—',
-      rp: rpMatch ? rpMatch[1].replace(/,/g, '') : '—',
-      kd: kdMatch ? kdMatch[1] : '—',
-      winRate: wrMatch ? wrMatch[1] : '—',
-      matches: matchesMatch ? matchesMatch[1] : '—',
+      rank:    statsLookup['rank']       || (rankFallback ? rankFallback[1].replace(/[*_]/g,'').trim() : '—'),
+      rp:      (statsLookup['rp']        || (rpFallback   ? rpFallback[1] : '—')).replace(/,/g,''),
+      kd:      statsLookup['k/d']        || (kdFallback   ? kdFallback[1] : '—'),
+      winRate: statsLookup['win rate']   || (wrFallback   ? wrFallback[1] : '—'),
+      matches: statsLookup['matches']    || (mFallback    ? mFallback[1]  : '—'),
     },
     coachingPriorities: coachingLines,
     profileContent: profile,
