@@ -144,5 +144,27 @@
       "Changes": "23.3"
     }
   ],
-  "coachingItems": "2. **Chalet ban commitment** — hard ban until dedicated strats are built and practiced\n3. **Sarge rank gap** — conversation about solo queue vs. stack performance discrepancy\n4. **Peej ATK integration (Y11S1)** — Ash (1,205r all-time) is the established entry op. In stack play, confirm Ash entry patterns are coordinated with team timing (breach detonation → Peej entry). Track stack-context Ash WR separately from solo queue — entry fragger performance typically improves in coordinated 5-stack vs. solo. Also monitor Brava (secondary ATK — DEF gadget destruction utility complements the team's breach-heavy style).\n5. **Hound ATK op pool (Y11S1)** — Osa (36r / 38.9% / 0.38 K/D) is the highest-volume ATK pick and significantly underperforming. Thermite (27r / 29.6%) and Thatcher (27r / 40.7%) also below baseline. Gridlock (8r / 62.5% ⭐) and Rauora (14r / 57.1%) are the bright spots. Reduce Osa volume.\n\n---"
+  "coachingItems": "2. **Chalet ban commitment** — hard ban until dedicated strats are built and practiced\n3. **Sarge rank gap** — conversation about solo queue vs. stack performance discrepancy\n4. **Peej ATK integration (Y11S1)** — Ash (1,205r all-time) is the established entry op. In stack play, confirm Ash entry patterns are coordinated with team timing (breach detonation → Peej entry). Track stack-context Ash WR separately from solo queue — entry fragger performance typically improves in coordinated 5-stack vs. solo. Also monitor Brava (secondary ATK — DEF gadget destruction utility complements the team's breach-heavy style).\n5. **Hound ATK op pool (Y11S1)** — Osa (36r / 38.9% / 0.38 K/D) is the highest-volume ATK pick and significantly underperforming. Thermite (27r / 29.6%) and Thatcher (27r / 40.7%) also below baseline. Gridlock (8r / 62.5% ⭐) and Rauora (14r / 57.1%) are the bright spots. Reduce Osa volume.\n\n---",
+  "coachingItemsStructured": [
+    {
+      "text": "Chalet ban commitment",
+      "body": "hard ban until dedicated strats are built and practiced",
+      "playerTag": null
+    },
+    {
+      "text": "Sarge rank gap",
+      "body": "conversation about solo queue vs. stack performance discrepancy",
+      "playerTag": "Sarge"
+    },
+    {
+      "text": "Peej ATK integration",
+      "body": "Ash (1,205r all-time) is the established entry op. In stack play, confirm Ash entry patterns are coordinated with team timing (breach detonation → Peej entry). Track stack-context Ash WR separately from solo queue — entry fragger performance typically improves in coordinated 5-stack vs. solo. Also monitor Brava (secondary ATK — DEF gadget destruction utility complements the team's breach-heavy style).",
+      "playerTag": "Peej"
+    },
+    {
+      "text": "Hound ATK op pool",
+      "body": "Osa (36r / 38.9% / 0.38 K/D) is the highest-volume ATK pick and significantly underperforming. Thermite (27r / 29.6%) and Thatcher (27r / 40.7%) also below baseline. Gridlock (8r / 62.5% ⭐) and Rauora (14r / 57.1%) are the bright spots. Reduce Osa volume.",
+      "playerTag": "Hound"
+    }
+  ]
 }

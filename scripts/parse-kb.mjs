@@ -289,15 +289,37 @@ function buildStackData() {
     meta04.split('\n').filter(l => l.includes('|')).join('\n')
   )
 
-  // Extract coaching items from STACK_01 — strip resolved (strikethrough) items and KB footnote lines
+  // Extract coaching items from STACK_01 as structured objects { text, playerTag }
+  // Strips resolved (strikethrough) items and KB footnote lines
+  const KNOWN_PLAYERS = ['Grant', 'Peej', 'Hound', 'Smigs', 'Sarge', 'Slug', 'Krafty', 'Bob', 'Hunter']
   const rawCoachingSection = extractSection(stack01, 'Priority Coaching Items')
-  const coachingSection = rawCoachingSection
+  const coachingItemsStructured = rawCoachingSection
     .split('\n')
-    .filter(l => !l.includes('~~'))                          // remove completed/resolved items
-    .filter(l => !l.trim().startsWith('_→'))                 // remove KB reference footnotes
-    .filter(l => !l.trim().startsWith('→'))                  // remove bare arrow footnotes
+    .filter(l => !l.includes('~~'))
+    .filter(l => !l.trim().startsWith('_→') && !l.trim().startsWith('→'))
     .join('\n')
-    .replace(/\n{3,}/g, '\n\n')                              // collapse extra blank lines
+    .split(/\n(?=\d+\.\s)/)   // split on numbered item starts
+    .map(chunk => chunk.trim())
+    .filter(chunk => chunk.match(/^\d+\.\s+\*\*/))
+    .map(chunk => {
+      // Extract bold headline text
+      const headline = chunk.match(/^\d+\.\s+\*\*([^*]+)\*\*/)
+      const text = headline ? headline[1].replace(/\s*\([^)]*\)$/, '').trim() : chunk.replace(/^\d+\.\s*/, '').trim()
+      // Detect if item is about a specific player
+      const playerTag = KNOWN_PLAYERS.find(p => chunk.includes(p)) || null
+      // Get the body (first sentence after the bold header)
+      const body = chunk.replace(/^\d+\.\s+\*\*[^*]+\*\*\s*[—-]?\s*/, '').split('\n')[0].trim()
+      return { text, body: body.length > 5 ? body : '', playerTag }
+    })
+    .filter(item => item.text.length > 3)
+
+  // Also keep raw markdown version for fallback
+  const coachingItems = rawCoachingSection
+    .split('\n')
+    .filter(l => !l.includes('~~'))
+    .filter(l => !l.trim().startsWith('_→') && !l.trim().startsWith('→'))
+    .join('\n')
+    .replace(/\n{3,}/g, '\n\n')
     .trim()
 
   return {
@@ -305,7 +327,8 @@ function buildStackData() {
     stack05Content: stack05,
     meta04Content: meta04,
     risScores: risTable,
-    coachingItems: coachingSection,
+    coachingItems,
+    coachingItemsStructured,
   }
 }
 
