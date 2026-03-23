@@ -28,8 +28,8 @@ function PlayerCard({ player }) {
       <div className="grid grid-cols-3 gap-2 mb-3">
         {[
           { label: 'K/D', value: player.stats.kd },
-          { label: 'WR', value: player.stats.winRate },
-          { label: 'Matches', value: player.stats.matches },
+          { label: 'RIS', value: player.stats.ris },
+          { label: 'Win%', value: player.stats.winRate },
         ].map(({ label, value }) => (
           <div key={label} className="bg-black/30 rounded p-2 text-center">
             <div className="text-white text-sm font-medium">{value || '—'}</div>
@@ -39,10 +39,10 @@ function PlayerCard({ player }) {
       </div>
 
       <div className="text-xs text-gray-500">
-        <span className="text-gray-400">ATK:</span> {player.atkOps || '—'}
+        <span className="text-gray-400">Attack:</span> {player.atkOps || '—'}
       </div>
       <div className="text-xs text-gray-500 mt-0.5">
-        <span className="text-gray-400">DEF:</span> {player.defOps || '—'}
+        <span className="text-gray-400">Defense:</span> {player.defOps || '—'}
       </div>
     </Link>
   )

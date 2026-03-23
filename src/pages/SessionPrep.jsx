@@ -154,33 +154,45 @@ function PlayerToggle({ name, active, team, onToggle }) {
 
 function PlayerCallout({ player }) {
   const priorities = player.coachingPriorities
+  const { kd, ris, winRate, rank } = player.stats
   return (
     <div className="border-b border-siege-border/50 pb-4 last:border-0 last:pb-0">
-      <div className="flex items-start justify-between">
+      {/* Header row */}
+      <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
           <div className="w-8 h-8 rounded-full bg-siege-accent flex items-center justify-center text-sm font-bold text-siege-bg flex-shrink-0">
             {player.name[0]}
           </div>
           <div>
             <span className="text-white font-semibold">{player.name}</span>
-            {player.role && <span className="text-siege-muted text-xs ml-2">{player.role}</span>}
+            <span className="text-siege-muted text-xs ml-2">{rank}</span>
           </div>
         </div>
-        <div className="text-right text-xs">
-          <span className="text-white">{player.stats.kd}</span>
-          <span className="text-siege-muted"> K/D</span>
+        {/* Quick stat pills */}
+        <div className="flex gap-3 text-xs">
+          <span><span className="text-siege-muted">K/D </span><span className="text-white font-medium">{kd}</span></span>
+          <span><span className="text-siege-muted">RIS </span><span className="text-white font-medium">{ris}</span></span>
+          <span><span className="text-siege-muted">Win </span><span className="text-white font-medium">{winRate}</span></span>
         </div>
       </div>
+      {/* Ops */}
+      {(player.atkOps || player.defOps) && (
+        <div className="mt-1.5 ml-11 flex gap-4 text-xs text-siege-muted">
+          {player.atkOps && <span><span className="text-gray-500">Atk: </span>{player.atkOps}</span>}
+          {player.defOps && <span><span className="text-gray-500">Def: </span>{player.defOps}</span>}
+        </div>
+      )}
+      {/* Coaching priorities */}
       {priorities.length > 0 ? (
         <div className="mt-2 ml-11 space-y-1">
-          {priorities.slice(0, 2).map((p, i) => (
+          {priorities.slice(0, 3).map((p, i) => (
             <p key={i} className="text-sm text-gray-300">
-              <span className="text-siege-accent">→ </span>{p}
+              <span className="text-siege-accent font-bold">{i + 1}. </span>{p}
             </p>
           ))}
         </div>
       ) : (
-        <p className="mt-2 ml-11 text-siege-muted text-sm">No coaching priorities extracted</p>
+        <p className="mt-2 ml-11 text-siege-muted text-sm italic">No priorities on file</p>
       )}
     </div>
   )

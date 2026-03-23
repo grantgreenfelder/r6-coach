@@ -120,11 +120,21 @@ function parsePlayer(name) {
   const mFallback    = latestSeason.match(/\*\*Matches:\*\*\s*(\d+)/)
   const rpFallback   = latestSeason.match(/\*\*RP:\*\*\s*([\d,]+)/)
 
-  // Extract top coaching priorities
-  const coachingLines = coaching.split('\n')
-    .filter(l => l.match(/^\d+\.|^-\s|\*\*/) && l.length > 10)
+  // Extract top coaching priorities from the Priorities section (numbered bold items)
+  // Tries "Y11S1 Priorities", "Priorities", "What to Work On" — falls back to any numbered bold line
+  const prioritiesSection =
+    extractSection(coaching, 'Y\\d+S\\d+ Priorities') ||
+    extractSection(coaching, 'Priorities') ||
+    extractSection(coaching, 'Areas to Work On') ||
+    coaching
+  const coachingLines = prioritiesSection.split('\n')
+    .filter(l => l.match(/^\*\*\d+\./) && !l.includes('~~'))   // **1. Text** format, skip strikethrough
     .slice(0, 3)
-    .map(l => l.replace(/^[\d\.\-\*\s]+/, '').replace(/\*\*/g, '').trim())
+    .map(l => {
+      // "**1. Protect your best maps in ban phase.**" → "Protect your best maps in ban phase"
+      const m = l.match(/^\*\*\d+\.\s+([^*]+)\*\*/)
+      return m ? m[1].replace(/\.$/, '').trim() : l.replace(/^\*\*\d+\.\s*/, '').replace(/\*\*/g, '').trim()
+    })
     .filter(l => l.length > 5)
 
   return {
@@ -141,6 +151,7 @@ function parsePlayer(name) {
       kd:      statsLookup['k/d']        || (kdFallback   ? kdFallback[1] : '—'),
       winRate: statsLookup['win rate']   || (wrFallback   ? wrFallback[1] : '—'),
       matches: statsLookup['matches']    || (mFallback    ? mFallback[1]  : '—'),
+      ris:     statsLookup['ris']        || '—',
     },
     coachingPriorities: coachingLines,
     profileContent: profile,
@@ -278,8 +289,16 @@ function buildStackData() {
     meta04.split('\n').filter(l => l.includes('|')).join('\n')
   )
 
-  // Extract coaching items from STACK_01
-  const coachingSection = extractSection(stack01, 'Priority Coaching Items')
+  // Extract coaching items from STACK_01 — strip resolved (strikethrough) items and KB footnote lines
+  const rawCoachingSection = extractSection(stack01, 'Priority Coaching Items')
+  const coachingSection = rawCoachingSection
+    .split('\n')
+    .filter(l => !l.includes('~~'))                          // remove completed/resolved items
+    .filter(l => !l.trim().startsWith('_→'))                 // remove KB reference footnotes
+    .filter(l => !l.trim().startsWith('→'))                  // remove bare arrow footnotes
+    .join('\n')
+    .replace(/\n{3,}/g, '\n\n')                              // collapse extra blank lines
+    .trim()
 
   return {
     stack01Content: stack01,
