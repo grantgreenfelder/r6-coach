@@ -45,7 +45,7 @@ export default function StratViewer() {
         <span>/</span>
         <Link to={`/maps/${mapName}`} className="hover:text-siege-accent">{map.displayName}</Link>
         <span>/</span>
-        <span className={sideColor}>{strat.side}</span>
+        <span className={sideColor}>{strat.side === 'ATK' ? 'Attack' : 'Defense'}</span>
         <span>/</span>
         <span className="text-white">{strat.site}</span>
       </div>
@@ -55,7 +55,7 @@ export default function StratViewer() {
         <div className="flex items-start justify-between flex-wrap gap-4">
           <div>
             <div className="flex items-center gap-3 mb-1">
-              <span className={`text-sm font-bold ${sideColor}`}>{strat.side}</span>
+              <span className={`text-sm font-bold ${sideColor}`}>{strat.side === 'ATK' ? 'Attack' : 'Defense'}</span>
               <StatusDot status={strat.status} showLabel />
             </div>
             <h1 className="text-2xl font-bold text-white">

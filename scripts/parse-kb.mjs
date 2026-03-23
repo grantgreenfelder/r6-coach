@@ -145,7 +145,19 @@ function parsePlayer(name) {
     coachingPriorities: coachingLines,
     profileContent: profile,
     coachingContent: coaching,
-    seasonContent: latestSeason,
+    seasonContent: latestSeason
+      .replace(/\*\*\[ATK\]\*\*/g, '**Attack**')
+      .replace(/\*\*\[DEF\]\*\*/g, '**Defense**')
+      .replace(/\[ATK\]/g, 'Attack')
+      .replace(/\[DEF\]/g, 'Defense'),
+    mapPerformance: (() => {
+      const section = extractSection(latestSeason, 'Map Performance')
+      return parseMarkdownTable(section).map(row => ({
+        map: (row['Map'] || '').trim(),
+        matches: parseInt(row['Matches'] || '0', 10) || 0,
+        winRate: parseFloat((row['Win%'] || row['Win Rate'] || '0').replace('%', '')) || 0,
+      })).filter(r => r.map && r.matches > 0)
+    })(),
   }
 }
 
@@ -195,7 +207,7 @@ function parseMapStrats(mapName) {
   }).sort((a, b) => a.side.localeCompare(b.side) || a.site.localeCompare(b.site))
 }
 
-function buildMapsData() {
+function buildMapsData(playersData) {
   const mapsDir = path.join(KB, 'MAPS')
   const mapNames = fs.readdirSync(mapsDir).filter(n =>
     fs.statSync(path.join(mapsDir, n)).isDirectory()
@@ -203,6 +215,18 @@ function buildMapsData() {
 
   // Load STACK_05 for ratings
   const stack05 = readFile(path.join(KB, 'STACK', 'STACK_05_MAP_VETO.md'))
+
+  // Build a map-name → { totalMatchWeight, totalWinWeight } lookup from main stack players
+  const winRateByMap = {}
+  for (const player of playersData.mainStack) {
+    for (const row of (player.mapPerformance || [])) {
+      // Normalize map name: "Nighthaven Labs" → "Nighthaven_Labs", "Kafe Dostoyevsky" → "Kafe_Dostoyevsky"
+      const key = row.map.replace(/ /g, '_')
+      if (!winRateByMap[key]) winRateByMap[key] = { weightedSum: 0, totalMatches: 0 }
+      winRateByMap[key].weightedSum += row.winRate * row.matches
+      winRateByMap[key].totalMatches += row.matches
+    }
+  }
 
   return mapNames.map(mapName => {
     const mapDir = path.join(KB, 'MAPS', mapName)
@@ -219,12 +243,22 @@ function buildMapsData() {
     const devCount = strats.filter(s => s.status === 'developed').length
     const partialCount = strats.filter(s => s.status === 'partial').length
 
+    // Team win% for this map (weighted average across main stack players)
+    // Normalize: folder may have spaces or underscores; player data always has spaces → normalize both to underscores
+    const wr = winRateByMap[mapName.replace(/ /g, '_')]
+    const teamWinRate = wr && wr.totalMatches > 0
+      ? Math.round((wr.weightedSum / wr.totalMatches) * 10) / 10
+      : null
+    const teamWinRateMatches = wr ? wr.totalMatches : 0
+
     return {
       name: mapName,
       displayName: mapName.replace(/_/g, ' '),
       rating,
       ratingLabel,
       stratCount: { total: strats.length, developed: devCount, partial: partialCount },
+      teamWinRate,
+      teamWinRateMatches,
       strats,
       overviewContent: overview,
       referenceContent: reference,
@@ -271,7 +305,7 @@ console.log('📖 Parsing Knowledge Base...')
 const players = buildPlayersData()
 console.log(`  ✅ Players: ${players.mainStack.length} main stack, ${players.bTeam.length} B Team`)
 
-const maps = buildMapsData()
+const maps = buildMapsData(players)
 console.log(`  ✅ Maps: ${maps.length} maps, ${maps.reduce((a, m) => a + m.strats.length, 0)} strat files`)
 
 const stack = buildStackData()

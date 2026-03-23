@@ -86,17 +86,21 @@ export default function MapDetail() {
         <div className="space-y-4">
           {/* Side filter */}
           <div className="flex gap-2">
-            {['all', 'ATK', 'DEF'].map(s => (
+            {[
+              { value: 'all', label: 'All' },
+              { value: 'ATK', label: 'Attack' },
+              { value: 'DEF', label: 'Defense' },
+            ].map(({ value, label }) => (
               <button
-                key={s}
-                onClick={() => setSideFilter(s)}
+                key={value}
+                onClick={() => setSideFilter(value)}
                 className={`px-3 py-1.5 text-sm rounded border transition-colors ${
-                  sideFilter === s
+                  sideFilter === value
                     ? 'bg-siege-accent border-siege-accent text-siege-bg font-semibold'
                     : 'border-siege-border text-siege-muted hover:text-white'
                 }`}
               >
-                {s}
+                {label}
               </button>
             ))}
           </div>
@@ -151,7 +155,7 @@ function StratCard({ strat, mapName }) {
       <div className="flex items-start justify-between">
         <div>
           <div className="flex items-center gap-2 mb-1">
-            <span className={`text-xs font-bold ${sideColor}`}>{strat.side}</span>
+            <span className={`text-xs font-bold ${sideColor}`}>{strat.side === 'ATK' ? 'Attack' : 'Defense'}</span>
             <StatusDot status={strat.status} />
           </div>
           <h3 className="text-white font-medium group-hover:text-siege-accent transition-colors">

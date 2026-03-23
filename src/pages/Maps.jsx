@@ -76,33 +76,47 @@ function MapCard({ map }) {
         <RatingBadge rating={map.rating} label={map.ratingLabel} />
       </div>
 
-      {/* Strat progress */}
+      {/* Win rate bar */}
       <div className="mb-3">
-        <div className="flex justify-between text-xs text-siege-muted mb-1">
-          <span>{devCount} developed · {partialCount} partial · {totalCount - devCount - partialCount} not started</span>
-          <span>{totalCount} total</span>
+        <div className="flex justify-between text-xs mb-1">
+          {map.teamWinRate !== null ? (
+            <>
+              <span className={
+                map.teamWinRate >= 50 ? 'text-siege-green font-semibold' :
+                map.teamWinRate >= 40 ? 'text-yellow-400 font-semibold' :
+                'text-siege-red font-semibold'
+              }>{map.teamWinRate}% Win Rate</span>
+              <span className="text-siege-muted">{map.teamWinRateMatches}M sample</span>
+            </>
+          ) : (
+            <span className="text-siege-muted">No match data</span>
+          )}
         </div>
-        <div className="h-1.5 bg-siege-border rounded-full overflow-hidden flex">
+        <div className="h-1.5 bg-siege-border rounded-full overflow-hidden">
           <div
-            className="bg-siege-green h-full"
-            style={{ width: totalCount > 0 ? `${(devCount / totalCount) * 100}%` : '0%' }}
+            className={`h-full rounded-full transition-all ${
+              map.teamWinRate === null ? '' :
+              map.teamWinRate >= 50 ? 'bg-siege-green' :
+              map.teamWinRate >= 40 ? 'bg-yellow-500' :
+              'bg-siege-red'
+            }`}
+            style={{ width: map.teamWinRate !== null ? `${Math.min(map.teamWinRate, 100)}%` : '0%' }}
           />
-          <div
-            className="bg-yellow-500 h-full"
-            style={{ width: totalCount > 0 ? `${(partialCount / totalCount) * 100}%` : '0%' }}
-          />
+        </div>
+        <div className="text-xs text-siege-muted mt-1">
+          {devCount} strats ready · {partialCount} partial · {totalCount - devCount - partialCount} not started
         </div>
       </div>
 
-      {/* ATK / DEF split */}
+      {/* Attack / Defense split */}
       <div className="flex gap-4 text-sm">
         <div>
-          <span className="text-siege-muted">ATK </span>
+          <span className="text-siege-muted">Attack </span>
           <span className="text-white font-medium">{atkStrats.length}</span>
           <span className="text-siege-muted"> sites</span>
         </div>
         <div>
-          <span className="text-siege-muted">DEF </span>
+          <span className="text-siege-muted">Defense </span>
           <span className="text-white font-medium">{defStrats.length}</span>
           <span className="text-siege-muted"> sites</span>
         </div>

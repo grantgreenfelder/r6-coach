@@ -49,10 +49,10 @@ export default function PlayerDetail() {
           {player.role && <p className="text-siege-muted mt-1">{player.role}</p>}
           <div className="flex gap-4 mt-3 flex-wrap">
             {player.atkOps && (
-              <span className="text-sm"><span className="text-siege-muted">ATK: </span><span className="text-white">{player.atkOps}</span></span>
+              <span className="text-sm"><span className="text-siege-muted">Attack: </span><span className="text-white">{player.atkOps}</span></span>
             )}
             {player.defOps && (
-              <span className="text-sm"><span className="text-siege-muted">DEF: </span><span className="text-white">{player.defOps}</span></span>
+              <span className="text-sm"><span className="text-siege-muted">Defense: </span><span className="text-white">{player.defOps}</span></span>
             )}
           </div>
         </div>
@@ -111,7 +111,14 @@ export default function PlayerDetail() {
       {/* Full Season file */}
       {player.seasonContent && (
         <div className="card">
-          <h2 className="text-siege-accent font-semibold text-sm uppercase tracking-wider mb-4">Season File — {player.season}</h2>
+          <div className="flex items-start justify-between flex-wrap gap-2 mb-4">
+            <h2 className="text-siege-accent font-semibold text-sm uppercase tracking-wider">Season File — {player.season}</h2>
+            <div className="flex gap-3 text-xs text-siege-muted flex-wrap">
+              <span>⭐ standout</span>
+              <span>✅ solid</span>
+              <span>⚠️ low sample</span>
+            </div>
+          </div>
           <MarkdownContent content={player.seasonContent} />
         </div>
       )}

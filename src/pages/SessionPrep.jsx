@@ -54,7 +54,7 @@ export default function SessionPrep() {
 
       {/* Tabs */}
       <div className="flex gap-1 border-b border-siege-border">
-        {['brief', 'map veto', 'handoff'].map(tab => (
+        {['brief', 'map veto'].map(tab => (
           <button
             key={tab}
             onClick={() => setActiveTab(tab)}
@@ -133,17 +133,6 @@ export default function SessionPrep() {
         </div>
       )}
 
-      {/* Handoff tab */}
-      {activeTab === 'handoff' && (
-        <div className="card">
-          <h2 className="text-siege-accent font-semibold text-sm uppercase tracking-wider mb-4">Session Handoff</h2>
-          {handoffData.content ? (
-            <MarkdownContent content={handoffData.content} />
-          ) : (
-            <p className="text-siege-muted">No session handoff data found.</p>
-          )}
-        </div>
-      )}
     </div>
   )
 }
