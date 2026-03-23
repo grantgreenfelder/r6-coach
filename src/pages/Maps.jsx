@@ -26,10 +26,8 @@ export default function Maps() {
     .filter(m => m.displayName.toLowerCase().includes(search.toLowerCase()))
     .sort((a, b) => RATING_ORDER.indexOf(a.rating) - RATING_ORDER.indexOf(b.rating))
 
-  const ranked = applyFilters(mapsData.filter(m => m.inRankedPool))
-  // Split unranked: returning mid-season vs fully out of pool
-  const returningMaps = applyFilters(mapsData.filter(m => !m.inRankedPool && m.rankedPool === 'second'))
-  const unrankedMaps  = applyFilters(mapsData.filter(m => !m.inRankedPool && m.rankedPool !== 'second'))
+  const ranked   = applyFilters(mapsData.filter(m => m.inRankedPool))
+  const unranked = applyFilters(mapsData.filter(m => !m.inRankedPool))
 
   return (
     <div className="p-6 max-w-6xl mx-auto space-y-8">
@@ -60,11 +58,11 @@ export default function Maps() {
         </div>
       </div>
 
-      {/* Ranked Pool */}
+      {/* Ranked */}
       {ranked.length > 0 && (
         <div>
           <div className="flex items-center gap-3 mb-4">
-            <h2 className="text-white font-semibold text-sm uppercase tracking-wider">Y11S1 Ranked Pool</h2>
+            <h2 className="text-white font-semibold text-sm uppercase tracking-wider">Ranked</h2>
             <div className="flex-1 h-px bg-siege-border" />
             <span className="text-siege-muted text-xs">{ranked.length} maps</span>
           </div>
@@ -74,35 +72,21 @@ export default function Maps() {
         </div>
       )}
 
-      {/* Returning mid-season */}
-      {returningMaps.length > 0 && (
-        <div>
-          <div className="flex items-center gap-3 mb-4">
-            <h2 className="text-siege-blue font-semibold text-sm uppercase tracking-wider">↩ Returning at Mid-Season</h2>
-            <div className="flex-1 h-px bg-siege-border/50" />
-            <span className="text-siege-muted text-xs">{returningMaps.length} maps</span>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 opacity-70">
-            {returningMaps.map(map => <MapCard key={map.name} map={map} />)}
-          </div>
-        </div>
-      )}
-
       {/* Unranked */}
-      {unrankedMaps.length > 0 && (
+      {unranked.length > 0 && (
         <div>
           <div className="flex items-center gap-3 mb-4">
             <h2 className="text-siege-muted font-semibold text-sm uppercase tracking-wider">Unranked</h2>
             <div className="flex-1 h-px bg-siege-border/40" />
-            <span className="text-siege-muted text-xs">{unrankedMaps.length} maps</span>
+            <span className="text-siege-muted text-xs">{unranked.length} maps</span>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 opacity-50">
-            {unrankedMaps.map(map => <MapCard key={map.name} map={map} />)}
+            {unranked.map(map => <MapCard key={map.name} map={map} />)}
           </div>
         </div>
       )}
 
-      {ranked.length === 0 && returningMaps.length === 0 && unrankedMaps.length === 0 && (
+      {ranked.length === 0 && unranked.length === 0 && (
         <p className="text-siege-muted text-center py-12">No maps match this filter.</p>
       )}
     </div>
