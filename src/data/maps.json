@@ -2071,7 +2071,7 @@
   {
     "name": "Coastline",
     "displayName": "Coastline",
-    "rating": "unknown",
+    "rating": "moderate",
     "ratingLabel": "Situational",
     "rankedPool": "first",
     "inRankedPool": true,
@@ -2660,7 +2660,7 @@
   {
     "name": "Emerald_Plains",
     "displayName": "Emerald Plains",
-    "rating": "unknown",
+    "rating": "avoid",
     "ratingLabel": "Hard ban",
     "rankedPool": "first",
     "inRankedPool": true,
@@ -2786,7 +2786,7 @@
   {
     "name": "Oregon",
     "displayName": "Oregon",
-    "rating": "unknown",
+    "rating": "weak",
     "ratingLabel": "Mixed",
     "rankedPool": "first",
     "inRankedPool": true,

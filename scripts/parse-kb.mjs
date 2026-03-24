@@ -54,8 +54,9 @@ function extractMapRating(ratingText) {
   const t = ratingText.toLowerCase()
   if (t.includes('protect') || t.includes('strong')) return 'strong'
   if (t.includes('moderate')) return 'moderate'
-  if (t.includes('weak')) return 'weak'
-  if (t.includes('avoid')) return 'avoid'
+  if (t.includes('situational')) return 'moderate'
+  if (t.includes('mixed') || t.includes('weak')) return 'weak'
+  if (t.includes('hard ban') || t.includes('avoid')) return 'avoid'
   return 'unknown'
 }
 
