@@ -60,7 +60,7 @@ export default function SessionPrep() {
       {/* Brief tab */}
       {activeTab === 'brief' && (
         <div className="space-y-4">
-          <TeamFocus tonight={tonight} />
+          <TeamFocus />
           <div className="card">
             <h2 className="text-siege-accent font-semibold text-sm uppercase tracking-wider mb-3">Player Callouts</h2>
             {tonightPlayers.length > 0 ? (
@@ -86,30 +86,17 @@ export default function SessionPrep() {
 
 // ─── Team Focus ───────────────────────────────────────────────────────────────
 
-function TeamFocus({ tonight }) {
-  const items = stackData.coachingItemsStructured || []
-  // Show item if it's team-wide OR the tagged player is playing tonight
-  const relevant = items.filter(item => !item.playerTag || tonight.includes(item.playerTag))
-
-  if (relevant.length === 0) return null
+function TeamFocus() {
+  const items = stackData.teamFocusItems || []
+  if (items.length === 0) return null
 
   return (
     <div className="card">
       <h2 className="text-siege-accent font-semibold text-sm uppercase tracking-wider mb-3">Team Focus</h2>
       <div className="space-y-3">
-        {relevant.map((item, i) => (
+        {items.map((item, i) => (
           <div key={i} className="flex gap-3">
-            <div className="flex-shrink-0 mt-0.5">
-              {item.playerTag ? (
-                <span className="inline-block w-14 text-center text-xs px-1.5 py-0.5 rounded bg-siege-blue/20 text-siege-blue border border-siege-blue/30 font-medium">
-                  {item.playerTag}
-                </span>
-              ) : (
-                <span className="inline-block w-14 text-center text-xs px-1.5 py-0.5 rounded bg-siege-accent/10 text-siege-accent border border-siege-accent/20 font-medium">
-                  Team
-                </span>
-              )}
-            </div>
+            <span className="text-siege-accent font-bold text-sm flex-shrink-0 w-5">{i + 1}.</span>
             <div>
               <p className="text-white text-sm font-semibold">{item.text}</p>
               {item.body && <p className="text-siege-muted text-xs mt-0.5 leading-relaxed">{item.body}</p>}
@@ -322,11 +309,33 @@ function MapVetoRow({ map, idx, total, banSlot, onMoveUp, onMoveDown, tonight })
 // ─── Player Callout ───────────────────────────────────────────────────────────
 
 function PlayerCallout({ player }) {
-  const priorities = player.coachingPriorities
   const { kd, ris, winRate, rank } = player.stats
+  const kdNum = parseFloat(kd)
+  const wrNum = parseFloat(winRate)
+  const risNum = parseFloat(ris)
+
+  // Derive positive trends from stats
+  const positives = []
+  if (!isNaN(kdNum) && kdNum >= 1.15) positives.push(`Fragging well — ${kd} K/D this season`)
+  if (!isNaN(wrNum) && wrNum >= 50) positives.push(`Winning rounds — ${winRate} win rate`)
+  if (!isNaN(risNum) && risNum >= 60) positives.push(`High impact — ${ris} RIS`)
+  if (player.defOps) positives.push(`${player.defOps} DEF identity is established`)
+
+  // Best map
+  const maps = player.mapPerformance || []
+  const bestMap = maps.filter(m => m.matches >= 5).sort((a, b) => b.winRate - a.winRate)[0]
+  if (bestMap) positives.push(`Strong on ${bestMap.map} — ${bestMap.winRate}% WR (${bestMap.matches}M)`)
+
+  // Coaching priorities as "to work on"
+  const workOn = player.coachingPriorities || []
+
+  // Weak map
+  const weakMap = maps.filter(m => m.matches >= 5).sort((a, b) => a.winRate - b.winRate)[0]
+
   return (
     <div className="border-b border-siege-border/50 pb-4 last:border-0 last:pb-0">
-      <div className="flex items-center justify-between">
+      {/* Header */}
+      <div className="flex items-center justify-between mb-2">
         <div className="flex items-center gap-3">
           <div className="w-8 h-8 rounded-full bg-siege-accent flex items-center justify-center text-sm font-bold text-siege-bg flex-shrink-0">
             {player.name[0]}
@@ -337,28 +346,47 @@ function PlayerCallout({ player }) {
           </div>
         </div>
         <div className="flex gap-3 text-xs">
-          <span><span className="text-siege-muted">K/D </span><span className="text-white font-medium">{kd}</span></span>
-          <span><span className="text-siege-muted">RIS </span><span className="text-white font-medium">{ris}</span></span>
-          <span><span className="text-siege-muted">Win </span><span className="text-white font-medium">{winRate}</span></span>
+          <span><span className="text-siege-muted">K/D </span><span className="text-white font-medium">{kd ?? '—'}</span></span>
+          <span><span className="text-siege-muted">RIS </span><span className="text-siege-accent font-medium">{ris ?? '—'}</span></span>
+          <span><span className="text-siege-muted">Win </span><span className="text-white font-medium">{winRate ?? '—'}</span></span>
         </div>
       </div>
-      {(player.atkOps || player.defOps) && (
-        <div className="mt-1.5 ml-11 flex gap-4 text-xs text-siege-muted">
-          {player.atkOps && <span><span className="text-gray-500">Atk: </span>{player.atkOps}</span>}
-          {player.defOps && <span><span className="text-gray-500">Def: </span>{player.defOps}</span>}
-        </div>
-      )}
-      {priorities.length > 0 ? (
-        <div className="mt-2 ml-11 space-y-1">
-          {priorities.slice(0, 3).map((p, i) => (
-            <p key={i} className="text-sm text-gray-300">
-              <span className="text-siege-accent font-bold">{i + 1}. </span>{p}
-            </p>
-          ))}
-        </div>
-      ) : (
-        <p className="mt-2 ml-11 text-siege-muted text-sm italic">No priorities on file</p>
-      )}
+
+      <div className="ml-11 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1">
+        {/* Positives */}
+        {positives.length > 0 && (
+          <div>
+            <p className="text-siege-green text-xs font-semibold uppercase tracking-wide mb-1">What's working</p>
+            <ul className="space-y-0.5">
+              {positives.slice(0, 2).map((p, i) => (
+                <li key={i} className="text-xs text-gray-300 flex gap-1.5">
+                  <span className="text-siege-green flex-shrink-0">✓</span>{p}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        {/* Work on */}
+        {(workOn.length > 0 || weakMap) && (
+          <div>
+            <p className="text-yellow-400 text-xs font-semibold uppercase tracking-wide mb-1">To work on</p>
+            <ul className="space-y-0.5">
+              {workOn.slice(0, 2).map((p, i) => (
+                <li key={i} className="text-xs text-gray-300 flex gap-1.5">
+                  <span className="text-yellow-400 flex-shrink-0">→</span>{p}
+                </li>
+              ))}
+              {workOn.length === 0 && weakMap && (
+                <li className="text-xs text-gray-300 flex gap-1.5">
+                  <span className="text-yellow-400 flex-shrink-0">→</span>
+                  Weak on {weakMap.map} — {weakMap.winRate}% WR ({weakMap.matches}M)
+                </li>
+              )}
+            </ul>
+          </div>
+        )}
+      </div>
     </div>
   )
 }
