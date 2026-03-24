@@ -69,11 +69,13 @@ function parsePlayer(name) {
   const profile = readFile(path.join(dir, 'PROFILE.md'))
   const coaching = readFile(path.join(dir, 'COACHING.md'))
 
-  // Find latest season file
+  // Find season files (sorted newest first)
   const files = fs.readdirSync(dir)
   const seasonFiles = files.filter(f => f.match(/Y\d+S\d+\.md/)).sort().reverse()
   const latestSeason = seasonFiles[0] ? readFile(path.join(dir, seasonFiles[0])) : ''
   const seasonName = seasonFiles[0]?.replace('.md', '') || 'Y11S1'
+  const prevSeasonRaw = seasonFiles[1] ? readFile(path.join(dir, seasonFiles[1])) : ''
+  const prevSeasonName = seasonFiles[1]?.replace('.md', '') || ''
 
   // Extract tracker username
   const trackerMatch = profile.match(/Tracker[:\*\s]+([A-Za-z0-9_\-]+)/i) ||
@@ -97,16 +99,31 @@ function parsePlayer(name) {
   // e.g. "**ATK identity:** Ash is the primary ATK pick (29r / 44.8% / 1.56 K/D). Secondary: Twitch (27r / 40.7%)."
   // → "Ash / Twitch"
   function extractOpsFromIdentity(content, side) {
-    // "**ATK identity:** Ash is the primary ATK pick (29r / 44.8%). Secondary: Twitch (27r / 40.7%)."
+    // Y11S1 format: "**ATK identity:** Ash is the primary ATK pick (29r / 44.8%). Secondary: Twitch (27r / 40.7%)."
     const reWithSecondary = new RegExp(`\\*\\*${side} identity:\\*\\*\\s*(\\w+) is the primary[^S]*Secondary:\\s*(\\w+)`, 'i')
     const m = content.match(reWithSecondary)
     if (m) return `${m[1]} / ${m[2]}`
     const rePrimary = new RegExp(`\\*\\*${side} identity:\\*\\*\\s*(\\w+) is the primary`, 'i')
     const mp = content.match(rePrimary)
-    return mp ? mp[1] : ''
+    if (mp) return mp[1]
+    // Y10S4 / older format: extract top 2 ops from numbered list under **[ATK]** or **[DEF]**
+    // e.g. "1. Amaru — 78r | 52.6% | 1.38\n2. Thatcher — 42r..."
+    const sideTag = side === 'ATK' ? '\\[ATK\\]' : '\\[DEF\\]'
+    const blockRe = new RegExp(`\\*\\*${sideTag}\\*\\*[\\s\\S]*?(?=\\*\\*\\[|$)`, 'i')
+    const block = content.match(blockRe)
+    if (block) {
+      const opLines = block[0].match(/^\d+\.\s+(\w+)\s+—/gm)
+      if (opLines && opLines.length > 0) {
+        const ops = opLines.slice(0, 2).map(l => l.match(/^\d+\.\s+(\w+)/)[1])
+        return ops.join(' / ')
+      }
+    }
+    return ''
   }
   const atkOps = extractOpsFromIdentity(latestSeason, 'ATK')
   const defOps = extractOpsFromIdentity(latestSeason, 'DEF')
+  const prevAtkOps = extractOpsFromIdentity(prevSeasonRaw, 'ATK')
+  const prevDefOps = extractOpsFromIdentity(prevSeasonRaw, 'DEF')
 
   // Extract stats from season file — KB uses a | Stat | Value | table under ## Core Stats
   const coreStatsSection = extractSection(latestSeason, 'Core Stats')
@@ -124,6 +141,18 @@ function parsePlayer(name) {
   const wrFallback   = latestSeason.match(/\*\*Win Rate:\*\*\s*([\d.%]+)/)
   const mFallback    = latestSeason.match(/\*\*Matches:\*\*\s*(\d+)/)
   const rpFallback   = latestSeason.match(/\*\*RP:\*\*\s*([\d,]+)/)
+
+  // Extract prev-season (Y10S4) stats using same logic
+  const prevStatsLookup = {}
+  if (prevSeasonRaw) {
+    const prevCoreStatsSection = extractSection(prevSeasonRaw, 'Core Stats')
+    const prevCoreStatsRows = parseMarkdownTable(prevCoreStatsSection)
+    for (const row of prevCoreStatsRows) {
+      const key = (row['Stat'] || row['stat'] || '').toLowerCase().trim()
+      const val = (row['Value'] || row['value'] || '').trim()
+      if (key) prevStatsLookup[key] = val
+    }
+  }
 
   // Extract top coaching priorities from the Priorities section (numbered bold items)
   // Tries "Y11S1 Priorities", "Priorities", "What to Work On" — falls back to any numbered bold line
@@ -175,6 +204,31 @@ function parsePlayer(name) {
         winRate: parseFloat((row['Win%'] || row['Win Rate'] || '0').replace('%', '')) || 0,
       })).filter(r => r.map && r.matches > 0)
     })(),
+    prevSeason: prevSeasonName,
+    prevSeasonStats: prevSeasonName ? {
+      rank:    (prevStatsLookup['rank']     || '—').replace(/[*_]/g, '').trim(),
+      rp:      (prevStatsLookup['rp']       || '—').replace(/,/g, ''),
+      kd:      prevStatsLookup['k/d']       || '—',
+      winRate: prevStatsLookup['win rate']  || '—',
+      matches: prevStatsLookup['matches']   || '—',
+      ris:     (prevStatsLookup['ris']      || '—').replace(/\s*\(.*?\)/g, '').trim(),
+    } : null,
+    prevSeasonAtkOps: prevAtkOps,
+    prevSeasonDefOps: prevDefOps,
+    prevSeasonMapPerformance: (() => {
+      if (!prevSeasonRaw) return []
+      const section = extractSection(prevSeasonRaw, 'Map Performance')
+      return parseMarkdownTable(section).map(row => ({
+        map: (row['Map'] || '').trim(),
+        matches: parseInt(row['Matches'] || '0', 10) || 0,
+        winRate: parseFloat((row['Win%'] || row['Win Rate'] || '0').replace('%', '')) || 0,
+      })).filter(r => r.map && r.matches > 0)
+    })(),
+    prevSeasonContent: prevSeasonRaw
+      .replace(/\*\*\[ATK\]\*\*/g, '**Attack**')
+      .replace(/\*\*\[DEF\]\*\*/g, '**Defense**')
+      .replace(/\[ATK\]/g, 'Attack')
+      .replace(/\[DEF\]/g, 'Defense'),
   }
 }
 
