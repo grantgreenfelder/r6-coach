@@ -20,11 +20,21 @@ export const POOL_LABEL = {
 export default function Maps() {
   const [filter, setFilter] = useState('all')
   const [search, setSearch] = useState('')
+  const [sortBy, setSortBy] = useState('name') // 'name' | 'winrate'
 
   const applyFilters = (maps) => maps
     .filter(m => filter === 'all' || m.rating === filter)
     .filter(m => m.displayName.toLowerCase().includes(search.toLowerCase()))
-    .sort((a, b) => RATING_ORDER.indexOf(a.rating) - RATING_ORDER.indexOf(b.rating))
+    .sort((a, b) => {
+      if (sortBy === 'winrate') {
+        // nulls to the bottom
+        if (a.teamWinRate === null && b.teamWinRate === null) return 0
+        if (a.teamWinRate === null) return 1
+        if (b.teamWinRate === null) return -1
+        return b.teamWinRate - a.teamWinRate
+      }
+      return a.displayName.localeCompare(b.displayName)
+    })
 
   const ranked   = applyFilters(mapsData.filter(m => m.inRankedPool))
   const unranked = applyFilters(mapsData.filter(m => !m.inRankedPool))
@@ -34,7 +44,7 @@ export default function Maps() {
       {/* Header + filters */}
       <div className="flex items-center justify-between flex-wrap gap-4">
         <h1 className="text-2xl font-bold text-white">Maps</h1>
-        <div className="flex gap-2 flex-wrap">
+        <div className="flex gap-2 flex-wrap items-center">
           <input
             type="text"
             placeholder="Search maps..."
@@ -42,6 +52,22 @@ export default function Maps() {
             onChange={e => setSearch(e.target.value)}
             className="bg-siege-card border border-siege-border rounded px-3 py-1.5 text-sm text-white placeholder-siege-muted focus:outline-none focus:border-siege-accent"
           />
+          {/* Sort toggle */}
+          <div className="flex rounded border border-siege-border overflow-hidden">
+            {[{ value: 'name', label: 'A–Z' }, { value: 'winrate', label: 'Win%' }].map(s => (
+              <button
+                key={s.value}
+                onClick={() => setSortBy(s.value)}
+                className={`px-3 py-1.5 text-sm transition-colors ${
+                  sortBy === s.value
+                    ? 'bg-siege-accent text-siege-bg font-semibold'
+                    : 'text-siege-muted hover:text-white'
+                }`}
+              >
+                {s.label}
+              </button>
+            ))}
+          </div>
           {['all', 'strong', 'moderate', 'weak', 'avoid'].map(r => (
             <button
               key={r}
