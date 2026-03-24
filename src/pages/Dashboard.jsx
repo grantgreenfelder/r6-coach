@@ -19,6 +19,35 @@ function InsightCard({ label, value, sub, color = 'text-siege-accent', to }) {
 
 // ─── Player Card ───────────────────────────────────────────────────────────────
 
+// RIS bar: scale 25–75 so the typical range fills the full bar width.
+// Baseline of 50 is marked with a tick. Green above, yellow near, red below.
+const RIS_MIN = 25
+const RIS_MAX = 75
+const RIS_BASELINE = 50
+const baselinePct = ((RIS_BASELINE - RIS_MIN) / (RIS_MAX - RIS_MIN)) * 100 // 50%
+
+function RisBar({ ris }) {
+  const risNum = parseFloat(ris)
+  if (isNaN(risNum)) return null
+  const fillPct = Math.max(0, Math.min(100, ((risNum - RIS_MIN) / (RIS_MAX - RIS_MIN)) * 100))
+  const color = risNum >= 58 ? 'bg-siege-green' : risNum >= 48 ? 'bg-blue-400' : risNum >= 38 ? 'bg-yellow-500' : 'bg-siege-red'
+
+  return (
+    <div className="relative h-2 bg-siege-border rounded-full overflow-visible mb-1">
+      {/* Fill */}
+      <div
+        className={`absolute top-0 left-0 h-full rounded-full ${color}`}
+        style={{ width: `${fillPct}%` }}
+      />
+      {/* Baseline tick */}
+      <div
+        className="absolute top-0 h-full w-px bg-white/30"
+        style={{ left: `${baselinePct}%` }}
+      />
+    </div>
+  )
+}
+
 function PlayerCard({ player }) {
   const { kd, ris, winRate, rank } = player.stats
   const wrNum = parseFloat(winRate) || 0
@@ -59,16 +88,12 @@ function PlayerCard({ player }) {
         </div>
       </div>
 
-      {/* Win% bar */}
-      <div className="h-1 bg-siege-border rounded-full overflow-hidden mb-2">
-        <div
-          className={`h-full rounded-full ${
-            wrNum >= 55 ? 'bg-siege-green' :
-            wrNum >= 45 ? 'bg-blue-400' :
-            wrNum >= 35 ? 'bg-yellow-500' : 'bg-siege-red'
-          }`}
-          style={{ width: wrNum > 0 ? `${Math.min(wrNum, 100)}%` : '0%' }}
-        />
+      {/* RIS bar with baseline marker */}
+      <RisBar ris={ris} />
+      <div className="flex justify-between text-xs text-siege-muted mb-2">
+        <span>RIS</span>
+        <span style={{ marginLeft: `${baselinePct}%`, transform: 'translateX(-50%)' }} className="absolute text-white/20 text-xs">|</span>
+        <span>baseline 50</span>
       </div>
 
       {/* Ops */}
