@@ -51,28 +51,22 @@ function PlayerCard({ player }) {
 export default function Players() {
   const { mainStack, bTeam } = playersData
 
+  const allPlayers = [...mainStack, ...bTeam].sort((a, b) => {
+    const risA = parseFloat(a.stats?.ris) || 0
+    const risB = parseFloat(b.stats?.ris) || 0
+    return risB - risA
+  })
+
   return (
-    <div className="space-y-8">
+    <div className="space-y-6">
       <div>
         <h1 className="text-2xl font-bold text-white">Roster</h1>
         <p className="text-siege-muted text-sm mt-1">Player profiles and season stats</p>
       </div>
 
-      <div>
-        <h2 className="text-sm font-semibold text-siege-accent uppercase tracking-widest mb-3">Main Stack</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {mainStack.map(p => <PlayerCard key={p.name} player={p} />)}
-        </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {allPlayers.map(p => <PlayerCard key={p.name} player={p} />)}
       </div>
-
-      {bTeam.length > 0 && (
-        <div>
-          <h2 className="text-sm font-semibold text-blue-400 uppercase tracking-widest mb-3">B Team</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {bTeam.map(p => <PlayerCard key={p.name} player={p} />)}
-          </div>
-        </div>
-      )}
     </div>
   )
 }
