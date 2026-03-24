@@ -27,52 +27,126 @@ function extractIdentityField(text, field) {
   const re = new RegExp(`\\*\\*${field}[:\\s]+\\*\\*\\s*([^\\n]+)`, 'i')
   const m = text.match(re)
   if (m) return m[1].replace(/\*\*/g, '').trim()
-  // Try without bold end marker
   const re2 = new RegExp(`\\*\\*${field}:\\*\\*\\s*([^\\n]+)`, 'i')
   const m2 = text.match(re2)
   return m2 ? m2[1].replace(/\*\*/g, '').trim() : ''
 }
 
-// ─── Sub-components ────────────────────────────────────────────────────────────
+// ─── Stat Box ─────────────────────────────────────────────────────────────────
 
 function StatBox({ label, value, accent }) {
   return (
-    <div className="bg-black/30 rounded-lg p-3 text-center">
+    <div className="bg-black/30 border border-siege-border rounded-lg p-3 text-center">
       <div className={`text-xl font-bold leading-none ${accent || 'text-white'}`}>{value || '—'}</div>
-      <div className="text-siege-muted text-xs mt-1">{label}</div>
+      <div className="text-siege-muted text-xs mt-1.5 uppercase tracking-wider">{label}</div>
     </div>
   )
 }
 
-function OpsRow({ atk, def }) {
-  if (!atk && !def) return null
+// ─── Operator Table ────────────────────────────────────────────────────────────
+
+const FLAG_LABEL = { '⭐': 'standout', '✅': 'solid', '⚠️': 'low sample' }
+
+function OpRow({ op, maxRounds }) {
+  const wr = op.winRate
+  const wrColor =
+    wr >= 58 ? 'text-siege-green' :
+    wr >= 48 ? 'text-blue-300' :
+    wr >= 38 ? 'text-yellow-400' : 'text-siege-red'
+  const barColor =
+    wr >= 58 ? 'bg-siege-green' :
+    wr >= 48 ? 'bg-blue-400' :
+    wr >= 38 ? 'bg-yellow-500' : 'bg-siege-red'
+  const roundsPct = maxRounds > 0 ? Math.min((op.rounds / maxRounds) * 100, 100) : 0
+  const kdColor = op.kd >= 1.3 ? 'text-siege-green' : op.kd >= 0.9 ? 'text-gray-300' : 'text-siege-red'
+
   return (
-    <div className="flex gap-6 text-sm">
-      {atk && (
-        <div>
-          <span className="text-siege-muted text-xs uppercase tracking-wider block mb-1">Attack</span>
-          <span className="text-white font-medium">{atk}</span>
+    <div className="flex items-center gap-2 py-1.5 border-b border-siege-border/40 last:border-0">
+      {/* Op name + flag */}
+      <div className="flex items-center gap-1.5 w-28 flex-shrink-0 min-w-0">
+        <span className="text-white text-sm font-medium truncate">{op.name}</span>
+        {op.flag && (
+          <span title={FLAG_LABEL[op.flag] || op.flag} className="text-xs leading-none flex-shrink-0">{op.flag}</span>
+        )}
+      </div>
+
+      {/* Rounds bar (volume indicator) */}
+      <div className="flex-1 min-w-0 space-y-0.5">
+        <div className="h-1 bg-siege-border rounded-full overflow-hidden">
+          <div className="h-full bg-siege-muted/50 rounded-full" style={{ width: `${roundsPct}%` }} />
         </div>
-      )}
-      {def && (
-        <div>
-          <span className="text-siege-muted text-xs uppercase tracking-wider block mb-1">Defense</span>
-          <span className="text-white font-medium">{def}</span>
+        {/* Win% bar */}
+        <div className="h-1.5 bg-siege-border rounded-full overflow-hidden">
+          <div className={`h-full rounded-full ${barColor}`} style={{ width: `${Math.min(wr, 100)}%` }} />
         </div>
-      )}
+      </div>
+
+      {/* Stats */}
+      <div className="flex items-center gap-3 flex-shrink-0">
+        <div className="text-right">
+          <span className={`text-sm font-semibold tabular-nums ${wrColor}`}>{wr}%</span>
+          <span className="text-siege-muted text-xs ml-1">WR</span>
+        </div>
+        <div className="text-right w-10">
+          <span className={`text-sm tabular-nums ${kdColor}`}>{op.kd}</span>
+          <span className="text-siege-muted text-xs ml-0.5">K/D</span>
+        </div>
+        <div className="text-right w-8">
+          <span className="text-siege-muted text-xs tabular-nums">{op.rounds}r</span>
+        </div>
+      </div>
     </div>
   )
 }
+
+function OpsTable({ operators }) {
+  const atk = operators?.atk || []
+  const def = operators?.def || []
+  const maxAtkRounds = Math.max(...atk.map(o => o.rounds), 1)
+  const maxDefRounds = Math.max(...def.map(o => o.rounds), 1)
+
+  if (atk.length === 0 && def.length === 0) {
+    return <p className="text-siege-muted text-sm">No operator data</p>
+  }
+
+  return (
+    <div className="grid grid-cols-1 lg:grid-cols-2 divide-y lg:divide-y-0 lg:divide-x divide-siege-border">
+      {/* Attack */}
+      <div className="pb-4 lg:pb-0 lg:pr-5">
+        <div className="flex items-center gap-2 mb-3">
+          <span className="w-2 h-2 rounded-full bg-orange-400 flex-shrink-0" />
+          <span className="text-orange-400 text-xs font-semibold uppercase tracking-wider">Attack</span>
+          <span className="text-siege-muted text-xs ml-auto">{atk.length} operators</span>
+        </div>
+        {atk.length > 0 ? atk.map(op => (
+          <OpRow key={op.name} op={op} maxRounds={maxAtkRounds} />
+        )) : <p className="text-siege-muted text-sm">No ATK data</p>}
+      </div>
+
+      {/* Defense */}
+      <div className="pt-4 lg:pt-0 lg:pl-5">
+        <div className="flex items-center gap-2 mb-3">
+          <span className="w-2 h-2 rounded-full bg-blue-400 flex-shrink-0" />
+          <span className="text-blue-400 text-xs font-semibold uppercase tracking-wider">Defense</span>
+          <span className="text-siege-muted text-xs ml-auto">{def.length} operators</span>
+        </div>
+        {def.length > 0 ? def.map(op => (
+          <OpRow key={op.name} op={op} maxRounds={maxDefRounds} />
+        )) : <p className="text-siege-muted text-sm">No DEF data</p>}
+      </div>
+    </div>
+  )
+}
+
+// ─── Map Performance ───────────────────────────────────────────────────────────
 
 function MapMiniTable({ maps, limit = 8 }) {
   if (!maps || maps.length === 0) return <p className="text-siege-muted text-sm">No map data</p>
 
-  const sorted = [...maps]
-    .sort((a, b) => b.matches - a.matches)
-    .slice(0, limit)
+  const sorted = [...maps].sort((a, b) => b.matches - a.matches).slice(0, limit)
 
   return (
-    <div className="space-y-1.5">
+    <div className="space-y-2">
       {sorted.map(m => {
         const wr = m.winRate
         const color = wr >= 55 ? 'text-siege-green' : wr >= 45 ? 'text-blue-300' : wr >= 35 ? 'text-yellow-400' : 'text-siege-red'
@@ -83,8 +157,8 @@ function MapMiniTable({ maps, limit = 8 }) {
             <div className="flex-1 h-1.5 bg-siege-border rounded-full overflow-hidden">
               <div className={`h-full rounded-full ${barColor}`} style={{ width: `${Math.min(wr, 100)}%` }} />
             </div>
-            <span className={`text-xs font-semibold w-10 text-right flex-shrink-0 ${color}`}>{wr}%</span>
-            <span className="text-siege-muted text-xs w-8 text-right flex-shrink-0">{m.matches}M</span>
+            <span className={`text-xs font-semibold w-10 text-right flex-shrink-0 tabular-nums ${color}`}>{wr}%</span>
+            <span className="text-siege-muted text-xs w-6 text-right flex-shrink-0 tabular-nums">{m.matches}M</span>
           </div>
         )
       })}
@@ -92,12 +166,14 @@ function MapMiniTable({ maps, limit = 8 }) {
   )
 }
 
-function BulletList({ items, color = 'text-gray-300' }) {
+// ─── Misc list components ──────────────────────────────────────────────────────
+
+function BulletList({ items }) {
   if (!items || items.length === 0) return <p className="text-siege-muted text-sm">No notes</p>
   return (
-    <ul className="space-y-2">
+    <ul className="space-y-2.5">
       {items.map((item, i) => (
-        <li key={i} className={`flex gap-2 text-sm ${color}`}>
+        <li key={i} className="flex gap-2 text-sm text-gray-300">
           <span className="text-siege-accent flex-shrink-0 mt-0.5">•</span>
           <span className="leading-snug">{item}</span>
         </li>
@@ -109,10 +185,10 @@ function BulletList({ items, color = 'text-gray-300' }) {
 function PriorityList({ items }) {
   if (!items || items.length === 0) return <p className="text-siege-muted text-sm">No priorities</p>
   return (
-    <ol className="space-y-2">
+    <ol className="space-y-2.5">
       {items.map((item, i) => (
         <li key={i} className="flex gap-2 text-sm text-gray-300">
-          <span className="text-siege-accent font-bold flex-shrink-0 w-5">{i + 1}.</span>
+          <span className="text-siege-accent font-bold flex-shrink-0 w-5 tabular-nums">{i + 1}.</span>
           <span className="leading-snug">{item}</span>
         </li>
       ))}
@@ -126,45 +202,30 @@ function AllTimeTab({ player }) {
   const identitySection = extractSection(player.profileContent, 'Identity')
   const careerSection = extractSection(player.profileContent, 'Career Coaching Notes')
 
-  const strengths = extractIdentityField(identitySection, 'Strengths?')
+  const strengths  = extractIdentityField(identitySection, 'Strengths?')
   const tendencies = extractIdentityField(identitySection, 'Tendencies')
-  const roleFit = extractIdentityField(identitySection, 'Role fit')
-  const soloGroup = extractIdentityField(identitySection, 'Solo vs\\. Group')
+  const roleFit    = extractIdentityField(identitySection, 'Role fit')
+  const soloGroup  = extractIdentityField(identitySection, 'Solo vs\\. Group')
 
   const careerNotes = extractBullets(careerSection)
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-      {/* Identity */}
-      <div className="card space-y-4">
+      <div className="card space-y-5">
         <h3 className="text-siege-accent font-semibold text-xs uppercase tracking-wider">Identity</h3>
-        {strengths && (
-          <div>
-            <p className="text-siege-muted text-xs uppercase tracking-wider mb-1">Strengths</p>
-            <p className="text-gray-300 text-sm leading-relaxed">{strengths}</p>
+        {[
+          { label: 'Strengths', value: strengths },
+          { label: 'Tendencies', value: tendencies },
+          { label: 'Role Fit', value: roleFit },
+          { label: 'Solo / Group', value: soloGroup },
+        ].filter(f => f.value).map(f => (
+          <div key={f.label}>
+            <p className="text-siege-muted text-xs uppercase tracking-wider mb-1">{f.label}</p>
+            <p className="text-gray-300 text-sm leading-relaxed">{f.value}</p>
           </div>
-        )}
-        {tendencies && (
-          <div>
-            <p className="text-siege-muted text-xs uppercase tracking-wider mb-1">Tendencies</p>
-            <p className="text-gray-300 text-sm leading-relaxed">{tendencies}</p>
-          </div>
-        )}
-        {roleFit && (
-          <div>
-            <p className="text-siege-muted text-xs uppercase tracking-wider mb-1">Role Fit</p>
-            <p className="text-gray-300 text-sm leading-relaxed">{roleFit}</p>
-          </div>
-        )}
-        {soloGroup && (
-          <div>
-            <p className="text-siege-muted text-xs uppercase tracking-wider mb-1">Solo / Group</p>
-            <p className="text-gray-300 text-sm leading-relaxed">{soloGroup}</p>
-          </div>
-        )}
+        ))}
       </div>
 
-      {/* Career Coaching Notes */}
       <div className="card">
         <h3 className="text-siege-accent font-semibold text-xs uppercase tracking-wider mb-4">Career Notes</h3>
         <BulletList items={careerNotes} />
@@ -173,37 +234,41 @@ function AllTimeTab({ player }) {
   )
 }
 
-function SeasonTab({ label, stats, atkOps, defOps, mapPerformance, notes, priorities }) {
+function SeasonTab({ stats, operators, mapPerformance, notes, priorities }) {
+  const wrNum = parseFloat(stats?.winRate)
+  const wrAccent = wrNum >= 50 ? 'text-siege-green' : wrNum >= 40 ? 'text-yellow-400' : 'text-siege-red'
+  const risNum = parseFloat(stats?.ris)
+  const risAccent = risNum >= 58 ? 'text-siege-green' : risNum >= 48 ? 'text-blue-300' : risNum >= 38 ? 'text-yellow-400' : 'text-siege-red'
+
   return (
     <div className="space-y-4">
+
       {/* Stats row */}
       <div className="grid grid-cols-5 gap-2">
-        <StatBox label="Rank" value={stats?.rank} />
-        <StatBox label="K/D" value={stats?.kd} accent="text-white" />
-        <StatBox label="Win%" value={stats?.winRate} accent={
-          parseFloat(stats?.winRate) >= 50 ? 'text-siege-green' :
-          parseFloat(stats?.winRate) >= 40 ? 'text-yellow-400' : 'text-siege-red'
-        } />
+        <StatBox label="Rank"    value={stats?.rank} />
+        <StatBox label="K/D"     value={stats?.kd} />
+        <StatBox label="Win%"    value={stats?.winRate} accent={wrAccent} />
         <StatBox label="Matches" value={stats?.matches} />
-        <StatBox label="RIS" value={stats?.ris} accent="text-siege-accent" />
+        <StatBox label="RIS"     value={stats?.ris} accent={risAccent} />
       </div>
 
-      {/* Ops + Map performance */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-        <div className="card space-y-4">
+      {/* Operators — full width card */}
+      <div className="card">
+        <div className="flex items-center gap-2 mb-4">
           <h3 className="text-siege-accent font-semibold text-xs uppercase tracking-wider">Operators</h3>
-          <OpsRow atk={atkOps} def={defOps} />
+          <span className="text-siege-muted text-xs ml-1">— Win% bar · K/D · Rounds played (volume bar)</span>
         </div>
+        <OpsTable operators={operators} />
+      </div>
 
+      {/* Map performance + Notes/Priorities */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         <div className="card">
           <h3 className="text-siege-accent font-semibold text-xs uppercase tracking-wider mb-3">Map Performance</h3>
           <MapMiniTable maps={mapPerformance} />
         </div>
-      </div>
 
-      {/* Notes */}
-      {(notes?.length > 0 || priorities?.length > 0) && (
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <div className="space-y-4">
           {notes?.length > 0 && (
             <div className="card">
               <h3 className="text-siege-accent font-semibold text-xs uppercase tracking-wider mb-3">Season Notes</h3>
@@ -217,7 +282,8 @@ function SeasonTab({ label, stats, atkOps, defOps, mapPerformance, notes, priori
             </div>
           )}
         </div>
-      )}
+      </div>
+
     </div>
   )
 }
@@ -251,7 +317,6 @@ export default function PlayerDetail() {
     )
   }
 
-  // Parse season notes from seasonContent "## Season Coaching Notes"
   const y11s1Notes = extractBullets(extractSection(player.seasonContent, 'Season Coaching Notes'))
   const y10s4Notes = extractBullets(extractSection(player.prevSeasonContent, 'Season Coaching Notes'))
 
@@ -261,7 +326,7 @@ export default function PlayerDetail() {
       {/* Breadcrumb */}
       <Link to="/players" className="text-siege-muted hover:text-siege-accent text-sm">← Players</Link>
 
-      {/* Header card */}
+      {/* Header */}
       <div className="card flex items-start gap-5 flex-wrap">
         <div className="w-14 h-14 rounded-full bg-siege-accent flex items-center justify-center text-xl font-bold text-siege-bg flex-shrink-0">
           {player.name[0]}
@@ -303,16 +368,12 @@ export default function PlayerDetail() {
       </div>
 
       {/* Tab content */}
-      {activeTab === 'alltime' && (
-        <AllTimeTab player={player} />
-      )}
+      {activeTab === 'alltime' && <AllTimeTab player={player} />}
 
       {activeTab === player.prevSeason && player.prevSeasonStats && (
         <SeasonTab
-          label={player.prevSeason}
           stats={player.prevSeasonStats}
-          atkOps={player.prevSeasonAtkOps}
-          defOps={player.prevSeasonDefOps}
+          operators={player.prevSeasonOperators}
           mapPerformance={player.prevSeasonMapPerformance}
           notes={y10s4Notes}
           priorities={[]}
@@ -320,15 +381,15 @@ export default function PlayerDetail() {
       )}
 
       {activeTab === player.prevSeason && !player.prevSeasonStats && (
-        <div className="card text-siege-muted text-sm text-center py-8">No {player.prevSeason} data available.</div>
+        <div className="card text-siege-muted text-sm text-center py-8">
+          No {player.prevSeason} data available.
+        </div>
       )}
 
       {activeTab === player.season && (
         <SeasonTab
-          label={player.season}
           stats={player.stats}
-          atkOps={player.atkOps}
-          defOps={player.defOps}
+          operators={player.operators}
           mapPerformance={player.mapPerformance}
           notes={y11s1Notes}
           priorities={player.coachingPriorities}

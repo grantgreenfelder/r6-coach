@@ -60,6 +60,43 @@ function extractMapRating(ratingText) {
   return 'unknown'
 }
 
+function parseOperators(content) {
+  if (!content) return { atk: [], def: [] }
+  // Both Y11S1 and Y10S4 use **Attack** / **Defense** after the ATK/DEF replacements
+  const lines = content.split('\n')
+
+  let atkStart = -1, defStart = -1
+  lines.forEach((l, i) => {
+    if (/^\*\*Attack\*\*$/i.test(l.trim())) atkStart = i
+    if (/^\*\*Defense\*\*$/i.test(l.trim())) defStart = i
+  })
+
+  function parseBlock(start, end) {
+    if (start === -1) return []
+    const block = end === -1 ? lines.slice(start + 1) : lines.slice(start + 1, end)
+    return block
+      .filter(l => /^\d+\.\s+.+—/.test(l.trim()))
+      .map(l => {
+        // Format: "1. OperatorName — 54r | 48.1% | 1.30 ⭐"
+        const m = l.match(/^\d+\.\s+(.+?)\s+—\s+(\d+)r\s+\|\s+([\d.]+)%\s+\|\s+([\d.]+)\s*([⭐✅⚠️]*)/)
+        if (!m) return null
+        return {
+          name: m[1].trim(),
+          rounds: parseInt(m[2], 10),
+          winRate: parseFloat(m[3]),
+          kd: parseFloat(m[4]),
+          flag: m[5]?.trim() || '',
+        }
+      })
+      .filter(Boolean)
+  }
+
+  return {
+    atk: parseBlock(atkStart, defStart),
+    def: parseBlock(defStart, -1),
+  }
+}
+
 // ─── Players ─────────────────────────────────────────────────────────────────
 
 function parsePlayer(name) {
@@ -196,6 +233,14 @@ function parsePlayer(name) {
       .replace(/\*\*\[DEF\]\*\*/g, '**Defense**')
       .replace(/\[ATK\]/g, 'Attack')
       .replace(/\[DEF\]/g, 'Defense'),
+    operators: (() => {
+      const cleaned = latestSeason
+        .replace(/\*\*\[ATK\]\*\*/g, '**Attack**')
+        .replace(/\*\*\[DEF\]\*\*/g, '**Defense**')
+        .replace(/\[ATK\]/g, 'Attack')
+        .replace(/\[DEF\]/g, 'Defense')
+      return parseOperators(cleaned)
+    })(),
     mapPerformance: (() => {
       const section = extractSection(latestSeason, 'Map Performance')
       return parseMarkdownTable(section).map(row => ({
@@ -229,6 +274,15 @@ function parsePlayer(name) {
       .replace(/\*\*\[DEF\]\*\*/g, '**Defense**')
       .replace(/\[ATK\]/g, 'Attack')
       .replace(/\[DEF\]/g, 'Defense'),
+    prevSeasonOperators: (() => {
+      if (!prevSeasonRaw) return { atk: [], def: [] }
+      const cleaned = prevSeasonRaw
+        .replace(/\*\*\[ATK\]\*\*/g, '**Attack**')
+        .replace(/\*\*\[DEF\]\*\*/g, '**Defense**')
+        .replace(/\[ATK\]/g, 'Attack')
+        .replace(/\[DEF\]/g, 'Defense')
+      return parseOperators(cleaned)
+    })(),
   }
 }
 
