@@ -121,10 +121,10 @@ function MapTile({ map }) {
   return (
     <Link
       to={`/maps/${map.name}`}
-      className={`border rounded-lg px-2 py-2 text-center hover:opacity-80 transition-opacity ${bg}`}
+      className={`border rounded-lg px-1.5 py-2.5 sm:px-2 sm:py-2 text-center hover:opacity-80 transition-opacity min-h-[52px] flex flex-col justify-center ${bg}`}
     >
-      <p className="text-xs font-medium leading-tight truncate">{map.displayName}</p>
-      <p className="text-sm font-bold mt-0.5">{wr !== null ? `${wr}%` : '—'}</p>
+      <p className="text-[10px] sm:text-xs font-medium leading-tight truncate">{map.displayName}</p>
+      <p className="text-xs sm:text-sm font-bold mt-0.5">{wr !== null ? `${wr}%` : '—'}</p>
     </Link>
   )
 }
@@ -177,7 +177,7 @@ export default function Dashboard() {
   })
 
   return (
-    <div className="p-6 max-w-6xl mx-auto space-y-6">
+    <div className="max-w-6xl mx-auto space-y-5">
 
       {/* Header */}
       <div className="flex items-center justify-between flex-wrap gap-3">
@@ -232,18 +232,18 @@ export default function Dashboard() {
 
       {/* Map heatmap */}
       <div>
-        <div className="flex items-center justify-between mb-3">
+        <div className="flex flex-wrap items-start justify-between gap-2 mb-3">
           <h2 className="text-white font-semibold text-sm uppercase tracking-wider">
             Ranked Pool — Win% Heatmap
           </h2>
-          <div className="flex items-center gap-3 text-xs text-siege-muted">
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-siege-muted">
             <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-siege-green inline-block" />≥55%</span>
             <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-blue-400 inline-block" />45–55%</span>
             <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-yellow-500 inline-block" />35–45%</span>
             <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-siege-red inline-block" />&lt;35%</span>
           </div>
         </div>
-        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 gap-2">
+        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 gap-1.5 sm:gap-2">
           {rankedMaps.map(map => (
             <MapTile key={map.name} map={map} />
           ))}

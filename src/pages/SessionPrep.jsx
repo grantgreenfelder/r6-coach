@@ -222,34 +222,34 @@ function MapVetoRow({ map, idx, total, banSlot, onMoveUp, onMoveDown, tonight })
         : 'bg-siege-card/30 border-siege-border/30'
     }`}>
       {/* Ban label / rank number */}
-      <div className="w-12 flex-shrink-0 text-center">
+      <div className="w-8 sm:w-12 flex-shrink-0 text-center">
         {isBan ? (
-          <span className="text-xs font-bold text-siege-red bg-siege-red/20 rounded px-1.5 py-0.5">
-            BAN {banSlot}
+          <span className="text-[10px] sm:text-xs font-bold text-siege-red bg-siege-red/20 rounded px-1 sm:px-1.5 py-0.5">
+            BAN{banSlot}
           </span>
         ) : (
           <span className="text-xs text-siege-muted">{idx + 1}</span>
         )}
       </div>
 
-      {/* Map name */}
-      <div className="w-36 flex-shrink-0">
-        <span className={`text-sm font-medium ${isBan ? 'text-white' : 'text-gray-300'}`}>
+      {/* Map name — flex-1 so it fills remaining space */}
+      <div className="flex-1 min-w-0">
+        <span className={`text-sm font-medium truncate block ${isBan ? 'text-white' : 'text-gray-300'}`}>
           {map.displayName}
         </span>
       </div>
 
       {/* Win rate */}
-      <div className="w-20 flex-shrink-0">
+      <div className="w-14 sm:w-20 flex-shrink-0 text-right sm:text-left">
         {wr !== null ? (
           <span className={`text-sm font-bold ${wrColor}`}>{wr}%</span>
         ) : (
-          <span className="text-xs text-siege-muted">no data</span>
+          <span className="text-xs text-siege-muted">—</span>
         )}
       </div>
 
-      {/* Mini win% bar */}
-      <div className="flex-1 hidden sm:block">
+      {/* Mini win% bar — visible on sm+ */}
+      <div className="w-20 hidden sm:block flex-shrink-0">
         <div className="h-1.5 bg-siege-border rounded-full overflow-hidden">
           <div
             className={`h-full rounded-full ${
@@ -263,7 +263,7 @@ function MapVetoRow({ map, idx, total, banSlot, onMoveUp, onMoveDown, tonight })
         </div>
       </div>
 
-      {/* Per-player dots */}
+      {/* Per-player dots — md+ only */}
       <div className="hidden md:flex gap-1 flex-shrink-0">
         {tonight.map(name => {
           const row = map.playerRows?.find(r => r.name === name)
@@ -282,8 +282,8 @@ function MapVetoRow({ map, idx, total, banSlot, onMoveUp, onMoveDown, tonight })
         })}
       </div>
 
-      {/* Sample size */}
-      <div className="w-12 text-right flex-shrink-0">
+      {/* Sample size — hidden on mobile */}
+      <div className="hidden sm:block w-12 text-right flex-shrink-0">
         {map.rosterMatches > 0 && (
           <span className="text-xs text-siege-muted">{map.rosterMatches}M</span>
         )}

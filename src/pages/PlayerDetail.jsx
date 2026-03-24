@@ -36,9 +36,9 @@ function extractIdentityField(text, field) {
 
 function StatBox({ label, value, accent }) {
   return (
-    <div className="bg-black/30 border border-siege-border rounded-lg p-3 text-center">
-      <div className={`text-xl font-bold leading-none ${accent || 'text-white'}`}>{value || '—'}</div>
-      <div className="text-siege-muted text-xs mt-1.5 uppercase tracking-wider">{label}</div>
+    <div className="bg-black/30 border border-siege-border rounded-lg p-2 sm:p-3 text-center">
+      <div className={`text-sm sm:text-xl font-bold leading-none truncate ${accent || 'text-white'}`}>{value || '—'}</div>
+      <div className="text-siege-muted text-[10px] sm:text-xs mt-1 sm:mt-1.5 uppercase tracking-wider">{label}</div>
     </div>
   )
 }
@@ -82,16 +82,16 @@ function OpRow({ op, maxRounds }) {
       </div>
 
       {/* Stats */}
-      <div className="flex items-center gap-3 flex-shrink-0">
+      <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
         <div className="text-right">
           <span className={`text-sm font-semibold tabular-nums ${wrColor}`}>{wr}%</span>
-          <span className="text-siege-muted text-xs ml-1">WR</span>
+          <span className="text-siege-muted text-xs ml-1 hidden sm:inline">WR</span>
         </div>
-        <div className="text-right w-10">
+        <div className="text-right w-9 sm:w-10">
           <span className={`text-sm tabular-nums ${kdColor}`}>{op.kd}</span>
-          <span className="text-siege-muted text-xs ml-0.5">K/D</span>
+          <span className="text-siege-muted text-xs ml-0.5 hidden sm:inline">K/D</span>
         </div>
-        <div className="text-right w-8">
+        <div className="text-right w-7 sm:w-8 hidden sm:block">
           <span className="text-siege-muted text-xs tabular-nums">{op.rounds}r</span>
         </div>
       </div>
