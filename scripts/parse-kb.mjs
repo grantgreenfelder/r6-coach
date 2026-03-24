@@ -317,9 +317,17 @@ function parseMapStrats(mapName) {
     const side = filename.startsWith('ATK') ? 'ATK' : 'DEF'
     const siteName = filename.replace(/^(ATK|DEF)_/, '').replace(/\.md$/, '').replace(/_/g, ' / ')
 
-    // Parse role table
-    const tableSection = content.split('\n').filter(l => l.includes('|')).join('\n')
-    const roles = parseMarkdownTable(tableSection)
+    // Parse role table from ## Roles section only (not Post-Plant or other tables)
+    const rolesSection = extractSection(content, 'Roles')
+    const roles = parseMarkdownTable(rolesSection)
+      .filter(row => {
+        const player = (row.Player || '').replace(/\*\*/g, '').trim()
+        return player && !/^player$/i.test(player)
+      })
+
+    // Header metadata
+    const formation   = content.match(/\*\*Formation:\*\*\s*([^\n]+)/)?.[1]?.trim() || ''
+    const siteContext = content.match(/\*\*Site Context:\*\*\s*([^\n]+)/)?.[1]?.trim() || ''
 
     return {
       filename,
@@ -327,6 +335,8 @@ function parseMapStrats(mapName) {
       site: siteName,
       status: extractStatus(content),
       roles,
+      formation,
+      siteContext,
       content,
     }
   }).sort((a, b) => a.side.localeCompare(b.side) || a.site.localeCompare(b.site))
