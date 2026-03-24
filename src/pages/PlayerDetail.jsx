@@ -140,10 +140,10 @@ function OpsTable({ operators }) {
 
 // ─── Map Performance ───────────────────────────────────────────────────────────
 
-function MapMiniTable({ maps, limit = 8 }) {
+function MapMiniTable({ maps }) {
   if (!maps || maps.length === 0) return <p className="text-siege-muted text-sm">No map data</p>
 
-  const sorted = [...maps].sort((a, b) => b.matches - a.matches).slice(0, limit)
+  const sorted = [...maps].sort((a, b) => b.matches - a.matches)
 
   return (
     <div className="space-y-2">
