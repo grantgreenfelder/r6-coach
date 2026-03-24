@@ -107,11 +107,11 @@ function MapTile({ map }) {
 // ─── Dashboard ─────────────────────────────────────────────────────────────────
 
 export default function Dashboard() {
-  const allPlayers = [...(playersData.mainStack || []), ...(playersData.bTeam || [])]
   const mainStack = playersData.mainStack || []
   const rankedMaps = mapsData.filter(m => m.inRankedPool)
+  const teamFocusItems = stackData.teamFocusItems || []
 
-  // Best map: highest win% in ranked pool
+  // Best / ban target maps
   const rankedWithWR = rankedMaps.filter(m => m.teamWinRate !== null)
   const bestMap = rankedWithWR.length > 0
     ? rankedWithWR.reduce((a, b) => a.teamWinRate > b.teamWinRate ? a : b)
@@ -120,17 +120,32 @@ export default function Dashboard() {
     ? rankedWithWR.reduce((a, b) => a.teamWinRate < b.teamWinRate ? a : b)
     : null
 
-  // Team avg K/D
-  const kdValues = mainStack.map(p => parseFloat(p.stats?.kd)).filter(n => !isNaN(n))
-  const avgKD = kdValues.length > 0 ? (kdValues.reduce((a, b) => a + b, 0) / kdValues.length).toFixed(2) : '—'
-  const topKD = kdValues.length > 0
+  // Team avg Win%
+  const wrValues = mainStack.map(p => parseFloat(p.stats?.winRate)).filter(n => !isNaN(n))
+  const avgWR = wrValues.length > 0
+    ? (wrValues.reduce((a, b) => a + b, 0) / wrValues.length).toFixed(1) + '%'
+    : '—'
+  const topWR = wrValues.length > 0
     ? mainStack.reduce((best, p) => {
-        const v = parseFloat(p.stats?.kd)
-        return !isNaN(v) && (best === null || v > parseFloat(best.stats?.kd)) ? p : best
+        const v = parseFloat(p.stats?.winRate)
+        return !isNaN(v) && (best === null || v > parseFloat(best.stats?.winRate)) ? p : best
       }, null)
     : null
 
-  const coachingItems = stackData.coachingItemsStructured || []
+  // Spotlight — auto-pick: highest RIS player as MVP, positive team DEF note
+  const risPlayers = mainStack.filter(p => p.stats?.ris && p.stats.ris !== '—')
+  const mvp = risPlayers.length > 0
+    ? risPlayers.reduce((a, b) => parseFloat(a.stats.ris) > parseFloat(b.stats.ris) ? a : b)
+    : null
+
+  // Top map by win% with enough data (best confidence map)
+  const confidentMaps = rankedWithWR.filter(m => m.teamWinRateMatches >= 20)
+  const spotlightMap = confidentMaps.length > 0
+    ? confidentMaps.reduce((a, b) => a.teamWinRate > b.teamWinRate ? a : b)
+    : bestMap
+
+  // Count how many main stack players are above 50% WR
+  const positiveWRCount = mainStack.filter(p => parseFloat(p.stats?.winRate) >= 50).length
 
   const parsedDate = new Date(metaData.parsedAt).toLocaleDateString('en-US', {
     month: 'short', day: 'numeric'
@@ -146,7 +161,7 @@ export default function Dashboard() {
           <p className="text-siege-muted text-xs mt-0.5">KB snapshot · {parsedDate}</p>
         </div>
         <Link
-          to="/session"
+          to="/session-prep"
           className="px-4 py-2 rounded bg-siege-accent text-siege-bg font-semibold text-sm hover:opacity-90 transition-opacity"
         >
           Session Prep →
@@ -170,9 +185,9 @@ export default function Dashboard() {
           to={banTarget ? `/maps/${banTarget.name}` : undefined}
         />
         <InsightCard
-          label="Team Avg K/D"
-          value={avgKD}
-          sub={topKD ? `Top: ${topKD.name} @ ${topKD.stats?.kd}` : undefined}
+          label="Team Avg Win%"
+          value={avgWR}
+          sub={topWR ? `Best: ${topWR.name} @ ${topWR.stats?.winRate}` : undefined}
           color="text-siege-accent"
         />
       </div>
@@ -213,32 +228,80 @@ export default function Dashboard() {
         </Link>
       </div>
 
-      {/* Coaching priorities */}
-      {coachingItems.length > 0 && (
+      {/* Bottom row: Spotlight + Team Focus */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+
+        {/* Spotlight */}
         <div className="card">
-          <h2 className="text-white font-semibold text-sm uppercase tracking-wider mb-3">Active Coaching Focus</h2>
-          <div className="flex flex-wrap gap-2">
-            {coachingItems.map((item, i) => (
-              <div
-                key={i}
-                className={`inline-flex items-start gap-2 rounded-lg px-3 py-2 text-sm border max-w-sm ${
-                  item.playerTag
-                    ? 'bg-siege-blue/10 border-siege-blue/30'
-                    : 'bg-siege-accent/10 border-siege-accent/20'
-                }`}
-              >
-                <span className={`text-xs font-bold mt-0.5 flex-shrink-0 ${
-                  item.playerTag ? 'text-siege-blue' : 'text-siege-accent'
-                }`}>
-                  {item.playerTag ?? 'Team'}
-                </span>
-                <span className="text-gray-300 leading-snug">{item.text}</span>
+          <h2 className="text-white font-semibold text-sm uppercase tracking-wider mb-4">⭐ Spotlight</h2>
+          <div className="space-y-3">
+
+            {/* MVP player */}
+            {mvp && (
+              <Link to={`/players/${mvp.name}`} className="flex items-center gap-3 p-3 rounded-lg bg-siege-green/10 border border-siege-green/30 hover:opacity-80 transition-opacity">
+                <div className="w-9 h-9 rounded-full bg-siege-green/20 flex items-center justify-center text-siege-green font-bold flex-shrink-0">
+                  {mvp.name[0]}
+                </div>
+                <div>
+                  <p className="text-siege-green font-semibold text-sm">{mvp.name} — Season Leader</p>
+                  <p className="text-gray-400 text-xs mt-0.5">
+                    RIS {mvp.stats.ris} · K/D {mvp.stats.kd} · {mvp.stats.winRate} Win%
+                  </p>
+                </div>
+              </Link>
+            )}
+
+            {/* Top map */}
+            {spotlightMap && (
+              <Link to={`/maps/${spotlightMap.name}`} className="flex items-center gap-3 p-3 rounded-lg bg-siege-accent/10 border border-siege-accent/20 hover:opacity-80 transition-opacity">
+                <div className="w-9 h-9 rounded-full bg-siege-accent/20 flex items-center justify-center text-siege-accent font-bold text-lg flex-shrink-0">
+                  🗺
+                </div>
+                <div>
+                  <p className="text-siege-accent font-semibold text-sm">{spotlightMap.displayName} — Confidence Map</p>
+                  <p className="text-gray-400 text-xs mt-0.5">
+                    {spotlightMap.teamWinRate}% team win rate · {spotlightMap.teamWinRateMatches} matches tracked
+                  </p>
+                </div>
+              </Link>
+            )}
+
+            {/* Positive team note */}
+            {positiveWRCount > 0 && (
+              <div className="flex items-center gap-3 p-3 rounded-lg bg-blue-500/10 border border-blue-500/20">
+                <div className="w-9 h-9 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-300 font-bold text-lg flex-shrink-0">
+                  🛡
+                </div>
+                <div>
+                  <p className="text-blue-300 font-semibold text-sm">Defense is the Stack's Identity</p>
+                  <p className="text-gray-400 text-xs mt-0.5">
+                    {positiveWRCount} of {mainStack.length} players above 50% win rate — anchor up.
+                  </p>
+                </div>
               </div>
-            ))}
+            )}
           </div>
         </div>
-      )}
 
+        {/* Team Focus of the Week */}
+        {teamFocusItems.length > 0 && (
+          <div className="card">
+            <h2 className="text-white font-semibold text-sm uppercase tracking-wider mb-4">Team Focus</h2>
+            <div className="space-y-3">
+              {teamFocusItems.map((item, i) => (
+                <div key={i} className="flex gap-3">
+                  <span className="text-siege-accent font-bold text-sm flex-shrink-0 w-5">{i + 1}.</span>
+                  <div>
+                    <p className="text-white text-sm font-semibold leading-snug">{item.text}</p>
+                    {item.body && <p className="text-siege-muted text-xs mt-0.5 leading-relaxed">{item.body}</p>}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+      </div>
     </div>
   )
 }
