@@ -12,7 +12,7 @@ function OperatorTile({ op }) {
   return (
     <Link
       to={`/operators/${op.name}`}
-      className="group flex flex-col items-center gap-1.5 p-3 rounded-lg border border-siege-border
+      className="group flex flex-col items-center gap-1.5 p-2 sm:p-3 rounded-lg border border-siege-border
                  bg-siege-card hover:border-siege-accent/50 hover:bg-siege-accent/5 transition-all"
     >
       {/* Portrait */}
@@ -31,7 +31,7 @@ function OperatorTile({ op }) {
         )}
       </div>
       {/* Name */}
-      <span className="text-white text-xs font-medium text-center leading-tight group-hover:text-siege-accent transition-colors">
+      <span className="text-white text-[11px] font-medium text-center leading-tight group-hover:text-siege-accent transition-colors w-full line-clamp-2">
         {op.name.replace(/_/g, ' ')}
       </span>
     </Link>

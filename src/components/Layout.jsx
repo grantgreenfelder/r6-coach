@@ -2,11 +2,11 @@ import { Outlet, NavLink, useLocation } from 'react-router-dom'
 import metaData from '../data/meta.json'
 
 const navItems = [
-  { to: '/', label: 'Dashboard', icon: '⬡' },
-  { to: '/players', label: 'Roster', icon: '👤' },
-  { to: '/maps', label: 'Maps', icon: '🗺' },
-  { to: '/operators', label: 'Operators', icon: '⚔' },
-  { to: '/session-prep', label: 'Session Prep', icon: '▶' },
+  { to: '/', label: 'Dashboard', mobileLabel: 'Home', icon: '⬡' },
+  { to: '/players', label: 'Roster', mobileLabel: 'Roster', icon: '👤' },
+  { to: '/maps', label: 'Maps', mobileLabel: 'Maps', icon: '🗺' },
+  { to: '/operators', label: 'Operators', mobileLabel: 'Ops', icon: '⚔' },
+  { to: '/session-prep', label: 'Session Prep', mobileLabel: 'Prep', icon: '▶' },
 ]
 
 export default function Layout() {
@@ -58,7 +58,7 @@ export default function Layout() {
 
       {/* Mobile bottom nav */}
       <nav className="sm:hidden fixed bottom-0 left-0 right-0 z-50 bg-siege-surface border-t border-siege-border flex">
-        {navItems.map(({ to, label, icon }) => (
+        {navItems.map(({ to, mobileLabel, icon }) => (
           <NavLink
             key={to}
             to={to}
@@ -70,7 +70,7 @@ export default function Layout() {
             }
           >
             <span className="text-lg leading-none">{icon}</span>
-            <span className="text-[10px] font-medium leading-none mt-0.5">{label}</span>
+            <span className="text-[10px] font-medium leading-none mt-0.5">{mobileLabel}</span>
           </NavLink>
         ))}
       </nav>
