@@ -5,6 +5,7 @@ const navItems = [
   { to: '/', label: 'Dashboard', icon: '⬡' },
   { to: '/players', label: 'Roster', icon: '👤' },
   { to: '/maps', label: 'Maps', icon: '🗺' },
+  { to: '/operators', label: 'Operators', icon: '⚔' },
   { to: '/session-prep', label: 'Session Prep', icon: '▶' },
 ]
 
@@ -52,7 +53,7 @@ export default function Layout() {
 
       {/* Footer — hidden on mobile */}
       <footer className="hidden sm:block border-t border-siege-border py-3 px-4 text-center text-xs text-siege-muted">
-        KB last parsed: {formatted} · {metaData.mapCount} maps · {metaData.stratCount} strats · {metaData.playerCount} players tracked
+        KB last parsed: {formatted} · {metaData.mapCount} maps · {metaData.stratCount} strats · {metaData.playerCount} players · {metaData.operatorCount || 77} operators tracked
       </footer>
 
       {/* Mobile bottom nav */}

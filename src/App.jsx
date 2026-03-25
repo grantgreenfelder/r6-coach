@@ -7,6 +7,8 @@ import Maps from './pages/Maps.jsx'
 import MapDetail from './pages/MapDetail.jsx'
 import StratViewer from './pages/StratViewer.jsx'
 import SessionPrep from './pages/SessionPrep.jsx'
+import Operators from './pages/Operators.jsx'
+import OperatorDetail from './pages/OperatorDetail.jsx'
 
 export default function App() {
   return (
@@ -20,6 +22,8 @@ export default function App() {
           <Route path="maps/:mapName" element={<MapDetail />} />
           <Route path="maps/:mapName/:side/:site" element={<StratViewer />} />
           <Route path="session-prep" element={<SessionPrep />} />
+          <Route path="operators" element={<Operators />} />
+          <Route path="operators/:name" element={<OperatorDetail />} />
         </Route>
       </Routes>
     </BrowserRouter>

@@ -491,6 +491,235 @@ function buildStackData() {
   }
 }
 
+// ─── Operators ────────────────────────────────────────────────────────────────
+
+function buildOperatorsData(playersData) {
+  // Load role / category mapping
+  const rolesPath = path.join(KB, '../Scripts/operator-roles.json')
+  let rolesConfig = { ATK: {}, DEF: {} }
+  try { rolesConfig = JSON.parse(fs.readFileSync(rolesPath, 'utf8')) } catch (e) {
+    console.warn('  ⚠️  operator-roles.json not found, categories will be "Unknown"')
+  }
+
+  // operator name → category (keyed by canonical KB filename sans .md)
+  const categoryLookup = {}
+  for (const [side, cats] of Object.entries(rolesConfig)) {
+    if (side.startsWith('_')) continue
+    for (const [cat, ops] of Object.entries(cats)) {
+      for (const op of ops) categoryLookup[op] = cat
+    }
+  }
+
+  // Alias table — tracker spelling → canonical KB name
+  const ALIASES = {
+    'Capitão': 'Capitao',
+    'Nøkk': 'Nokk',
+    'Jäger': 'Jager',
+    'Skopós': 'Skopos',
+    'Tubarão': 'Tubarao',
+    'Solid Snake': 'Solid_Snake',
+  }
+  // Build reverse: canonical → aliases (for stats lookup)
+  const reverseAliases = {}
+  for (const [alias, canon] of Object.entries(ALIASES)) {
+    if (!reverseAliases[canon]) reverseAliases[canon] = []
+    reverseAliases[canon].push(alias)
+  }
+
+  // ── Build per-operator stats from all players ──────────────────────────────
+  // opStats[canonicalName][season] = [{ player, rounds, winRate, kd }, ...]
+  const opStats = {}
+  function addStat(opName, season, playerName, entry) {
+    const canon = ALIASES[opName] ?? opName
+    if (!opStats[canon]) opStats[canon] = { y10s4: [], y11s1: [] }
+    if (!opStats[canon][season]) opStats[canon][season] = []
+    opStats[canon][season].push({ player: playerName, rounds: entry.rounds, winRate: entry.winRate, kd: entry.kd })
+  }
+
+  const allPlayers = [...playersData.mainStack, ...playersData.bTeam, ...playersData.other]
+  for (const p of allPlayers) {
+    for (const entry of (p.operators?.atk || []))         addStat(entry.name, 'y11s1', p.name, entry)
+    for (const entry of (p.operators?.def || []))         addStat(entry.name, 'y11s1', p.name, entry)
+    for (const entry of (p.prevSeasonOperators?.atk || [])) addStat(entry.name, 'y10s4', p.name, entry)
+    for (const entry of (p.prevSeasonOperators?.def || [])) addStat(entry.name, 'y10s4', p.name, entry)
+  }
+
+  // ── Parse a single operator .md file ──────────────────────────────────────
+  function parseOperatorFile(filePath, side) {
+    const content = readFile(filePath)
+    if (!content) return null
+    const name = path.basename(filePath, '.md')
+
+    // Profile table
+    const profileRows = parseMarkdownTable(extractSection(content, 'Profile'))
+    const profile = {}
+    for (const row of profileRows) {
+      const k = (row['Field'] || '').replace(/\*\*/g, '').trim().toLowerCase()
+      const v = (row['Info'] || '').replace(/\*\*/g, '').trim()
+      if (k === 'real name')    profile.realName    = v
+      else if (k === 'ctu')     profile.ctu         = v
+      else if (k === 'speed / armor') profile.speedArmor = v
+      else if (k === 'role')    profile.role        = v
+      else if (k === 'season added') profile.seasonAdded = v
+    }
+
+    // Gadget name from heading: "## Gadget — Breaching Round"
+    const gadgetHeadingMatch = content.match(/^##\s+Gadget\s*[—\-:]\s*(.+)$/m)
+    const gadgetName = gadgetHeadingMatch ? gadgetHeadingMatch[1].trim() : ''
+
+    // Gadget description — first **Gadget:** bold line in section
+    const gadgetSection = extractSection(content, 'Gadget')
+    const gadgetDescMatch = gadgetSection.match(/\*\*Gadget:\*\*\s*([^\n]+)/)
+    const gadgetDescription = gadgetDescMatch
+      ? gadgetDescMatch[1].replace(/\*\*/g, '').trim()
+      : gadgetSection.split('\n').find(l => l.trim().length > 30 && !l.startsWith('#') && !l.startsWith('>')) || ''
+
+    // Key mechanics bullets
+    const mechanicsSection = extractSection(content, 'Key Mechanics')
+    const mechanics = mechanicsSection
+      .split('\n')
+      .filter(l => /^\s*[-*•]\s/.test(l))
+      .map(l => l.replace(/^\s*[-*•]\s+/, '').replace(/\*\*/g, '').trim())
+      .filter(Boolean)
+      .slice(0, 8)
+
+    // Usage tips bullets
+    const tipsSection = extractSection(content, 'Usage Tips')
+    const tips = tipsSection
+      .split('\n')
+      .filter(l => /^\s*[-*•]\s/.test(l))
+      .map(l => l.replace(/^\s*[-*•]\s+/, '').replace(/\*\*/g, '').trim())
+      .filter(Boolean)
+      .slice(0, 6)
+
+    // Loadout
+    const loadoutSection = extractSection(content, 'Loadout')
+    const primaries = parseMarkdownTable(extractSection(content, 'Primaries'))
+      .map(r => ({ weapon: r['Weapon'] || '', type: r['Type'] || '', notes: r['Notes'] || '' }))
+      .filter(r => r.weapon)
+    const secondaries = parseMarkdownTable(extractSection(content, 'Secondaries'))
+      .map(r => ({ weapon: r['Weapon'] || '', type: r['Type'] || '', notes: r['Notes'] || '' }))
+      .filter(r => r.weapon)
+
+    // Secondary gadgets list (bullets after "### Secondary Gadgets")
+    const loadoutLines = loadoutSection.split('\n')
+    const gadgetHeaderIdx = loadoutLines.findIndex(l => /^###\s+Secondary Gadgets/i.test(l))
+    const secondaryGadgets = gadgetHeaderIdx >= 0
+      ? loadoutLines.slice(gadgetHeaderIdx + 1)
+          .filter(l => /^\s*[-*•]\s/.test(l))
+          .map(l => l.replace(/^\s*[-*•]\s+/, '').trim())
+          .filter(Boolean)
+      : []
+
+    // Coaching recommendation table + rationale
+    const coachRecSection = extractSection(content, 'Coaching Recommendation')
+    const coachRecRows = parseMarkdownTable(coachRecSection)
+    const coachingRec = {}
+    for (const row of coachRecRows) {
+      const field = (row['Field'] || '').trim().toLowerCase()
+      const config = (row['Config'] || '').trim()
+      if (field && config) coachingRec[field] = config
+    }
+    const rationaleMatch = coachRecSection.match(/\*\*Rationale:\*\*\s*([^\n]+)/)
+    if (rationaleMatch) coachingRec.rationale = rationaleMatch[1].trim()
+
+    // Playstyle text (first paragraph, stripped)
+    const playstyleRaw = extractSection(content, 'Playstyle')
+    const playstyleText = playstyleRaw
+      .split('\n')
+      .filter(l => l.trim() && !l.startsWith('#'))
+      .join(' ')
+      .replace(/\*\*/g, '')
+      .trim()
+      .substring(0, 500)
+
+    // Strengths / Weaknesses bullets
+    function sectionBullets(heading, limit = 7) {
+      return extractSection(content, heading)
+        .split('\n')
+        .filter(l => /^\s*[-*•]\s/.test(l))
+        .map(l => l.replace(/^\s*[-*•]\s+/, '').replace(/\*\*/g, '').trim())
+        .filter(Boolean)
+        .slice(0, limit)
+    }
+    const strengths  = sectionBullets('Strengths')
+    const weaknesses = sectionBullets('Weaknesses')
+
+    // Stack Coaching Notes (plain text, stripped internal KB language)
+    const stackNotesRaw = extractSection(content, 'Stack Coaching Notes')
+    const stackNotes = stackNotesRaw
+      .split('\n')
+      .filter(l => l.trim() && !l.startsWith('#') && !l.startsWith('*Confidence'))
+      .join(' ')
+      .replace(/\*\*/g, '')
+      .trim()
+      .substring(0, 600)
+
+    // Image URL — r6operators CDN (lowercase, no underscores/spaces)
+    const imageKey = name.toLowerCase().replace(/_/g, '')
+    const imageUrl = `https://r6operators.marcopixel.eu/icons/png/${imageKey}.png`
+
+    // Stats — collect from opStats, also check alias variants
+    const lookupNames = [name, ...(reverseAliases[name] || [])]
+    const stats = { y11s1: [], y10s4: [] }
+    for (const n of lookupNames) {
+      if (opStats[n]) {
+        for (const season of ['y11s1', 'y10s4']) {
+          if (opStats[n][season]?.length) stats[season] = opStats[n][season]
+        }
+        break
+      }
+    }
+
+    return {
+      name,
+      side,
+      category: categoryLookup[name] || 'Unknown',
+      imageUrl,
+      profile,
+      gadget: { name: gadgetName, description: gadgetDescription, mechanics, tips },
+      loadout: { primaries, secondaries, secondaryGadgets, coachingRec },
+      playstyle: playstyleText,
+      strengths,
+      weaknesses,
+      stackNotes,
+      stats,
+    }
+  }
+
+  function loadSide(side) {
+    const dir = path.join(KB, 'OPERATORS', side)
+    if (!fs.existsSync(dir)) return []
+    return fs.readdirSync(dir)
+      .filter(f => f.endsWith('.md'))
+      .map(f => parseOperatorFile(path.join(dir, f), side))
+      .filter(Boolean)
+  }
+
+  // Sort by category order from rolesConfig, then alphabetically within category
+  function sortOps(ops, sideConfig) {
+    const catOrder = Object.keys(sideConfig)
+    return ops.sort((a, b) => {
+      const ai = catOrder.indexOf(a.category)
+      const bi = catOrder.indexOf(b.category)
+      const aIdx = ai === -1 ? 99 : ai
+      const bIdx = bi === -1 ? 99 : bi
+      if (aIdx !== bIdx) return aIdx - bIdx
+      return a.name.localeCompare(b.name)
+    })
+  }
+
+  const atk = sortOps(loadSide('ATK'), rolesConfig.ATK || {})
+  const def = sortOps(loadSide('DEF'), rolesConfig.DEF || {})
+
+  return {
+    atk,
+    def,
+    atkCategories: Object.keys(rolesConfig.ATK || {}),
+    defCategories: Object.keys(rolesConfig.DEF || {}),
+  }
+}
+
 // ─── Session Handoff ─────────────────────────────────────────────────────────
 
 function buildHandoffData() {
@@ -515,10 +744,14 @@ console.log(`  ✅ Stack/team data parsed`)
 const handoff = buildHandoffData()
 console.log(`  ✅ Session handoff parsed`)
 
+const operators = buildOperatorsData(players)
+console.log(`  ✅ Operators: ${operators.atk.length} ATK, ${operators.def.length} DEF`)
+
 fs.writeFileSync(path.join(OUT, 'players.json'), JSON.stringify(players, null, 2))
 fs.writeFileSync(path.join(OUT, 'maps.json'), JSON.stringify(maps, null, 2))
 fs.writeFileSync(path.join(OUT, 'stack.json'), JSON.stringify(stack, null, 2))
 fs.writeFileSync(path.join(OUT, 'handoff.json'), JSON.stringify(handoff, null, 2))
+fs.writeFileSync(path.join(OUT, 'operators.json'), JSON.stringify(operators, null, 2))
 
 // Write a metadata file with last parse timestamp
 fs.writeFileSync(path.join(OUT, 'meta.json'), JSON.stringify({
@@ -526,6 +759,7 @@ fs.writeFileSync(path.join(OUT, 'meta.json'), JSON.stringify({
   playerCount: players.mainStack.length + players.bTeam.length,
   mapCount: maps.length,
   stratCount: maps.reduce((a, m) => a + m.strats.length, 0),
+  operatorCount: operators.atk.length + operators.def.length,
 }, null, 2))
 
 console.log(`\n✅ Done — data written to src/data/`)
