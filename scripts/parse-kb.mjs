@@ -26,7 +26,7 @@ function parseMarkdownTable(text) {
   if (tableLines.length < 2) return []
   const headers = tableLines[0].split('|').map(h => h.trim()).filter(Boolean)
   return tableLines.slice(1).map(row => {
-    const cells = row.split('|').map(c => c.trim()).filter(Boolean)
+    const cells = row.split('|').map(c => c.replace(/<br\s*\/?>/gi, ' · ').trim()).filter(Boolean)
     const obj = {}
     headers.forEach((h, i) => { obj[h] = cells[i] || '' })
     return obj

@@ -160,11 +160,11 @@
           "Stun Grenade ×3"
         ],
         "coachingRec": {
-          "primary": "Option A: Type 89<br/>Option B: New DMR",
-          "muzzle": "Option A: Comp (large horizontal spread in recoil pattern)<br/>Option B: MB",
-          "grip": "Option A: VG<br/>Option B: HG",
-          "scope": "Option A: Magnified B<br/>Option B: Magnified B",
-          "laser": "Option A: ✓ (aggressive 3-speed)<br/>Option B: ✓ (3-speed, may play very aggressive)",
+          "primary": "Option A: Type 89 · Option B: New DMR",
+          "muzzle": "Option A: Comp (large horizontal spread in recoil pattern) · Option B: MB",
+          "grip": "Option A: VG · Option B: HG",
+          "scope": "Option A: Magnified B · Option B: Magnified B",
+          "laser": "Option A: ✓ (aggressive 3-speed) · Option B: ✓ (3-speed, may play very aggressive)",
           "secondary": "Full-auto option preferred (FH + Laser)—no reason to run pistol over full-auto",
           "secondary gadget": "Stun grenades (aggressive play)",
           "rationale": "Comp on Type 89 because there is a large side-to-side spread visible in recoil pattern. DMR follows standard but laser is justified here because 3-speed Hibana often plays aggressively requiring quick ADS."
@@ -298,11 +298,11 @@
           "Stun Grenade ×2"
         ],
         "coachingRec": {
-          "primary": "Option A: AR-15.50 (DMR, preferred)<br/>Option B: M4 (if 10-round mag is a concern)",
-          "muzzle": "Option A: MB<br/>Option B: FH",
-          "grip": "Option A: HG<br/>Option B: VG",
-          "scope": "Option A: Magnified B<br/>Option B: Magnified B",
-          "laser": "Option A: ✓ (3-speed, aggressive)<br/>Option B: ✓",
+          "primary": "Option A: AR-15.50 (DMR, preferred) · Option B: M4 (if 10-round mag is a concern)",
+          "muzzle": "Option A: MB · Option B: FH",
+          "grip": "Option A: HG · Option B: VG",
+          "scope": "Option A: Magnified B · Option B: Magnified B",
+          "laser": "Option A: ✓ (3-speed, aggressive) · Option B: ✓",
           "secondary": "Full-auto pistol (always when available)",
           "secondary gadget": "Frag grenades (play back, flush angles from distance) or Flashbangs (aggressive 3-speed push)",
           "rationale": "AR-15.50 DMR is favorite in game—only downside is 10-round mag. Laser on both because Maverick is a 3-speed who often uses gadget and immediately fights. Gadget choice scales with aggression."
@@ -589,11 +589,11 @@
           "Claymore ×1"
         ],
         "coachingRec": {
-          "primary": "Option A: C8 (aggressive)<br/>Option B: CAMRS (DMR)",
-          "muzzle": "Option A: FH<br/>Option B: MB",
-          "grip": "Option A: VG<br/>Option B: —",
-          "scope": "Option A: Holo (aggressive close-range) or ACOG (methodical)<br/>Option B: ACOG",
-          "laser": "Option A: ✓<br/>Option B: ✗",
+          "primary": "Option A: C8 (aggressive) · Option B: CAMRS (DMR)",
+          "muzzle": "Option A: FH · Option B: MB",
+          "grip": "Option A: VG · Option B: —",
+          "scope": "Option A: Holo (aggressive close-range) or ACOG (methodical) · Option B: ACOG",
+          "laser": "Option A: ✓ · Option B: ✗",
           "secondary": "Mk1 9mm (MB + Laser)",
           "secondary gadget": "Flashbang (aggressive) or Claymores (passive/DMR build)",
           "rationale": "C8 pairs with aggressive up-close shotgun-through-walls playstyle; use Holo if playing CQB, ACOG if methodical. CAMRS is simply a broken DMR. Gadget choice follows pace of play—flash for aggressive, clay for passive."
@@ -726,11 +726,11 @@
           "Claymore ×2"
         ],
         "coachingRec": {
-          "primary": "Option A: SR25 (DMR, preferred)<br/>Option B: AR33 (console alternative)",
-          "muzzle": "Option A: MB<br/>Option B: FH",
-          "grip": "Option A: HG<br/>Option B: VG",
-          "scope": "Option A: ACOG<br/>Option B: ACOG",
-          "laser": "Option A: ✗<br/>Option B: ✗",
+          "primary": "Option A: SR25 (DMR, preferred) · Option B: AR33 (console alternative)",
+          "muzzle": "Option A: MB · Option B: FH",
+          "grip": "Option A: HG · Option B: VG",
+          "scope": "Option A: ACOG · Option B: ACOG",
+          "laser": "Option A: ✗ · Option B: ✗",
           "secondary": "GSH-18 (MB + Laser)",
           "secondary gadget": "Flashbangs",
           "rationale": "SR25 DMR is preferred on PC. AR33 for console where DMRs are harder to use. No laser on either—Flores plays back with drones, not gadget-stow-and-peek."
@@ -1176,11 +1176,11 @@
           "Frag Grenade ×3"
         ],
         "coachingRec": {
-          "primary": "Option A: CAMRS (DMR, preferred)<br/>Option B: AK-74M (console option)",
-          "muzzle": "Option A: MB<br/>Option B: FH",
-          "grip": "Option A: HG<br/>Option B: VG",
-          "scope": "Option A: ACOG<br/>Option B: ACOG",
-          "laser": "Option A: ✓<br/>Option B: ✓",
+          "primary": "Option A: CAMRS (DMR, preferred) · Option B: AK-74M (console option)",
+          "muzzle": "Option A: MB · Option B: FH",
+          "grip": "Option A: HG · Option B: VG",
+          "scope": "Option A: ACOG · Option B: ACOG",
+          "laser": "Option A: ✓ · Option B: ✓",
           "secondary": "Shotgun (always over pistol)",
           "secondary gadget": "Claymores (stop runouts while on drones) or Smoke grenades (if smart about drone timing)",
           "rationale": "CAMRS DMR preferred on PC. AK-74M for console. Laser on both—Brava spends time on drones and needs fast ADS when switching back. Claymores stop enemies from running out on you while you're droning."
@@ -1406,11 +1406,11 @@
           "Breach Charge ×3"
         ],
         "coachingRec": {
-          "primary": "Option A: L85A2<br/>Option B: PMR (DMR)",
-          "muzzle": "Option A: Comp<br/>Option B: MB",
-          "grip": "Option A: VG<br/>Option B: HG",
-          "scope": "Option A: Magnified B<br/>Option B: Magnified B",
-          "laser": "Option A: ✓<br/>Option B: ✗",
+          "primary": "Option A: L85A2 · Option B: PMR (DMR)",
+          "muzzle": "Option A: Comp · Option B: MB",
+          "grip": "Option A: VG · Option B: HG",
+          "scope": "Option A: Magnified B · Option B: Magnified B",
+          "laser": "Option A: ✓ · Option B: ✗",
           "secondary": "Pistol (MB + Laser for fast ADS on hot-swap)",
           "secondary gadget": "Claymores",
           "rationale": "L85 has surprising horizontal spread so Comp is used over FH. PMR follows DMR standard with MB + HG and no laser for angle-holding. Claymores protect flanks while breaching."
@@ -1537,11 +1537,11 @@
         "secondaries": [],
         "secondaryGadgets": [],
         "coachingRec": {
-          "primary": "Option A: 417 (DMR, PC preferred)<br/>Option B: F2 (console)",
-          "muzzle": "Option A: MB<br/>Option B: FH",
-          "grip": "Option A: HG<br/>Option B: —",
-          "scope": "Option A: Magnified B<br/>Option B: ACOG",
-          "laser": "Option A: ✗<br/>Option B: ✓",
+          "primary": "Option A: 417 (DMR, PC preferred) · Option B: F2 (console)",
+          "muzzle": "Option A: MB · Option B: FH",
+          "grip": "Option A: HG · Option B: —",
+          "scope": "Option A: Magnified B · Option B: ACOG",
+          "laser": "Option A: ✗ · Option B: ✓",
           "secondary": "P9 (Muzzle + Laser—no revolver, insufficient shots and too much recoil)",
           "secondary gadget": "Claymores",
           "rationale": "417 DMR is objectively better on PC with 69 damage/shot, killing in 2 chest shots with near-zero recoil. F2 only recommended on console. Never revolver—always P9."
@@ -1633,11 +1633,11 @@
         "secondaries": [],
         "secondaryGadgets": [],
         "coachingRec": {
-          "primary": "Option A: SC3000K (better gun)<br/>Option B: MP7",
-          "muzzle": "Option A: FH<br/>Option B: FH",
-          "grip": "Option A: VG<br/>Option B: —",
-          "scope": "Option A: ACOG<br/>Option B: ACOG",
-          "laser": "Option A: ✓ (constantly getting off cameras and re-ADSing)<br/>Option B: ✓",
+          "primary": "Option A: SC3000K (better gun) · Option B: MP7",
+          "muzzle": "Option A: FH · Option B: FH",
+          "grip": "Option A: VG · Option B: —",
+          "scope": "Option A: ACOG · Option B: ACOG",
+          "laser": "Option A: ✓ (constantly getting off cameras and re-ADSing) · Option B: ✓",
           "secondary": "Gonne-6 (always)",
           "secondary gadget": "Claymores (or hard breach if team needs it)",
           "rationale": "Both guns work but SC3000K is objectively better. Laser on both because Zero constantly stows cameras and needs to immediately ADS to fight. Gonne-6 always for camera destruction/utility."
@@ -2109,11 +2109,11 @@
           "Claymore ×2"
         ],
         "coachingRec": {
-          "primary": "Option A: G8A1 (preferred)<br/>Option B: Commando",
-          "muzzle": "Option A: Comp (horizontal recoil)<br/>Option B: FH (all vertical recoil)",
-          "grip": "Option A: VG<br/>Option B: VG",
-          "scope": "Option A: ACOG<br/>Option B: ACOG",
-          "laser": "Option A: ✓ (high ADS time on this gun)<br/>Option B: ✓",
+          "primary": "Option A: G8A1 (preferred) · Option B: Commando",
+          "muzzle": "Option A: Comp (horizontal recoil) · Option B: FH (all vertical recoil)",
+          "grip": "Option A: VG · Option B: VG",
+          "scope": "Option A: ACOG · Option B: ACOG",
+          "laser": "Option A: ✓ (high ADS time on this gun) · Option B: ✓",
           "secondary": "P12 (MB + Laser)",
           "secondary gadget": "Frag grenades",
           "rationale": "G8A1 for higher DPS and larger magazine; Comp because it has notable horizontal recoil. Laser on both because ADS time is relatively high. Never run AUG—awful gun."
@@ -2456,10 +2456,10 @@
           "Stun Grenade ×3"
         ],
         "coachingRec": {
-          "primary": "Option A: G8A1 + Secondary Shotgun<br/>Option B: Supernova + SMG11",
-          "muzzle": "Option A: Suppressor<br/>Option B: Suppressor (Supernova)",
-          "grip": "Option A: VG<br/>Option B: VG (SMG11)",
-          "scope": "Option A: Holo<br/>Option B: Holo (SMG11)",
+          "primary": "Option A: G8A1 + Secondary Shotgun · Option B: Supernova + SMG11",
+          "muzzle": "Option A: Suppressor · Option B: Suppressor (Supernova)",
+          "grip": "Option A: VG · Option B: VG (SMG11)",
+          "scope": "Option A: Holo · Option B: Holo (SMG11)",
           "laser": "Option A: ✓ (G8A1) \\",
           "secondary": "Varies by config—secondary shotgun or SMG11 with attachments as listed",
           "secondary gadget": "Stun grenades (no reason for hard breach—you're entering site through windows anyway)",
@@ -2995,11 +2995,11 @@
           "Stun Grenade ×3"
         ],
         "coachingRec": {
-          "primary": "Option A: LMG (preferred)<br/>Option B: CAMRS (DMR)",
-          "muzzle": "Option A: Comp<br/>Option B: MB",
-          "grip": "Option A: VG<br/>Option B: HG",
-          "scope": "Option A: — (1x)<br/>Option B: Magnified B",
-          "laser": "Option A: ✓ (smoke usually between you and enemy; they run through, you ADS fast)<br/>Option B: ✓ (3-speed can play aggressive)",
+          "primary": "Option A: LMG (preferred) · Option B: CAMRS (DMR)",
+          "muzzle": "Option A: Comp · Option B: MB",
+          "grip": "Option A: VG · Option B: HG",
+          "scope": "Option A: — (1x) · Option B: Magnified B",
+          "laser": "Option A: ✓ (smoke usually between you and enemy; they run through, you ADS fast) · Option B: ✓ (3-speed can play aggressive)",
           "secondary": "GAN-6 secondary",
           "secondary gadget": "Impact EMPs",
           "rationale": "LMG preferred despite slower movement—no reason to give up extra downside for Para-308. Comp on LMG. DMR also viable for more aggressive 3-speed play. Laser on both since you're often ADS at smoke or adjusting after throws."
@@ -3126,11 +3126,11 @@
           "Frag Grenade ×3"
         ],
         "coachingRec": {
-          "primary": "Option A: AK-74M (preferred)<br/>Option B: Shotgun",
+          "primary": "Option A: AK-74M (preferred) · Option B: Shotgun",
           "muzzle": "Standard (AK-74M: FH)",
-          "grip": "Option A: HG or VG (either fine—gun doesn't have a lot of recoil)<br/>Option B: (Shotgun)",
-          "scope": "Option A: Magnified B<br/>Option B: Iron sights",
-          "laser": "Option A: ✓ (very aggressive roam-hunting playstyle)<br/>Option B: ✓",
+          "grip": "Option A: HG or VG (either fine—gun doesn't have a lot of recoil) · Option B: (Shotgun)",
+          "scope": "Option A: Magnified B · Option B: Iron sights",
+          "laser": "Option A: ✓ (very aggressive roam-hunting playstyle) · Option B: ✓",
           "secondary": "Revolver (Laser only)",
           "secondary gadget": "Frag grenades",
           "rationale": "Can actually run shotgun because the secondary pistol (revolver) is broken/very strong. AK-74M has low recoil so either HG or VG works—HG preferred because Deimos plays extremely aggressively chasing roamers and HG aids lateral control."
@@ -3238,11 +3238,11 @@
           "Impact EMP Grenade ×2"
         ],
         "coachingRec": {
-          "primary": "Option A: PMR (preferred, can use suppressor)<br/>Option B: FMG9",
-          "muzzle": "Option A: MB (for recoil control without suppressor) or Suppressor (for stealth at range)<br/>Option B: FH",
-          "grip": "Option A: VG<br/>Option B: —",
-          "scope": "Option A: Holo<br/>Option B: Holo",
-          "laser": "Option A: ✗ (stealth—laser reveals position)<br/>Option B: ✗ (stealth)",
+          "primary": "Option A: PMR (preferred, can use suppressor) · Option B: FMG9",
+          "muzzle": "Option A: MB (for recoil control without suppressor) or Suppressor (for stealth at range) · Option B: FH",
+          "grip": "Option A: VG · Option B: —",
+          "scope": "Option A: Holo · Option B: Holo",
+          "laser": "Option A: ✗ (stealth—laser reveals position) · Option B: ✗ (stealth)",
           "secondary": "57 ISH (Suppressor + Laser—one of the few cases where suppressor on secondary is specifically recommended; hides kill direction)",
           "secondary gadget": "Frag grenades",
           "rationale": "PMR is now very viable—especially with suppressor. No laser on either primary—stealth operator, laser reveals your position. 57 with suppressor specifically to hide directional audio on kills, matching Nokk's stealth identity."
@@ -3666,7 +3666,7 @@
           "grip": "HG (single-shot DMR—VG provides little benefit)",
           "scope": "Reflex B (personal preference reticle—thermal scope always active)",
           "laser": "✗ (holding angles)",
-          "secondary": "Option A: Bearing 9 (Holo + FH + Laser—for close CQB through smoke)<br/>Option B: Gonne-6 (for utility clearing and destroying bulletproof/Maestro cameras from range)",
+          "secondary": "Option A: Bearing 9 (Holo + FH + Laser—for close CQB through smoke) · Option B: Gonne-6 (for utility clearing and destroying bulletproof/Maestro cameras from range)",
           "secondary gadget": "Smoke grenades (always—required for Glaz's thermal-through-smoke utility)",
           "rationale": "Thermal scope is always active so scope slot only affects reticle shape. MB for faster follow-up shots. HG because it's a single-shot weapon. Bearing 9 for close CQB runs through smoke; Gonne-6 if clearing utility is the priority."
         }
@@ -4019,7 +4019,7 @@
           "Stun Grenade ×3"
         ],
         "coachingRec": {
-          "primary": "Option A: AK-74M (aggressive, multi-enemy)<br/>Option B: ARX200 (methodical, higher DPS)",
+          "primary": "Option A: AK-74M (aggressive, multi-enemy) · Option B: ARX200 (methodical, higher DPS)",
           "muzzle": "Standard recoil attachment (FH for high-recoil AR)",
           "grip": "VG for high-recoil AR",
           "scope": "Standard sight option for each weapon",
@@ -4170,11 +4170,11 @@
           "Impact EMP Grenade ×2"
         ],
         "coachingRec": {
-          "primary": "Option A: PDW9 (preferred)<br/>Option B: 5.56xi (same setup)",
-          "muzzle": "Option A: FH<br/>Option B: FH",
-          "grip": "Option A: VG<br/>Option B: VG",
-          "scope": "Option A: ACOG<br/>Option B: ACOG",
-          "laser": "Option A: ✓<br/>Option B: ✓",
+          "primary": "Option A: PDW9 (preferred) · Option B: 5.56xi (same setup)",
+          "muzzle": "Option A: FH · Option B: FH",
+          "grip": "Option A: VG · Option B: VG",
+          "scope": "Option A: ACOG · Option B: ACOG",
+          "laser": "Option A: ✓ · Option B: ✓",
           "secondary": "PMM (only option—MB + Laser, despite being a poor pistol)",
           "secondary gadget": "Frag grenades or Impact EMPs",
           "rationale": "Both primaries use identical setup—PDW9 is preferred but 5.56xi is equivalent. PMM is terrible but it's the only secondary so run standard pistol config."
@@ -4285,11 +4285,11 @@
           "Frag Grenade ×2"
         ],
         "coachingRec": {
-          "primary": "Option A: 417 (PC preferred)<br/>Option B: POF-9",
-          "muzzle": "Option A: MB<br/>Option B: Comp (recoil gets iffy at end of spray)",
-          "grip": "Option A: HG<br/>Option B: VG",
-          "scope": "Option A: ACOG<br/>Option B: ACOG",
-          "laser": "Option A: ✓ (ADS at wall of smoke—can play aggressive too)<br/>Option B: ✓",
+          "primary": "Option A: 417 (PC preferred) · Option B: POF-9",
+          "muzzle": "Option A: MB · Option B: Comp (recoil gets iffy at end of spray)",
+          "grip": "Option A: HG · Option B: VG",
+          "scope": "Option A: ACOG · Option B: ACOG",
+          "laser": "Option A: ✓ (ADS at wall of smoke—can play aggressive too) · Option B: ✓",
           "secondary": "Standard pistol config",
           "secondary gadget": "Frag grenades",
           "rationale": "417 DMR preferred on PC. POF-9 for console or personal preference. Laser on both since you're often ADS at your smoke wall—laser helps when something runs through unexpectedly."
@@ -4449,11 +4449,11 @@
           "Claymore ×2"
         ],
         "coachingRec": {
-          "primary": "Option A: M4 + Magnified/ACOG scope<br/>Option B: SR25 (DMR)",
-          "muzzle": "Option A: FH<br/>Option B: MB",
-          "grip": "Option A: VG<br/>Option B: HG",
-          "scope": "Option A: Magnified/ACOG<br/>Option B: Magnified",
-          "laser": "Option A: ✓<br/>Option B: ✗",
+          "primary": "Option A: M4 + Magnified/ACOG scope · Option B: SR25 (DMR)",
+          "muzzle": "Option A: FH · Option B: MB",
+          "grip": "Option A: VG · Option B: HG",
+          "scope": "Option A: Magnified/ACOG · Option B: Magnified",
+          "laser": "Option A: ✓ · Option B: ✗",
           "secondary": "Secondary Shotgun (always over pistol)",
           "secondary gadget": "Flexible—flashbangs + frags, frags + claymores, or hard breach + frags",
           "rationale": "M4 with magnified scope for consistent crosshair advantage at all ranges; FH for vertical recoil control. SR25 DMR follows full DMR standard with MB + HG and no laser since DMRs involve holding angles. Always secondary shotgun over pistol when available."
@@ -6346,11 +6346,11 @@
           "**Any 2 from:** Impact Grenade, Deployable Shield, Barbed Wire, Bulletproof Camera, Nitro Cell, Proximity Alarm, Observation Blocker"
         ],
         "coachingRec": {
-          "primary": "Option A: Commando 9 (aggressive/roaming)<br/>Option B: TCSG12 (passive/anchor)",
-          "muzzle": "Option A: Comp<br/>Option B: Suppressor",
-          "grip": "Option A: HG<br/>Option B: VG",
-          "scope": "Option A: 1x<br/>Option B: Magnified",
-          "laser": "Option A: ✓<br/>Option B: ✗",
+          "primary": "Option A: Commando 9 (aggressive/roaming) · Option B: TCSG12 (passive/anchor)",
+          "muzzle": "Option A: Comp · Option B: Suppressor",
+          "grip": "Option A: HG · Option B: VG",
+          "scope": "Option A: 1x · Option B: Magnified",
+          "laser": "Option A: ✓ · Option B: ✗",
           "secondary": "Super Shorty (iron sights + Laser—always secondary shotgun)",
           "secondary gadget": "C4 always, then barb wire / proxy alarms / deployable shield / BP camera based on team needs",
           "rationale": "Commando 9 for aggressive ROR-style play (Comp + HG for horizontal recoil). TCSG12 for passive suppressor-sniper play from distance. Always C4 first gadget slot."
