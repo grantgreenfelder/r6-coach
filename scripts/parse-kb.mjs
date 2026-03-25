@@ -536,12 +536,29 @@ function buildOperatorsData(playersData) {
     opStats[canon][season].push({ player: playerName, rounds: entry.rounds, winRate: entry.winRate, kd: entry.kd })
   }
 
+  // Map a season name string (e.g. 'Y11S1') to the stats bucket key
+  function seasonKey(name) {
+    if (!name) return null
+    const n = name.toUpperCase()
+    if (n === 'Y11S1') return 'y11s1'
+    if (n === 'Y10S4') return 'y10s4'
+    return null
+  }
+
   const allPlayers = [...playersData.mainStack, ...playersData.bTeam, ...playersData.other]
   for (const p of allPlayers) {
-    for (const entry of (p.operators?.atk || []))         addStat(entry.name, 'y11s1', p.name, entry)
-    for (const entry of (p.operators?.def || []))         addStat(entry.name, 'y11s1', p.name, entry)
-    for (const entry of (p.prevSeasonOperators?.atk || [])) addStat(entry.name, 'y10s4', p.name, entry)
-    for (const entry of (p.prevSeasonOperators?.def || [])) addStat(entry.name, 'y10s4', p.name, entry)
+    // Use p.season to determine the correct bucket — avoids bucketing a player's
+    // Y10S4 data as Y11S1 when their latest file is Y10S4 (e.g. D-Man)
+    const curKey  = seasonKey(p.season)
+    const prevKey = seasonKey(p.prevSeason)
+    if (curKey) {
+      for (const entry of (p.operators?.atk || []))  addStat(entry.name, curKey, p.name, entry)
+      for (const entry of (p.operators?.def || []))  addStat(entry.name, curKey, p.name, entry)
+    }
+    if (prevKey) {
+      for (const entry of (p.prevSeasonOperators?.atk || [])) addStat(entry.name, prevKey, p.name, entry)
+      for (const entry of (p.prevSeasonOperators?.def || [])) addStat(entry.name, prevKey, p.name, entry)
+    }
   }
 
   // ── Parse a single operator .md file ──────────────────────────────────────
