@@ -6,16 +6,16 @@
       "team": "Main",
       "role": "Primary IGL. Solo pusher. Flex operator. Backside/rotational disruption during executes.",
       "bio": "Best gun in the stack. Calm under pressure. Strong map knowledge and experience. Quick to adapt. Natural leader — the voice everyone listens to. Excels in solo positions and controlling his own situation.",
-      "atkOps": "Thatcher / Lion",
+      "atkOps": "Thatcher / Sledge",
       "defOps": "Mute / Kapkan",
       "season": "Y11S1",
       "stats": {
-        "rank": "Emerald III",
-        "rp": "3728",
-        "kd": "1.19",
-        "winRate": "45.5%",
-        "matches": "99",
-        "ris": "56.4"
+        "rank": "Emerald IV",
+        "rp": "3642",
+        "kd": "1.18",
+        "winRate": "43.1%",
+        "matches": "109",
+        "ris": "54.7"
       },
       "coachingPriorities": [
         "Protect your best maps in ban phase",
@@ -24,15 +24,22 @@
       ],
       "profileContent": "# Grant — Player Profile\n\n**Callsign:** Grant | **Tracker:** Eh_Grant | **Role:** IGL / Flex | **Email:** grantgreenfelder@gmail.com\n\n---\n\n## Identity\n\n**Strengths:** Best gun in the stack. Calm under pressure. Strong map knowledge and experience. Quick to adapt. Natural leader — the voice everyone listens to. Excels in solo positions and controlling his own situation.\n\n**Tendencies:** Plays best when in full control of his own actions. Doesn't need frag assistance. Comfortable in isolated, high-pressure moments. Highest clutch win% on the team — composure is a consistent trait, not a season fluke.\n\n**Role fit:** Primary IGL. Solo pusher. Flex operator. Backside/rotational disruption during executes.\n\n**Solo vs. Group:** #1 priority for solo roles in any formation.\n\n---\n\n## Career Coaching Notes\n\n- **Best player on the team** by K/D and clutch metrics across tracked seasons. No structural weaknesses.\n- **Chalet** is a recurring team-wide problem — not Grant-specific. Don't assign individual blame.\n- Low HS% relative to teammates (mid-30s%) is consistent with his calm, cerebral aim style — not a weakness to correct.\n- IGL role is appropriate and earns the stack its best outcomes. Don't pull him into rigid formed roles that limit his reads.\n\n---\n\n## Season Files\n\n| Season | File | Status |\n|--------|------|--------|\n| Y10S4 | [Y10S4.md](Y10S4.md) | ✅ Archived — Y10S4 ended 2026-03 |\n| Y11S1 | [Y11S1.md](Y11S1.md) | 🔲 Active — opening snapshot pulled 2026-03-06 |\n| All-Time | [ALL_TIME.md](ALL_TIME.md) | ✅ Core stats verified 2026-03-01 |\n",
       "coachingContent": "# Grant — Y11S1 Coaching Brief\n\n_Season: Year 11 Season 1 — Operation Silent Hunt | Updated: 2026-03-07_\n\n---\n\n## Your Role\n\nYou're the IGL and the best gun on the team. Your job is to make the calls, win the solo duels, and get into positions nobody else can handle on their own. The team plays around you — your reads are the plan, your clutches are the safety net. Don't overcomplicate it.\n\n---\n\n## What's Working\n\n**Operators — DEF**\nYour Kapkan/Thorn trap anchor formula was elite in Y10S4 — Kapkan at 95r / 62.1% WR / 1.75 K/D, Thorn close behind at 90r / 65.6% WR / 1.65 K/D. That's locked in. Don't change it.\n\n**Operators — ATK**\nYour Amaru identity is real (78r / 52.6% / 1.38 K/D in Y10S4) and got a free buff in Y11S1 — you now have 5 Garra Hook charges instead of 4. Lion and Capitão are solid secondary picks.\n\n**Maps**\nYour all-time strong maps are Villa (64.3%), Bank (58.1%), and Fortress/Oregon (both 54.5%). In Y10S4 specifically: Oregon was your best at 71.4% with a 1.96 K/D, and Lair was 75.0%. Both maps stay in the pool for the first half of Y11S1.\n\n---\n\n## Areas to Work On\n\n**Operators — ATK**\nYour Y11S1 opening data shows Lion leading at 20r with 40.0% WR and 0.69 K/D — that's a weak start. Thatcher and Capitão are outperforming in smaller samples. Watch whether to shift back toward Amaru-first as the season develops. Don't force Lion if the data keeps pointing down.\n\n**Operators — Utility**\nOsa posted 32.3% WR over 31 rounds in Y10S4. If Osa is creeping back into your pool this season, evaluate whether the team is actually capitalizing on the shield presence for plants. If not, drop it.\n\n**Maps — ATK side**\nKanal is out of the pool for the first half, which removes a pain point — but Nighthaven (27.3% all-time) and Chalet (31.8% all-time) are still in play. Nighthaven in particular is your worst career map. Have a plan for it.\n\n---\n\n## Y11S1 Priorities\n\n**1. Protect your best maps in ban phase.**\nOregon stays all first half (your 71.4% / 1.96 K/D map in Y10S4). Villa stays all first half too. These are your two most dominant maps right now — do not give them up in the ban phase if you can help it.\n\n**2. Amaru is still your identity.**\nFive charges is strictly better than four. There's no reason to abandon Amaru just because Lion feels like a \"team scan\" opener. If the Lion WR doesn't recover in the next 20 matches, go back to leading with Amaru.\n\n**3. Observation Blocker deploys in 1 second now.**\nKaid is in your all-time DEF top 5. Any op you play that carries the Observation Blocker — place it in prep phase every round. The cost is now negligible.\n\n---\n\n_Detailed operator tables, map splits, and full season archives are in your ALL_TIME.md, Y10S4.md, and Y11S1.md files._\n",
-      "seasonContent": "# Grant — Y11S1 (Operation Silent Hunt)\n\n_Season status: 🔲 Active — repull 2026-03-21 (99 ranked matches)_\n_Pull date: 2026-03-21 | Source: r6.tracker.network_\n\n---\n\n## Core Stats\n\n| Stat | Value |\n|------|-------|\n| Rank | Emerald III |\n| RP | 3,728 |\n| Matches | 99 |\n| Win Rate | 45.5% |\n| K/D | 1.19 |\n| KDA | 1.55 |\n| Kills | 521 |\n| Deaths | 438 |\n| HS% | 38.6% |\n| ESR | 0.54 |\n| RIS | 56.4 |\n| Clutches Won | 14 |\n| Clutch Win% | 20.3% |\n\n> 99M sample — moderate confidence. Stats are meaningful.\n\n---\n\n## Operators\n\n_Format: Operator — Rounds | Win% | K/D (sorted by rounds played, ranked only)_\n_Season filter: season=41_\n\n**Attack**\n1. Thatcher — 54r | 48.1% | 1.30\n2. Lion — 36r | 36.1% | 0.72 ⚠️\n3. Sledge — 35r | 40.0% | 1.03 ⚠️\n4. Hibana — 26r | 30.8% | 1.05 ⚠️\n5. Amaru — 22r | 40.9% | 1.25 ⚠️\n6. Gridlock — 17r | 23.5% | 1.38 ⚠️\n7. Thermite — 15r | 46.7% | 1.27\n8. Capitao — 14r | 35.7% | 1.45 ⚠️\n9. Flores — 12r | 25.0% | 0.73 ⚠️\n10. Dokkaebi — 11r | 54.5% | 0.88 ✅\n11. Twitch — 10r | 50.0% | 1.00\n12. Glaz — 8r | 87.5% | 1.50 ⭐\n\n**Defense**\n1. Mute — 114r | 54.4% | 1.32 ✅\n2. Kapkan — 45r | 53.3% | 1.70 ✅\n3. Thorn — 39r | 51.3% | 1.72\n4. Castle — 30r | 70.0% | 1.12 ⭐\n5. Bandit — 14r | 35.7% | 0.50 ⚠️\n6. Kaid — 13r | 46.2% | 0.88\n7. Maestro — 9r | 88.9% | 2.20 ⭐\n8. Warden — 7r | 57.1% | 0.75\n\n**ATK identity:** Thatcher is the primary ATK pick (54r / 48.1% / 1.30 K/D). Secondary: Lion (36r / 36.1%).\n**DEF identity:** Mute is the primary DEF anchor (114r / 54.4% / 1.32 K/D). Secondary: Kapkan (45r / 53.3%).\n\n---\n\n## Map Performance\n\n| Map | Matches | Win% | K/D | Atk% | Def% |\n|-----|---------|------|-----|------|------|\n| Border | 13 | 61.5% | 1.28 | 46.5% | 60.5% |\n| Oregon | 13 | 46.2% | 1.11 | 42.9% | 52.4% |\n| Coastline | 10 | 50.0% | 1.07 | 57.1% | 51.9% |\n| Villa | 9 | 33.3% | 1.54 | 33.3% | 51.9% |\n| Bank | 8 | 50.0% | 1.26 | 35.0% | 66.7% |\n| Chalet | 8 | 62.5% | 1.63 | 56.0% | 65.2% |\n| Nighthaven Labs | 8 | 37.5% | 0.73 | 42.9% | 50.0% |\n| Clubhouse | 7 | 71.4% | 1.36 | 50.0% | 62.5% |\n| Kafe Dostoyevsky | 6 | 50.0% | 1.36 | 40.9% | 56.5% |\n| Emerald Plains | 5 | 0.0% | 0.88 | 7.7% | 42.9% |\n| Fortress | 5 | 20.0% | 1.17 | 12.5% | 64.3% |\n| Lair | 5 | 20.0% | 0.78 | 23.1% | 42.9% |\n| Consulate | 3 | 33.3% | 1.43 | 36.4% | 50.0% |\n\n**Strong:** Clubhouse (71.4%), Chalet (62.5%), Border (61.5%)\n**Weak:** Emerald Plains (0% in 5M), Fortress (20%), Lair (20%), Nighthaven (37.5%)\n**Notable:** Villa — 33.3% WR despite 1.54 K/D (winning duels but losing rounds; ATK side only 33.3%)\n\n_Map data pulled 2026-03-21 (99M). Source: r6.tracker.network, season=41, ranked only._\n\n---\n\n## Season Coaching Notes\n\n- **⚠️ Gridlock ATK (17r / 23.5%)** — significant round volume on a very low-WR op. Reduce or eliminate.\n- **⚠️ Flores ATK (12r / 25.0%)** — significant round volume on a very low-WR op. Reduce or eliminate.\n- **⚠️ Emerald Plains (5M / 0%)** — consistent team-wide issue; no ATK side wins at all (7.7% ATK WR). Drop as a confidence map.\n- **⚠️ Nighthaven Labs (8M / 37.5% / 0.73 K/D)** — below baseline on both sides; not a safe veto.\n- **⭐ Clubhouse (7M / 71.4%)** — top map; strong on both sides. Confidence pick for stack play.\n- **Villa split:** High K/D (1.54) but 33.3% WR — Grant is fraggin but the ATK side (33.3% ATK WR) is the drag.\n\n---\n\n## Data Flags\n\n- 🔲 Active — 99 ranked matches as of 2026-03-21\n- ⭐ Glaz ATK (8r / 87.5%) — strong signal\n- ⭐ Castle DEF (30r / 70.0%) — strong signal\n- ⭐ Maestro DEF (9r / 88.9%) — strong signal\n- ✅ Map data pulled 2026-03-21 (99M, season=41)\n\n---\n\n## Y11S1 Opening Context\n\n### Map Pool — Y11S1 Launch\nBank, Border, Chalet, Clubhouse, Coastline, Consulate, Fortress, Kafe Dostoyevsky, Lair, Nighthaven Labs, Oregon, Villa, Emerald Plains\n\n**Mid-season swap:** Coastline, Villa, Oregon, Emerald Plains OUT → Skyscraper, Theme Park, Stadium Bravo, Favela IN\n\n### Balance Notes — Grant Specific\n_No major balance changes to primary operators this season. Review GAME_06_CURRENT_SEASON.md for full patch notes._\n",
+      "seasonContent": "# Grant — Y11S1 (Operation Silent Hunt)\n\n_Season status: 🔲 Active — repull 2026-03-27 (109 ranked matches)_\n_Pull date: 2026-03-27 | Source: r6.tracker.network_\n\n---\n\n## Core Stats\n\n| Stat | Value |\n|------|-------|\n| Rank | Emerald IV |\n| RP | 3,642 |\n| Matches | 109 |\n| Win Rate | 43.1% |\n| K/D | 1.18 |\n| KDA | 1.54 |\n| Kills | 575 |\n| Deaths | 486 |\n| HS% | 40.0% |\n| ESR | 0.54 |\n| RIS | 54.7 |\n| Clutches Won | 14 |\n| Clutch Win% | 17.9% |\n\n> 109M sample — moderate confidence. Stats are meaningful.\n\n---\n\n## Operators\n\n_Format: Operator — Rounds | Win% | K/D (sorted by rounds played, ranked only)_\n_Season filter: season=41_\n\n**Attack**\n1. Thatcher — 57r | 49.1% | 1.25\n2. Sledge — 41r | 39.0% | 1.00 ⚠️\n3. Lion — 36r | 36.1% | 0.72 ⚠️\n4. Hibana — 28r | 32.1% | 1.10 ⚠️\n5. Amaru — 24r | 45.8% | 1.38\n6. Gridlock — 19r | 21.1% | 1.27 ⚠️\n7. Thermite — 19r | 42.1% | 1.14\n8. Capitao — 14r | 35.7% | 1.45 ⚠️\n9. Flores — 14r | 28.6% | 1.08 ⚠️\n10. Dokkaebi — 11r | 54.5% | 0.88 ✅\n11. Glaz — 10r | 70.0% | 1.50 ⭐\n12. Twitch — 10r | 50.0% | 1.00\n13. Deimos — 9r | 33.3% | 0.57 ⚠️\n14. Solid Snake — 7r | 14.3% | 0.57\n15. Grim — 6r | 0.0% | 0.17\n16. Ace — 5r | 80.0% | 4.50\n17. Ram — 5r | 0.0% | 0.60\n\n**Defense**\n1. Mute — 129r | 55.0% | 1.28 ✅\n2. Kapkan — 47r | 53.2% | 1.74 ✅\n3. Thorn — 39r | 51.3% | 1.72\n4. Castle — 35r | 62.9% | 1.24 ⭐\n5. Bandit — 15r | 33.3% | 0.54 ⚠️\n6. Kaid — 14r | 50.0% | 0.88\n7. Maestro — 9r | 88.9% | 2.20 ⭐\n8. Warden — 7r | 57.1% | 0.75\n9. Smoke — 6r | 66.7% | 0.40\n\n**ATK identity:** Thatcher is the primary ATK pick (57r / 49.1% / 1.25 K/D). Secondary: Sledge (41r / 39.0%).\n**DEF identity:** Mute is the primary DEF anchor (129r / 55.0% / 1.28 K/D). Secondary: Kapkan (47r / 53.2%).\n\n---\n\n## Map Performance\n\n| Map | Matches | Win% | K/D | Atk% | Def% |\n|-----|---------|------|-----|------|------|\n| — | — | — | — | — | — |\n\n_Map data not yet pulled — add at 30+ match milestone._\n\n---\n\n## Season Coaching Notes\n\n- **⚠️ Gridlock ATK (19r / 21.1%)** — significant round volume on a very low-WR op. Reduce or eliminate.\n- **⚠️ Flores ATK (14r / 28.6%)** — significant round volume on a very low-WR op. Reduce or eliminate.\n- **Map data threshold reached** (109M ≥ 30) — pull map data next session.\n\n---\n\n## Data Flags\n\n- 🔲 Active — 109 ranked matches as of 2026-03-27\n- ⭐ Glaz ATK (10r / 70.0%) — strong signal\n- ⭐ Castle DEF (35r / 62.9%) — strong signal\n- ⭐ Maestro DEF (9r / 88.9%) — strong signal\n- 📍 Map data threshold reached — pull maps next session\n\n---\n\n## Y11S1 Opening Context\n\n### Map Pool — Y11S1 Launch\nBank, Border, Chalet, Clubhouse, Coastline, Consulate, Fortress, Kafe Dostoyevsky, Lair, Nighthaven Labs, Oregon, Villa, Emerald Plains\n\n**Mid-season swap:** Coastline, Villa, Oregon, Emerald Plains OUT → Skyscraper, Theme Park, Stadium Bravo, Favela IN\n\n### Balance Notes — Grant Specific\n_No major balance changes to primary operators this season. Review GAME_06_CURRENT_SEASON.md for full patch notes._\n",
       "operators": {
         "atk": [
           {
             "name": "Thatcher",
-            "rounds": 54,
-            "winRate": 48.1,
-            "kd": 1.3,
+            "rounds": 57,
+            "winRate": 49.1,
+            "kd": 1.25,
             "flag": ""
+          },
+          {
+            "name": "Sledge",
+            "rounds": 41,
+            "winRate": 39,
+            "kd": 1,
+            "flag": "⚠️"
           },
           {
             "name": "Lion",
@@ -42,38 +49,31 @@
             "flag": "⚠️"
           },
           {
-            "name": "Sledge",
-            "rounds": 35,
-            "winRate": 40,
-            "kd": 1.03,
-            "flag": "⚠️"
-          },
-          {
             "name": "Hibana",
-            "rounds": 26,
-            "winRate": 30.8,
-            "kd": 1.05,
+            "rounds": 28,
+            "winRate": 32.1,
+            "kd": 1.1,
             "flag": "⚠️"
           },
           {
             "name": "Amaru",
-            "rounds": 22,
-            "winRate": 40.9,
-            "kd": 1.25,
-            "flag": "⚠️"
+            "rounds": 24,
+            "winRate": 45.8,
+            "kd": 1.38,
+            "flag": ""
           },
           {
             "name": "Gridlock",
-            "rounds": 17,
-            "winRate": 23.5,
-            "kd": 1.38,
+            "rounds": 19,
+            "winRate": 21.1,
+            "kd": 1.27,
             "flag": "⚠️"
           },
           {
             "name": "Thermite",
-            "rounds": 15,
-            "winRate": 46.7,
-            "kd": 1.27,
+            "rounds": 19,
+            "winRate": 42.1,
+            "kd": 1.14,
             "flag": ""
           },
           {
@@ -85,9 +85,9 @@
           },
           {
             "name": "Flores",
-            "rounds": 12,
-            "winRate": 25,
-            "kd": 0.73,
+            "rounds": 14,
+            "winRate": 28.6,
+            "kd": 1.08,
             "flag": "⚠️"
           },
           {
@@ -98,6 +98,13 @@
             "flag": "✅"
           },
           {
+            "name": "Glaz",
+            "rounds": 10,
+            "winRate": 70,
+            "kd": 1.5,
+            "flag": "⭐"
+          },
+          {
             "name": "Twitch",
             "rounds": 10,
             "winRate": 50,
@@ -105,26 +112,54 @@
             "flag": ""
           },
           {
-            "name": "Glaz",
-            "rounds": 8,
-            "winRate": 87.5,
-            "kd": 1.5,
-            "flag": "⭐"
+            "name": "Deimos",
+            "rounds": 9,
+            "winRate": 33.3,
+            "kd": 0.57,
+            "flag": "⚠️"
+          },
+          {
+            "name": "Solid Snake",
+            "rounds": 7,
+            "winRate": 14.3,
+            "kd": 0.57,
+            "flag": ""
+          },
+          {
+            "name": "Grim",
+            "rounds": 6,
+            "winRate": 0,
+            "kd": 0.17,
+            "flag": ""
+          },
+          {
+            "name": "Ace",
+            "rounds": 5,
+            "winRate": 80,
+            "kd": 4.5,
+            "flag": ""
+          },
+          {
+            "name": "Ram",
+            "rounds": 5,
+            "winRate": 0,
+            "kd": 0.6,
+            "flag": ""
           }
         ],
         "def": [
           {
             "name": "Mute",
-            "rounds": 114,
-            "winRate": 54.4,
-            "kd": 1.32,
+            "rounds": 129,
+            "winRate": 55,
+            "kd": 1.28,
             "flag": "✅"
           },
           {
             "name": "Kapkan",
-            "rounds": 45,
-            "winRate": 53.3,
-            "kd": 1.7,
+            "rounds": 47,
+            "winRate": 53.2,
+            "kd": 1.74,
             "flag": "✅"
           },
           {
@@ -136,22 +171,22 @@
           },
           {
             "name": "Castle",
-            "rounds": 30,
-            "winRate": 70,
-            "kd": 1.12,
+            "rounds": 35,
+            "winRate": 62.9,
+            "kd": 1.24,
             "flag": "⭐"
           },
           {
             "name": "Bandit",
-            "rounds": 14,
-            "winRate": 35.7,
-            "kd": 0.5,
+            "rounds": 15,
+            "winRate": 33.3,
+            "kd": 0.54,
             "flag": "⚠️"
           },
           {
             "name": "Kaid",
-            "rounds": 13,
-            "winRate": 46.2,
+            "rounds": 14,
+            "winRate": 50,
             "kd": 0.88,
             "flag": ""
           },
@@ -168,76 +203,17 @@
             "winRate": 57.1,
             "kd": 0.75,
             "flag": ""
+          },
+          {
+            "name": "Smoke",
+            "rounds": 6,
+            "winRate": 66.7,
+            "kd": 0.4,
+            "flag": ""
           }
         ]
       },
-      "mapPerformance": [
-        {
-          "map": "Border",
-          "matches": 13,
-          "winRate": 61.5
-        },
-        {
-          "map": "Oregon",
-          "matches": 13,
-          "winRate": 46.2
-        },
-        {
-          "map": "Coastline",
-          "matches": 10,
-          "winRate": 50
-        },
-        {
-          "map": "Villa",
-          "matches": 9,
-          "winRate": 33.3
-        },
-        {
-          "map": "Bank",
-          "matches": 8,
-          "winRate": 50
-        },
-        {
-          "map": "Chalet",
-          "matches": 8,
-          "winRate": 62.5
-        },
-        {
-          "map": "Nighthaven Labs",
-          "matches": 8,
-          "winRate": 37.5
-        },
-        {
-          "map": "Clubhouse",
-          "matches": 7,
-          "winRate": 71.4
-        },
-        {
-          "map": "Kafe Dostoyevsky",
-          "matches": 6,
-          "winRate": 50
-        },
-        {
-          "map": "Emerald Plains",
-          "matches": 5,
-          "winRate": 0
-        },
-        {
-          "map": "Fortress",
-          "matches": 5,
-          "winRate": 20
-        },
-        {
-          "map": "Lair",
-          "matches": 5,
-          "winRate": 20
-        },
-        {
-          "map": "Consulate",
-          "matches": 3,
-          "winRate": 33.3
-        }
-      ],
+      "mapPerformance": [],
       "prevSeason": "Y10S4",
       "prevSeasonStats": {
         "rank": "Emerald III",
@@ -414,12 +390,12 @@
       "defOps": "Caveira / Maestro",
       "season": "Y11S1",
       "stats": {
-        "rank": "Gold III",
-        "rp": "2761",
-        "kd": "1.21",
-        "winRate": "47.7%",
-        "matches": "44",
-        "ris": "53.6"
+        "rank": "Gold II",
+        "rp": "2843",
+        "kd": "1.22",
+        "winRate": "44.4%",
+        "matches": "54",
+        "ris": "56.7"
       },
       "coachingPriorities": [
         "Protect Bank in ban phase",
@@ -428,43 +404,57 @@
       ],
       "profileContent": "# Peej — Player Profile\n\n**Callsign:** Peej (PJ) | **Tracker:** Eh_Peej | **Team:** Main Stack _(promoted from B Team 2026-03-21)_\n\n---\n\n## Identity\n\n**Strengths:** Genuine entry fragger identity (Ash main — 1,205 all-time rounds). Strong DEF anchor with Maestro/Caveira. Has significantly evolved his operator pool and grown into a reliable two-way player.\n\n**Tendencies:** Has evolved from an older Amaru/Thorn/Bandit era to a defined Ash/Brava attacker and Maestro/Caveira/Azami defender. Capable of independent action — Ash and Caveira are designed for solo play.\n\n**Role fit:** Entry fragger (Ash/Brava ATK) | Intel/Roam anchor (Maestro/Caveira DEF). The stack's primary entry fragger identity.\n\n**Solo vs. Group:** Capable in solo positions — his Ash/Caveira picks are designed for independent action.\n\n---\n\n## Career Coaching Notes\n\n- **Entry fragger role locked in.** Ash/Brava ATK identity and Caveira/Maestro DEF profile slots cleanly into the roster structure.\n- **Maestro/Caveira are career anchors** — 73–74% WR in Y10S4 is consistent with his all-time trajectory. This DEF identity is established and reliable.\n- **Ash is a 1,205-round career pick** — the most committed Ash player on the roster by volume. Not a gimmick, a genuine identity.\n- **Coastline and Nighthaven** are recurring weak maps (consistent across seasons and all-time). Avoid or have a plan.\n- **Strong maps:** Bank, Skyscraper, Theme Park, Clubhouse — consistent across career.\n\n---\n\n## Season Files\n\n| Season | File | Status |\n|--------|------|--------|\n| Y10S4 | [Y10S4.md](Y10S4.md) | ✅ Archived — Y10S4 ended 2026-03 |\n| Y11S1 | [Y11S1.md](Y11S1.md) | 🔲 Active — opening snapshot pulled 2026-03-06 |\n| All-Time | [ALL_TIME.md](ALL_TIME.md) | ✅ Core stats verified 2026-03-01 |\n",
       "coachingContent": "# Peej — Y11S1 Coaching Brief\n\n_Season: Year 11 Season 1 — Operation Silent Hunt | Updated: 2026-03-07_\n\n---\n\n## Your Role\n\nYou're the stack's entry fragger — the role the team needed and the one you've earned. Ash at 1,205 career rounds is not a gimmick, it's a career commitment. Your DEF side (Maestro/Caveira) posts elite WR and anchors the team's defensive structure. Y11S1 is the season to build on everything that Y10S4 established.\n\n---\n\n## What's Working\n\n**Operators — DEF**\nMaestro and Caveira are your anchors and they're elite — 70.5% and 66.0% WR in Y10S4 respectively, over 53r and 61r. Those are among the best individual DEF op WRs on the roster. Caveira (62.6% WR / 1.42 K/D all-time) and Aruni (63.9% WR / 1.39 K/D all-time) round out a genuinely strong DEF profile.\n\n**Operators — ATK**\nAsh is your identity (1,205 all-time rounds). Brava is the complement (45.8% WR / 1.31 K/D all-time). Both ops suit independent, aggressive action — which is your playstyle. In Y10S4, Ash held 1.00 K/D at the season's end.\n\n**Maps**\nYour top maps are Bank (56.7%), Border (55.2%), Clubhouse (54.8%), and Villa (57.9%) all-time. Bank and Clubhouse are in the pool all first half. Villa is in first half too. Theme Park (58.3%) and Skyscraper (60.0%) are your other strong maps — they're out for the first half but return mid-season.\n\n---\n\n## Areas to Work On\n\n**Maps — First half**\nYour two best career maps (Skyscraper and Theme Park) are both out until the mid-season swap. That means the first half depends more on Bank, Clubhouse, and Villa. Be deliberate about those three — they're your best available options and you post good numbers on all of them.\n\n**Maps — Permanent avoids**\nCoastline (20.0% WR / 15M) and Nighthaven (23.1% / 13M) are consistent career weaknesses across enough matches to be high confidence. Coastline is in the pool first half — have a plan for it or advocate to ban it. Nighthaven is out first half, which is a break.\n\n**Operators — Ying**\nIn Y10S4, Ying was your third ATK op at 35r but only 34.3% WR. That's below the rest of your pool's efficiency. Ash/Brava should lead in rounds, and if a third ATK op is needed, Twitch (57.1% WR in 7r) and Dokkaebi (71.4% WR in 7r) both outperform Ying in smaller Y10S4 samples.\n\n---\n\n## Y11S1 Priorities\n\n**1. Protect Bank in ban phase.**\nBank is your most consistent strong map with a solid 30-game sample (56.7% all-time). It's in the pool all season. When ban discussions happen, Bank should be the map you're keeping, not offering.\n\n**2. Maestro/Caveira Observation Blocker is now 1-second deployment.**\nBoth ops carry it. Place it early in prep phase every round — the cost is now effectively zero. It denies drone intel passively and it's free value. Build it as a habit immediately.\n\n**3. The main-stack path is open.**\nYour Y10S4 finished at 56.2% WR / 1.00 K/D at Platinum IV. The DEF identity you have (Maestro/Caveira) fits directly into the main stack's structure. If Y11S1 shows similar or better numbers as the season develops, the conversation about moving up becomes real. That's the target.\n\n---\n\n_Detailed operator tables, map splits, and full season archives are in your ALL_TIME.md, Y10S4.md, and Y11S1.md files._\n",
-      "seasonContent": "# Peej — Y11S1 (Operation Silent Hunt)\n\n_Season status: 🔲 Active — repull 2026-03-21 (44 ranked matches)_\n_Pull date: 2026-03-21 | Source: r6.tracker.network_\n\n---\n\n## Core Stats\n\n| Stat | Value |\n|------|-------|\n| Rank | Gold III |\n| RP | 2,761 |\n| Matches | 44 |\n| Win Rate | 47.7% |\n| K/D | 1.21 |\n| KDA | 1.56 |\n| Kills | 250 |\n| Deaths | 207 |\n| HS% | 42.0% |\n| ESR | 0.56 |\n| RIS | 53.6 |\n| Clutches Won | 5 |\n| Clutch Win% | 13.9% |\n\n> 44M sample — moderate confidence. Stats are meaningful.\n\n---\n\n## Operators\n\n_Format: Operator — Rounds | Win% | K/D (sorted by rounds played, ranked only)_\n_Season filter: season=41_\n\n**Attack**\n1. Ash — 29r | 44.8% | 1.56\n2. Twitch — 27r | 40.7% | 1.05 ⚠️\n3. Brava — 23r | 60.9% | 2.07 ⭐\n4. Dokkaebi — 11r | 36.4% | 1.12 ⚠️\n5. Nomad — 10r | 40.0% | 1.00 ⚠️\n6. Ram — 8r | 62.5% | 0.50 ⭐\n7. Hibana — 7r | 42.9% | 1.20\n8. Ying — 7r | 57.1% | 0.67\n9. Kali — 4r | 75.0% | 3.00\n10. Thermite — 3r | 33.3% | 1.50\n\n**Defense**\n1. Caveira — 41r | 61.0% | 1.58 ⭐\n2. Maestro — 35r | 48.6% | 0.88\n3. Valkyrie — 17r | 52.9% | 1.67 ✅\n4. Kaid — 11r | 54.5% | 2.17 ✅\n5. Azami — 10r | 50.0% | 0.88\n6. Fenrir — 6r | 16.7% | 0.40\n7. Thorn — 5r | 80.0% | 2.25\n8. Kapkan — 2r | 100.0% | 1.50\n\n**ATK identity:** Ash is the primary ATK pick (29r / 44.8% / 1.56 K/D). Secondary: Twitch (27r / 40.7%).\n**DEF identity:** Caveira is the primary DEF anchor (41r / 61.0% / 1.58 K/D). Secondary: Maestro (35r / 48.6%).\n\n---\n\n## Map Performance\n\n| Map | Matches | Win% | K/D | Atk% | Def% |\n|-----|---------|------|-----|------|------|\n| Chalet | 8 | 50.0% | 1.12 | 41.4% | 61.5% |\n| Border | 7 | 71.4% | 1.42 | 60.9% | 57.9% |\n| Bank | 5 | 80.0% | 1.71 | 53.3% | 64.3% |\n| Coastline | 4 | 25.0% | 1.09 | 42.9% | 50.0% |\n| Kafe Dostoyevsky | 4 | 50.0% | 0.96 | 50.0% | 46.2% |\n| Nighthaven Labs | 4 | 25.0% | 1.10 | 46.2% | 46.7% |\n| Oregon | 4 | 50.0% | 1.13 | 38.5% | 72.7% |\n| Emerald Plains | 3 | 0.0% | 0.67 | 14.3% | 25.0% |\n| Clubhouse | 2 | 50.0% | 1.44 | 42.9% | 57.1% |\n| Villa | 2 | 50.0% | 1.33 | 57.1% | 50.0% |\n| Fortress | 1 | 0.0% | 1.67 | 0.0% | 0.0% |\n\n**Strong:** Bank (80%, 1.71 K/D), Border (71.4%, 1.42 K/D) — elite performance on both\n**Weak:** Emerald Plains (0% in 3M), Coastline (25%), Nighthaven (25%)\n**Small samples:** Clubhouse (2M), Villa (2M), Fortress (1M) — treat as directional only\n\n_Map data pulled 2026-03-21 (44M). Source: r6.tracker.network, season=41, ranked only._\n\n---\n\n## Season Coaching Notes\n\n- **⭐ Caveira DEF (41r / 61.0%)** — primary DEF pick is a strong anchor. Keep building here.\n- **⭐ Bank (5M / 80% / 1.71 K/D)** — strongest individual map; elite across all metrics.\n- **⭐ Border (7M / 71.4% / 1.42 K/D)** — second-best; confident pick for stack rotations.\n- **⚠️ Coastline (4M / 25%)** and **Nighthaven (4M / 25%)** — both below 50% with decent K/D; ATK side likely the issue.\n- **⚠️ Emerald Plains (3M / 0%)** — team-wide pattern; veto candidate.\n\n---\n\n## Data Flags\n\n- 🔲 Active — 44 ranked matches as of 2026-03-21\n- ⭐ Brava ATK (23r / 60.9%) — strong signal\n- ⭐ Ram ATK (8r / 62.5%) — strong signal\n- ⭐ Caveira DEF (41r / 61.0%) — strong signal\n- ✅ Map data pulled 2026-03-21 (44M, season=41)\n\n---\n\n## Y11S1 Opening Context\n\n### Map Pool — Y11S1 Launch\nBank, Border, Chalet, Clubhouse, Coastline, Consulate, Fortress, Kafe Dostoyevsky, Lair, Nighthaven Labs, Oregon, Villa, Emerald Plains\n\n**Mid-season swap:** Coastline, Villa, Oregon, Emerald Plains OUT → Skyscraper, Theme Park, Stadium Bravo, Favela IN\n\n### Balance Notes — Peej Specific\n_No major balance changes to primary operators this season. Review GAME_06_CURRENT_SEASON.md for full patch notes._\n",
+      "seasonContent": "# Peej — Y11S1 (Operation Silent Hunt)\n\n_Season status: 🔲 Active — repull 2026-03-27 (54 ranked matches)_\n_Pull date: 2026-03-27 | Source: r6.tracker.network_\n\n---\n\n## Core Stats\n\n| Stat | Value |\n|------|-------|\n| Rank | Gold II |\n| RP | 2,843 |\n| Matches | 54 |\n| Win Rate | 44.4% |\n| K/D | 1.22 |\n| KDA | 1.55 |\n| Kills | 296 |\n| Deaths | 242 |\n| HS% | 39.9% |\n| ESR | 0.55 |\n| RIS | 56.7 |\n| Clutches Won | 8 |\n| Clutch Win% | 18.6% |\n\n> 54M sample — moderate confidence. Stats are meaningful.\n\n---\n\n## Operators\n\n_Format: Operator — Rounds | Win% | K/D (sorted by rounds played, ranked only)_\n_Season filter: season=41_\n\n**Attack**\n1. Ash — 40r | 37.5% | 1.26 ⚠️\n2. Twitch — 29r | 44.8% | 1.04\n3. Brava — 26r | 53.8% | 1.88 ✅\n4. Dokkaebi — 12r | 33.3% | 1.11 ⚠️\n5. Nomad — 11r | 36.4% | 1.00 ⚠️\n6. Hibana — 8r | 50.0% | 1.40\n7. Ying — 8r | 50.0% | 0.57\n8. Ram — 8r | 62.5% | 0.50 ⭐\n9. Kali — 6r | 83.3% | 1.50\n\n**Defense**\n1. Caveira — 53r | 58.5% | 1.75 ✅\n2. Maestro — 37r | 45.9% | 0.89\n3. Valkyrie — 20r | 50.0% | 1.79\n4. Kaid — 11r | 54.5% | 2.17 ✅\n5. Azami — 11r | 54.5% | 1.00 ✅\n6. Thorn — 10r | 70.0% | 1.88 ⭐\n7. Fenrir — 6r | 16.7% | 0.40\n\n**ATK identity:** Ash is the primary ATK pick (40r / 37.5% / 1.26 K/D). Secondary: Twitch (29r / 44.8%).\n**DEF identity:** Caveira is the primary DEF anchor (53r / 58.5% / 1.75 K/D). Secondary: Maestro (37r / 45.9%).\n\n---\n\n## Map Performance\n\n| Map | Matches | Win% | K/D | Atk% | Def% |\n|-----|---------|------|-----|------|------|\n| — | — | — | — | — | — |\n\n_Map data not yet pulled — add at 30+ match milestone._\n\n---\n\n## Season Coaching Notes\n\n- **⚠️ Ash ATK (40r / 37.5% / 1.26 K/D)** — primary ATK pick is underperforming at this volume. Consider reducing rounds here until WR recovers.\n- **Map data threshold reached** (54M ≥ 30) — pull map data next session.\n\n---\n\n## Data Flags\n\n- 🔲 Active — 54 ranked matches as of 2026-03-27\n- ⭐ Ram ATK (8r / 62.5%) — strong signal\n- ⭐ Thorn DEF (10r / 70.0%) — strong signal\n- 📍 Map data threshold reached — pull maps next session\n\n---\n\n## Y11S1 Opening Context\n\n### Map Pool — Y11S1 Launch\nBank, Border, Chalet, Clubhouse, Coastline, Consulate, Fortress, Kafe Dostoyevsky, Lair, Nighthaven Labs, Oregon, Villa, Emerald Plains\n\n**Mid-season swap:** Coastline, Villa, Oregon, Emerald Plains OUT → Skyscraper, Theme Park, Stadium Bravo, Favela IN\n\n### Balance Notes — Peej Specific\n_No major balance changes to primary operators this season. Review GAME_06_CURRENT_SEASON.md for full patch notes._\n",
       "operators": {
         "atk": [
           {
             "name": "Ash",
-            "rounds": 29,
-            "winRate": 44.8,
-            "kd": 1.56,
-            "flag": ""
-          },
-          {
-            "name": "Twitch",
-            "rounds": 27,
-            "winRate": 40.7,
-            "kd": 1.05,
+            "rounds": 40,
+            "winRate": 37.5,
+            "kd": 1.26,
             "flag": "⚠️"
           },
           {
+            "name": "Twitch",
+            "rounds": 29,
+            "winRate": 44.8,
+            "kd": 1.04,
+            "flag": ""
+          },
+          {
             "name": "Brava",
-            "rounds": 23,
-            "winRate": 60.9,
-            "kd": 2.07,
-            "flag": "⭐"
+            "rounds": 26,
+            "winRate": 53.8,
+            "kd": 1.88,
+            "flag": "✅"
           },
           {
             "name": "Dokkaebi",
-            "rounds": 11,
-            "winRate": 36.4,
-            "kd": 1.12,
+            "rounds": 12,
+            "winRate": 33.3,
+            "kd": 1.11,
             "flag": "⚠️"
           },
           {
             "name": "Nomad",
-            "rounds": 10,
-            "winRate": 40,
+            "rounds": 11,
+            "winRate": 36.4,
             "kd": 1,
             "flag": "⚠️"
+          },
+          {
+            "name": "Hibana",
+            "rounds": 8,
+            "winRate": 50,
+            "kd": 1.4,
+            "flag": ""
+          },
+          {
+            "name": "Ying",
+            "rounds": 8,
+            "winRate": 50,
+            "kd": 0.57,
+            "flag": ""
           },
           {
             "name": "Ram",
@@ -474,30 +464,9 @@
             "flag": "⭐"
           },
           {
-            "name": "Hibana",
-            "rounds": 7,
-            "winRate": 42.9,
-            "kd": 1.2,
-            "flag": ""
-          },
-          {
-            "name": "Ying",
-            "rounds": 7,
-            "winRate": 57.1,
-            "kd": 0.67,
-            "flag": ""
-          },
-          {
             "name": "Kali",
-            "rounds": 4,
-            "winRate": 75,
-            "kd": 3,
-            "flag": ""
-          },
-          {
-            "name": "Thermite",
-            "rounds": 3,
-            "winRate": 33.3,
+            "rounds": 6,
+            "winRate": 83.3,
             "kd": 1.5,
             "flag": ""
           }
@@ -505,24 +474,24 @@
         "def": [
           {
             "name": "Caveira",
-            "rounds": 41,
-            "winRate": 61,
-            "kd": 1.58,
-            "flag": "⭐"
+            "rounds": 53,
+            "winRate": 58.5,
+            "kd": 1.75,
+            "flag": "✅"
           },
           {
             "name": "Maestro",
-            "rounds": 35,
-            "winRate": 48.6,
-            "kd": 0.88,
+            "rounds": 37,
+            "winRate": 45.9,
+            "kd": 0.89,
             "flag": ""
           },
           {
             "name": "Valkyrie",
-            "rounds": 17,
-            "winRate": 52.9,
-            "kd": 1.67,
-            "flag": "✅"
+            "rounds": 20,
+            "winRate": 50,
+            "kd": 1.79,
+            "flag": ""
           },
           {
             "name": "Kaid",
@@ -533,10 +502,17 @@
           },
           {
             "name": "Azami",
+            "rounds": 11,
+            "winRate": 54.5,
+            "kd": 1,
+            "flag": "✅"
+          },
+          {
+            "name": "Thorn",
             "rounds": 10,
-            "winRate": 50,
-            "kd": 0.88,
-            "flag": ""
+            "winRate": 70,
+            "kd": 1.88,
+            "flag": "⭐"
           },
           {
             "name": "Fenrir",
@@ -544,80 +520,10 @@
             "winRate": 16.7,
             "kd": 0.4,
             "flag": ""
-          },
-          {
-            "name": "Thorn",
-            "rounds": 5,
-            "winRate": 80,
-            "kd": 2.25,
-            "flag": ""
-          },
-          {
-            "name": "Kapkan",
-            "rounds": 2,
-            "winRate": 100,
-            "kd": 1.5,
-            "flag": ""
           }
         ]
       },
-      "mapPerformance": [
-        {
-          "map": "Chalet",
-          "matches": 8,
-          "winRate": 50
-        },
-        {
-          "map": "Border",
-          "matches": 7,
-          "winRate": 71.4
-        },
-        {
-          "map": "Bank",
-          "matches": 5,
-          "winRate": 80
-        },
-        {
-          "map": "Coastline",
-          "matches": 4,
-          "winRate": 25
-        },
-        {
-          "map": "Kafe Dostoyevsky",
-          "matches": 4,
-          "winRate": 50
-        },
-        {
-          "map": "Nighthaven Labs",
-          "matches": 4,
-          "winRate": 25
-        },
-        {
-          "map": "Oregon",
-          "matches": 4,
-          "winRate": 50
-        },
-        {
-          "map": "Emerald Plains",
-          "matches": 3,
-          "winRate": 0
-        },
-        {
-          "map": "Clubhouse",
-          "matches": 2,
-          "winRate": 50
-        },
-        {
-          "map": "Villa",
-          "matches": 2,
-          "winRate": 50
-        },
-        {
-          "map": "Fortress",
-          "matches": 1,
-          "winRate": 0
-        }
-      ],
+      "mapPerformance": [],
       "prevSeason": "Y10S4",
       "prevSeasonStats": {
         "rank": "Platinum IV",
@@ -706,7 +612,7 @@
           "winRate": 100
         }
       ],
-      "prevSeasonContent": "# Peej — Y10S4 (Tenfold Pursuit)\n\n_Season verified: 2026-03-06 | Operators corrected: 2026-03-01 (session 3) | Status: ✅ Archived — Y10S4 ended. Final data pull: 2026-03-06 (R6 Tracker, season=40)._\n\n---\n\n## Core Stats\n\n| Stat | Value |\n|------|-------|\n| Rank | Platinum IV |\n| RP | 3106 |\n| Max RP | 3124 |\n| Matches | 64 |\n| Win Rate | 56.2% |\n| K/D | 1.00 |\n| KDA | 1.44 |\n| Kills | 270 |\n| Deaths | 271 |\n| HS% | 33.90% |\n| ESR | 0.55 |\n| RIS | 55.5 (v1.0) |\n| Clutches Won | 9 |\n| Clutch Win% | 21.43% |\n\n_K/D settled to 1.00 on final pull (2026-03-06). Earlier 1.02 figure was mid-season._\n\n---\n\n## Operators\n_Source: R6 Tracker, Y10S4 ranked. Full pool — all ops with 3+ rounds listed. Verified 2026-03-06._\n_Format: Operator — Rounds | Win% | K/D_\n\n**Attack**\n1. Ash — 51r | 43.1% | 0.98\n2. Brava — 40r | 50.0% | 1.00\n3. Ying — 35r | 34.3% | 0.81\n4. Hibana — 15r | 40.0% | 0.90\n5. Nomad — 13r | 46.2% | 0.80\n_Notable ATK: Rauora — 11r | 27.3% | 0.89 | Dokkaebi — 7r | 71.4% | 0.50 | Twitch — 7r | 57.1% | 1.00 | Ram — 5r | 40.0% | 0.20 | Buck — 4r | 0.0% | 0.50 | Thermite — 4r | 25.0% | 0.25_\n\n**Defense**\n1. Maestro — 61r | 70.5% | 1.38\n2. Caveira — 53r | 66.0% | 1.33\n3. Fenrir — 39r | 56.4% | 0.96\n4. Azami — 26r | 65.4% | 0.69\n5. Valkyrie — 11r | 63.6% | 1.14\n_Notable DEF: Bandit — 4r | 50.0% | 1.00 | Thorn — 3r | 66.7% | 3.00 | Mute — 3r | 33.3% | 0.33_\n\n**ATK identity:** Ash/Brava entry fragger. Ying (35r) rounds out the pool but at low WR (34.3%) — needs evaluation.\n**DEF identity:** Maestro/Caveira intel + roam anchor. 70.5–66.0% WR on top two ops is elite-level. Azami (65.4% WR in 26r) confirmed as strong third DEF op.\n---\n\n## Map Performance\n\n| Map | Matches | Win% | K/D | Atk% | Def% |\n|-----|---------|------|-----|------|------|\n| Kafe Dostoyevsky | 7 | 71.4% | 1.00 | 40.0% | 76.2% |\n| Outback | 7 | 57.1% | 0.88 | 40.0% | 68.0% |\n| Border | 6 | 50.0% | 1.28 | 47.6% | 61.9% |\n| Fortress | 6 | 50.0% | 0.68 | 47.4% | 55.6% |\n| Clubhouse | 5 | 80.0% | 1.00 | 50.0% | 66.7% |\n| Kanal | 5 | 60.0% | 1.80 | 42.9% | 69.2% |\n| Consulate | 4 | 50.0% | 0.71 | 14.3% | 76.9% |\n| Oregon | 4 | 75.0% | 1.14 | 66.7% | 71.4% |\n| Bank | 3 | 66.7% | 1.09 | 57.1% | 66.7% |\n| Theme Park | 3 | 66.7% | 1.50 | 55.6% | 55.6% |\n| Villa | 3 | 100.0% | 0.86 | 60.0% | 70.0% |\n| Chalet | 2 | 0.0% | 0.56 | 0.0% | 40.0% |\n| Coastline | 2 | 0.0% | 1.33 | 16.7% | 42.9% |\n| Nighthaven Labs | 2 | 0.0% | 0.83 | 12.5% | 71.4% |\n| Skyscraper | 1 | 100.0% | 1.50 | 33.3% | 100.0% |\n\n**Strong:** Clubhouse (80%), Oregon (75%), Kafe (71.4%), Kanal (60%, 1.80 K/D)\n**Weak:** Nighthaven (0%), Coastline (0%), Chalet (0%) — all small samples\n**DEF-dominant pattern:** Kafe (76.2% Def WR), Consulate (76.9% Def WR), Kanal (69.2% Def WR) — consistently strong on defense side.\n\n---\n\n## Season Coaching Notes\n\n- 56.2% WR with 1.00 K/D at Platinum IV — WR and K/D both settled slightly on final pull (4 more matches played late season).\n- Maestro/Caveira DEF is the strongest individual DEF identity on the B Team. This slots directly into the main stack.\n- Ying (34.3% WR) should drop — Ash/Brava/Hibana are all more efficient.\n- Nomad at ATK #5 (12r, 41.7% WR) — low sample, serviceable. Fits as soft-utility flex ATK.\n\n---\n\n## Data Flags\n- ✅ Stats and operators: final verified 2026-03-06 (season=40 pull — supersedes 2026-03-01 pull)\n- ✅ Operators corrected 2026-03-01 (session 3): Nomad moved from DEF → ATK. Valkyrie confirmed DEF #5.\n- ✅ Maps: Atk%/Def% columns added 2026-03-01 (session 3)\n- ✅ Season closed — Y10S4 archived. Final data pull: 2026-03-06 (R6 Tracker).\n",
+      "prevSeasonContent": "# Peej — Y10S4 (Tenfold Pursuit)\n\n_Season verified: 2026-03-06 | Operators corrected: 2026-03-01 (session 3) | Status: ✅ Archived — Y10S4 ended. Final data pull: 2026-03-06 (R6 Tracker, season=40)._\n\n---\n\n## Core Stats\n\n| Stat | Value |\n|------|-------|\n| Rank | Platinum IV |\n| RP | 3106 |\n| Max RP | 3124 |\n| Matches | 64 |\n| Win Rate | 56.2% |\n| K/D | 1.00 |\n| KDA | 1.44 |\n| Kills | 270 |\n| Deaths | 271 |\n| HS% | 33.90% |\n| ESR | 0.55 |\n| RIS | 55.5 (v1.0) |\n| Clutches Won | 9 |\n| Clutch Win% | 21.43% |\n\n_K/D settled to 1.00 on final pull (2026-03-06). Earlier 1.02 figure was mid-season._\n\n---\n\n## Operators\n_Source: R6 Tracker, Y10S4 ranked. Full pool — all ops with 3+ rounds listed. Verified 2026-03-06._\n_Format: Operator — Rounds | Win% | K/D_\n\n**Attack**\n1. Ash — 51r | 43.1% | 0.98\n2. Brava — 40r | 50.0% | 1.00\n3. Ying — 35r | 34.3% | 0.81\n4. Hibana — 15r | 40.0% | 0.90\n5. Nomad — 13r | 46.2% | 0.80\n_Notable ATK: Rauora — 11r | 27.3% | 0.89 | Dokkaebi — 7r | 71.4% | 0.50 | Twitch — 7r | 57.1% | 1.00 | Ram — 5r | 40.0% | 0.20 | Buck — 4r | 0.0% | 0.50 | Thermite — 4r | 25.0% | 0.25_\n\n**Defense**\n1. Maestro — 61r | 70.5% | 1.38\n2. Caveira — 53r | 66.0% | 1.33\n3. Fenrir — 39r | 56.4% | 0.96\n4. Azami — 26r | 65.4% | 0.69\n5. Valkyrie — 11r | 63.6% | 1.14\n_Notable DEF: Bandit — 4r | 50.0% | 1.00 | Thorn — 3r | 66.7% | 3.00 | Mute — 3r | 33.3% | 0.33_\n\n**ATK identity:** Ash/Brava entry fragger. Ying (35r) rounds out the pool but at low WR (34.3%) — needs evaluation.\n**DEF identity:** Maestro/Caveira intel + roam anchor. 70.5–66.0% WR on top two ops is elite-level. Azami (65.4% WR in 26r) confirmed as strong third DEF op.\n---\n\n## Map Performance\n\n| Map | Matches | Win% | K/D | Atk% | Def% |\n|-----|---------|------|-----|------|------|\n| Kafe Dostoyevsky | 7 | 71.4% | 1.00 | 40.0% | 76.2% |\n| Outback | 7 | 57.1% | 0.88 | 40.0% | 68.0% |\n| Border | 6 | 50.0% | 1.28 | 47.6% | 61.9% |\n| Fortress | 6 | 50.0% | 0.68 | 47.4% | 55.6% |\n| Clubhouse | 5 | 80.0% | 1.00 | 50.0% | 66.7% |\n| Kanal | 5 | 60.0% | 1.80 | 42.9% | 69.2% |\n| Consulate | 4 | 50.0% | 0.71 | 14.3% | 76.9% |\n| Oregon | 4 | 75.0% | 1.14 | 66.7% | 71.4% |\n| Bank | 3 | 66.7% | 1.09 | 57.1% | 66.7% |\n| Theme Park | 3 | 66.7% | 1.50 | 55.6% | 55.6% |\n| Villa | 3 | 100.0% | 0.86 | 60.0% | 70.0% |\n| Chalet | 2 | 0.0% | 0.56 | 0.0% | 40.0% |\n| Coastline | 2 | 0.0% | 1.33 | 16.7% | 42.9% |\n| Nighthaven Labs | 2 | 0.0% | 0.83 | 12.5% | 71.4% |\n| Skyscraper | 1 | 100.0% | 1.50 | 33.3% | 100.0% |\n\n**Strong:** Clubhouse (80%), Oregon (75%), Kafe (71.4%), Kanal (60%, 1.80 K/D)\n**Weak:** Nighthaven (0%), Coastline (0%), Chalet (0%) — all small samples\n**DEF-dominant pattern:** Kafe (76.2% Def WR), Consulate (76.9% Def WR), Kanal (69.2% Def WR) — consistently strong on defense side.\n\n---\n\n## Season Coaching Notes\n\n- 56.2% WR with 1.00 K/D at Platinum IV — WR and K/D both settled slightly on final pull (4 more matches played late season).\n- Maestro/Caveira DEF was the strongest individual DEF identity on the B Team — now confirmed in the main stack as of 2026-03-21.\n- Ying (34.3% WR) should drop — Ash/Brava/Hibana are all more efficient.\n- Nomad at ATK #5 (12r, 41.7% WR) — low sample, serviceable. Fits as soft-utility flex ATK.\n\n---\n\n## Data Flags\n- ✅ Stats and operators: final verified 2026-03-06 (season=40 pull — supersedes 2026-03-01 pull)\n- ✅ Operators corrected 2026-03-01 (session 3): Nomad moved from DEF → ATK. Valkyrie confirmed DEF #5.\n- ✅ Maps: Atk%/Def% columns added 2026-03-01 (session 3)\n- ✅ Season closed — Y10S4 archived. Final data pull: 2026-03-06 (R6 Tracker).\n",
       "prevSeasonOperators": {
         "atk": [
           {
@@ -795,11 +701,11 @@
       "season": "Y11S1",
       "stats": {
         "rank": "Emerald IV",
-        "rp": "3684",
-        "kd": "0.86",
-        "winRate": "48.1%",
-        "matches": "77",
-        "ris": "44.9"
+        "rp": "3616",
+        "kd": "0.87",
+        "winRate": "45.1%",
+        "matches": "82",
+        "ris": "44.1"
       },
       "coachingPriorities": [
         "Stay grouped — every time",
@@ -808,7 +714,7 @@
       ],
       "profileContent": "# Hound — Player Profile\n\n**Callsign:** Hound | **Tracker:** Eh_Hound | **Role:** Support | **Email:** shadowhound6193@gmail.com\n\n---\n\n## Identity\n\n**Strengths:** Utility, comms, and support are his strongest assets. Plays the game correctly in group situations. Shines in coordination and callouts. High match counts — consistently one of the more active players.\n\n**Tendencies:** Group player. Passive support. Strong with utility operators. Rarely out of position — disciplined. Sub-1.0 K/D is a career pattern but team win rates stay positive because of his enabling role.\n\n**Role fit:** Group support. Utility runner (Anti-gadget, Flank cover, Barricade anchor). Best value in coordinated 3+ man pushes.\n\n**Solo vs. Group:** Avoid solo roles. Weakest gun on the team — solo entry puts him in duels he is not built to win. Keep him in a group where utility is the contribution.\n\n---\n\n## Career Coaching Notes\n\n- **Never assign solo entry.** This is a standing instruction across all seasons — profile confirmed by data.\n- **DEF is where he contributes most individual value.** Attack is enabling work; defense is where individual efficiency shows.\n- **Castle as primary DEF anchor** is a recurring pattern across seasons — worth investigating whether this is intentional coordination strategy or just comfort. If intentional, lean into barricade callout protocols.\n- **Frost** consistently outperforms Castle on individual metrics — worth asking whether Frost should lead in volume.\n- Attack K/Ds are low by design — he must always be grouped with a fragger who does the killing.\n- **ATK role reminder:** Hound provides the breach/gadget clearance. Someone else gets the kills. This is working — don't break it.\n\n---\n\n## Season Files\n\n| Season | File | Status |\n|--------|------|--------|\n| Y10S4 | [Y10S4.md](Y10S4.md) | ✅ Archived — Y10S4 ended 2026-03 |\n| Y11S1 | [Y11S1.md](Y11S1.md) | 🔲 Active — opening snapshot pulled 2026-03-06 |\n| All-Time | [ALL_TIME.md](ALL_TIME.md) | ✅ Core stats verified 2026-03-01 |\n",
       "coachingContent": "# Hound — Y11S1 Coaching Brief\n\n_Season: Year 11 Season 1 — Operation Silent Hunt | Updated: 2026-03-07_\n\n---\n\n## Your Role\n\nYou're the team's group support. On attack, you provide breach and gadget clearance — Thatcher is your identity because it enables everyone else to do their job. On defense, you hold site with utility and coordination. Your contribution is measured in team wins, not personal frags, and the numbers back that up. Stay grouped. Stay patient.\n\n---\n\n## What's Working\n\n**Operators — ATK**\nThatcher is your career ATK anchor at 729 all-time rounds — the most committed Thatcher on the main stack. It works because it enables the group. Rauora is now a confirmed ATK pick and you're getting real results with it (58.3% WR / 36 rounds in Y10S4). Gridlock is an underrated depth pick: 51.9% WR and 1.47 K/D in 27 Y10S4 rounds.\n\n**Operators — DEF**\nYour Y10S4 DEF pool was carrying. Frost (70.0% WR) and Aruni (77.8% WR / 2.22 K/D) were your two most efficient individual DEF ops. Castle held the main anchor volume at 81 rounds / 64.2% WR. Kaid in small samples (80.0% WR / 1.78 K/D in 15r) was outstanding.\n\n**Maps**\nYour best maps in Y10S4 were Villa (85.7%), Fortress (72.7%), and Clubhouse (66.7%). All-time, Theme Park (65.2%) and Kafe (61.2%) are consistent. Several of these are in the current Y11S1 pool.\n\n---\n\n## Areas to Work On\n\n**Operators — DEF: Frost vs. Castle**\nCastle leads your DEF by rounds, but Frost outperforms it on every individual metric — better WR, better K/D. The coaching question is whether your Castle usage is intentional coordination strategy (barricade callouts, coordinated slow), or just comfort. If it's coordination-based, lean into it explicitly and make sure the team knows when to expect it. If it's comfort, consider giving Frost more volume.\n\n**Operators — ATK**\nYour ATK K/Ds are low by design — you're not the fragger in the group, and that's correct. The one op to watch is Buck (31r / 35.5% WR in Y10S4). If Buck is getting played without a clear vertical or soft-breach purpose, consider whether it's the right call or whether Thatcher/Rauora would serve better in those rounds.\n\n**Role reminder — solo entry**\nThis is a standing instruction across all seasons: never take solo entry duels. Your gun is not the team's best in a standalone 1v1. Always be grouped. Always enable. The data confirms this approach wins.\n\n---\n\n## Y11S1 Priorities\n\n**1. Stay grouped — every time.**\nSolo roles belong to Grant and Peej (Slug B Team as of 2026-03-21). Your value comes from the group. When you're in a 3-man with Smigs and Sarge, the team's synergy is at its best. Resist any impulse to go off on your own.\n\n**2. Frost deserves more rounds than it's currently getting.**\nIn Y10S4 it was your second-best DEF op by WR (70.0%). You can play both Castle and Frost in the same match — they serve different purposes. Give Frost more opportunity this season and track whether the WR gap over Castle holds.\n\n**3. Gridlock and Rauora are real.**\nGridlock (51.9% WR / 1.47 K/D in 27r) and Rauora (58.3% WR in 36r) are both producing. If you've been playing these and the team hasn't fully incorporated the area denial or the flank cover they provide, bring it up. These ops add team value beyond your individual frags.\n\n---\n\n_Detailed operator tables, map splits, and full season archives are in your ALL_TIME.md, Y10S4.md, and Y11S1.md files._\n",
-      "seasonContent": "# Hound — Y11S1 (Operation Silent Hunt)\n\n_Season status: 🔲 Active — repull 2026-03-21 (77 ranked matches)_\n_Pull date: 2026-03-21 | Source: r6.tracker.network_\n\n---\n\n## Core Stats\n\n| Stat | Value |\n|------|-------|\n| Rank | Emerald IV |\n| RP | 3,684 |\n| Matches | 77 |\n| Win Rate | 48.1% |\n| K/D | 0.86 |\n| KDA | 1.16 |\n| Kills | 305 |\n| Deaths | 353 |\n| HS% | 52.1% |\n| ESR | 0.48 |\n| RIS | 44.9 |\n| Clutches Won | 7 |\n| Clutch Win% | 13.5% |\n\n> 77M sample — moderate confidence. Stats are meaningful.\n\n---\n\n## Operators\n\n_Format: Operator — Rounds | Win% | K/D (sorted by rounds played, ranked only)_\n_Season filter: season=41_\n\n**Attack**\n1. Osa — 36r | 38.9% | 0.38 ⚠️\n2. Thermite — 27r | 29.6% | 0.62 ⚠️\n3. Thatcher — 27r | 40.7% | 0.75 ⚠️\n4. Grim — 25r | 52.0% | 1.19 ✅\n5. Nomad — 23r | 34.8% | 0.63 ⚠️\n6. Fuze — 19r | 47.4% | 1.29\n7. Rauora — 14r | 57.1% | 0.80 ✅\n8. Montagne — 10r | 20.0% | 0.30 ⚠️\n9. Flores — 9r | 33.3% | 1.14 ⚠️\n10. Dokkaebi — 9r | 44.4% | 0.11\n11. Gridlock — 8r | 62.5% | 2.00 ⭐\n\n**Defense**\n1. Castle — 42r | 50.0% | 0.89\n2. Bandit — 32r | 56.2% | 1.04 ✅\n3. Azami — 22r | 68.2% | 1.62 ⭐\n4. Frost — 20r | 55.0% | 1.07 ✅\n5. Kaid — 18r | 50.0% | 1.25\n6. Mozzie — 17r | 41.2% | 0.50 ⚠️\n7. Mute — 16r | 50.0% | 0.29\n8. Maestro — 9r | 66.7% | 0.67 ⭐\n9. Echo — 8r | 100.0% | 0.67 ⭐\n10. Aruni — 7r | 42.9% | 0.50\n11. Thorn — 6r | 66.7% | 1.75\n\n**ATK identity:** Osa is the primary ATK pick (36r / 38.9% / 0.38 K/D). Secondary: Thermite (27r / 29.6%).\n**DEF identity:** Castle is the primary DEF anchor (42r / 50.0% / 0.89 K/D). Secondary: Bandit (32r / 56.2%).\n\n---\n\n## Map Performance\n\n| Map | Matches | Win% | K/D | Atk% | Def% |\n|-----|---------|------|-----|------|------|\n| Border | 10 | 60.0% | 1.07 | 42.4% | 64.3% |\n| Coastline | 10 | 60.0% | 0.78 | 57.1% | 51.7% |\n| Oregon | 9 | 33.3% | 0.78 | 35.7% | 53.8% |\n| Clubhouse | 7 | 71.4% | 1.12 | 45.8% | 66.7% |\n| Villa | 7 | 42.9% | 0.78 | 37.5% | 57.1% |\n| Nighthaven Labs | 6 | 16.7% | 0.69 | 28.6% | 50.0% |\n| Bank | 5 | 80.0% | 0.94 | 53.8% | 71.4% |\n| Lair | 5 | 20.0% | 0.91 | 23.1% | 42.9% |\n| Chalet | 4 | 75.0% | 0.76 | 60.0% | 61.5% |\n| Consulate | 4 | 25.0% | 0.75 | 26.7% | 66.7% |\n| Emerald Plains | 4 | 0.0% | 0.43 | 12.5% | 50.0% |\n| Fortress | 4 | 25.0% | 1.19 | 20.0% | 66.7% |\n| Kafe Dostoyevsky | 4 | 75.0% | 0.90 | 46.7% | 62.5% |\n\n**Strong:** Bank (80%), Chalet (75%), Kafe (75%), Clubhouse (71.4%), Border (60%), Coastline (60%)\n**Weak:** Emerald Plains (0% in 4M), Nighthaven (16.7%), Lair (20%), Fortress (25%), Consulate (25%)\n**Pattern:** DEF side consistently strong (Bank 71.4%, Clubhouse 66.7%, Border 64.3%); ATK side is the bigger drag on weak maps.\n\n_Map data pulled 2026-03-21 (77M). Source: r6.tracker.network, season=41, ranked only._\n\n---\n\n## Season Coaching Notes\n\n- **⚠️ Osa ATK (36r / 38.9% / 0.38 K/D)** — primary ATK pick is underperforming at this volume. Consider reducing rounds here until WR recovers.\n- **⚠️ Thermite ATK (27r / 29.6%)** — significant round volume on a very low-WR op. Reduce or eliminate.\n- **⭐ Bank (5M / 80%) + Chalet (4M / 75%) + Kafe (4M / 75%)** — strong cluster despite small samples; DEF anchors (Azami/Maestro) likely driving.\n- **⭐ Clubhouse (7M / 71.4%)** — most reliable strong map by volume.\n- **⚠️ Nighthaven Labs (6M / 16.7% / 0.69 K/D)** — genuine weakness; worst map by both WR and K/D.\n- **⚠️ Oregon (9M / 33.3%)** — high volume but losing record; ATK side (35.7%) the problem.\n\n---\n\n## Data Flags\n\n- 🔲 Active — 77 ranked matches as of 2026-03-21\n- ⭐ Gridlock ATK (8r / 62.5%) — strong signal\n- ⭐ Azami DEF (22r / 68.2%) — strong signal\n- ⭐ Maestro DEF (9r / 66.7%) — strong signal\n- ⭐ Echo DEF (8r / 100.0%) — strong signal\n- ✅ Map data pulled 2026-03-21 (77M, season=41)\n\n---\n\n## Y11S1 Opening Context\n\n### Map Pool — Y11S1 Launch\nBank, Border, Chalet, Clubhouse, Coastline, Consulate, Fortress, Kafe Dostoyevsky, Lair, Nighthaven Labs, Oregon, Villa, Emerald Plains\n\n**Mid-season swap:** Coastline, Villa, Oregon, Emerald Plains OUT → Skyscraper, Theme Park, Stadium Bravo, Favela IN\n\n### Balance Notes — Hound Specific\n_No major balance changes to primary operators this season. Review GAME_06_CURRENT_SEASON.md for full patch notes._\n",
+      "seasonContent": "# Hound — Y11S1 (Operation Silent Hunt)\n\n_Season status: 🔲 Active — repull 2026-03-27 (82 ranked matches)_\n_Pull date: 2026-03-27 | Source: r6.tracker.network_\n\n---\n\n## Core Stats\n\n| Stat | Value |\n|------|-------|\n| Rank | Emerald IV |\n| RP | 3,616 |\n| Matches | 82 |\n| Win Rate | 45.1% |\n| K/D | 0.87 |\n| KDA | 1.16 |\n| Kills | 329 |\n| Deaths | 377 |\n| HS% | 51.1% |\n| ESR | 0.47 |\n| RIS | 44.1 |\n| Clutches Won | 7 |\n| Clutch Win% | 12.3% |\n\n> 82M sample — moderate confidence. Stats are meaningful.\n\n---\n\n## Operators\n\n_Format: Operator — Rounds | Win% | K/D (sorted by rounds played, ranked only)_\n_Season filter: season=41_\n\n**Attack**\n1. Osa — 36r | 38.9% | 0.38 ⚠️\n2. Thermite — 31r | 32.3% | 0.73 ⚠️\n3. Thatcher — 27r | 40.7% | 0.75 ⚠️\n4. Grim — 26r | 50.0% | 1.12\n5. Nomad — 26r | 30.8% | 0.59 ⚠️\n6. Fuze — 22r | 40.9% | 1.18 ⚠️\n7. Rauora — 14r | 57.1% | 0.80 ✅\n8. Dokkaebi — 10r | 40.0% | 0.20 ⚠️\n9. Montagne — 10r | 20.0% | 0.30 ⚠️\n10. Flores — 9r | 33.3% | 1.14 ⚠️\n11. Gridlock — 9r | 66.7% | 2.50 ⭐\n12. Ying — 6r | 33.3% | 1.20\n13. Buck — 5r | 80.0% | 2.33\n14. IQ — 5r | 60.0% | 5.00\n15. Blackbeard — 5r | 40.0% | 1.00\n\n**Defense**\n1. Castle — 48r | 45.8% | 0.79\n2. Bandit — 32r | 56.2% | 1.04 ✅\n3. Azami — 25r | 64.0% | 1.31 ⭐\n4. Frost — 22r | 59.1% | 1.07 ✅\n5. Kaid — 19r | 47.4% | 1.15\n6. Mute — 18r | 44.4% | 0.25\n7. Mozzie — 17r | 41.2% | 0.50 ⚠️\n8. Maestro — 10r | 70.0% | 1.33 ⭐\n9. Echo — 8r | 100.0% | 0.67 ⭐\n10. Thorn — 7r | 57.1% | 2.00\n11. Aruni — 7r | 42.9% | 0.50\n12. Thunderbird — 5r | 60.0% | 1.33\n13. Warden — 5r | 80.0% | 0.50\n\n**ATK identity:** Osa is the primary ATK pick (36r / 38.9% / 0.38 K/D). Secondary: Thermite (31r / 32.3%).\n**DEF identity:** Castle is the primary DEF anchor (48r / 45.8% / 0.79 K/D). Secondary: Bandit (32r / 56.2%).\n\n---\n\n## Map Performance\n\n| Map | Matches | Win% | K/D | Atk% | Def% |\n|-----|---------|------|-----|------|------|\n| — | — | — | — | — | — |\n\n_Map data not yet pulled — add at 30+ match milestone._\n\n---\n\n## Season Coaching Notes\n\n- **⚠️ Osa ATK (36r / 38.9% / 0.38 K/D)** — primary ATK pick is underperforming at this volume. Consider reducing rounds here until WR recovers.\n- **Map data threshold reached** (82M ≥ 30) — pull map data next session.\n\n---\n\n## Data Flags\n\n- 🔲 Active — 82 ranked matches as of 2026-03-27\n- ⭐ Gridlock ATK (9r / 66.7%) — strong signal\n- ⭐ Azami DEF (25r / 64.0%) — strong signal\n- ⭐ Maestro DEF (10r / 70.0%) — strong signal\n- ⭐ Echo DEF (8r / 100.0%) — strong signal\n- 📍 Map data threshold reached — pull maps next session\n\n---\n\n## Y11S1 Opening Context\n\n### Map Pool — Y11S1 Launch\nBank, Border, Chalet, Clubhouse, Coastline, Consulate, Fortress, Kafe Dostoyevsky, Lair, Nighthaven Labs, Oregon, Villa, Emerald Plains\n\n**Mid-season swap:** Coastline, Villa, Oregon, Emerald Plains OUT → Skyscraper, Theme Park, Stadium Bravo, Favela IN\n\n### Balance Notes — Hound Specific\n_No major balance changes to primary operators this season. Review GAME_06_CURRENT_SEASON.md for full patch notes._\n",
       "operators": {
         "atk": [
           {
@@ -820,9 +726,9 @@
           },
           {
             "name": "Thermite",
-            "rounds": 27,
-            "winRate": 29.6,
-            "kd": 0.62,
+            "rounds": 31,
+            "winRate": 32.3,
+            "kd": 0.73,
             "flag": "⚠️"
           },
           {
@@ -834,24 +740,24 @@
           },
           {
             "name": "Grim",
-            "rounds": 25,
-            "winRate": 52,
-            "kd": 1.19,
-            "flag": "✅"
+            "rounds": 26,
+            "winRate": 50,
+            "kd": 1.12,
+            "flag": ""
           },
           {
             "name": "Nomad",
-            "rounds": 23,
-            "winRate": 34.8,
-            "kd": 0.63,
+            "rounds": 26,
+            "winRate": 30.8,
+            "kd": 0.59,
             "flag": "⚠️"
           },
           {
             "name": "Fuze",
-            "rounds": 19,
-            "winRate": 47.4,
-            "kd": 1.29,
-            "flag": ""
+            "rounds": 22,
+            "winRate": 40.9,
+            "kd": 1.18,
+            "flag": "⚠️"
           },
           {
             "name": "Rauora",
@@ -859,6 +765,13 @@
             "winRate": 57.1,
             "kd": 0.8,
             "flag": "✅"
+          },
+          {
+            "name": "Dokkaebi",
+            "rounds": 10,
+            "winRate": 40,
+            "kd": 0.2,
+            "flag": "⚠️"
           },
           {
             "name": "Montagne",
@@ -875,26 +788,47 @@
             "flag": "⚠️"
           },
           {
-            "name": "Dokkaebi",
+            "name": "Gridlock",
             "rounds": 9,
-            "winRate": 44.4,
-            "kd": 0.11,
+            "winRate": 66.7,
+            "kd": 2.5,
+            "flag": "⭐"
+          },
+          {
+            "name": "Ying",
+            "rounds": 6,
+            "winRate": 33.3,
+            "kd": 1.2,
             "flag": ""
           },
           {
-            "name": "Gridlock",
-            "rounds": 8,
-            "winRate": 62.5,
-            "kd": 2,
-            "flag": "⭐"
+            "name": "Buck",
+            "rounds": 5,
+            "winRate": 80,
+            "kd": 2.33,
+            "flag": ""
+          },
+          {
+            "name": "IQ",
+            "rounds": 5,
+            "winRate": 60,
+            "kd": 5,
+            "flag": ""
+          },
+          {
+            "name": "Blackbeard",
+            "rounds": 5,
+            "winRate": 40,
+            "kd": 1,
+            "flag": ""
           }
         ],
         "def": [
           {
             "name": "Castle",
-            "rounds": 42,
-            "winRate": 50,
-            "kd": 0.89,
+            "rounds": 48,
+            "winRate": 45.8,
+            "kd": 0.79,
             "flag": ""
           },
           {
@@ -906,23 +840,30 @@
           },
           {
             "name": "Azami",
-            "rounds": 22,
-            "winRate": 68.2,
-            "kd": 1.62,
+            "rounds": 25,
+            "winRate": 64,
+            "kd": 1.31,
             "flag": "⭐"
           },
           {
             "name": "Frost",
-            "rounds": 20,
-            "winRate": 55,
+            "rounds": 22,
+            "winRate": 59.1,
             "kd": 1.07,
             "flag": "✅"
           },
           {
             "name": "Kaid",
+            "rounds": 19,
+            "winRate": 47.4,
+            "kd": 1.15,
+            "flag": ""
+          },
+          {
+            "name": "Mute",
             "rounds": 18,
-            "winRate": 50,
-            "kd": 1.25,
+            "winRate": 44.4,
+            "kd": 0.25,
             "flag": ""
           },
           {
@@ -933,17 +874,10 @@
             "flag": "⚠️"
           },
           {
-            "name": "Mute",
-            "rounds": 16,
-            "winRate": 50,
-            "kd": 0.29,
-            "flag": ""
-          },
-          {
             "name": "Maestro",
-            "rounds": 9,
-            "winRate": 66.7,
-            "kd": 0.67,
+            "rounds": 10,
+            "winRate": 70,
+            "kd": 1.33,
             "flag": "⭐"
           },
           {
@@ -954,6 +888,13 @@
             "flag": "⭐"
           },
           {
+            "name": "Thorn",
+            "rounds": 7,
+            "winRate": 57.1,
+            "kd": 2,
+            "flag": ""
+          },
+          {
             "name": "Aruni",
             "rounds": 7,
             "winRate": 42.9,
@@ -961,81 +902,22 @@
             "flag": ""
           },
           {
-            "name": "Thorn",
-            "rounds": 6,
-            "winRate": 66.7,
-            "kd": 1.75,
+            "name": "Thunderbird",
+            "rounds": 5,
+            "winRate": 60,
+            "kd": 1.33,
+            "flag": ""
+          },
+          {
+            "name": "Warden",
+            "rounds": 5,
+            "winRate": 80,
+            "kd": 0.5,
             "flag": ""
           }
         ]
       },
-      "mapPerformance": [
-        {
-          "map": "Border",
-          "matches": 10,
-          "winRate": 60
-        },
-        {
-          "map": "Coastline",
-          "matches": 10,
-          "winRate": 60
-        },
-        {
-          "map": "Oregon",
-          "matches": 9,
-          "winRate": 33.3
-        },
-        {
-          "map": "Clubhouse",
-          "matches": 7,
-          "winRate": 71.4
-        },
-        {
-          "map": "Villa",
-          "matches": 7,
-          "winRate": 42.9
-        },
-        {
-          "map": "Nighthaven Labs",
-          "matches": 6,
-          "winRate": 16.7
-        },
-        {
-          "map": "Bank",
-          "matches": 5,
-          "winRate": 80
-        },
-        {
-          "map": "Lair",
-          "matches": 5,
-          "winRate": 20
-        },
-        {
-          "map": "Chalet",
-          "matches": 4,
-          "winRate": 75
-        },
-        {
-          "map": "Consulate",
-          "matches": 4,
-          "winRate": 25
-        },
-        {
-          "map": "Emerald Plains",
-          "matches": 4,
-          "winRate": 0
-        },
-        {
-          "map": "Fortress",
-          "matches": 4,
-          "winRate": 25
-        },
-        {
-          "map": "Kafe Dostoyevsky",
-          "matches": 4,
-          "winRate": 75
-        }
-      ],
+      "mapPerformance": [],
       "prevSeason": "Y10S4",
       "prevSeasonStats": {
         "rank": "Emerald III",
@@ -1213,11 +1095,11 @@
       "season": "Y11S1",
       "stats": {
         "rank": "Silver III",
-        "rp": "2261",
-        "kd": "1.13",
-        "winRate": "46.2%",
-        "matches": "26",
-        "ris": "65.7"
+        "rp": "2245",
+        "kd": "1.14",
+        "winRate": "42.9%",
+        "matches": "28",
+        "ris": "66.8"
       },
       "coachingPriorities": [
         "Give Capitão more ATK rounds",
@@ -1226,14 +1108,14 @@
       ],
       "profileContent": "# Smigs — Player Profile\n\n**Callsign:** Smigs | **Tracker:** Eh_tooten | **Role:** Support\n\n⚠️ **Callsign note:** Some old script files and earlier KB docs swap Smigs/Sarge. Authoritative mapping: **Smigs = Eh_tooten**, Sarge = Eh_SiegeyBodeez. Trust tracker usernames over callsign labels in any document with ambiguity.\n\n---\n\n## Identity\n\n**Strengths:** Team-first mentality. Good gun. Strong situational awareness. Ideal for group entries. Solid utility usage. Described as \"sir yes sir\" — most reliable follower in coordinated pushes.\n\n**Tendencies:** Does what the team needs without hesitation. Contributes to wins at a high rate without requiring the frag lead. Consistently high win rates relative to K/D — a reliable indicator of support-first play style.\n\n**Role fit:** Group entry (3-man pushes). Anti-gadget. Hard breach support. Map control in a group.\n\n**Solo vs. Group:** Avoid solo entry pushes. Keep Smigs in a group.\n\n---\n\n## Career Coaching Notes\n\n- **Win rate is the signal, not K/D.** His support-first mentality produces wins consistently. Don't coach him toward fragging — it'll break what works.\n- **Capitão** was a Y10S4 standout — 60.9% WR in 23r, the highest ATK win rate in his pool that season. Not yet in his all-time ATK top 5 (Thatcher/Thermite/Nomad/Zofia/Ace), so the sample is still growing. Worth giving more volume in Y11S1 to confirm if this is a trend.\n- **Skyscraper** was a personal weakness in Y10S4 (40.0% WR, 0.52 K/D in 5 matches) but all-time he sits at 50.0% on Skyscraper — so this is season-specific, not a career pattern. Do not treat as a permanent avoidance map.\n- **Stack play is where he adds the most value.** His WR in stack vs. solo queue is meaningfully different — the more he plays with the team, the better the outcomes.\n- Zone-control DEF anchor (Kaid/Aruni/Castle) is a stable identity across seasons.\n\n---\n\n## Season Files\n\n| Season | File | Status |\n|--------|------|--------|\n| Y10S4 | [Y10S4.md](Y10S4.md) | ✅ Archived — Y10S4 ended 2026-03 |\n| Y11S1 | [Y11S1.md](Y11S1.md) | 🔲 Active — opening snapshot pulled 2026-03-06 |\n| All-Time | [ALL_TIME.md](ALL_TIME.md) | ✅ Core stats verified 2026-03-01 |\n",
       "coachingContent": "# Smigs — Y11S1 Coaching Brief\n\n_Season: Year 11 Season 1 — Operation Silent Hunt | Updated: 2026-03-07_\n\n---\n\n## Your Role\n\nYou're the \"sir yes sir\" of this team — the most reliable follower in a coordinated push. That's not a knock, it's the highest compliment for a group-entry player. You do what the team needs without hesitation, and your win rate consistently reflects it. Your DEF identity as a zone-control anchor (Kaid/Aruni/Castle) is one of the most stable on the stack.\n\n---\n\n## What's Working\n\n**Operators — DEF**\nYour zone-control anchor formula is already confirmed active in Y11S1: Aruni (71.4% WR) and Kaid (57.1% WR) both in the top 2 early. In Y10S4, Aruni was your best DEF fragger at 1.60 K/D in 49r. That combination of zone denial and actual fragging is rare — own it.\n\n**Operators — ATK**\nThermite is your ATK anchor (81r / 49.4% WR / 1.11 K/D in Y10S4). That's solid utility volume. Capitão was your standout last season at 62.5% WR in 24 rounds — the highest ATK WR in your pool. Nomad is producing early in Y11S1 (80% WR in 5r — tiny sample, but positive directional signal).\n\n**Maps**\nYour three best maps right now are Border (77.8% in Y10S4), Oregon (71.4% in Y10S4), and Lair (71.4% all-time). Border and Oregon are both in the current pool for the first half.\n\n---\n\n## Areas to Work On\n\n**Operators — ATK**\nCapitão needs more volume. You played 24 rounds at 62.5% WR and then it didn't grow further. That's the highest ATK WR in your pool — give it more chances. If Osa and Striker are eating rounds ahead of Capitão, that's the wrong call.\n\n**Maps**\nClubhouse is your biggest map weakness: 41.2% WR in 51 career matches. That's too many games to dismiss as variance. It's your most reliable bad map by sample size. When the team is building a ban strategy, Clubhouse should be in the conversation. Chalet (40.9%) and Outback (39.3%) are also consistent weak spots.\n\n**Operators — DEF: Lesion is underplayed**\nIn Y10S4, Lesion posted 59.3% WR and 1.67 K/D in 27 rounds — your most efficient DEF fragger next to Aruni. That's a 60%+ WR op with real kill potential and you only played it 27 times. It deserves a look for maps where Kaid/Castle aren't the right call.\n\n---\n\n## Y11S1 Priorities\n\n**1. Give Capitão more ATK rounds.**\nIt was your best ATK op last season and nothing in your pool challenges it at that WR. If you're defaulting to Osa or Striker when Capitão is available, flip that priority.\n\n**2. Kaid Observation Blocker deploys in 1 second now.**\nYour DEF anchor op carries it. There is no longer a good reason not to place it in prep phase every round. Put it down, every time. It denies drone info and costs you nothing.\n\n**3. Win rate is still the right metric for you.**\nYou're not the team's fragger — you're the person who makes the execute possible. A round where you don't get a kill but the team wins is a round you did your job. Your Y10S4 WR was 55.2% as a solo-queue player. Stack play pushes that higher. The formula works.\n\n---\n\n_Detailed operator tables, map splits, and full season archives are in your ALL_TIME.md, Y10S4.md, and Y11S1.md files._\n",
-      "seasonContent": "# Smigs — Y11S1 (Operation Silent Hunt)\n\n_Season status: 🔲 Active — repull 2026-03-21 (26 ranked matches)_\n_Pull date: 2026-03-21 | Source: r6.tracker.network_\n\n---\n\n## Core Stats\n\n| Stat | Value |\n|------|-------|\n| Rank | Silver III |\n| RP | 2,261 |\n| Matches | 26 |\n| Win Rate | 46.2% |\n| K/D | 1.13 |\n| KDA | 1.47 |\n| Kills | 131 |\n| Deaths | 116 |\n| HS% | 51.9% |\n| ESR | 0.69 |\n| RIS | 65.7 |\n| Clutches Won | 8 |\n| Clutch Win% | 23.5% |\n\n> 26M sample — growing. Stats are directional; re-pull at 30M for confidence.\n\n---\n\n## Operators\n\n_Format: Operator — Rounds | Win% | K/D (sorted by rounds played, ranked only)_\n_Season filter: season=41_\n\n**Attack**\n1. Thermite — 36r | 47.2% | 1.50\n2. Hibana — 10r | 20.0% | 1.25 ⚠️\n3. Nomad — 9r | 77.8% | 1.50 ⭐\n4. Ace — 8r | 50.0% | 1.20\n5. Striker — 7r | 14.3% | 0.43\n6. Capitao — 5r | 20.0% | 0.60\n\n**Defense**\n1. Aruni — 18r | 38.9% | 0.87 ⚠️\n2. Kaid — 15r | 60.0% | 2.00 ⭐\n3. Bandit — 8r | 75.0% | 1.17 ⭐\n4. Lesion — 8r | 50.0% | 1.33\n5. Thorn — 7r | 71.4% | 0.20\n6. Castle — 7r | 57.1% | 1.00\n7. Mute — 5r | 100.0% | 3.00\n\n**ATK identity:** Thermite is the primary ATK pick (36r / 47.2% / 1.50 K/D). Secondary: Hibana (10r / 20.0%).\n**DEF identity:** Aruni is the primary DEF anchor (18r / 38.9% / 0.87 K/D). Secondary: Kaid (15r / 60.0%).\n\n---\n\n## Map Performance\n\n| Map | Matches | Win% | K/D | Atk% | Def% |\n|-----|---------|------|-----|------|------|\n| — | — | — | — | — | — |\n\n_Map data not yet pulled — add at 30+ match milestone._\n\n---\n\n## Season Coaching Notes\n\n- **⚠️ Aruni DEF (18r / 38.9%)** — primary DEF pick is underperforming. Investigate or switch anchor.\n- **Re-pull at 30+ matches** for meaningful coaching analysis. (4 more matches needed for map data threshold.)\n\n---\n\n## Data Flags\n\n- 🔲 Active — 26 ranked matches as of 2026-03-21\n- ⭐ Nomad ATK (9r / 77.8%) — strong signal\n- ⭐ Kaid DEF (15r / 60.0%) — strong signal\n- ⭐ Bandit DEF (8r / 75.0%) — strong signal\n\n---\n\n## Y11S1 Opening Context\n\n### Map Pool — Y11S1 Launch\nBank, Border, Chalet, Clubhouse, Coastline, Consulate, Fortress, Kafe Dostoyevsky, Lair, Nighthaven Labs, Oregon, Villa, Emerald Plains\n\n**Mid-season swap:** Coastline, Villa, Oregon, Emerald Plains OUT → Skyscraper, Theme Park, Stadium Bravo, Favela IN\n\n### Balance Notes — Smigs Specific\n_No major balance changes to primary operators this season. Review GAME_06_CURRENT_SEASON.md for full patch notes._\n",
+      "seasonContent": "# Smigs — Y11S1 (Operation Silent Hunt)\n\n_Season status: 🔲 Active — repull 2026-03-27 (28 ranked matches)_\n_Pull date: 2026-03-27 | Source: r6.tracker.network_\n\n---\n\n## Core Stats\n\n| Stat | Value |\n|------|-------|\n| Rank | Silver III |\n| RP | 2,245 |\n| Matches | 28 |\n| Win Rate | 42.9% |\n| K/D | 1.14 |\n| KDA | 1.46 |\n| Kills | 142 |\n| Deaths | 125 |\n| HS% | 54.2% |\n| ESR | 0.69 |\n| RIS | 66.8 |\n| Clutches Won | 8 |\n| Clutch Win% | 22.2% |\n\n> 28M sample — growing. Stats are directional; re-pull at 30M for confidence.\n\n---\n\n## Operators\n\n_Format: Operator — Rounds | Win% | K/D (sorted by rounds played, ranked only)_\n_Season filter: season=41_\n\n**Attack**\n1. Thermite — 40r | 45.0% | 1.48\n2. Hibana — 10r | 20.0% | 1.25 ⚠️\n3. Striker — 9r | 22.2% | 0.75 ⚠️\n4. Nomad — 9r | 77.8% | 1.50 ⭐\n5. Ace — 8r | 50.0% | 1.20\n6. Capitao — 5r | 20.0% | 0.60\n\n**Defense**\n1. Aruni — 21r | 38.1% | 0.88 ⚠️\n2. Kaid — 15r | 60.0% | 2.00 ⭐\n3. Lesion — 9r | 44.4% | 1.14\n4. Bandit — 8r | 75.0% | 1.17 ⭐\n5. Thorn — 8r | 62.5% | 0.17 ⭐\n6. Castle — 7r | 57.1% | 1.00\n7. Mute — 6r | 83.3% | 2.00\n\n**ATK identity:** Thermite is the primary ATK pick (40r / 45.0% / 1.48 K/D). Secondary: Hibana (10r / 20.0%).\n**DEF identity:** Aruni is the primary DEF anchor (21r / 38.1% / 0.88 K/D). Secondary: Kaid (15r / 60.0%).\n\n---\n\n## Map Performance\n\n| Map | Matches | Win% | K/D | Atk% | Def% |\n|-----|---------|------|-----|------|------|\n| — | — | — | — | — | — |\n\n_Map data not yet pulled — add at 30+ match milestone._\n\n---\n\n## Season Coaching Notes\n\n- **⚠️ Aruni DEF (21r / 38.1%)** — primary DEF pick is underperforming. Investigate or switch anchor.\n- **Re-pull at 30+ matches** for meaningful coaching analysis. (2 more matches needed for map data threshold.)\n\n---\n\n## Data Flags\n\n- 🔲 Active — 28 ranked matches as of 2026-03-27\n- ⭐ Nomad ATK (9r / 77.8%) — strong signal\n- ⭐ Kaid DEF (15r / 60.0%) — strong signal\n- ⭐ Bandit DEF (8r / 75.0%) — strong signal\n- ⭐ Thorn DEF (8r / 62.5%) — strong signal\n\n---\n\n## Y11S1 Opening Context\n\n### Map Pool — Y11S1 Launch\nBank, Border, Chalet, Clubhouse, Coastline, Consulate, Fortress, Kafe Dostoyevsky, Lair, Nighthaven Labs, Oregon, Villa, Emerald Plains\n\n**Mid-season swap:** Coastline, Villa, Oregon, Emerald Plains OUT → Skyscraper, Theme Park, Stadium Bravo, Favela IN\n\n### Balance Notes — Smigs Specific\n_No major balance changes to primary operators this season. Review GAME_06_CURRENT_SEASON.md for full patch notes._\n",
       "operators": {
         "atk": [
           {
             "name": "Thermite",
-            "rounds": 36,
-            "winRate": 47.2,
-            "kd": 1.5,
+            "rounds": 40,
+            "winRate": 45,
+            "kd": 1.48,
             "flag": ""
           },
           {
@@ -1241,6 +1123,13 @@
             "rounds": 10,
             "winRate": 20,
             "kd": 1.25,
+            "flag": "⚠️"
+          },
+          {
+            "name": "Striker",
+            "rounds": 9,
+            "winRate": 22.2,
+            "kd": 0.75,
             "flag": "⚠️"
           },
           {
@@ -1258,13 +1147,6 @@
             "flag": ""
           },
           {
-            "name": "Striker",
-            "rounds": 7,
-            "winRate": 14.3,
-            "kd": 0.43,
-            "flag": ""
-          },
-          {
             "name": "Capitao",
             "rounds": 5,
             "winRate": 20,
@@ -1275,9 +1157,9 @@
         "def": [
           {
             "name": "Aruni",
-            "rounds": 18,
-            "winRate": 38.9,
-            "kd": 0.87,
+            "rounds": 21,
+            "winRate": 38.1,
+            "kd": 0.88,
             "flag": "⚠️"
           },
           {
@@ -1288,6 +1170,13 @@
             "flag": "⭐"
           },
           {
+            "name": "Lesion",
+            "rounds": 9,
+            "winRate": 44.4,
+            "kd": 1.14,
+            "flag": ""
+          },
+          {
             "name": "Bandit",
             "rounds": 8,
             "winRate": 75,
@@ -1295,18 +1184,11 @@
             "flag": "⭐"
           },
           {
-            "name": "Lesion",
-            "rounds": 8,
-            "winRate": 50,
-            "kd": 1.33,
-            "flag": ""
-          },
-          {
             "name": "Thorn",
-            "rounds": 7,
-            "winRate": 71.4,
-            "kd": 0.2,
-            "flag": ""
+            "rounds": 8,
+            "winRate": 62.5,
+            "kd": 0.17,
+            "flag": "⭐"
           },
           {
             "name": "Castle",
@@ -1317,9 +1199,9 @@
           },
           {
             "name": "Mute",
-            "rounds": 5,
-            "winRate": 100,
-            "kd": 3,
+            "rounds": 6,
+            "winRate": 83.3,
+            "kd": 2,
             "flag": ""
           }
         ]
@@ -1515,7 +1397,7 @@
       ],
       "profileContent": "# Sarge — Player Profile\n\n**Callsign:** Sarge | **Tracker:** Eh_SiegeyBodeez | **Role:** Entry / Fragger\n\n⚠️ **Callsign note:** Some old script files and earlier KB docs swap Smigs/Sarge. Authoritative mapping: **Sarge = Eh_SiegeyBodeez**, Smigs = Eh_tooten. Trust tracker usernames over callsign labels in any document with ambiguity.\n\n---\n\n## Identity\n\n**Strengths:** One of the best guns in the stack. Good balance of aggressive and passive play. Excellent at quick entry and breaching. Can coordinate his own strike team.\n\n**Tendencies:** Coordination similar to Grant but less composed under pressure. Excels at getting early man advantage or map control. Comfortable leading a sub-group. **Defense is his dominant side** — this is a consistent career pattern, not just a season anomaly.\n\n**Role fit:** Entry fragger (role label) — but data consistently shows a defense-dominant identity. Best used as sub-group IGL on attack, primary anchor on defense.\n\n**Solo vs. Group:** Most valuable leading a 2–3 man group. Solo roles should go to Grant or Peej first (Slug B Team as of 2026-03-21).\n\n---\n\n## Career Coaching Notes\n\n- **Role/op mismatch is the standing coaching priority.** Called \"Entry/Fragger\" but his Y10S4 ATK top 5 (Thermite/Buck/IQ/Sledge/Hibana) posted sub-1.0 K/D on every operator this season. Note: all-time, three of his top 5 ATK ops have hit 1.0+ K/D (Ace 1.15, Thatcher 1.02, Sledge 1.02) — so the issue is Y10S4 op selection, not solely mechanics. Either evolve toward actual entry ops (Ash, Zofia, Iana) or update the role label.\n- **Defense is his real identity.** Vigil is the career DEF anchor — all-time #1 DEF op (716r / 57.8% / 1.45 K/D, Y8S1+). Thunderbird is a strong Y10S4 addition (115r this season) but does not appear in his all-time top 5 DEF ops (Vigil/Mute/Bandit/Doc/Rook) — treat it as emerging, not career-proven. In stack play, his DEF rounds are the priority.\n- **Rank gap** (historically Platinum while the rest of the stack sits at Emerald) needs a direct conversation. Solo queue vs. stack performance should be investigated.\n- In stack formation: assign Sarge to lead the 3-man group on attack while Grant/Peej take solo roles (Slug B Team as of 2026-03-21). His coordination capability makes him the best choice for sub-group IGL.\n- **Outback, Border, Villa** are recurring strong maps — protect these in ban phase.\n- **Chalet** is a consistent team-wide problem, not Sarge-specific.\n\n---\n\n## Season Files\n\n| Season | File | Status |\n|--------|------|--------|\n| Y10S4 | [Y10S4.md](Y10S4.md) | ✅ Archived — Y10S4 ended 2026-03 |\n| Y11S1 | [Y11S1.md](Y11S1.md) | 🔲 Active — opening snapshot pulled 2026-03-06 |\n| All-Time | [ALL_TIME.md](ALL_TIME.md) | ✅ Core stats verified 2026-03-01 |\n",
       "coachingContent": "# Sarge — Y11S1 Coaching Brief\n\n_Season: Year 11 Season 1 — Operation Silent Hunt | Updated: 2026-03-07_\n\n---\n\n## Your Role\n\nYou're labeled Entry/Fragger, but your real identity is defense-dominant with strong sub-group leadership capability. On attack, your job is to lead the 3-man group — you're the sub-IGL, not the solo pusher. On defense, you're the team's best roamer and one of the most impactful individual DEF players on the stack. Vigil is your identity. Own it.\n\n---\n\n## What's Working\n\n**Operators — DEF**\nVigil is your career anchor and it's showing up immediately in Y11S1: 31r / 58.1% / 1.60 K/D. That exactly matches your all-time Vigil numbers (716r / 57.8% / 1.45 K/D). This identity is locked in for good reason — your roaming K/D on Vigil is the highest individual defensive K/D on the main stack. Thunderbird is your backup anchor and building volume, and Azami is posting absurd early numbers (85.7% WR / 4.00 K/D in 7r).\n\n**Operators — ATK (⭐ Major Development)**\nThis is a coaching win worth calling out directly: you transitioned to Zofia as your primary ATK op in Y11S1 and you have 55 rounds at 1.13 K/D. That breaks the pattern from Y10S4 where every ATK op you played was sub-1.0. Zofia is a real entry fragger (KS79 Lifeline launcher) and your K/D finally reflects an entry fragger. This is exactly the evolution the coaching notes were asking for.\n\n**Maps**\nYour three strongest maps are Theme Park (60.5% all-time), Villa (59.3% all-time), and Kafe (58.5%). Your Y10S4 best was Outback (83.3% / 1.60 K/D) but Outback is gone from the pool all season. Villa stays in for the first half — protect it.\n\n---\n\n## Areas to Work On\n\n**Operators — ATK: Confirm the Zofia identity**\n55 rounds is real volume, but you need the next 50 rounds to confirm the pattern holds. If the K/D and WR both stay above 1.0 and 45%+ by the time you hit 100+ rounds, you've fully made the transition. The other operators in Y11S1 (Twitch, Sledge, Buck) are all 4r or under — don't let those eat the volume that Zofia should be getting.\n\n**Maps**\nClubhouse is your worst all-time map: 33.8% WR in 68 career matches. That's the largest and most confident weakness on the main stack. Chalet (35.3% all-time) is close behind. Both are in the current pool — have a plan for them or advocate for banning them.\n\n**The rank gap**\nYou ended Y10S4 at Platinum III while most of the main stack was Emerald. Both you and Grant have reset to Silver IV in Y11S1 — that's the same starting point. The question is trajectory from here. If your rank trends toward Emerald this season, the gap is closing for real. That's the target.\n\n---\n\n## Y11S1 Priorities\n\n**1. Keep building Zofia.**\nYou found your entry fragger identity. Don't abandon it because of a few bad rounds. The whole coaching program was pushing toward this — you got there organically. Trust it.\n\n**2. Defense is your dominant side — lead on it.**\nYour Vigil K/D (1.45 all-time) makes you one of the most impactful individual defenders on the team. In stack play, your roaming creates the pressure that lets the anchors do their job. Communicate your roam plans before the round so the anchors know where to expect traffic.\n\n**3. Outback is gone — find your new comfort map.**\nOutback was 83.3% for you in Y10S4. That's not in the pool. Villa is your next best (59.3% all-time) and it's in the pool for the first half. Protect Villa in ban phase as the Outback replacement until the mid-season swap.\n\n---\n\n_Detailed operator tables, map splits, and full season archives are in your ALL_TIME.md, Y10S4.md, and Y11S1.md files._\n",
-      "seasonContent": "# Sarge — Y11S1 (Operation Silent Hunt)\n\n_Season status: 🔲 Active — repull 2026-03-21 (89 ranked matches)_\n_Pull date: 2026-03-21 | Source: r6.tracker.network_\n\n---\n\n## Core Stats\n\n| Stat | Value |\n|------|-------|\n| Rank | Gold II |\n| RP | 2,832 |\n| Matches | 89 |\n| Win Rate | 43.8% |\n| K/D | 1.00 |\n| KDA | 1.35 |\n| Kills | 412 |\n| Deaths | 410 |\n| HS% | 51.9% |\n| ESR | 0.59 |\n| RIS | 51.1 |\n| Clutches Won | 9 |\n| Clutch Win% | 11.0% |\n\n> 89M sample — moderate confidence. Stats are meaningful.\n\n---\n\n## Operators\n\n_Format: Operator — Rounds | Win% | K/D (sorted by rounds played, ranked only)_\n_Season filter: season=41_\n\n**Attack**\n1. Zofia — 142r | 43.7% | 1.19\n2. Jackal — 33r | 33.3% | 1.00 ⚠️\n3. Capitao — 21r | 42.9% | 1.25\n4. Sledge — 12r | 41.7% | 0.55 ⚠️\n5. Iana — 10r | 50.0% | 1.33\n6. Twitch — 8r | 12.5% | 0.29 ⚠️\n7. Amaru — 8r | 50.0% | 0.50\n8. Ying — 7r | 14.3% | 0.86\n9. Buck — 7r | 28.6% | 0.43\n10. Nomad — 6r | 50.0% | 0.33\n11. Ash — 6r | 16.7% | 0.33\n12. Thatcher — 6r | 66.7% | 1.75\n\n**Defense**\n1. Vigil — 78r | 59.0% | 1.28 ✅\n2. Azami — 42r | 57.1% | 1.00 ✅\n3. Mute — 25r | 44.0% | 0.67\n4. Smoke — 22r | 50.0% | 0.67\n5. Thunderbird — 14r | 57.1% | 1.56 ✅\n6. Thorn — 12r | 50.0% | 1.11\n7. Jager — 12r | 50.0% | 0.89\n8. Doc — 12r | 41.7% | 0.91 ⚠️\n9. Rook — 11r | 36.4% | 0.56 ⚠️\n10. Aruni — 7r | 42.9% | 1.00\n11. Melusi — 7r | 71.4% | 0.75\n12. Echo — 6r | 66.7% | 1.00\n\n**ATK identity:** Zofia is the primary ATK pick (142r / 43.7% / 1.19 K/D). Secondary: Jackal (33r / 33.3%).\n**DEF identity:** Vigil is the primary DEF anchor (78r / 59.0% / 1.28 K/D). Secondary: Azami (42r / 57.1%).\n\n---\n\n## Map Performance\n\n| Map | Matches | Win% | K/D | Atk% | Def% |\n|-----|---------|------|-----|------|------|\n| Oregon | 11 | 36.4% | 1.02 | 38.2% | 50.0% |\n| Border | 10 | 60.0% | 1.17 | 45.7% | 62.5% |\n| Nighthaven Labs | 9 | 33.3% | 0.95 | 36.7% | 48.3% |\n| Chalet | 8 | 62.5% | 1.54 | 56.0% | 65.2% |\n| Clubhouse | 8 | 75.0% | 1.18 | 50.0% | 63.0% |\n| Coastline | 8 | 62.5% | 0.79 | 56.5% | 54.2% |\n| Bank | 6 | 50.0% | 0.83 | 27.8% | 60.0% |\n| Villa | 6 | 16.7% | 0.81 | 33.3% | 44.4% |\n| Consulate | 5 | 40.0% | 1.08 | 38.9% | 60.0% |\n| Emerald Plains | 5 | 0.0% | 0.52 | 8.3% | 42.9% |\n| Kafe Dostoyevsky | 5 | 40.0% | 1.16 | 38.9% | 55.6% |\n| Fortress | 4 | 25.0% | 0.76 | 28.6% | 50.0% |\n| Lair | 4 | 25.0% | 1.12 | 20.0% | 50.0% |\n\n**Strong:** Clubhouse (75%), Chalet (62.5%), Coastline (62.5%), Border (60%)\n**Weak:** Emerald Plains (0% in 5M), Villa (16.7%), Fortress (25%), Lair (25%), Nighthaven (33.3%), Oregon (36.4%)\n**Pattern:** Very strong on Chalet/Clubhouse/Border cluster; consistent struggles on newer maps.\n\n_Map data pulled 2026-03-21 (89M). Source: r6.tracker.network, season=41, ranked only._\n\n---\n\n## Season Coaching Notes\n\n- **⭐ Clubhouse (8M / 75%)** — strongest map; both sides performing. Stack confidence pick.\n- **⭐ Chalet + Coastline (62.5%)** — reliable pair; Coastline notably below 1.0 K/D but still winning.\n- **⚠️ Oregon (11M / 36.4%)** — highest-volume map and a losing record. ATK side (38.2%) is the problem.\n- **⚠️ Nighthaven Labs (9M / 33.3%)** — second-highest volume and also below 50%. Neither side strong.\n- **⚠️ Villa (6M / 16.7%)** — significant weakness; ATK side only 33.3%.\n- **⚠️ Emerald Plains (0%)** — team-wide pattern; veto candidate.\n\n---\n\n## Data Flags\n\n- 🔲 Active — 89 ranked matches as of 2026-03-21\n- ✅ Map data pulled 2026-03-21 (89M, season=41)\n\n---\n\n## Y11S1 Opening Context\n\n### Map Pool — Y11S1 Launch\nBank, Border, Chalet, Clubhouse, Coastline, Consulate, Fortress, Kafe Dostoyevsky, Lair, Nighthaven Labs, Oregon, Villa, Emerald Plains\n\n**Mid-season swap:** Coastline, Villa, Oregon, Emerald Plains OUT → Skyscraper, Theme Park, Stadium Bravo, Favela IN\n\n### Balance Notes — Sarge Specific\n_No major balance changes to primary operators this season. Review GAME_06_CURRENT_SEASON.md for full patch notes._\n",
+      "seasonContent": "# Sarge — Y11S1 (Operation Silent Hunt)\n\n_Season status: 🔲 Active — repull 2026-03-27 (89 ranked matches)_\n_Pull date: 2026-03-27 | Source: r6.tracker.network_\n\n---\n\n## Core Stats\n\n| Stat | Value |\n|------|-------|\n| Rank | Gold II |\n| RP | 2,832 |\n| Matches | 89 |\n| Win Rate | 43.8% |\n| K/D | 1.00 |\n| KDA | 1.35 |\n| Kills | 412 |\n| Deaths | 410 |\n| HS% | 51.9% |\n| ESR | 0.59 |\n| RIS | 51.1 |\n| Clutches Won | 9 |\n| Clutch Win% | 11.0% |\n\n> 89M sample — moderate confidence. Stats are meaningful.\n\n---\n\n## Operators\n\n_Format: Operator — Rounds | Win% | K/D (sorted by rounds played, ranked only)_\n_Season filter: season=41_\n\n**Attack**\n1. Zofia — 142r | 43.7% | 1.19\n2. Jackal — 33r | 33.3% | 1.00 ⚠️\n3. Capitao — 21r | 42.9% | 1.25\n4. Sledge — 12r | 41.7% | 0.55 ⚠️\n5. Iana — 10r | 50.0% | 1.33\n6. Amaru — 8r | 50.0% | 0.50\n7. Twitch — 8r | 12.5% | 0.29 ⚠️\n8. Ying — 7r | 14.3% | 0.86\n9. Buck — 7r | 28.6% | 0.43\n10. Nomad — 6r | 50.0% | 0.33\n11. Ash — 6r | 16.7% | 0.33\n12. Thatcher — 6r | 66.7% | 1.75\n\n**Defense**\n1. Vigil — 78r | 59.0% | 1.28 ✅\n2. Azami — 42r | 57.1% | 1.00 ✅\n3. Mute — 25r | 44.0% | 0.67\n4. Smoke — 22r | 50.0% | 0.67\n5. Thunderbird — 14r | 57.1% | 1.56 ✅\n6. Thorn — 12r | 50.0% | 1.11\n7. Jager — 12r | 50.0% | 0.89\n8. Doc — 12r | 41.7% | 0.91 ⚠️\n9. Rook — 11r | 36.4% | 0.56 ⚠️\n10. Melusi — 7r | 71.4% | 0.75\n11. Aruni — 7r | 42.9% | 1.00\n12. Echo — 6r | 66.7% | 1.00\n\n**ATK identity:** Zofia is the primary ATK pick (142r / 43.7% / 1.19 K/D). Secondary: Jackal (33r / 33.3%).\n**DEF identity:** Vigil is the primary DEF anchor (78r / 59.0% / 1.28 K/D). Secondary: Azami (42r / 57.1%).\n\n---\n\n## Map Performance\n\n| Map | Matches | Win% | K/D | Atk% | Def% |\n|-----|---------|------|-----|------|------|\n| — | — | — | — | — | — |\n\n_Map data not yet pulled — add at 30+ match milestone._\n\n---\n\n## Season Coaching Notes\n\n- **Map data threshold reached** (89M ≥ 30) — pull map data next session.\n\n---\n\n## Data Flags\n\n- 🔲 Active — 89 ranked matches as of 2026-03-27\n- 📍 Map data threshold reached — pull maps next session\n\n---\n\n## Y11S1 Opening Context\n\n### Map Pool — Y11S1 Launch\nBank, Border, Chalet, Clubhouse, Coastline, Consulate, Fortress, Kafe Dostoyevsky, Lair, Nighthaven Labs, Oregon, Villa, Emerald Plains\n\n**Mid-season swap:** Coastline, Villa, Oregon, Emerald Plains OUT → Skyscraper, Theme Park, Stadium Bravo, Favela IN\n\n### Balance Notes — Sarge Specific\n_No major balance changes to primary operators this season. Review GAME_06_CURRENT_SEASON.md for full patch notes._\n",
       "operators": {
         "atk": [
           {
@@ -1554,18 +1436,18 @@
             "flag": ""
           },
           {
-            "name": "Twitch",
-            "rounds": 8,
-            "winRate": 12.5,
-            "kd": 0.29,
-            "flag": "⚠️"
-          },
-          {
             "name": "Amaru",
             "rounds": 8,
             "winRate": 50,
             "kd": 0.5,
             "flag": ""
+          },
+          {
+            "name": "Twitch",
+            "rounds": 8,
+            "winRate": 12.5,
+            "kd": 0.29,
+            "flag": "⚠️"
           },
           {
             "name": "Ying",
@@ -1668,17 +1550,17 @@
             "flag": "⚠️"
           },
           {
-            "name": "Aruni",
-            "rounds": 7,
-            "winRate": 42.9,
-            "kd": 1,
-            "flag": ""
-          },
-          {
             "name": "Melusi",
             "rounds": 7,
             "winRate": 71.4,
             "kd": 0.75,
+            "flag": ""
+          },
+          {
+            "name": "Aruni",
+            "rounds": 7,
+            "winRate": 42.9,
+            "kd": 1,
             "flag": ""
           },
           {
@@ -1690,73 +1572,7 @@
           }
         ]
       },
-      "mapPerformance": [
-        {
-          "map": "Oregon",
-          "matches": 11,
-          "winRate": 36.4
-        },
-        {
-          "map": "Border",
-          "matches": 10,
-          "winRate": 60
-        },
-        {
-          "map": "Nighthaven Labs",
-          "matches": 9,
-          "winRate": 33.3
-        },
-        {
-          "map": "Chalet",
-          "matches": 8,
-          "winRate": 62.5
-        },
-        {
-          "map": "Clubhouse",
-          "matches": 8,
-          "winRate": 75
-        },
-        {
-          "map": "Coastline",
-          "matches": 8,
-          "winRate": 62.5
-        },
-        {
-          "map": "Bank",
-          "matches": 6,
-          "winRate": 50
-        },
-        {
-          "map": "Villa",
-          "matches": 6,
-          "winRate": 16.7
-        },
-        {
-          "map": "Consulate",
-          "matches": 5,
-          "winRate": 40
-        },
-        {
-          "map": "Emerald Plains",
-          "matches": 5,
-          "winRate": 0
-        },
-        {
-          "map": "Kafe Dostoyevsky",
-          "matches": 5,
-          "winRate": 40
-        },
-        {
-          "map": "Fortress",
-          "matches": 4,
-          "winRate": 25
-        },
-        {
-          "map": "Lair",
-          "matches": 4,
-          "winRate": 25
-        }
-      ],
+      "mapPerformance": [],
       "prevSeason": "Y10S4",
       "prevSeasonStats": {
         "rank": "Platinum III",
@@ -1935,12 +1751,12 @@
       "defOps": "Valkyrie / Solis",
       "season": "Y11S1",
       "stats": {
-        "rank": "Platinum III",
-        "rp": "3200",
-        "kd": "1.08",
-        "winRate": "46.3%",
-        "matches": "54",
-        "ris": "47"
+        "rank": "Platinum IV",
+        "rp": "3124",
+        "kd": "1.03",
+        "winRate": "41.7%",
+        "matches": "60",
+        "ris": "44.6"
       },
       "coachingPriorities": [
         "Zero comes off the top of your ATK pool",
@@ -1949,21 +1765,21 @@
       ],
       "profileContent": "# Slug — Player Profile\n\n**Callsign:** Slug | **Real Name:** Chris | **Tracker:** Eh_Slugwini | **Role:** Flex / Flank | **Team:** B Team _(moved from Main Stack 2026-03-21)_\n\n---\n\n## Identity\n\n**Strengths:** More solo queue experience than anyone else on the stack. Thrives in solo environments. Highly adaptable — runs whatever the team needs. Comfortable with 1v1 and isolated angles.\n\n**Tendencies:** Excels when in full control of his own situation. Most active player by match count most seasons. Strong individual decision-making. Smoke specialist — his post-plant denial is the most reliable on the team.\n\n**Role fit:** Solo pusher. Flank watcher / creator. Secondary IGL capable. Flex operator.\n\n**Solo vs. Group:** #2 priority for solo roles after Grant. Wasted in a grouped push if his individual reads are the team's advantage.\n\n---\n\n## Career Coaching Notes\n\n- **Smoke/Valkyrie specialist** — this is a stable career identity, not just a current-season pick. His DEF is built around post-plant denial + intel. Don't ask him to change this formula.\n- **His all-time ranked K/D (sub-1.0) has improved significantly in Y10S4 (1.11)** — tracking this trend across seasons is meaningful.\n- **Coastline and Lair** have emerged as strong maps. Worth protecting in ban phase going forward.\n- **Consulate** is a recurring volume problem map — high match count, below-average WR. Specific strat work would help.\n- Solo/flank profile maps best to 3-1-1 and 3-2 formations where he operates independently.\n\n---\n\n## Season Files\n\n| Season | File | Status |\n|--------|------|--------|\n| Y10S4 | [Y10S4.md](Y10S4.md) | ✅ Archived — Y10S4 ended 2026-03 |\n| Y11S1 | [Y11S1.md](Y11S1.md) | 🔲 Active — opening snapshot pulled 2026-03-06 |\n| All-Time | [ALL_TIME.md](ALL_TIME.md) | ✅ Core stats verified 2026-03-01 |\n",
       "coachingContent": "# Slug — Y11S1 Coaching Brief\n\n_Season: Year 11 Season 1 — Operation Silent Hunt | Updated: 2026-03-07_\n\n---\n\n## Your Role\n\nYou're the second IGL, the Smoke specialist, and the team's most experienced solo-queue player. You thrive operating independently — flanking, watching rotations, and making your own reads. Your post-plant Smoke denial is the most reliable on the team. You get a solo role in the team formation because your individual decision-making earns it.\n\n---\n\n## What's Working\n\n**Operators — DEF**\nSmoke is your career anchor — 833 all-time rounds with 58.6% WR. In Y10S4, it was your best DEF op at 128r / 64.1% WR / 1.31 K/D. Trust yourself on when to pop canisters — that's a self-directed read, and the 64% WR says it's working. Valkyrie gives the team intel behind it. This two-op DEF identity is locked in.\n\n**Operators — ATK**\nMaverick stands out as a clear best ATK pick in Y10S4 (59.1% WR / 1.79 K/D in 22r). Thatcher (50% WR / 1.35 K/D) and Jackal (61.1% WR in 18r) were also strong. These three are where you should be building ATK volume.\n\n**Maps**\nCoastline and Lair were both 83.3% in Y10S4 — those are elite numbers. Both are in the pool for the first half of Y11S1. Kanal is your third-best all-time map at 62.3%. Bank (56.3% all-time) is a consistent strength.\n\n---\n\n## Areas to Work On\n\n**Operators — ATK**\nZero is the standing issue. You played it 71 rounds in Y10S4 at 38.0% WR. That's the most-played ATK op with the worst WR in the pool. You don't need to quit it entirely, but it cannot be leading your ATK pool. Buck and Thermite deserve more rounds than Zero is currently getting.\n\n**Maps**\nChalet is your most reliable weakness — 37.4% WR in 91 career matches. That's a large enough sample to be very high confidence. Consulate is the other one: 66 career matches at 53.0% is fine all-time, but Y10S4 was 43.8% across 16 games. Specific strat work on Consulate would help.\n\n---\n\n## Y11S1 Priorities\n\n**1. Zero comes off the top of your ATK pool.**\nBuck, Thermite, or Maverick should lead. You have the WR data to justify it. This isn't about dropping Zero entirely — it's about getting Buck and Maverick the rounds they deserve first.\n\n**2. Coastline stays in the pool all first half — treat it like a protected map.**\n83.3% WR in Y10S4 is not an accident. If Coastline hasn't been in the ban conversation, it shouldn't need to be. Know your bests and keep them.\n\n**3. Your Smoke reads are self-directed and that's a feature, not a bug.**\nDon't let anyone else dictate when you pop canisters. Your WR validates it. The one coaching note: check in with the team after the round about timing so they can start anticipating it and playing off it rather than being surprised by it.\n\n---\n\n_Detailed operator tables, map splits, and full season archives are in your ALL_TIME.md, Y10S4.md, and Y11S1.md files._\n",
-      "seasonContent": "# Slug — Y11S1 (Operation Silent Hunt)\n\n_Season status: 🔲 Active — repull 2026-03-21 (54 ranked matches)_\n_Pull date: 2026-03-21 | Source: r6.tracker.network_\n\n---\n\n## Core Stats\n\n| Stat | Value |\n|------|-------|\n| Rank | Platinum III |\n| RP | 3,200 |\n| Matches | 54 |\n| Win Rate | 46.3% |\n| K/D | 1.08 |\n| KDA | 1.41 |\n| Kills | 275 |\n| Deaths | 255 |\n| HS% | 50.2% |\n| ESR | 0.44 |\n| RIS | 47 |\n| Clutches Won | 4 |\n| Clutch Win% | 14.3% |\n\n> 54M sample — moderate confidence. Stats are meaningful.\n\n---\n\n## Operators\n\n_Format: Operator — Rounds | Win% | K/D (sorted by rounds played, ranked only)_\n_Season filter: season=41_\n\n**Attack**\n1. Buck — 21r | 19.0% | 1.05 ⚠️\n2. Solid Snake — 20r | 30.0% | 0.63 ⚠️\n3. Thermite — 20r | 55.0% | 0.81 ✅\n4. Hibana — 16r | 43.8% | 1.50\n5. Jackal — 12r | 58.3% | 2.83 ✅\n6. Maverick — 8r | 25.0% | 0.50 ⚠️\n7. Deimos — 8r | 50.0% | 1.00\n8. Zero — 8r | 87.5% | 3.33 ⭐\n\n**Defense**\n1. Valkyrie — 52r | 69.2% | 1.30 ⭐\n2. Solis — 22r | 63.6% | 2.14 ⭐\n3. Smoke — 21r | 42.9% | 0.67\n4. Kaid — 10r | 50.0% | 1.25\n\n**ATK identity:** Buck is the primary ATK pick (21r / 19.0% / 1.05 K/D). Secondary: Solid Snake (20r / 30.0%).\n**DEF identity:** Valkyrie is the primary DEF anchor (52r / 69.2% / 1.30 K/D). Secondary: Solis (22r / 63.6%).\n\n---\n\n## Map Performance\n\n_Pulled 2026-03-21 | season=41 | Source: r6.tracker.network_\n\n| Map | Matches | Win% | K/D | Atk Win% | Def Win% |\n|-----|---------|------|-----|----------|----------|\n| Oregon | 9 | 55.6% | 1.35 | 46.4% | 55.6% |\n| Villa | 7 | 28.6% ⚠️ | 1.06 | 45.8% | 45.5% |\n| Border | 6 | 66.7% ⭐ | 1.24 | 47.4% | 66.7% |\n| Nighthaven Labs | 5 | 20.0% ⚠️ | 0.69 | 35.3% | 46.7% |\n| Coastline | 4 | 75.0% ⭐ | 1.73 | 77.8% | 50.0% |\n| Consulate | 4 | 50.0% | 0.83 | 42.9% | 64.3% |\n| Fortress | 4 | 25.0% ⚠️ | 1.19 | 25.0% | 66.7% |\n| Kafe Dostoyevsky | 4 | 50.0% | 1.12 | 33.3% | 62.5% |\n| Bank | 3 | 66.7% ⭐ | 1.00 | 42.9% | 66.7% |\n| Lair | 3 | 0.0% ⚠️ | 0.50 | 14.3% | 37.5% |\n| Chalet | 2 | 100.0% | 3.25 | 100.0% | 100.0% |\n| Clubhouse | 2 | 50.0% | 0.58 | 57.1% | 50.0% |\n| Emerald Plains | 2 | 0.0% ⚠️ | 0.78 | 0.0% | 50.0% |\n\n**Map coaching notes:**\n- **🔴 Villa (7M / 28.6%)** — highest map volume and losing on both sides (ATK 45.8% / DEF 45.5%). Priority veto candidate. K/D is fine (1.06) — losing rounds despite winning fights.\n- **🔴 Nighthaven Labs (5M / 20.0%)** — confirms team-wide Nighthaven weakness. ATK especially poor (35.3%). Consistent with rest of team.\n- **🔴 Fortress (4M / 25.0%)** — ATK-side collapse (25.0% ATK WR). DEF holding (66.7%) but ATK is pulling the map down. Strat/entry point issue.\n- **🔴 Lair (3M / 0.0%)** — small sample but 0 wins. ATK 14.3% very low.\n- **🟢 Coastline (4M / 75.0%)** — strongest map. ATK especially dominant (77.8%). Consider prioritizing on map pool.\n- **🟢 Border (6M / 66.7%)** — solid across both sides. Consistent with team trend.\n- **🟢 Bank (3M / 66.7%)** — good win rate. DEF 66.7% particularly strong.\n\n---\n\n## Season Coaching Notes\n\n- **⚠️ Buck ATK (21r / 19.0% / 1.05 K/D)** — primary ATK pick is underperforming at this volume. Consider reducing rounds here until WR recovers.\n- **⭐ Valkyrie DEF (52r / 69.2%)** — primary DEF pick is a strong anchor. Keep building here.\n- **⚠️ Solid Snake ATK (20r / 30.0%)** — significant round volume on a very low-WR op. Reduce or eliminate.\n- **🔴 Villa (7M / 28.6%)** — highest map volume and losing on both sides. Consider vetoing or treating as a deliberate practice map.\n- **🔴 Fortress ATK (25.0%)** — K/D is fine (1.19) but ATK rounds are not converting. Possible strat gap on ATK side.\n- **🟢 Coastline (4M / 75.0% / ATK 77.8%)** — Slug's best map. Good candidate for calling into map pool.\n- **Emerald Plains (2M / 0.0%)** — confirms the team-wide weakness; too small to draw hard conclusions yet.\n\n---\n\n## Data Flags\n\n- 🔲 Active — 54 ranked matches as of 2026-03-21\n- ⭐ Zero ATK (8r / 87.5%) — strong signal\n- ⭐ Valkyrie DEF (52r / 69.2%) — strong signal\n- ⭐ Solis DEF (22r / 63.6%) — strong signal\n- ✅ Map data pulled 2026-03-21 (54M)\n- 🔴 Villa 28.6% WR on highest volume — veto candidate\n- 🔴 Nighthaven Labs 20.0% — team-wide weakness confirmed\n- 🟢 Coastline 75.0% — Slug's strongest map\n\n---\n\n## Y11S1 Opening Context\n\n### Map Pool — Y11S1 Launch\nBank, Border, Chalet, Clubhouse, Coastline, Consulate, Fortress, Kafe Dostoyevsky, Lair, Nighthaven Labs, Oregon, Villa, Emerald Plains\n\n**Mid-season swap:** Coastline, Villa, Oregon, Emerald Plains OUT → Skyscraper, Theme Park, Stadium Bravo, Favela IN\n\n### Balance Notes — Slug Specific\n_No major balance changes to primary operators this season. Review GAME_06_CURRENT_SEASON.md for full patch notes._\n",
+      "seasonContent": "# Slug — Y11S1 (Operation Silent Hunt)\n\n_Season status: 🔲 Active — repull 2026-03-27 (60 ranked matches)_\n_Pull date: 2026-03-27 | Source: r6.tracker.network_\n\n---\n\n## Core Stats\n\n| Stat | Value |\n|------|-------|\n| Rank | Platinum IV |\n| RP | 3,124 |\n| Matches | 60 |\n| Win Rate | 41.7% |\n| K/D | 1.03 |\n| KDA | 1.37 |\n| Kills | 296 |\n| Deaths | 288 |\n| HS% | 51.4% |\n| ESR | 0.40 |\n| RIS | 44.6 |\n| Clutches Won | 5 |\n| Clutch Win% | 16.7% |\n\n> 60M sample — moderate confidence. Stats are meaningful.\n\n---\n\n## Operators\n\n_Format: Operator — Rounds | Win% | K/D (sorted by rounds played, ranked only)_\n_Season filter: season=41_\n\n**Attack**\n1. Buck — 22r | 22.7% | 1.15 ⚠️\n2. Solid Snake — 21r | 28.6% | 0.60 ⚠️\n3. Thermite — 20r | 55.0% | 0.81 ✅\n4. Jackal — 19r | 42.1% | 1.54\n5. Hibana — 16r | 43.8% | 1.50\n6. Zero — 10r | 70.0% | 2.00 ⭐\n7. Capitao — 9r | 66.7% | 0.40 ⭐\n8. Ash — 8r | 50.0% | 0.57\n9. Maverick — 8r | 25.0% | 0.50 ⚠️\n10. Deimos — 8r | 50.0% | 1.00\n11. Sens — 6r | 33.3% | 1.50\n12. Flores — 5r | 40.0% | 2.00\n13. Montagne — 5r | 20.0% | 0.20\n\n**Defense**\n1. Valkyrie — 56r | 67.9% | 1.25 ⭐\n2. Solis — 24r | 62.5% | 2.13 ⭐\n3. Smoke — 22r | 40.9% | 0.63 ⚠️\n4. Kaid — 11r | 45.5% | 1.11\n5. Castle — 10r | 60.0% | 0.89 ⭐\n6. Mute — 9r | 33.3% | 0.71 ⚠️\n7. Echo — 6r | 50.0% | 0.20\n8. Frost — 6r | 83.3% | 1.33\n9. Caveira — 5r | 40.0% | 0.00\n\n**ATK identity:** Buck is the primary ATK pick (22r / 22.7% / 1.15 K/D). Secondary: Solid Snake (21r / 28.6%).\n**DEF identity:** Valkyrie is the primary DEF anchor (56r / 67.9% / 1.25 K/D). Secondary: Solis (24r / 62.5%).\n\n---\n\n## Map Performance\n\n| Map | Matches | Win% | K/D | Atk% | Def% |\n|-----|---------|------|-----|------|------|\n| — | — | — | — | — | — |\n\n_Map data not yet pulled — add at 30+ match milestone._\n\n---\n\n## Season Coaching Notes\n\n- **⚠️ Buck ATK (22r / 22.7% / 1.15 K/D)** — primary ATK pick is underperforming at this volume. Consider reducing rounds here until WR recovers.\n- **⭐ Valkyrie DEF (56r / 67.9%)** — primary DEF pick is a strong anchor. Keep building here.\n- **⚠️ Solid Snake ATK (21r / 28.6%)** — significant round volume on a very low-WR op. Reduce or eliminate.\n- **Map data threshold reached** (60M ≥ 30) — pull map data next session.\n\n---\n\n## Data Flags\n\n- 🔲 Active — 60 ranked matches as of 2026-03-27\n- ⭐ Zero ATK (10r / 70.0%) — strong signal\n- ⭐ Capitao ATK (9r / 66.7%) — strong signal\n- ⭐ Valkyrie DEF (56r / 67.9%) — strong signal\n- ⭐ Solis DEF (24r / 62.5%) — strong signal\n- ⭐ Castle DEF (10r / 60.0%) — strong signal\n- 📍 Map data threshold reached — pull maps next session\n\n---\n\n## Y11S1 Opening Context\n\n### Map Pool — Y11S1 Launch\nBank, Border, Chalet, Clubhouse, Coastline, Consulate, Fortress, Kafe Dostoyevsky, Lair, Nighthaven Labs, Oregon, Villa, Emerald Plains\n\n**Mid-season swap:** Coastline, Villa, Oregon, Emerald Plains OUT → Skyscraper, Theme Park, Stadium Bravo, Favela IN\n\n### Balance Notes — Slug Specific\n_No major balance changes to primary operators this season. Review GAME_06_CURRENT_SEASON.md for full patch notes._\n",
       "operators": {
         "atk": [
           {
             "name": "Buck",
-            "rounds": 21,
-            "winRate": 19,
-            "kd": 1.05,
+            "rounds": 22,
+            "winRate": 22.7,
+            "kd": 1.15,
             "flag": "⚠️"
           },
           {
             "name": "Solid Snake",
-            "rounds": 20,
-            "winRate": 30,
-            "kd": 0.63,
+            "rounds": 21,
+            "winRate": 28.6,
+            "kd": 0.6,
             "flag": "⚠️"
           },
           {
@@ -1974,6 +1790,13 @@
             "flag": "✅"
           },
           {
+            "name": "Jackal",
+            "rounds": 19,
+            "winRate": 42.1,
+            "kd": 1.54,
+            "flag": ""
+          },
+          {
             "name": "Hibana",
             "rounds": 16,
             "winRate": 43.8,
@@ -1981,11 +1804,25 @@
             "flag": ""
           },
           {
-            "name": "Jackal",
-            "rounds": 12,
-            "winRate": 58.3,
-            "kd": 2.83,
-            "flag": "✅"
+            "name": "Zero",
+            "rounds": 10,
+            "winRate": 70,
+            "kd": 2,
+            "flag": "⭐"
+          },
+          {
+            "name": "Capitao",
+            "rounds": 9,
+            "winRate": 66.7,
+            "kd": 0.4,
+            "flag": "⭐"
+          },
+          {
+            "name": "Ash",
+            "rounds": 8,
+            "winRate": 50,
+            "kd": 0.57,
+            "flag": ""
           },
           {
             "name": "Maverick",
@@ -2002,111 +1839,94 @@
             "flag": ""
           },
           {
-            "name": "Zero",
-            "rounds": 8,
-            "winRate": 87.5,
-            "kd": 3.33,
-            "flag": "⭐"
+            "name": "Sens",
+            "rounds": 6,
+            "winRate": 33.3,
+            "kd": 1.5,
+            "flag": ""
+          },
+          {
+            "name": "Flores",
+            "rounds": 5,
+            "winRate": 40,
+            "kd": 2,
+            "flag": ""
+          },
+          {
+            "name": "Montagne",
+            "rounds": 5,
+            "winRate": 20,
+            "kd": 0.2,
+            "flag": ""
           }
         ],
         "def": [
           {
             "name": "Valkyrie",
-            "rounds": 52,
-            "winRate": 69.2,
-            "kd": 1.3,
+            "rounds": 56,
+            "winRate": 67.9,
+            "kd": 1.25,
             "flag": "⭐"
           },
           {
             "name": "Solis",
-            "rounds": 22,
-            "winRate": 63.6,
-            "kd": 2.14,
+            "rounds": 24,
+            "winRate": 62.5,
+            "kd": 2.13,
             "flag": "⭐"
           },
           {
             "name": "Smoke",
-            "rounds": 21,
-            "winRate": 42.9,
-            "kd": 0.67,
-            "flag": ""
+            "rounds": 22,
+            "winRate": 40.9,
+            "kd": 0.63,
+            "flag": "⚠️"
           },
           {
             "name": "Kaid",
+            "rounds": 11,
+            "winRate": 45.5,
+            "kd": 1.11,
+            "flag": ""
+          },
+          {
+            "name": "Castle",
             "rounds": 10,
+            "winRate": 60,
+            "kd": 0.89,
+            "flag": "⭐"
+          },
+          {
+            "name": "Mute",
+            "rounds": 9,
+            "winRate": 33.3,
+            "kd": 0.71,
+            "flag": "⚠️"
+          },
+          {
+            "name": "Echo",
+            "rounds": 6,
             "winRate": 50,
-            "kd": 1.25,
+            "kd": 0.2,
+            "flag": ""
+          },
+          {
+            "name": "Frost",
+            "rounds": 6,
+            "winRate": 83.3,
+            "kd": 1.33,
+            "flag": ""
+          },
+          {
+            "name": "Caveira",
+            "rounds": 5,
+            "winRate": 40,
+            "kd": 0,
             "flag": ""
           }
         ]
       },
-      "mapPerformance": [
-        {
-          "map": "Oregon",
-          "matches": 9,
-          "winRate": 55.6
-        },
-        {
-          "map": "Villa",
-          "matches": 7,
-          "winRate": 28.6
-        },
-        {
-          "map": "Border",
-          "matches": 6,
-          "winRate": 66.7
-        },
-        {
-          "map": "Nighthaven Labs",
-          "matches": 5,
-          "winRate": 20
-        },
-        {
-          "map": "Coastline",
-          "matches": 4,
-          "winRate": 75
-        },
-        {
-          "map": "Consulate",
-          "matches": 4,
-          "winRate": 50
-        },
-        {
-          "map": "Fortress",
-          "matches": 4,
-          "winRate": 25
-        },
-        {
-          "map": "Kafe Dostoyevsky",
-          "matches": 4,
-          "winRate": 50
-        },
-        {
-          "map": "Bank",
-          "matches": 3,
-          "winRate": 66.7
-        },
-        {
-          "map": "Lair",
-          "matches": 3,
-          "winRate": 0
-        },
-        {
-          "map": "Chalet",
-          "matches": 2,
-          "winRate": 100
-        },
-        {
-          "map": "Clubhouse",
-          "matches": 2,
-          "winRate": 50
-        },
-        {
-          "map": "Emerald Plains",
-          "matches": 2,
-          "winRate": 0
-        }
-      ],
+      "mapPerformance": [],
       "prevSeason": "Y10S4",
       "prevSeasonStats": {
         "rank": "Emerald III",
@@ -2284,16 +2104,16 @@
       "team": "B Team",
       "role": "DEF anchor (Lesion-first, passive trap identity). ATK still developing.",
       "bio": "High HS% (consistently ~49%) confirms mechanical aim is present. Lesion DEF anchor is established and working. Upward rank trajectory since joining.",
-      "atkOps": "Iana / Blackbeard",
+      "atkOps": "Blackbeard / Iana",
       "defOps": "Thorn / Castle",
       "season": "Y11S1",
       "stats": {
         "rank": "Bronze III",
-        "rp": "1746",
+        "rp": "1700",
         "kd": "0.33",
-        "winRate": "46.6%",
-        "matches": "58",
-        "ris": "23.3"
+        "winRate": "44.1%",
+        "matches": "68",
+        "ris": "22.6"
       },
       "coachingPriorities": [
         "Maverick is your ATK identity. Commit to it",
@@ -2302,9 +2122,16 @@
       ],
       "profileContent": "# Krafty — Player Profile\n\n**Callsign:** Krafty | **Tracker:** Eh_KraftySmokes | **Team:** B Team\n\n---\n\n## Identity\n\n**Strengths:** High HS% (consistently ~49%) confirms mechanical aim is present. Lesion DEF anchor is established and working. Upward rank trajectory since joining.\n\n**Tendencies:** Newest and least experienced player. Decisions and positioning are the primary gap — not aim. Plays passive utility-heavy DEF well (Lesion traps). ATK pool has been fragmented and inconsistent.\n\n**Role fit:** DEF anchor (Lesion-first, passive trap identity). ATK still developing.\n\n**Solo vs. Group:** Benefits from group play — fewer decisions to make independently.\n\n---\n\n## Career Coaching Notes\n\n- **High HS% + low K/D = positioning/decision problem, not aim.** The coaching priority is always \"when NOT to peek\" — not mechanics.\n- **Lesion is the right DEF anchor.** Passive, trap-based, forces the enemy to come to him. Don't overcomplicate it.\n- **ATK needs to converge on a stable identity.** Maverick has shown the best WR. Stop playing Zero (career-low K/D). Build ATK around Maverick + one breach support op.\n- **Kanal** is his most reliable bad map — avoid aggressive roles here.\n- **Clubhouse and Villa** are his comfort maps — use these for confidence and stack practice.\n- Not ready for main-stack consideration yet. Development path: rank to Gold consistently, stabilize ATK pool, improve peak timing.\n\n---\n\n## Season Files\n\n| Season | File | Status |\n|--------|------|--------|\n| Y10S4 | [Y10S4.md](Y10S4.md) | ✅ Archived — Y10S4 ended 2026-03 |\n| Y11S1 | [Y11S1.md](Y11S1.md) | 🔲 Active — repull 2026-03-10 (12 ranked matches) |\n| All-Time | [ALL_TIME.md](ALL_TIME.md) | ✅ Core stats verified 2026-03-01 — mirrors Y10S4 (newer player) |\n",
       "coachingContent": "# Krafty — Y11S1 Coaching Brief\n\n_Season: Year 11 Season 1 — Operation Silent Hunt | Updated: 2026-03-07_\n\n---\n\n## Your Role\n\nYou're the newest player on the B Team and the one with the most room to grow. Your mechanics are there — a ~49% HS% career average is real aim. The gap right now is decision-making: when to peek, when to hold, when to let the situation come to you instead of forcing it. DEF is where you're already contributing. ATK is the development area. Y11S1 is about building a consistent foundation.\n\n---\n\n## What's Working\n\n**Operators — DEF**\nYour DEF cluster is working. Lesion was your anchor in Y10S4 at 81r / 63.0% WR, and Ela and Azami both posted 60%+ WR alongside it. All four passive trap ops (Lesion, Ela, Azami, Thorn) are producing. This is the right approach for where you're at — passive, trap-based, make the enemy come to you.\n\n**Maps**\nClubhouse was your best map in Y10S4 (80% WR in 5 matches — most reliable sample). Villa hit 100% in 3 games. Both maps are in the current Y11S1 pool and both stay in for the first half. These are your confidence maps.\n\n**DEF side consistency**\nAcross almost every map you played in Y10S4, your DEF round WR was significantly higher than your ATK round WR. That's a clear pattern. You play defense better than attack right now, and that's fine — it's a development priority, not a failure.\n\n---\n\n## Areas to Work On\n\n**Operators — ATK**\nStop playing Zero. Your Y10S4 Zero K/D was 0.19 in 18 rounds — that's the lowest K/D on any op you played in meaningful volume. Zero isn't the problem, it's a symptom: fragmented ATK picks without clear purpose hurt your results. Maverick is your best ATK option (50% WR in 20r) and should lead your ATK volume in Y11S1.\n\n**Decision-making / Peeking timing**\nYour HS% is high, which means when you shoot at someone, you're hitting them. The K/D being below that suggests you're often in fights you didn't choose the right timing for — peeking into utility, pushing when the information says hold, or moving before the team is ready. The coaching focus is not your aim. It's asking: \"should I be making this move right now?\"\n\n**Rank progression**\nThe Y11S1 development target is reaching Gold rank consistently. Bronze was Y10S4's result. Y11S1 should show improvement. If you're still in Silver/Bronze at the mid-season check, it's worth a direct conversation about what's holding the rank back.\n\n---\n\n## Y11S1 Priorities\n\n**1. Maverick is your ATK identity. Commit to it.**\n50% WR at 20 rounds is the best ATK result in your pool. Drop Zero. Drop Iana as the primary. Build your ATK pool around Maverick + a hard breach support (Hibana or Thermite). Volume and repetition will turn 50% into something higher.\n\n**2. Lesion is your anchor. Trust it.**\nYour DEF numbers across all passive trap ops are the strongest part of your game. Don't abandon the trap identity to experiment with aggressive ops before your ATK side is stable. Play Lesion on defense, place traps on entry points, and stay passive. The WR will follow.\n\n**3. Ask yourself one question before every peek: \"do I have information that says this is safe?\"**\nHigh HS% + low K/D almost always means peeking without enough justification. If the answer to that question is \"no\" — hold. The fight will come to you, especially on defense.\n\n---\n\n_Detailed operator tables, map data, and full season archives are in your ALL_TIME.md, Y10S4.md, and Y11S1.md files._\n",
-      "seasonContent": "# Krafty — Y11S1 (Operation Silent Hunt)\n\n_Season status: 🔲 Active — repull 2026-03-21 (58 ranked matches)_\n_Pull date: 2026-03-21 | Source: r6.tracker.network_\n\n---\n\n## Core Stats\n\n| Stat | Value |\n|------|-------|\n| Rank | Bronze III |\n| RP | 1,746 |\n| Matches | 58 |\n| Win Rate | 46.6% |\n| K/D | 0.33 |\n| KDA | 0.56 |\n| Kills | 92 |\n| Deaths | 282 |\n| HS% | 33.7% |\n| ESR | 0.15 |\n| RIS | 23.3 |\n| Clutches Won | 5 |\n| Clutch Win% | 15.6% |\n\n> 58M sample — moderate confidence. Stats are meaningful.\n\n---\n\n## Operators\n\n_Format: Operator — Rounds | Win% | K/D (sorted by rounds played, ranked only)_\n_Season filter: season=41_\n\n**Attack**\n1. Iana — 43r | 34.9% | 0.18 ⚠️\n2. Blackbeard — 42r | 40.5% | 0.32 ⚠️\n3. Montagne — 41r | 56.1% | 0.22 ✅\n4. Blitz — 9r | 44.4% | 0.25\n5. Sens — 9r | 22.2% | 0.25 ⚠️\n6. Thermite — 6r | 66.7% | 0.67\n7. Capitao — 5r | 60.0% | 0.00\n8. Thatcher — 5r | 60.0% | 0.50\n9. Twitch — 4r | 25.0% | 0.50\n\n**Defense**\n1. Thorn — 60r | 56.7% | 0.58 ✅\n2. Castle — 24r | 58.3% | 0.42 ✅\n3. Clash — 22r | 31.8% | 0.00 ⚠️\n4. Lesion — 16r | 62.5% | 0.14 ⭐\n5. Frost — 16r | 37.5% | 0.54 ⚠️\n6. Mozzie — 10r | 60.0% | 0.57 ⭐\n7. Goyo — 6r | 66.7% | 0.25\n\n**ATK identity:** Iana is the primary ATK pick (43r / 34.9% / 0.18 K/D). Secondary: Blackbeard (42r / 40.5%).\n**DEF identity:** Thorn is the primary DEF anchor (60r / 56.7% / 0.58 K/D). Secondary: Castle (24r / 58.3%).\n\n---\n\n## Map Performance\n\n| Map | Matches | Win% | K/D | Atk% | Def% |\n|-----|---------|------|-----|------|------|\n| Chalet | 9 | 55.6% | 0.36 | 50.0% | 61.5% |\n| Bank | 7 | 57.1% | 0.31 | 40.0% | 57.9% |\n| Border | 7 | 71.4% | 0.41 | 56.5% | 60.0% |\n| Coastline | 7 | 42.9% | 0.48 | 44.4% | 45.5% |\n| Oregon | 5 | 20.0% | 0.41 | 35.3% | 41.2% |\n| Villa | 5 | 20.0% | 0.36 | 44.4% | 33.3% |\n| Clubhouse | 4 | 75.0% | 0.25 | 38.5% | 71.4% |\n| Nighthaven Labs | 4 | 50.0% | 0.30 | 45.5% | 45.5% |\n| Consulate | 3 | 33.3% | 0.12 | 36.4% | 50.0% |\n| Kafe Dostoyevsky | 3 | 66.7% | 0.22 | 54.5% | 54.5% |\n| Fortress | 2 | 0.0% | 0.18 | 14.3% | 40.0% |\n\n**Strong:** Clubhouse (75%), Border (71.4%), Kafe (66.7%), Bank (57.1%), Chalet (55.6%)\n**Weak:** Fortress (0% in 2M), Oregon (20%), Villa (20%)\n**Pattern:** K/D is consistently very low across all maps (0.12–0.48) but WR holds up on key maps — positioning/decisions issue confirmed rather than aim.\n\n_Map data pulled 2026-03-21 (58M). Source: r6.tracker.network, season=41, ranked only._\n\n---\n\n## Season Coaching Notes\n\n- **⚠️ K/D (0.33) is very low** — positioning and decision-making are the primary coaching priority, not mechanics.\n- **⚠️ Iana ATK (43r / 34.9% / 0.18 K/D)** — primary ATK pick is underperforming at this volume. Consider reducing rounds here until WR recovers.\n- **⭐ Clubhouse (4M / 75%)** — best map by WR; DEF side (71.4%) doing the heavy lifting.\n- **⭐ Border (7M / 71.4%)** — reliable even with very low K/D (0.41); team/utility contribution working.\n- **⚠️ Oregon (5M / 20%) + Villa (5M / 20%)** — consistent losses; DEF side also weak on Villa (33.3%).\n- **Note:** Low K/D (0.12–0.48) consistent across every map — confirms this is a playstyle/positioning issue, not map-specific.\n\n---\n\n## Data Flags\n\n- 🔲 Active — 58 ranked matches as of 2026-03-21\n- ⚠️ K/D (0.33) very low — coaching focus on positioning/decisions\n- ⭐ Lesion DEF (16r / 62.5%) — strong signal\n- ⭐ Mozzie DEF (10r / 60.0%) — strong signal\n- ✅ Map data pulled 2026-03-21 (58M, season=41)\n\n---\n\n## Y11S1 Opening Context\n\n### Map Pool — Y11S1 Launch\nBank, Border, Chalet, Clubhouse, Coastline, Consulate, Fortress, Kafe Dostoyevsky, Lair, Nighthaven Labs, Oregon, Villa, Emerald Plains\n\n**Mid-season swap:** Coastline, Villa, Oregon, Emerald Plains OUT → Skyscraper, Theme Park, Stadium Bravo, Favela IN\n\n### Balance Notes — Krafty Specific\n_No major balance changes to primary operators this season. Review GAME_06_CURRENT_SEASON.md for full patch notes._\n",
+      "seasonContent": "# Krafty — Y11S1 (Operation Silent Hunt)\n\n_Season status: 🔲 Active — repull 2026-03-27 (68 ranked matches)_\n_Pull date: 2026-03-27 | Source: r6.tracker.network_\n\n---\n\n## Core Stats\n\n| Stat | Value |\n|------|-------|\n| Rank | Bronze III |\n| RP | 1,700 |\n| Matches | 68 |\n| Win Rate | 44.1% |\n| K/D | 0.33 |\n| KDA | 0.55 |\n| Kills | 106 |\n| Deaths | 326 |\n| HS% | 32.1% |\n| ESR | 0.17 |\n| RIS | 22.6 |\n| Clutches Won | 5 |\n| Clutch Win% | 14.3% |\n\n> 68M sample — moderate confidence. Stats are meaningful.\n\n---\n\n## Operators\n\n_Format: Operator — Rounds | Win% | K/D (sorted by rounds played, ranked only)_\n_Season filter: season=41_\n\n**Attack**\n1. Blackbeard — 50r | 42.0% | 0.35 ⚠️\n2. Iana — 43r | 34.9% | 0.18 ⚠️\n3. Montagne — 42r | 57.1% | 0.22 ✅\n4. Maverick — 11r | 36.4% | 0.43 ⚠️\n5. Blitz — 10r | 40.0% | 0.22 ⚠️\n6. Sens — 9r | 22.2% | 0.25 ⚠️\n7. Capitao — 9r | 44.4% | 0.12\n8. Thermite — 7r | 57.1% | 0.50\n9. Thatcher — 5r | 60.0% | 0.50\n\n**Defense**\n1. Thorn — 66r | 56.1% | 0.58 ✅\n2. Castle — 33r | 60.6% | 0.30 ⭐\n3. Clash — 29r | 31.0% | 0.12 ⚠️\n4. Frost — 16r | 37.5% | 0.54 ⚠️\n5. Lesion — 16r | 62.5% | 0.14 ⭐\n6. Mozzie — 14r | 42.9% | 0.36\n7. Goyo — 6r | 66.7% | 0.25\n\n**ATK identity:** Blackbeard is the primary ATK pick (50r / 42.0% / 0.35 K/D). Secondary: Iana (43r / 34.9%).\n**DEF identity:** Thorn is the primary DEF anchor (66r / 56.1% / 0.58 K/D). Secondary: Castle (33r / 60.6%).\n\n---\n\n## Map Performance\n\n| Map | Matches | Win% | K/D | Atk% | Def% |\n|-----|---------|------|-----|------|------|\n| — | — | — | — | — | — |\n\n_Map data not yet pulled — add at 30+ match milestone._\n\n---\n\n## Season Coaching Notes\n\n- **⚠️ K/D (0.33) is very low** — positioning and decision-making are the primary coaching priority, not mechanics.\n- **⚠️ Blackbeard ATK (50r / 42.0% / 0.35 K/D)** — primary ATK pick is underperforming at this volume. Consider reducing rounds here until WR recovers.\n- **Map data threshold reached** (68M ≥ 30) — pull map data next session.\n\n---\n\n## Data Flags\n\n- 🔲 Active — 68 ranked matches as of 2026-03-27\n- ⚠️ K/D (0.33) very low — coaching focus on positioning/decisions\n- ⭐ Castle DEF (33r / 60.6%) — strong signal\n- ⭐ Lesion DEF (16r / 62.5%) — strong signal\n- 📍 Map data threshold reached — pull maps next session\n\n---\n\n## Y11S1 Opening Context\n\n### Map Pool — Y11S1 Launch\nBank, Border, Chalet, Clubhouse, Coastline, Consulate, Fortress, Kafe Dostoyevsky, Lair, Nighthaven Labs, Oregon, Villa, Emerald Plains\n\n**Mid-season swap:** Coastline, Villa, Oregon, Emerald Plains OUT → Skyscraper, Theme Park, Stadium Bravo, Favela IN\n\n### Balance Notes — Krafty Specific\n_No major balance changes to primary operators this season. Review GAME_06_CURRENT_SEASON.md for full patch notes._\n",
       "operators": {
         "atk": [
+          {
+            "name": "Blackbeard",
+            "rounds": 50,
+            "winRate": 42,
+            "kd": 0.35,
+            "flag": "⚠️"
+          },
           {
             "name": "Iana",
             "rounds": 43,
@@ -2313,25 +2140,25 @@
             "flag": "⚠️"
           },
           {
-            "name": "Blackbeard",
-            "rounds": 42,
-            "winRate": 40.5,
-            "kd": 0.32,
-            "flag": "⚠️"
-          },
-          {
             "name": "Montagne",
-            "rounds": 41,
-            "winRate": 56.1,
+            "rounds": 42,
+            "winRate": 57.1,
             "kd": 0.22,
             "flag": "✅"
           },
           {
+            "name": "Maverick",
+            "rounds": 11,
+            "winRate": 36.4,
+            "kd": 0.43,
+            "flag": "⚠️"
+          },
+          {
             "name": "Blitz",
-            "rounds": 9,
-            "winRate": 44.4,
-            "kd": 0.25,
-            "flag": ""
+            "rounds": 10,
+            "winRate": 40,
+            "kd": 0.22,
+            "flag": "⚠️"
           },
           {
             "name": "Sens",
@@ -2341,17 +2168,17 @@
             "flag": "⚠️"
           },
           {
-            "name": "Thermite",
-            "rounds": 6,
-            "winRate": 66.7,
-            "kd": 0.67,
+            "name": "Capitao",
+            "rounds": 9,
+            "winRate": 44.4,
+            "kd": 0.12,
             "flag": ""
           },
           {
-            "name": "Capitao",
-            "rounds": 5,
-            "winRate": 60,
-            "kd": 0,
+            "name": "Thermite",
+            "rounds": 7,
+            "winRate": 57.1,
+            "kd": 0.5,
             "flag": ""
           },
           {
@@ -2360,35 +2187,35 @@
             "winRate": 60,
             "kd": 0.5,
             "flag": ""
-          },
-          {
-            "name": "Twitch",
-            "rounds": 4,
-            "winRate": 25,
-            "kd": 0.5,
-            "flag": ""
           }
         ],
         "def": [
           {
             "name": "Thorn",
-            "rounds": 60,
-            "winRate": 56.7,
+            "rounds": 66,
+            "winRate": 56.1,
             "kd": 0.58,
             "flag": "✅"
           },
           {
             "name": "Castle",
-            "rounds": 24,
-            "winRate": 58.3,
-            "kd": 0.42,
-            "flag": "✅"
+            "rounds": 33,
+            "winRate": 60.6,
+            "kd": 0.3,
+            "flag": "⭐"
           },
           {
             "name": "Clash",
-            "rounds": 22,
-            "winRate": 31.8,
-            "kd": 0,
+            "rounds": 29,
+            "winRate": 31,
+            "kd": 0.12,
+            "flag": "⚠️"
+          },
+          {
+            "name": "Frost",
+            "rounds": 16,
+            "winRate": 37.5,
+            "kd": 0.54,
             "flag": "⚠️"
           },
           {
@@ -2399,18 +2226,11 @@
             "flag": "⭐"
           },
           {
-            "name": "Frost",
-            "rounds": 16,
-            "winRate": 37.5,
-            "kd": 0.54,
-            "flag": "⚠️"
-          },
-          {
             "name": "Mozzie",
-            "rounds": 10,
-            "winRate": 60,
-            "kd": 0.57,
-            "flag": "⭐"
+            "rounds": 14,
+            "winRate": 42.9,
+            "kd": 0.36,
+            "flag": ""
           },
           {
             "name": "Goyo",
@@ -2421,63 +2241,7 @@
           }
         ]
       },
-      "mapPerformance": [
-        {
-          "map": "Chalet",
-          "matches": 9,
-          "winRate": 55.6
-        },
-        {
-          "map": "Bank",
-          "matches": 7,
-          "winRate": 57.1
-        },
-        {
-          "map": "Border",
-          "matches": 7,
-          "winRate": 71.4
-        },
-        {
-          "map": "Coastline",
-          "matches": 7,
-          "winRate": 42.9
-        },
-        {
-          "map": "Oregon",
-          "matches": 5,
-          "winRate": 20
-        },
-        {
-          "map": "Villa",
-          "matches": 5,
-          "winRate": 20
-        },
-        {
-          "map": "Clubhouse",
-          "matches": 4,
-          "winRate": 75
-        },
-        {
-          "map": "Nighthaven Labs",
-          "matches": 4,
-          "winRate": 50
-        },
-        {
-          "map": "Consulate",
-          "matches": 3,
-          "winRate": 33.3
-        },
-        {
-          "map": "Kafe Dostoyevsky",
-          "matches": 3,
-          "winRate": 66.7
-        },
-        {
-          "map": "Fortress",
-          "matches": 2,
-          "winRate": 0
-        }
-      ],
+      "mapPerformance": [],
       "prevSeason": "Y10S4",
       "prevSeasonStats": {
         "rank": "Bronze III",
@@ -2655,16 +2419,16 @@
       "team": "B Team",
       "role": "DEF anchor (Kapkan-first). ATK side still developing toward a stable identity.",
       "bio": "Solid all-time K/D around 0.92. Historically high HS%. Reliable DEF anchor when on Kapkan — strong trap identity. Has reinvented his operator pool several times.",
-      "atkOps": "Thatcher / Thermite",
+      "atkOps": "Nomad / Thatcher",
       "defOps": "Kapkan / Thorn",
       "season": "Y11S1",
       "stats": {
-        "rank": "Copper II",
-        "rp": "1340",
-        "kd": "0.72",
-        "winRate": "19.0%",
-        "matches": "21",
-        "ris": "34.9"
+        "rank": "Bronze V",
+        "rp": "1539",
+        "kd": "0.66",
+        "winRate": "20.0%",
+        "matches": "35",
+        "ris": "36.5"
       },
       "coachingPriorities": [
         "Kanal is gone — use the first half to build momentum",
@@ -2673,45 +2437,73 @@
       ],
       "profileContent": "# Bob — Player Profile\n\n**Callsign:** Bob | **Tracker:** Eh_Nastybob | **Team:** B Team\n\n---\n\n## Identity\n\n**Strengths:** Solid all-time K/D around 0.92. Historically high HS%. Reliable DEF anchor when on Kapkan — strong trap identity. Has reinvented his operator pool several times.\n\n**Tendencies:** Career DEF identity is trap/anchor (Kapkan/Frost historically). ATK pool has been inconsistent — different picks each season with mixed results. Current Y10S4 ATK pool (Dokkaebi/Glaz/Denari) is underperforming; conventional ATK picks would likely serve him better.\n\n**Role fit:** DEF anchor (Kapkan-first). ATK side still developing toward a stable identity.\n\n**Solo vs. Group:** Flexible — DEF anchor role works solo or in group.\n\n---\n\n## Career Coaching Notes\n\n- **Kapkan is his career DEF anchor** — high WR season over season. Always assign Kapkan first on defense.\n- **ATK pool needs a stable identity.** His best ATK seasons have been when playing conventional utility picks (Thermite, Buck, Thatcher). Unusual picks (Glaz, Denari, Dokkaebi-only) consistently underperform.\n- **Kanal is his worst map career-wide** — 35.5% all-time WR in 31 games. High confidence, avoid aggressive assignments.\n- **Oregon and Bank** are consistently strong maps — use these as confidence builders.\n- HS% drop in Y10S4 (24.8% vs ~49% career) is a red flag to monitor in Y11S1. If it persists, it's a mechanical/slump issue to address directly.\n\n---\n\n## Season Files\n\n| Season | File | Status |\n|--------|------|--------|\n| Y10S4 | [Y10S4.md](Y10S4.md) | ✅ Archived — Y10S4 ended 2026-03 |\n| Y11S1 | [Y11S1.md](Y11S1.md) | 🔲 Active — opening snapshot pulled 2026-03-06 |\n| All-Time | [ALL_TIME.md](ALL_TIME.md) | ✅ Core stats verified 2026-03-01 |\n",
       "coachingContent": "# Bob — Y11S1 Coaching Brief\n\n_Season: Year 11 Season 1 — Operation Silent Hunt | Updated: 2026-03-07_\n\n---\n\n## Your Role\n\nYou're the B Team's DEF anchor. Kapkan first, every time. Your career DEF identity is established and it works — Kapkan at 71.1% WR in Y10S4, Frost and Caveira as strong depth picks. The problem to solve this season is on attack: your ATK pool has been inconsistent, and getting it stable is the one thing standing between your current form and what you're capable of.\n\n---\n\n## What's Working\n\n**Operators — DEF**\nKapkan is your clearest asset at any level — 61.3% all-time WR in 483 rounds, and 71.1% in Y10S4. Always assign Kapkan first on defense. Frost follows close behind (62.7% WR / 1.28 K/D all-time). Aruni is a sleeper pick that showed 83.3% WR / 2.67 K/D in a small Y10S4 sample — worth expanding.\n\n**Maps — Season start**\nKanal was your worst career map (35.5% WR in 31 career games) and it is **out of rotation all first half**. That's a significant advantage for your early-season WR. Oregon (59.4%, 32M) and Bank (58.6%, 29M) are two of your three best career maps — both are in the current pool. This is a good opening position.\n\n**Early Y11S1 signs**\nBrava is leading your ATK early. That's a more conventional pick than last season's Dokkaebi/Glaz/Denari approach. If Brava holds as your ATK anchor, that's a positive development.\n\n---\n\n## Areas to Work On\n\n**Operators — ATK**\nY10S4 ATK pool (Nomad / Dokkaebi / Glaz / Gridlock / Zero) was fragmented and underperforming. The best ATK op you played was Zero at 1.00 K/D in 8r — that's the high bar. Thermite, Buck, Thatcher, Brava, and Ash are all more conventional and would likely serve you better. The direction is clear: simpler, more purpose-driven ATK picks.\n\n**HS% monitoring**\nYour career HS% is ~49%. In Y10S4 it dropped to 24.8% — a significant fall. If it doesn't recover toward your career average in the first 30+ ranked matches of Y11S1, that's worth addressing directly. High HS% suggests your mechanics are strong when you're on form; a major drop usually signals a slump or positioning change that's creating worse shot angles.\n\n**Maps — Double weakness**\nClubhouse is 47.1% WR and 0.72 K/D all-time in 34 matches. Both your WR and K/D are weak there — that's a double weakness, not just a losing map. Nighthaven (30.8%) is also a genuine low. Have a plan when these maps come up rather than treating them as normal.\n\n---\n\n## Y11S1 Priorities\n\n**1. Kanal is gone — use the first half to build momentum.**\nYou will not see your worst career map for the first half of Y11S1. Oregon and Bank are both available. This is your opportunity to build win rate and confidence before harder maps return mid-season. Take it.\n\n**2. Commit to a conventional ATK identity.**\nPick two or three ops and stick with them: Brava + Kapkan crossover utility, or Thermite + Buck, or Thatcher support. The fragmented approach from Y10S4 (6+ different low-volume ATK picks) is what's hurting your attack side. Volume and repetition on fewer ops builds real performance.\n\n**3. Watch your HS%.**\nIt's the cleanest indicator of whether you're on form. If it's recovering toward 40%+ in the first pulls of Y11S1, everything is fine. If it stays near 25%, bring it up — it's worth having a direct conversation about what's changed mechanically or in your crosshair placement.\n\n---\n\n_Detailed operator tables, map splits, and full season archives are in your ALL_TIME.md, Y10S4.md, and Y11S1.md files._\n",
-      "seasonContent": "# Bob — Y11S1 (Operation Silent Hunt)\n\n_Season status: 🔲 Active — repull 2026-03-21 (21 ranked matches)_\n_Pull date: 2026-03-21 | Source: r6.tracker.network_\n\n---\n\n## Core Stats\n\n| Stat | Value |\n|------|-------|\n| Rank | Copper II |\n| RP | 1,340 |\n| Matches | 21 |\n| Win Rate | 19.0% |\n| K/D | 0.72 |\n| KDA | 1.05 |\n| Kills | 79 |\n| Deaths | 110 |\n| HS% | 32.9% |\n| ESR | 0.43 |\n| RIS | 34.9 |\n| Clutches Won | 1 |\n| Clutch Win% | 6.7% |\n\n> 21M sample — growing. Stats are directional; re-pull at 30M for confidence.\n\n---\n\n## Operators\n\n_Format: Operator — Rounds | Win% | K/D (sorted by rounds played, ranked only)_\n_Season filter: season=41_\n\n**Attack**\n1. Thatcher — 16r | 6.2% | 0.31 ⚠️\n2. Thermite — 8r | 37.5% | 0.83 ⚠️\n3. Nomad — 9r | 33.3% | 1.12 ⚠️\n\n**Defense**\n1. Kapkan — 21r | 38.1% | 1.00 ⚠️\n2. Thorn — 12r | 66.7% | 1.29 ⭐\n3. Vigil — 11r | 27.3% | 0.40 ⚠️\n\n**ATK identity:** Thatcher is the primary ATK pick (16r / 6.2% / 0.31 K/D). Secondary: Thermite (8r / 37.5%).\n**DEF identity:** Kapkan is the primary DEF anchor (21r / 38.1% / 1.00 K/D). Secondary: Thorn (12r / 66.7%).\n\n---\n\n## Map Performance\n\n| Map | Matches | Win% | K/D | Atk% | Def% |\n|-----|---------|------|-----|------|------|\n| — | — | — | — | — | — |\n\n_Map data not yet pulled — add at 30+ match milestone._\n\n---\n\n## Season Coaching Notes\n\n- **⚠️ WR (19.0%) is concerning** — well below 50% baseline. Investigate match patterns at next pull.\n- **⚠️ Thatcher ATK (16r / 6.2% / 0.31 K/D)** — primary ATK pick is underperforming at this volume. Consider reducing rounds here until WR recovers.\n- **⚠️ Kapkan DEF (21r / 38.1%)** — primary DEF pick is underperforming. Investigate or switch anchor.\n- **Re-pull at 30+ matches** for meaningful coaching analysis. (9 more matches needed for map data threshold.)\n\n---\n\n## Data Flags\n\n- 🔲 Active — 21 ranked matches as of 2026-03-21\n- ⚠️ WR (19.0%) — very low overall win rate\n- ⭐ Thorn DEF (12r / 66.7%) — strong signal\n\n---\n\n## Y11S1 Opening Context\n\n### Map Pool — Y11S1 Launch\nBank, Border, Chalet, Clubhouse, Coastline, Consulate, Fortress, Kafe Dostoyevsky, Lair, Nighthaven Labs, Oregon, Villa, Emerald Plains\n\n**Mid-season swap:** Coastline, Villa, Oregon, Emerald Plains OUT → Skyscraper, Theme Park, Stadium Bravo, Favela IN\n\n### Balance Notes — Bob Specific\n_No major balance changes to primary operators this season. Review GAME_06_CURRENT_SEASON.md for full patch notes._\n",
+      "seasonContent": "# Bob — Y11S1 (Operation Silent Hunt)\n\n_Season status: 🔲 Active — repull 2026-03-27 (35 ranked matches)_\n_Pull date: 2026-03-27 | Source: r6.tracker.network_\n\n---\n\n## Core Stats\n\n| Stat | Value |\n|------|-------|\n| Rank | Bronze V |\n| RP | 1,539 |\n| Matches | 35 |\n| Win Rate | 20.0% |\n| K/D | 0.66 |\n| KDA | 0.99 |\n| Kills | 115 |\n| Deaths | 173 |\n| HS% | 40.0% |\n| ESR | 0.41 |\n| RIS | 36.5 |\n| Clutches Won | 3 |\n| Clutch Win% | 9.7% |\n\n> 35M sample — moderate confidence. Stats are meaningful.\n\n---\n\n## Operators\n\n_Format: Operator — Rounds | Win% | K/D (sorted by rounds played, ranked only)_\n_Season filter: season=41_\n\n**Attack**\n1. Nomad — 25r | 32.0% | 0.68 ⚠️\n2. Thatcher — 17r | 5.9% | 0.29 ⚠️\n3. Brava — 15r | 40.0% | 0.58 ⚠️\n4. Thermite — 11r | 36.4% | 0.88 ⚠️\n5. Amaru — 6r | 66.7% | 1.50\n6. Blackbeard — 6r | 33.3% | 0.20\n7. Hibana — 5r | 60.0% | 0.50\n\n**Defense**\n1. Kapkan — 32r | 40.6% | 0.90 ⚠️\n2. Thorn — 18r | 55.6% | 0.92 ✅\n3. Vigil — 11r | 27.3% | 0.40 ⚠️\n4. Denari — 10r | 30.0% | 0.62 ⚠️\n5. Aruni — 6r | 33.3% | 1.25\n6. Kaid — 5r | 60.0% | 0.40\n7. Valkyrie — 5r | 20.0% | 0.25\n\n**ATK identity:** Nomad is the primary ATK pick (25r / 32.0% / 0.68 K/D). Secondary: Thatcher (17r / 5.9%).\n**DEF identity:** Kapkan is the primary DEF anchor (32r / 40.6% / 0.90 K/D). Secondary: Thorn (18r / 55.6%).\n\n---\n\n## Map Performance\n\n| Map | Matches | Win% | K/D | Atk% | Def% |\n|-----|---------|------|-----|------|------|\n| — | — | — | — | — | — |\n\n_Map data not yet pulled — add at 30+ match milestone._\n\n---\n\n## Season Coaching Notes\n\n- **⚠️ WR (20.0%) is concerning** — well below 50% baseline. Investigate match patterns at next pull.\n- **⚠️ Nomad ATK (25r / 32.0% / 0.68 K/D)** — primary ATK pick is underperforming at this volume. Consider reducing rounds here until WR recovers.\n- **⚠️ Kapkan DEF (32r / 40.6%)** — primary DEF pick is underperforming. Investigate or switch anchor.\n- **⚠️ Thatcher ATK (17r / 5.9%)** — significant round volume on a very low-WR op. Reduce or eliminate.\n- **Map data threshold reached** (35M ≥ 30) — pull map data next session.\n\n---\n\n## Data Flags\n\n- 🔲 Active — 35 ranked matches as of 2026-03-27\n- ⚠️ WR (20.0%) — very low overall win rate\n- 📍 Map data threshold reached — pull maps next session\n\n---\n\n## Y11S1 Opening Context\n\n### Map Pool — Y11S1 Launch\nBank, Border, Chalet, Clubhouse, Coastline, Consulate, Fortress, Kafe Dostoyevsky, Lair, Nighthaven Labs, Oregon, Villa, Emerald Plains\n\n**Mid-season swap:** Coastline, Villa, Oregon, Emerald Plains OUT → Skyscraper, Theme Park, Stadium Bravo, Favela IN\n\n### Balance Notes — Bob Specific\n_No major balance changes to primary operators this season. Review GAME_06_CURRENT_SEASON.md for full patch notes._\n",
       "operators": {
         "atk": [
           {
+            "name": "Nomad",
+            "rounds": 25,
+            "winRate": 32,
+            "kd": 0.68,
+            "flag": "⚠️"
+          },
+          {
             "name": "Thatcher",
-            "rounds": 16,
-            "winRate": 6.2,
-            "kd": 0.31,
+            "rounds": 17,
+            "winRate": 5.9,
+            "kd": 0.29,
+            "flag": "⚠️"
+          },
+          {
+            "name": "Brava",
+            "rounds": 15,
+            "winRate": 40,
+            "kd": 0.58,
             "flag": "⚠️"
           },
           {
             "name": "Thermite",
-            "rounds": 8,
-            "winRate": 37.5,
-            "kd": 0.83,
+            "rounds": 11,
+            "winRate": 36.4,
+            "kd": 0.88,
             "flag": "⚠️"
           },
           {
-            "name": "Nomad",
-            "rounds": 9,
+            "name": "Amaru",
+            "rounds": 6,
+            "winRate": 66.7,
+            "kd": 1.5,
+            "flag": ""
+          },
+          {
+            "name": "Blackbeard",
+            "rounds": 6,
             "winRate": 33.3,
-            "kd": 1.12,
-            "flag": "⚠️"
+            "kd": 0.2,
+            "flag": ""
+          },
+          {
+            "name": "Hibana",
+            "rounds": 5,
+            "winRate": 60,
+            "kd": 0.5,
+            "flag": ""
           }
         ],
         "def": [
           {
             "name": "Kapkan",
-            "rounds": 21,
-            "winRate": 38.1,
-            "kd": 1,
+            "rounds": 32,
+            "winRate": 40.6,
+            "kd": 0.9,
             "flag": "⚠️"
           },
           {
             "name": "Thorn",
-            "rounds": 12,
-            "winRate": 66.7,
-            "kd": 1.29,
-            "flag": "⭐"
+            "rounds": 18,
+            "winRate": 55.6,
+            "kd": 0.92,
+            "flag": "✅"
           },
           {
             "name": "Vigil",
@@ -2719,6 +2511,34 @@
             "winRate": 27.3,
             "kd": 0.4,
             "flag": "⚠️"
+          },
+          {
+            "name": "Denari",
+            "rounds": 10,
+            "winRate": 30,
+            "kd": 0.62,
+            "flag": "⚠️"
+          },
+          {
+            "name": "Aruni",
+            "rounds": 6,
+            "winRate": 33.3,
+            "kd": 1.25,
+            "flag": ""
+          },
+          {
+            "name": "Kaid",
+            "rounds": 5,
+            "winRate": 60,
+            "kd": 0.4,
+            "flag": ""
+          },
+          {
+            "name": "Valkyrie",
+            "rounds": 5,
+            "winRate": 20,
+            "kd": 0.25,
+            "flag": ""
           }
         ]
       },
