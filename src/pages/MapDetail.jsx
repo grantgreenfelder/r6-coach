@@ -1,5 +1,5 @@
 import { useParams, Link } from 'react-router-dom'
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 import mapsData from '../data/maps.json'
 import RatingBadge from '../components/RatingBadge'
 import StatusDot from '../components/StatusDot'
@@ -152,13 +152,9 @@ export default function MapDetail() {
 
       {/* ── Overview ── */}
       {activeTab === 'overview' && (
-        <div className="card">
-          {map.overviewContent ? (
-            <MarkdownContent content={map.overviewContent} />
-          ) : (
-            <p className="text-siege-muted">No overview file found for this map.</p>
-          )}
-        </div>
+        map.overviewContent
+          ? <OverviewAccordion content={map.overviewContent} />
+          : <div className="card"><p className="text-siege-muted">No overview file found for this map.</p></div>
       )}
 
       {/* ── Stats ── */}
@@ -351,6 +347,111 @@ function StratCard({ strat, mapName }) {
         </p>
       )}
     </Link>
+  )
+}
+
+// ── Overview accordion ────────────────────────────────────────────────────
+
+function parseH2Sections(content) {
+  const lines = content.split('\n')
+  const preambleLines = []
+  const sections = []
+  let current = null
+  let inPreamble = true
+
+  for (const line of lines) {
+    if (line.startsWith('## ')) {
+      inPreamble = false
+      if (current) sections.push({ ...current, content: current.lines.join('\n').trim() })
+      current = { title: line.replace(/^##\s+/, ''), lines: [] }
+    } else if (inPreamble) {
+      preambleLines.push(line)
+    } else if (current) {
+      current.lines.push(line)
+    }
+  }
+  if (current) sections.push({ ...current, content: current.lines.join('\n').trim() })
+
+  return { preamble: preambleLines.join('\n').trim(), sections }
+}
+
+// Sections to open by default (matched by title prefix)
+const DEFAULT_OPEN = ['Overview', 'Bomb Sites']
+
+function OverviewAccordion({ content }) {
+  const { preamble, sections } = useMemo(() => parseH2Sections(content), [content])
+
+  const [openSections, setOpenSections] = useState(
+    () => new Set(sections.filter(s => DEFAULT_OPEN.some(d => s.title.startsWith(d))).map(s => s.title))
+  )
+
+  const allOpen   = openSections.size === sections.length
+  const allClosed = openSections.size === 0
+
+  const toggleSection = (title) =>
+    setOpenSections(prev => {
+      const next = new Set(prev)
+      next.has(title) ? next.delete(title) : next.add(title)
+      return next
+    })
+
+  const setAll = (open) =>
+    setOpenSections(open ? new Set(sections.map(s => s.title)) : new Set())
+
+  return (
+    <div className="space-y-2">
+      {/* Preamble — always visible (warnings, notes) */}
+      {preamble && (
+        <div className="card">
+          <MarkdownContent content={preamble} />
+        </div>
+      )}
+
+      {/* Expand / Collapse all */}
+      {sections.length > 1 && (
+        <div className="flex justify-end gap-4 text-xs px-1">
+          <button
+            onClick={() => setAll(true)}
+            disabled={allOpen}
+            className="text-siege-muted hover:text-white disabled:opacity-30 transition-colors"
+          >
+            Expand all
+          </button>
+          <button
+            onClick={() => setAll(false)}
+            disabled={allClosed}
+            className="text-siege-muted hover:text-white disabled:opacity-30 transition-colors"
+          >
+            Collapse all
+          </button>
+        </div>
+      )}
+
+      {/* Accordion sections */}
+      {sections.map(section => {
+        const isOpen = openSections.has(section.title)
+        return (
+          <div key={section.title} className="card overflow-hidden p-0">
+            <button
+              onClick={() => toggleSection(section.title)}
+              className="w-full flex items-center justify-between px-4 py-3 text-left hover:bg-white/[0.03] transition-colors"
+            >
+              <span className={`font-semibold text-sm ${isOpen ? 'text-white' : 'text-siege-muted'}`}>
+                {section.title}
+              </span>
+              <span className={`text-xs transition-transform duration-200 ${isOpen ? 'rotate-180' : ''} text-siege-muted`}>
+                ▼
+              </span>
+            </button>
+            {isOpen && (
+              <div className="px-4 pb-4 pt-1 border-t border-siege-border">
+                <MarkdownContent content={section.content} />
+              </div>
+            )}
+          </div>
+        )
+      })}
+    </div>
   )
 }
 
