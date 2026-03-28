@@ -1,6 +1,7 @@
 import { useParams, Link } from 'react-router-dom'
 import { useState } from 'react'
 import playersData from '../data/players.json'
+import { opWrColor, opWrBgColor, wrColor, wrBgColor, kdColor, risTextColor } from '../utils/constants'
 
 // ─── Markdown helpers ──────────────────────────────────────────────────────────
 
@@ -49,16 +50,10 @@ const FLAG_LABEL = { '⭐': 'standout', '✅': 'solid', '⚠️': 'low sample' }
 
 function OpRow({ op, maxRounds }) {
   const wr = op.winRate
-  const wrColor =
-    wr >= 58 ? 'text-siege-green' :
-    wr >= 48 ? 'text-blue-300' :
-    wr >= 38 ? 'text-yellow-400' : 'text-siege-red'
-  const barColor =
-    wr >= 58 ? 'bg-siege-green' :
-    wr >= 48 ? 'bg-blue-400' :
-    wr >= 38 ? 'bg-yellow-500' : 'bg-siege-red'
+  const wrCls = opWrColor(wr)
+  const barColor = opWrBgColor(wr)
   const roundsPct = maxRounds > 0 ? Math.min((op.rounds / maxRounds) * 100, 100) : 0
-  const kdColor = op.kd >= 1.3 ? 'text-siege-green' : op.kd >= 0.9 ? 'text-gray-300' : 'text-siege-red'
+  const kdCls = kdColor(op.kd)
 
   return (
     <div className="flex items-center gap-2 py-1.5 border-b border-siege-border/40 last:border-0">
@@ -84,11 +79,11 @@ function OpRow({ op, maxRounds }) {
       {/* Stats */}
       <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
         <div className="text-right">
-          <span className={`text-sm font-semibold tabular-nums ${wrColor}`}>{wr}%</span>
+          <span className={`text-sm font-semibold tabular-nums ${wrCls}`}>{wr}%</span>
           <span className="text-siege-muted text-xs ml-1 hidden sm:inline">WR</span>
         </div>
         <div className="text-right w-9 sm:w-10">
-          <span className={`text-sm tabular-nums ${kdColor}`}>{op.kd}</span>
+          <span className={`text-sm tabular-nums ${kdCls}`}>{op.kd}</span>
           <span className="text-siege-muted text-xs ml-0.5 hidden sm:inline">K/D</span>
         </div>
         <div className="text-right w-7 sm:w-8 hidden sm:block">
@@ -149,8 +144,8 @@ function MapMiniTable({ maps }) {
     <div className="space-y-2">
       {sorted.map(m => {
         const wr = m.winRate
-        const color = wr >= 55 ? 'text-siege-green' : wr >= 45 ? 'text-blue-300' : wr >= 35 ? 'text-yellow-400' : 'text-siege-red'
-        const barColor = wr >= 55 ? 'bg-siege-green' : wr >= 45 ? 'bg-blue-400' : wr >= 35 ? 'bg-yellow-500' : 'bg-siege-red'
+        const color = wrColor(wr)
+        const barColor = wrBgColor(wr)
         return (
           <div key={m.map} className="flex items-center gap-2">
             <span className="text-siege-muted text-xs w-32 truncate flex-shrink-0">{m.map}</span>
@@ -238,7 +233,7 @@ function SeasonTab({ stats, operators, mapPerformance, notes, priorities }) {
   const wrNum = parseFloat(stats?.winRate)
   const wrAccent = wrNum >= 50 ? 'text-siege-green' : wrNum >= 40 ? 'text-yellow-400' : 'text-siege-red'
   const risNum = parseFloat(stats?.ris)
-  const risAccent = risNum >= 58 ? 'text-siege-green' : risNum >= 48 ? 'text-blue-300' : risNum >= 38 ? 'text-yellow-400' : 'text-siege-red'
+  const risAccent = risTextColor(risNum)
 
   return (
     <div className="space-y-4">

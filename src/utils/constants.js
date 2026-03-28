@@ -1,8 +1,10 @@
 // ─── Shared constants for the R6 Coaching Dashboard ───────────────────────────
 // Single source of truth for thresholds and display helpers used across pages.
 
-// ─── Win Rate Thresholds ──────────────────────────────────────────────────────
-// Returns a Tailwind text color class based on win rate value.
+// ─── Win Rate Thresholds (player/map level: 55/45/35) ─────────────────────────
+// Used for: map heatmap, session prep veto rows, player season summaries.
+
+// Returns a Tailwind text color class.
 export function wrColor(wr) {
   const v = parseFloat(wr)
   if (isNaN(v)) return 'text-siege-muted'
@@ -12,7 +14,7 @@ export function wrColor(wr) {
   return 'text-siege-red'
 }
 
-// Returns a Tailwind bg color class based on win rate value.
+// Returns a Tailwind bg color class (for bar fills).
 export function wrBgColor(wr) {
   const v = parseFloat(wr)
   if (isNaN(v)) return 'bg-siege-muted'
@@ -22,7 +24,7 @@ export function wrBgColor(wr) {
   return 'bg-siege-red'
 }
 
-// Returns a Tailwind border+bg tile class for map heatmap tiles.
+// Returns a Tailwind border+bg+text tile class (for map heatmap tiles).
 export function wrTileClass(wr) {
   const v = parseFloat(wr)
   if (isNaN(v)) return 'border-siege-border text-siege-muted bg-siege-border/10'
@@ -32,13 +34,37 @@ export function wrTileClass(wr) {
   return 'border-siege-red/40 text-siege-red bg-siege-red/10'
 }
 
+// ─── Operator Win Rate Thresholds (stricter: 58/48/38) ────────────────────────
+// Used for: per-operator stat rows in PlayerDetail and OperatorDetail.
+// Higher bar because per-op samples are smaller.
+
+// Returns a Tailwind text color class.
+export function opWrColor(wr) {
+  const v = parseFloat(wr)
+  if (isNaN(v)) return 'text-siege-muted'
+  if (v >= 58) return 'text-siege-green'
+  if (v >= 48) return 'text-blue-300'
+  if (v >= 38) return 'text-yellow-400'
+  return 'text-siege-red'
+}
+
+// Returns a Tailwind bg color class (for bar fills).
+export function opWrBgColor(wr) {
+  const v = parseFloat(wr)
+  if (isNaN(v)) return 'bg-siege-muted'
+  if (v >= 58) return 'bg-siege-green'
+  if (v >= 48) return 'bg-blue-400'
+  if (v >= 38) return 'bg-yellow-500'
+  return 'bg-siege-red'
+}
+
 // ─── RIS Scale ────────────────────────────────────────────────────────────────
 export const RIS_MIN = 25
 export const RIS_MAX = 75
 export const RIS_BASELINE = 50
 export const RIS_BASELINE_PCT = ((RIS_BASELINE - RIS_MIN) / (RIS_MAX - RIS_MIN)) * 100 // 50%
 
-// Returns a Tailwind bg color class based on RIS value.
+// Returns a Tailwind bg color class (for RIS bar fills).
 export function risColor(ris) {
   const v = parseFloat(ris)
   if (isNaN(v)) return 'bg-siege-muted'
@@ -46,6 +72,16 @@ export function risColor(ris) {
   if (v >= 48) return 'bg-blue-400'
   if (v >= 38) return 'bg-yellow-500'
   return 'bg-siege-red'
+}
+
+// Returns a Tailwind text color class (for RIS values in stat boxes).
+export function risTextColor(ris) {
+  const v = parseFloat(ris)
+  if (isNaN(v)) return 'text-siege-muted'
+  if (v >= 58) return 'text-siege-green'
+  if (v >= 48) return 'text-blue-300'
+  if (v >= 38) return 'text-yellow-400'
+  return 'text-siege-red'
 }
 
 // ─── K/D Thresholds ───────────────────────────────────────────────────────────

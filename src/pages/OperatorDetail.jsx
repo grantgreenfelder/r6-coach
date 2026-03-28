@@ -2,6 +2,7 @@ import { useParams, Link } from 'react-router-dom'
 import { useState } from 'react'
 import operatorsData from '../data/operators.json'
 import playersData from '../data/players.json'
+import { opWrColor, opWrBgColor, kdColor } from '../utils/constants'
 
 // ─── Constants ────────────────────────────────────────────────────────────────
 
@@ -174,9 +175,9 @@ const MAIN_STACK = new Set(_mainNames)
 
 function PlayerStatRow({ entry, maxRounds }) {
   const wr = entry.winRate
-  const wrColor = wr >= 58 ? 'text-siege-green' : wr >= 48 ? 'text-blue-300' : wr >= 38 ? 'text-yellow-400' : 'text-siege-red'
-  const barColor = wr >= 58 ? 'bg-siege-green' : wr >= 48 ? 'bg-blue-400' : wr >= 38 ? 'bg-yellow-500' : 'bg-siege-red'
-  const kdColor = entry.kd >= 1.3 ? 'text-siege-green' : entry.kd >= 0.9 ? 'text-gray-300' : 'text-siege-red'
+  const wrColor = opWrColor(wr)
+  const barColor = opWrBgColor(wr)
+  const kdCls = kdColor(entry.kd)
   const volumePct = maxRounds > 0 ? Math.min((entry.rounds / maxRounds) * 100, 100) : 0
   const isMain = MAIN_STACK.has(entry.player)
 
@@ -208,7 +209,7 @@ function PlayerStatRow({ entry, maxRounds }) {
           <span className="text-siege-muted text-xs ml-1 hidden sm:inline">WR</span>
         </div>
         <div className="w-10">
-          <span className={`text-sm tabular-nums ${kdColor}`}>{entry.kd}</span>
+          <span className={`text-sm tabular-nums ${kdCls}`}>{entry.kd}</span>
           <span className="text-siege-muted text-xs ml-0.5 hidden sm:inline">K/D</span>
         </div>
         <div className="w-8 hidden sm:block">

@@ -1,6 +1,7 @@
 import { useState, useMemo } from 'react'
 import playersData from '../data/players.json'
 import stackData from '../data/stack.json'
+import { wrColor, wrBgColor } from '../utils/constants'
 import mapsData from '../data/maps.json'
 
 const MAIN_STACK = (playersData.mainStack || []).map(p => p.name)
@@ -208,10 +209,7 @@ function MapVeto({ tonightPlayers, tonight }) {
 function MapVetoRow({ map, idx, total, banSlot, onMoveUp, onMoveDown, tonight }) {
   const isBan = banSlot !== null
   const wr = map.rosterWinRate
-  const wrColor = wr === null ? 'text-siege-muted' :
-    wr >= 55 ? 'text-siege-green' :
-    wr >= 45 ? 'text-white' :
-    wr >= 35 ? 'text-yellow-400' : 'text-siege-red'
+  const wrCls = wr === null ? 'text-siege-muted' : wrColor(wr)
 
   return (
     <div className={`flex items-center gap-3 rounded-lg px-3 py-2 border transition-colors ${
@@ -242,7 +240,7 @@ function MapVetoRow({ map, idx, total, banSlot, onMoveUp, onMoveDown, tonight })
       {/* Win rate */}
       <div className="w-14 sm:w-20 flex-shrink-0 text-right sm:text-left">
         {wr !== null ? (
-          <span className={`text-sm font-bold ${wrColor}`}>{wr}%</span>
+          <span className={`text-sm font-bold ${wrCls}`}>{wr}%</span>
         ) : (
           <span className="text-xs text-siege-muted">—</span>
         )}
@@ -252,12 +250,7 @@ function MapVetoRow({ map, idx, total, banSlot, onMoveUp, onMoveDown, tonight })
       <div className="w-20 hidden sm:block flex-shrink-0">
         <div className="h-1.5 bg-siege-border rounded-full overflow-hidden">
           <div
-            className={`h-full rounded-full ${
-              wr === null ? '' :
-              wr >= 55 ? 'bg-siege-green' :
-              wr >= 45 ? 'bg-blue-400' :
-              wr >= 35 ? 'bg-yellow-500' : 'bg-siege-red'
-            }`}
+            className={`h-full rounded-full ${wr === null ? '' : wrBgColor(wr)}`}
             style={{ width: wr !== null ? `${Math.min(wr, 100)}%` : '0%' }}
           />
         </div>
@@ -268,10 +261,7 @@ function MapVetoRow({ map, idx, total, banSlot, onMoveUp, onMoveDown, tonight })
         {tonight.map(name => {
           const row = map.playerRows?.find(r => r.name === name)
           const dotWr = row ? row.winRate : null
-          const color = dotWr === null ? 'bg-siege-border' :
-            dotWr >= 55 ? 'bg-siege-green' :
-            dotWr >= 45 ? 'bg-blue-400' :
-            dotWr >= 35 ? 'bg-yellow-500' : 'bg-siege-red'
+          const color = dotWr === null ? 'bg-siege-border' : wrBgColor(dotWr)
           return (
             <div
               key={name}
