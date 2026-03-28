@@ -247,6 +247,9 @@ function parsePlayer(name) {
         map: (row['Map'] || '').trim(),
         matches: parseInt(row['Matches'] || '0', 10) || 0,
         winRate: parseFloat((row['Win%'] || row['Win Rate'] || '0').replace('%', '')) || 0,
+        kd:     parseFloat(row['K/D'] || '0') || 0,
+        atkWr:  parseFloat((row['Atk%'] || '0').replace('%', '')) || 0,
+        defWr:  parseFloat((row['Def%'] || '0').replace('%', '')) || 0,
       })).filter(r => r.map && r.matches > 0)
     })(),
     prevSeason: prevSeasonName,
@@ -267,6 +270,9 @@ function parsePlayer(name) {
         map: (row['Map'] || '').trim(),
         matches: parseInt(row['Matches'] || '0', 10) || 0,
         winRate: parseFloat((row['Win%'] || row['Win Rate'] || '0').replace('%', '')) || 0,
+        kd:     parseFloat(row['K/D'] || '0') || 0,
+        atkWr:  parseFloat((row['Atk%'] || '0').replace('%', '')) || 0,
+        defWr:  parseFloat((row['Def%'] || '0').replace('%', '')) || 0,
       })).filter(r => r.map && r.matches > 0)
     })(),
     prevSeasonContent: prevSeasonRaw
@@ -363,6 +369,55 @@ function buildMapsData(playersData) {
     }
   }
 
+  // Build per-season, per-map player stats arrays (all players: main stack + B team)
+  // Season keys derived from each player's .season / .prevSeason properties
+  const playerMapStats = {}   // { [season]: { [mapKey]: [{callsign, matches, winRate, kd, atkWr, defWr}] } }
+  const allPlayers = [...(playersData.mainStack || []), ...(playersData.bTeam || [])]
+
+  for (const player of allPlayers) {
+    const callsign = player.name || player.callsign || '?'
+    const curSeason  = player.season    || 'Y11S1'
+    const prevSeason = player.prevSeason || 'Y10S4'
+
+    // Current season map data
+    for (const row of (player.mapPerformance || [])) {
+      const key = row.map.replace(/ /g, '_')
+      if (!playerMapStats[curSeason])        playerMapStats[curSeason]       = {}
+      if (!playerMapStats[curSeason][key])   playerMapStats[curSeason][key]  = []
+      playerMapStats[curSeason][key].push({
+        callsign, matches: row.matches, winRate: row.winRate,
+        kd: row.kd || 0, atkWr: row.atkWr || 0, defWr: row.defWr || 0,
+      })
+    }
+
+    // Previous season map data
+    if (prevSeason) {
+      for (const row of (player.prevSeasonMapPerformance || [])) {
+        const key = row.map.replace(/ /g, '_')
+        if (!playerMapStats[prevSeason])       playerMapStats[prevSeason]      = {}
+        if (!playerMapStats[prevSeason][key])  playerMapStats[prevSeason][key] = []
+        playerMapStats[prevSeason][key].push({
+          callsign, matches: row.matches, winRate: row.winRate,
+          kd: row.kd || 0, atkWr: row.atkWr || 0, defWr: row.defWr || 0,
+        })
+      }
+    }
+  }
+
+  // Derive the active season label (first player's .season field, fallback Y11S1)
+  const activeSeason = playersData.mainStack?.[0]?.season || 'Y11S1'
+
+  // Build Y10S4 weighted team avg by map (main stack only) for the tile context
+  const winRateByMapY10S4 = {}
+  for (const player of playersData.mainStack) {
+    for (const row of (player.prevSeasonMapPerformance || [])) {
+      const key = row.map.replace(/ /g, '_')
+      if (!winRateByMapY10S4[key]) winRateByMapY10S4[key] = { weightedSum: 0, totalMatches: 0 }
+      winRateByMapY10S4[key].weightedSum += row.winRate * row.matches
+      winRateByMapY10S4[key].totalMatches += row.matches
+    }
+  }
+
   // Parse ranked pool membership from STACK_05 pool lists
   function extractPoolList(text, sectionHeader) {
     const re = new RegExp(`###\\s+${sectionHeader}[^\\n]*\\n([^\\n]+)`, 'i')
@@ -393,12 +448,21 @@ function buildMapsData(playersData) {
     const devCount = strats.filter(s => s.status === 'developed').length
     const partialCount = strats.filter(s => s.status === 'partial').length
 
-    // Team win% for this map
-    const wr = winRateByMap[mapName.replace(/ /g, '_')]
+    // Team win% for this map (current season — match-weighted across main stack)
+    const mapKey = mapName.replace(/ /g, '_')
+    const wr = winRateByMap[mapKey]
     const teamWinRate = wr && wr.totalMatches > 0
       ? Math.round((wr.weightedSum / wr.totalMatches) * 10) / 10
       : null
     const teamWinRateMatches = wr ? wr.totalMatches : 0
+    const teamWinRateSeason  = activeSeason
+
+    // Per-player stats by season (sorted by matches desc within each season)
+    const statsForMap = {}
+    for (const [season, byMap] of Object.entries(playerMapStats)) {
+      const rows = (byMap[mapKey] || []).slice().sort((a, b) => b.matches - a.matches)
+      if (rows.length > 0) statsForMap[season] = rows
+    }
 
     // Ranked pool membership (match by display name since pool lists use display names)
     const inFirst = firstHalfMaps.has(displayName)
@@ -415,6 +479,8 @@ function buildMapsData(playersData) {
       stratCount: { total: strats.length, developed: devCount, partial: partialCount },
       teamWinRate,
       teamWinRateMatches,
+      teamWinRateSeason,
+      playerStats: statsForMap,
       strats,
       overviewContent: overview,
       referenceContent: reference,

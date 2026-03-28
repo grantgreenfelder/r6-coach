@@ -153,7 +153,12 @@ function MapCard({ map }) {
                 map.teamWinRate >= 50 ? 'text-siege-green font-semibold' :
                 map.teamWinRate >= 40 ? 'text-yellow-400 font-semibold' :
                 'text-siege-red font-semibold'
-              }>{map.teamWinRate}% Win Rate</span>
+              }>
+                {map.teamWinRate}% Win Rate
+                {map.teamWinRateSeason && (
+                  <span className="text-siege-muted font-normal ml-1">· {map.teamWinRateSeason}</span>
+                )}
+              </span>
               <span className="text-siege-muted">{map.teamWinRateMatches}M sample</span>
             </>
           ) : (

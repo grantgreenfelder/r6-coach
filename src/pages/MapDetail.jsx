@@ -5,12 +5,19 @@ import RatingBadge from '../components/RatingBadge'
 import StatusDot from '../components/StatusDot'
 import { NotFound } from '../components/EmptyState'
 import MarkdownContent from '../components/MarkdownContent'
+import { wrColor, wrBgColor, kdColor } from '../utils/constants'
 
 export default function MapDetail() {
   const { mapName } = useParams()
   const map = mapsData.find(m => m.name === mapName)
   const [activeTab, setActiveTab] = useState('strats')
   const [sideFilter, setSideFilter] = useState('all')
+
+  // Stats tab — derive available seasons and default to the most recent
+  const availableSeasons = map
+    ? Object.keys(map.playerStats || {}).sort().reverse()   // Y11S1 before Y10S4
+    : []
+  const [activeSeason, setActiveSeason] = useState(() => availableSeasons[0] || '')
 
   if (!map) {
     return <NotFound icon="🗺" title="Map not found" message={`"${mapName}" isn't in the map pool.`} backTo="/maps" backLabel="Back to Maps" />
@@ -88,7 +95,7 @@ export default function MapDetail() {
 
       {/* Tabs */}
       <div className="flex gap-1 border-b border-siege-border">
-        {['strats', 'overview', 'reference'].map(tab => (
+        {['strats', 'stats', 'overview', 'reference'].map(tab => (
           <button
             key={tab}
             onClick={() => setActiveTab(tab)}
@@ -135,6 +142,43 @@ export default function MapDetail() {
 
           {filteredStrats.length === 0 && (
             <p className="text-siege-muted text-center py-8">No strats for this filter.</p>
+          )}
+        </div>
+      )}
+
+      {/* Stats tab */}
+      {activeTab === 'stats' && (
+        <div className="space-y-4">
+          {availableSeasons.length === 0 ? (
+            <div className="card text-center py-10">
+              <p className="text-siege-muted">No player map data available yet.</p>
+              <p className="text-siege-muted text-sm mt-1">Data appears after the first stat pull with 5+ matches on this map.</p>
+            </div>
+          ) : (
+            <>
+              {/* Season selector */}
+              <div className="flex gap-2">
+                {availableSeasons.map(season => (
+                  <button
+                    key={season}
+                    onClick={() => setActiveSeason(season)}
+                    className={`px-3 py-1.5 text-sm rounded border transition-colors ${
+                      activeSeason === season
+                        ? 'bg-siege-accent border-siege-accent text-siege-bg font-semibold'
+                        : 'border-siege-border text-siege-muted hover:text-white'
+                    }`}
+                  >
+                    {season}
+                  </button>
+                ))}
+              </div>
+
+              {/* Stats table */}
+              <MapStatsTable
+                rows={map.playerStats[activeSeason] || []}
+                season={activeSeason}
+              />
+            </>
           )}
         </div>
       )}
@@ -200,6 +244,98 @@ function Stat({ label, value, color = 'text-white' }) {
     <div>
       <div className={`text-lg font-bold ${color}`}>{value}</div>
       <div className="text-siege-muted text-xs">{label}</div>
+    </div>
+  )
+}
+
+function MapStatsTable({ rows, season }) {
+  if (!rows || rows.length === 0) {
+    return (
+      <div className="card text-center py-8">
+        <p className="text-siege-muted">No player data for {season} on this map.</p>
+        <p className="text-siege-muted text-sm mt-1">Players appear here once they have 5+ ranked matches on this map.</p>
+      </div>
+    )
+  }
+
+  // Compute match-weighted team averages
+  const totalMatches = rows.reduce((s, r) => s + r.matches, 0)
+  const avg = {
+    matches: totalMatches,
+    winRate: totalMatches > 0
+      ? Math.round((rows.reduce((s, r) => s + r.winRate * r.matches, 0) / totalMatches) * 10) / 10
+      : null,
+    kd: totalMatches > 0
+      ? Math.round((rows.reduce((s, r) => s + r.kd * r.matches, 0) / totalMatches) * 100) / 100
+      : null,
+    atkWr: totalMatches > 0
+      ? Math.round((rows.reduce((s, r) => s + r.atkWr * r.matches, 0) / totalMatches) * 10) / 10
+      : null,
+    defWr: totalMatches > 0
+      ? Math.round((rows.reduce((s, r) => s + r.defWr * r.matches, 0) / totalMatches) * 10) / 10
+      : null,
+  }
+
+  const colHead = 'text-left text-xs text-siege-muted font-medium uppercase tracking-wide py-2 px-3'
+  const cell = 'py-2 px-3 text-sm'
+
+  return (
+    <div className="card overflow-x-auto">
+      <table className="w-full">
+        <thead>
+          <tr className="border-b border-siege-border">
+            <th className={colHead}>Player</th>
+            <th className={`${colHead} text-right`}>Matches</th>
+            <th className={`${colHead} text-right`}>Win%</th>
+            <th className={`${colHead} text-right`}>K/D</th>
+            <th className={`${colHead} text-right`}>Atk%</th>
+            <th className={`${colHead} text-right`}>Def%</th>
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((row, i) => (
+            <tr
+              key={row.callsign}
+              className={`border-b border-siege-border/50 ${i % 2 === 0 ? '' : 'bg-white/[0.02]'}`}
+            >
+              <td className={`${cell} font-medium text-white`}>{row.callsign}</td>
+              <td className={`${cell} text-right text-siege-muted`}>{row.matches}</td>
+              <td className={`${cell} text-right`}>
+                <span className={`px-2 py-0.5 rounded text-xs font-semibold ${wrBgColor(row.winRate)} ${wrColor(row.winRate)}`}>
+                  {row.winRate}%
+                </span>
+              </td>
+              <td className={`${cell} text-right ${kdColor(row.kd)}`}>{row.kd.toFixed(2)}</td>
+              <td className={`${cell} text-right ${wrColor(row.atkWr)}`}>{row.atkWr}%</td>
+              <td className={`${cell} text-right ${wrColor(row.defWr)}`}>{row.defWr}%</td>
+            </tr>
+          ))}
+        </tbody>
+        {rows.length > 1 && (
+          <tfoot>
+            <tr className="border-t-2 border-siege-border bg-white/[0.03]">
+              <td className={`${cell} font-semibold text-siege-muted uppercase text-xs tracking-wide`}>Team Avg</td>
+              <td className={`${cell} text-right text-siege-muted text-xs`}>{avg.matches}M total</td>
+              <td className={`${cell} text-right`}>
+                {avg.winRate !== null && (
+                  <span className={`px-2 py-0.5 rounded text-xs font-semibold ${wrBgColor(avg.winRate)} ${wrColor(avg.winRate)}`}>
+                    {avg.winRate}%
+                  </span>
+                )}
+              </td>
+              <td className={`${cell} text-right ${avg.kd !== null ? kdColor(avg.kd) : 'text-siege-muted'}`}>
+                {avg.kd !== null ? avg.kd.toFixed(2) : '—'}
+              </td>
+              <td className={`${cell} text-right ${avg.atkWr !== null ? wrColor(avg.atkWr) : 'text-siege-muted'}`}>
+                {avg.atkWr !== null ? `${avg.atkWr}%` : '—'}
+              </td>
+              <td className={`${cell} text-right ${avg.defWr !== null ? wrColor(avg.defWr) : 'text-siege-muted'}`}>
+                {avg.defWr !== null ? `${avg.defWr}%` : '—'}
+              </td>
+            </tr>
+          </tfoot>
+        )}
+      </table>
     </div>
   )
 }
