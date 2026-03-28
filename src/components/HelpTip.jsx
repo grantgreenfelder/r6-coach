@@ -49,7 +49,7 @@ export default function HelpTip({ text, position = 'top' }) {
         role="button"
         aria-label="Help"
         aria-expanded={open}
-        className={`inline-flex items-center justify-center w-3.5 h-3.5 rounded-full border text-[9px] font-bold leading-none cursor-help select-none transition-colors
+        className={`inline-flex items-center justify-center w-3 h-3 rounded-full border text-[8px] font-bold leading-none cursor-help select-none transition-colors
           ${open
             ? 'border-siege-accent text-siege-accent bg-siege-accent/10'
             : 'border-siege-muted/50 text-siege-muted hover:border-siege-accent hover:text-siege-accent'
@@ -62,7 +62,7 @@ export default function HelpTip({ text, position = 'top' }) {
       {open && (
         <span
           role="tooltip"
-          className={`absolute z-50 w-52 rounded-lg border border-siege-border bg-siege-surface shadow-lg px-3 py-2 text-xs text-gray-300 leading-relaxed pointer-events-none
+          className={`absolute z-50 w-44 rounded-lg border border-siege-border bg-siege-surface shadow-lg px-3 py-2 text-xs text-gray-300 leading-relaxed pointer-events-none
             left-1/2 -translate-x-1/2
             ${isAbove ? 'bottom-full mb-2' : 'top-full mt-2'}
           `}

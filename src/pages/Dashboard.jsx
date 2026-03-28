@@ -227,10 +227,11 @@ export default function Dashboard() {
             Ranked Pool — Win% Heatmap
           </h2>
           <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-siege-muted">
-            <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-siege-green inline-block" />≥55%</span>
-            <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-blue-400 inline-block" />45–55%</span>
-            <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-yellow-500 inline-block" />35–45%</span>
-            <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-siege-red inline-block" />&lt;35%</span>
+            <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-siege-green inline-block" />≥60% Strong</span>
+            <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-blue-400 inline-block" />50–59% Even</span>
+            <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-yellow-400 inline-block" />40–49% Shaky</span>
+            <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-orange-400 inline-block" />30–39% Avoid</span>
+            <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-red-400 inline-block" />&lt;30% Ban</span>
           </div>
         </div>
         <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 gap-1.5 sm:gap-2">
