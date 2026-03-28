@@ -24,7 +24,7 @@ export default function Layout() {
             <span className="text-siege-muted text-xs hidden sm:block">Rainbow Six Siege · Coaching Dashboard</span>
           </div>
           {/* Desktop nav — hidden on mobile (bottom nav used instead) */}
-          <nav className="hidden sm:flex items-center gap-1">
+          <nav aria-label="Main navigation" className="hidden sm:flex items-center gap-1">
             {navItems.map(({ to, label, icon }) => (
               <NavLink
                 key={to}
@@ -38,7 +38,7 @@ export default function Layout() {
                   }`
                 }
               >
-                <span className="text-xs">{icon}</span>
+                <span className="text-xs" aria-hidden="true">{icon}</span>
                 <span>{label}</span>
               </NavLink>
             ))}
@@ -57,19 +57,20 @@ export default function Layout() {
       </footer>
 
       {/* Mobile bottom nav */}
-      <nav className="sm:hidden fixed bottom-0 left-0 right-0 z-50 bg-siege-surface border-t border-siege-border flex">
-        {navItems.map(({ to, mobileLabel, icon }) => (
+      <nav aria-label="Mobile navigation" className="sm:hidden fixed bottom-0 left-0 right-0 z-50 bg-siege-surface border-t border-siege-border flex">
+        {navItems.map(({ to, label, mobileLabel, icon }) => (
           <NavLink
             key={to}
             to={to}
             end={to === '/'}
+            aria-label={label}
             className={({ isActive }) =>
               `flex-1 flex flex-col items-center gap-0.5 py-2.5 transition-colors ${
                 isActive ? 'text-siege-accent' : 'text-gray-500'
               }`
             }
           >
-            <span className="text-lg leading-none">{icon}</span>
+            <span className="text-lg leading-none" aria-hidden="true">{icon}</span>
             <span className="text-[10px] font-medium leading-none mt-0.5">{mobileLabel}</span>
           </NavLink>
         ))}

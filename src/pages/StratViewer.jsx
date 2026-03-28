@@ -2,6 +2,7 @@ import { useParams, Link } from 'react-router-dom'
 import { useState, useMemo } from 'react'
 import mapsData from '../data/maps.json'
 import StatusDot from '../components/StatusDot'
+import { NotFound } from '../components/EmptyState'
 
 // ─── Content Parsers (run client-side from strat.content) ─────────────────────
 
@@ -434,21 +435,11 @@ export default function StratViewer() {
   const [activePlayer, setActivePlayer] = useState('all')
 
   if (!map) {
-    return (
-      <div className="p-8 text-center">
-        <p className="text-siege-muted text-lg">Map not found: {mapName}</p>
-        <Link to="/maps" className="text-siege-accent hover:underline mt-4 inline-block">← Back to Maps</Link>
-      </div>
-    )
+    return <NotFound icon="🗺" title="Map not found" message={`"${mapName}" isn't in the map pool.`} backTo="/maps" backLabel="Back to Maps" />
   }
 
   if (!strat) {
-    return (
-      <div className="p-8 text-center">
-        <p className="text-siege-muted text-lg">Strat not found: {sideUpper} {decodedSite}</p>
-        <Link to={`/maps/${mapName}`} className="text-siege-accent hover:underline mt-4 inline-block">← Back to {map.displayName}</Link>
-      </div>
-    )
+    return <NotFound icon="📋" title="Strat not found" message={`No ${sideUpper} strat for "${decodedSite}" on ${map.displayName}.`} backTo={`/maps/${mapName}`} backLabel={`Back to ${map.displayName}`} />
   }
 
   const sideLabel = sideUpper === 'ATK' ? 'Attack' : 'Defense'

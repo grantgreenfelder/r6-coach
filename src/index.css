@@ -12,6 +12,17 @@
   ::-webkit-scrollbar-track { background: #161616; }
   ::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
   ::-webkit-scrollbar-thumb:hover { background: #555; }
+
+  /* Global focus-visible ring — keyboard nav only, not mouse clicks */
+  :focus-visible {
+    outline: 2px solid #e8a020;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+  /* Suppress default focus outline since we handle it above */
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
 }
 
 @layer components {

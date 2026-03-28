@@ -3,6 +3,7 @@ import { useState } from 'react'
 import mapsData from '../data/maps.json'
 import RatingBadge from '../components/RatingBadge'
 import StatusDot from '../components/StatusDot'
+import { NotFound } from '../components/EmptyState'
 import MarkdownContent from '../components/MarkdownContent'
 
 export default function MapDetail() {
@@ -12,12 +13,7 @@ export default function MapDetail() {
   const [sideFilter, setSideFilter] = useState('all')
 
   if (!map) {
-    return (
-      <div className="p-8 text-center">
-        <p className="text-siege-muted text-lg">Map not found: {mapName}</p>
-        <Link to="/maps" className="text-siege-accent hover:underline mt-4 inline-block">← Back to Maps</Link>
-      </div>
-    )
+    return <NotFound icon="🗺" title="Map not found" message={`"${mapName}" isn't in the map pool.`} backTo="/maps" backLabel="Back to Maps" />
   }
 
   const filteredStrats = map.strats.filter(s =>

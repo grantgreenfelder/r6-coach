@@ -2,6 +2,7 @@ import { useParams, Link } from 'react-router-dom'
 import { useState } from 'react'
 import playersData from '../data/players.json'
 import { opWrColor, opWrBgColor, wrColor, wrBgColor, kdColor, risTextColor } from '../utils/constants'
+import { NotFound } from '../components/EmptyState'
 
 // ─── Markdown helpers ──────────────────────────────────────────────────────────
 
@@ -304,12 +305,7 @@ export default function PlayerDetail() {
   const [activeTab, setActiveTab] = useState(player?.season || 'Y11S1')
 
   if (!player) {
-    return (
-      <div className="p-8 text-center">
-        <p className="text-siege-muted text-lg">Player not found: {name}</p>
-        <Link to="/players" className="text-siege-accent hover:underline mt-4 inline-block">← Back to Players</Link>
-      </div>
-    )
+    return <NotFound icon="👤" title={`Player not found`} message={`"${name}" doesn't exist in the roster.`} backTo="/players" backLabel="Back to Roster" />
   }
 
   const y11s1Notes = extractBullets(extractSection(player.seasonContent, 'Season Coaching Notes'))

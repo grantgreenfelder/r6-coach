@@ -256,8 +256,8 @@ function MapVetoRow({ map, idx, total, banSlot, onMoveUp, onMoveDown, tonight })
         </div>
       </div>
 
-      {/* Per-player dots — md+ only */}
-      <div className="hidden md:flex gap-1 flex-shrink-0">
+      {/* Per-player dots — always visible; smaller on mobile */}
+      <div className="flex gap-0.5 sm:gap-1 flex-shrink-0" role="list" aria-label="Per-player win rates">
         {tonight.map(name => {
           const row = map.playerRows?.find(r => r.name === name)
           const dotWr = row ? row.winRate : null
@@ -265,8 +265,10 @@ function MapVetoRow({ map, idx, total, banSlot, onMoveUp, onMoveDown, tonight })
           return (
             <div
               key={name}
-              className={`w-2 h-2 rounded-full ${color}`}
+              role="listitem"
+              className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full flex-shrink-0 ${color}`}
               title={`${name}: ${dotWr !== null ? dotWr + '%' : 'no data'}`}
+              aria-label={`${name}: ${dotWr !== null ? dotWr + '% win rate' : 'no data'}`}
             />
           )
         })}
@@ -284,11 +286,13 @@ function MapVetoRow({ map, idx, total, banSlot, onMoveUp, onMoveDown, tonight })
         <button
           onClick={onMoveUp}
           disabled={idx === 0}
+          aria-label={`Move ${map.displayName} up`}
           className="text-siege-muted hover:text-white disabled:opacity-20 text-xs leading-none px-1"
         >▲</button>
         <button
           onClick={onMoveDown}
           disabled={idx === total - 1}
+          aria-label={`Move ${map.displayName} down`}
           className="text-siege-muted hover:text-white disabled:opacity-20 text-xs leading-none px-1"
         >▼</button>
       </div>

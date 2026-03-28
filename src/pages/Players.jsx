@@ -86,6 +86,7 @@ export default function Players() {
       <div className="flex flex-wrap gap-2 items-center">
         <input
           type="text"
+          aria-label="Search players"
           placeholder="Search by name or role..."
           value={search}
           onChange={e => setSearch(e.target.value)}

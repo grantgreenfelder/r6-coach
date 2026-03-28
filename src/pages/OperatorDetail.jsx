@@ -3,6 +3,7 @@ import { useState } from 'react'
 import operatorsData from '../data/operators.json'
 import playersData from '../data/players.json'
 import { opWrColor, opWrBgColor, kdColor } from '../utils/constants'
+import { NotFound } from '../components/EmptyState'
 
 // ─── Constants ────────────────────────────────────────────────────────────────
 
@@ -322,12 +323,7 @@ export default function OperatorDetail() {
   const [imgError, setImgError] = useState(false)
 
   if (!op) {
-    return (
-      <div className="p-8 text-center">
-        <p className="text-siege-muted text-lg">Operator not found: {name}</p>
-        <Link to="/operators" className="text-siege-accent hover:underline mt-4 inline-block">← Back to Operators</Link>
-      </div>
-    )
+    return <NotFound icon="⚔" title="Operator not found" message={`"${name}" doesn't exist in the operator list.`} backTo="/operators" backLabel="Back to Operators" />
   }
 
   const colors = SIDE_COLORS[op.side] || SIDE_COLORS.ATK
