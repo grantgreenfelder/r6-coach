@@ -40,7 +40,7 @@ function RisBar({ ris }) {
       {/* Baseline tick */}
       <div
         className="absolute top-0 h-full w-px bg-white/30"
-        style={{ left: `${baselinePct}%` }}
+        style={{ left: `${RIS_BASELINE_PCT}%` }}
       />
     </div>
   )
