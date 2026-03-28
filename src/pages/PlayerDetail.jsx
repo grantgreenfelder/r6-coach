@@ -3,6 +3,8 @@ import { useState } from 'react'
 import playersData from '../data/players.json'
 import { opWrColor, opWrBgColor, wrColor, wrBgColor, kdColor, risTextColor } from '../utils/constants'
 import { NotFound } from '../components/EmptyState'
+import HelpTip from '../components/HelpTip'
+import { GLOSSARY } from '../utils/glossary'
 
 // ─── Markdown helpers ──────────────────────────────────────────────────────────
 
@@ -36,11 +38,13 @@ function extractIdentityField(text, field) {
 
 // ─── Stat Box ─────────────────────────────────────────────────────────────────
 
-function StatBox({ label, value, accent }) {
+function StatBox({ label, value, accent, tip }) {
   return (
     <div className="bg-black/30 border border-siege-border rounded-lg p-2 sm:p-3 text-center">
       <div className={`text-sm sm:text-xl font-bold leading-none truncate ${accent || 'text-white'}`}>{value || '—'}</div>
-      <div className="text-siege-muted text-[10px] sm:text-xs mt-1 sm:mt-1.5 uppercase tracking-wider">{label}</div>
+      <div className="text-siege-muted text-[10px] sm:text-xs mt-1 sm:mt-1.5 uppercase tracking-wider flex items-center justify-center gap-1">
+        {label}{tip && <HelpTip text={tip} />}
+      </div>
     </div>
   )
 }
@@ -242,10 +246,10 @@ function SeasonTab({ stats, operators, mapPerformance, notes, priorities }) {
       {/* Stats row */}
       <div className="grid grid-cols-5 gap-2">
         <StatBox label="Rank"    value={stats?.rank} />
-        <StatBox label="K/D"     value={stats?.kd} />
-        <StatBox label="Win%"    value={stats?.winRate} accent={wrAccent} />
-        <StatBox label="Matches" value={stats?.matches} />
-        <StatBox label="RIS"     value={stats?.ris} accent={risAccent} />
+        <StatBox label="K/D"     value={stats?.kd}       tip={GLOSSARY.KD} />
+        <StatBox label="Win%"    value={stats?.winRate}  tip={GLOSSARY.WR}  accent={wrAccent} />
+        <StatBox label="Matches" value={stats?.matches}  tip={GLOSSARY.MATCHES} />
+        <StatBox label="RIS"     value={stats?.ris}      tip={GLOSSARY.RIS} accent={risAccent} />
       </div>
 
       {/* Operators — full width card */}

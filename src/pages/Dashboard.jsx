@@ -4,6 +4,8 @@ import mapsData from '../data/maps.json'
 import stackData from '../data/stack.json'
 import metaData from '../data/meta.json'
 import { RIS_MIN, RIS_MAX, RIS_BASELINE_PCT, risColor, wrColor } from '../utils/constants'
+import HelpTip from '../components/HelpTip'
+import { GLOSSARY } from '../utils/glossary'
 
 // ─── Insight Strip ─────────────────────────────────────────────────────────────
 
@@ -68,22 +70,22 @@ function PlayerCard({ player }) {
       <div className="grid grid-cols-3 gap-2 mb-3">
         <div className="text-center">
           <p className="text-white text-lg font-bold leading-none">{kd ?? '—'}</p>
-          <p className="text-siege-muted text-xs mt-0.5">K/D</p>
+          <p className="text-siege-muted text-xs mt-0.5 flex items-center justify-center gap-1">K/D <HelpTip text={GLOSSARY.KD} /></p>
         </div>
         <div className="text-center">
           <p className="text-siege-accent text-lg font-bold leading-none">{ris ?? '—'}</p>
-          <p className="text-siege-muted text-xs mt-0.5">RIS</p>
+          <p className="text-siege-muted text-xs mt-0.5 flex items-center justify-center gap-1">RIS <HelpTip text={GLOSSARY.RIS} /></p>
         </div>
         <div className="text-center">
           <p className={`text-lg font-bold leading-none ${wrColor(wrNum)}`}>{winRate ?? '—'}</p>
-          <p className="text-siege-muted text-xs mt-0.5">Win%</p>
+          <p className="text-siege-muted text-xs mt-0.5 flex items-center justify-center gap-1">Win% <HelpTip text={GLOSSARY.WR} /></p>
         </div>
       </div>
 
       {/* RIS bar with baseline marker */}
       <RisBar ris={ris} />
       <div className="flex justify-between text-xs text-siege-muted mb-2">
-        <span>RIS</span>
+        <span className="flex items-center gap-1">RIS <HelpTip text={GLOSSARY.RIS_BAR} position="bottom" /></span>
         <span style={{ marginLeft: `${RIS_BASELINE_PCT}%`, transform: 'translateX(-50%)' }} className="absolute text-white/20 text-xs">|</span>
         <span>baseline 50</span>
       </div>

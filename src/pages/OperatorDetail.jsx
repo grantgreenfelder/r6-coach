@@ -4,6 +4,8 @@ import operatorsData from '../data/operators.json'
 import playersData from '../data/players.json'
 import { opWrColor, opWrBgColor, kdColor } from '../utils/constants'
 import { NotFound } from '../components/EmptyState'
+import HelpTip from '../components/HelpTip'
+import { GLOSSARY } from '../utils/glossary'
 
 // ─── Constants ────────────────────────────────────────────────────────────────
 
@@ -279,13 +281,15 @@ function StatsTab({ op }) {
       {/* Summary stats */}
       <div className="grid grid-cols-3 gap-2">
         {[
-          { label: 'Total Rounds', value: total.rounds || '—' },
-          { label: 'Avg WR', value: total.rounds ? `${avgWr}%` : '—' },
-          { label: 'Avg K/D', value: avgKd },
+          { label: 'Total Rounds', value: total.rounds || '—', tip: null },
+          { label: 'Avg WR',       value: total.rounds ? `${avgWr}%` : '—', tip: GLOSSARY.WR },
+          { label: 'Avg K/D',      value: avgKd, tip: GLOSSARY.KD },
         ].map(s => (
           <div key={s.label} className="bg-black/30 border border-siege-border rounded-lg p-2 sm:p-3 text-center">
             <div className="text-sm sm:text-xl font-bold text-white leading-none">{s.value}</div>
-            <div className="text-siege-muted text-[10px] sm:text-xs mt-1 uppercase tracking-wider">{s.label}</div>
+            <div className="text-siege-muted text-[10px] sm:text-xs mt-1 uppercase tracking-wider flex items-center justify-center gap-1">
+              {s.label}{s.tip && <HelpTip text={s.tip} />}
+            </div>
           </div>
         ))}
       </div>
@@ -293,7 +297,9 @@ function StatsTab({ op }) {
       {/* Player rows */}
       <div className="card">
         <div className="flex items-center gap-2 mb-1">
-          <p className="text-siege-muted text-xs flex-1">Win% bar · K/D · Rounds (volume bar)</p>
+          <p className="text-siege-muted text-xs flex-1 flex items-center gap-1.5">
+            Win% bar <HelpTip text={GLOSSARY.WR} /> · K/D <HelpTip text={GLOSSARY.KD} /> · Rounds (volume bar)
+          </p>
           {sorted.length > displayed.length && (
             <button
               onClick={() => setShowAll(!showAll)}
