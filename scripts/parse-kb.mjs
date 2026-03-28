@@ -250,7 +250,7 @@ function parsePlayer(name) {
         kd:     parseFloat(row['K/D'] || '0') || 0,
         atkWr:  parseFloat((row['Atk%'] || '0').replace('%', '')) || 0,
         defWr:  parseFloat((row['Def%'] || '0').replace('%', '')) || 0,
-      })).filter(r => r.map && r.matches >= 5)
+      })).filter(r => r.map && r.matches >= 3)
     })(),
     prevSeason: prevSeasonName,
     prevSeasonStats: prevSeasonName ? {
@@ -273,7 +273,7 @@ function parsePlayer(name) {
         kd:     parseFloat(row['K/D'] || '0') || 0,
         atkWr:  parseFloat((row['Atk%'] || '0').replace('%', '')) || 0,
         defWr:  parseFloat((row['Def%'] || '0').replace('%', '')) || 0,
-      })).filter(r => r.map && r.matches >= 5)
+      })).filter(r => r.map && r.matches >= 3)
     })(),
     prevSeasonContent: prevSeasonRaw
       .replace(/\*\*\[ATK\]\*\*/g, '**Attack**')

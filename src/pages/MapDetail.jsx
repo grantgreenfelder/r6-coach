@@ -253,7 +253,7 @@ function MapStatsTable({ rows, season }) {
     return (
       <div className="card text-center py-8">
         <p className="text-siege-muted">No player data for {season} on this map.</p>
-        <p className="text-siege-muted text-sm mt-1">Players appear here once they have 5+ ranked matches on this map.</p>
+        <p className="text-siege-muted text-sm mt-1">Players appear here once they have 3+ ranked matches on this map.</p>
       </div>
     )
   }
