@@ -4,34 +4,37 @@ import mapsData from '../data/maps.json'
 import RatingBadge from '../components/RatingBadge'
 import StatusDot from '../components/StatusDot'
 
-const RATING_ORDER = ['strong', 'moderate', 'weak', 'avoid', 'unknown']
+const SEASONS = ['Y11S1', 'Y10S4']
 
-// rankedPool values:
-//   'both'   = active all season (First + Second Half)
-//   'first'  = active now, LEAVING at mid-season split
-//   'second' = NOT active now, returning at mid-season split
-//   null     = not in ranked pool this season
-export const POOL_LABEL = {
-  both:   { text: 'Full Season',            color: 'text-siege-green',  icon: '✓' },
-  first:  { text: 'Leaving at mid-season',  color: 'text-yellow-400',   icon: '⚠' },
-  second: { text: 'Returns at mid-season',  color: 'text-siege-blue',   icon: '↩' },
+// Derive rating for a given win rate (used when viewing Y10S4 to show contextual badge)
+function ratingFromWr(wr) {
+  if (wr === null) return 'unknown'
+  if (wr >= 60) return 'strong'
+  if (wr >= 50) return 'even'
+  if (wr >= 40) return 'shaky'
+  if (wr >= 30) return 'avoid'
+  return 'ban'
 }
 
 export default function Maps() {
-  const [filter, setFilter] = useState('all')
-  const [search, setSearch] = useState('')
-  const [sortBy, setSortBy] = useState('name') // 'name' | 'winrate'
+  const [season, setSeason]   = useState('Y11S1')
+  const [search, setSearch]   = useState('')
+  const [sortBy, setSortBy]   = useState('winrate') // 'name' | 'winrate'
+
+  // Pick the right win rate field based on selected season
+  const getWr      = m => season === 'Y11S1' ? m.teamWinRate         : m.teamWinRateY10S4
+  const getWrM     = m => season === 'Y11S1' ? m.teamWinRateMatches  : m.teamWinRateMatchesY10S4
+  const getRating  = m => season === 'Y11S1' ? m.rating              : ratingFromWr(m.teamWinRateY10S4)
 
   const applyFilters = (maps) => maps
-    .filter(m => filter === 'all' || m.rating === filter)
     .filter(m => m.displayName.toLowerCase().includes(search.toLowerCase()))
     .sort((a, b) => {
       if (sortBy === 'winrate') {
-        // nulls to the bottom
-        if (a.teamWinRate === null && b.teamWinRate === null) return 0
-        if (a.teamWinRate === null) return 1
-        if (b.teamWinRate === null) return -1
-        return b.teamWinRate - a.teamWinRate
+        const wa = getWr(a), wb = getWr(b)
+        if (wa === null && wb === null) return 0
+        if (wa === null) return 1
+        if (wb === null) return -1
+        return wb - wa
       }
       return a.displayName.localeCompare(b.displayName)
     })
@@ -41,7 +44,7 @@ export default function Maps() {
 
   return (
     <div className="p-6 max-w-6xl mx-auto space-y-8">
-      {/* Header + filters */}
+      {/* Header + controls */}
       <div className="flex items-center justify-between flex-wrap gap-4">
         <h1 className="text-2xl font-bold text-white">Maps</h1>
         <div className="flex gap-2 flex-wrap items-center">
@@ -52,9 +55,10 @@ export default function Maps() {
             onChange={e => setSearch(e.target.value)}
             className="bg-siege-card border border-siege-border rounded px-3 py-1.5 text-sm text-white placeholder-siege-muted focus:outline-none focus:border-siege-accent"
           />
+
           {/* Sort toggle */}
           <div className="flex rounded border border-siege-border overflow-hidden">
-            {[{ value: 'name', label: 'A–Z' }, { value: 'winrate', label: 'Win%' }].map(s => (
+            {[{ value: 'winrate', label: 'Win%' }, { value: 'name', label: 'A–Z' }].map(s => (
               <button
                 key={s.value}
                 onClick={() => setSortBy(s.value)}
@@ -68,19 +72,23 @@ export default function Maps() {
               </button>
             ))}
           </div>
-          {['all', 'strong', 'moderate', 'weak', 'avoid'].map(r => (
-            <button
-              key={r}
-              onClick={() => setFilter(r)}
-              className={`px-3 py-1.5 text-sm rounded capitalize border transition-colors ${
-                filter === r
-                  ? 'bg-siege-accent border-siege-accent text-siege-bg font-semibold'
-                  : 'border-siege-border text-siege-muted hover:text-white hover:border-siege-muted'
-              }`}
-            >
-              {r}
-            </button>
-          ))}
+
+          {/* Season selector */}
+          <div className="flex rounded border border-siege-border overflow-hidden">
+            {SEASONS.map(s => (
+              <button
+                key={s}
+                onClick={() => setSeason(s)}
+                className={`px-3 py-1.5 text-sm transition-colors ${
+                  season === s
+                    ? 'bg-siege-accent text-siege-bg font-semibold'
+                    : 'text-siege-muted hover:text-white'
+                }`}
+              >
+                {s}
+              </button>
+            ))}
+          </div>
         </div>
       </div>
 
@@ -93,7 +101,7 @@ export default function Maps() {
             <span className="text-siege-muted text-xs">{ranked.length} maps</span>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {ranked.map(map => <MapCard key={map.name} map={map} />)}
+            {ranked.map(map => <MapCard key={map.name} map={map} season={season} getWr={getWr} getWrM={getWrM} getRating={getRating} />)}
           </div>
         </div>
       )}
@@ -107,73 +115,74 @@ export default function Maps() {
             <span className="text-siege-muted text-xs">{unranked.length} maps</span>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 opacity-50">
-            {unranked.map(map => <MapCard key={map.name} map={map} />)}
+            {unranked.map(map => <MapCard key={map.name} map={map} season={season} getWr={getWr} getWrM={getWrM} getRating={getRating} />)}
           </div>
         </div>
       )}
 
       {ranked.length === 0 && unranked.length === 0 && (
-        <p className="text-siege-muted text-center py-12">No maps match this filter.</p>
+        <p className="text-siege-muted text-center py-12">No maps found.</p>
       )}
     </div>
   )
 }
 
-function MapCard({ map }) {
-  const atkStrats = map.strats.filter(s => s.side === 'ATK')
-  const defStrats = map.strats.filter(s => s.side === 'DEF')
+function MapCard({ map, season, getWr, getWrM, getRating }) {
+  const wr      = getWr(map)
+  const wrM     = getWrM(map)
+  const rating  = getRating(map)
 
-  const devCount = map.stratCount.developed
+  const devCount     = map.stratCount.developed
   const partialCount = map.stratCount.partial
-  const totalCount = map.stratCount.total
+  const totalCount   = map.stratCount.total
+
+  const barColor =
+    wr === null  ? '' :
+    wr >= 60     ? 'bg-siege-green' :
+    wr >= 50     ? 'bg-blue-500' :
+    wr >= 40     ? 'bg-yellow-500' :
+    wr >= 30     ? 'bg-orange-500' :
+                   'bg-red-600'
+
+  const wrTextColor =
+    wr === null  ? 'text-siege-muted' :
+    wr >= 60     ? 'text-siege-green font-semibold' :
+    wr >= 50     ? 'text-blue-400 font-semibold' :
+    wr >= 40     ? 'text-yellow-400 font-semibold' :
+    wr >= 30     ? 'text-orange-400 font-semibold' :
+                   'text-red-400 font-semibold'
 
   return (
     <Link
       to={`/maps/${map.name}`}
       className="card hover:border-siege-accent transition-colors block group"
     >
-      <div className="flex items-start justify-between mb-1">
+      <div className="flex items-start justify-between mb-2">
         <h2 className="text-white font-semibold text-lg group-hover:text-siege-accent transition-colors">
           {map.displayName}
         </h2>
-        <RatingBadge rating={map.rating} label={map.ratingLabel} />
+        <RatingBadge rating={rating} />
       </div>
-      {map.rankedPool && POOL_LABEL[map.rankedPool] && (
-        <p className={`text-xs mb-2 ${POOL_LABEL[map.rankedPool].color}`}>
-          {POOL_LABEL[map.rankedPool].text}
-        </p>
-      )}
 
       {/* Win rate bar */}
       <div className="mb-3">
         <div className="flex justify-between text-xs mb-1">
-          {map.teamWinRate !== null ? (
+          {wr !== null ? (
             <>
-              <span className={
-                map.teamWinRate >= 50 ? 'text-siege-green font-semibold' :
-                map.teamWinRate >= 40 ? 'text-yellow-400 font-semibold' :
-                'text-siege-red font-semibold'
-              }>
-                {map.teamWinRate}% Win Rate
-                {map.teamWinRateSeason && (
-                  <span className="text-siege-muted font-normal ml-1">· {map.teamWinRateSeason}</span>
-                )}
+              <span className={wrTextColor}>
+                {wr}% Win Rate
+                <span className="text-siege-muted font-normal ml-1">· {season}</span>
               </span>
-              <span className="text-siege-muted">{map.teamWinRateMatches}M sample</span>
+              <span className="text-siege-muted">{wrM}M sample</span>
             </>
           ) : (
-            <span className="text-siege-muted">No match data</span>
+            <span className="text-siege-muted">No {season} data</span>
           )}
         </div>
         <div className="h-1.5 bg-siege-border rounded-full overflow-hidden">
           <div
-            className={`h-full rounded-full transition-all ${
-              map.teamWinRate === null ? '' :
-              map.teamWinRate >= 50 ? 'bg-siege-green' :
-              map.teamWinRate >= 40 ? 'bg-yellow-500' :
-              'bg-siege-red'
-            }`}
-            style={{ width: map.teamWinRate !== null ? `${Math.min(map.teamWinRate, 100)}%` : '0%' }}
+            className={`h-full rounded-full transition-all ${barColor}`}
+            style={{ width: wr !== null ? `${Math.min(wr, 100)}%` : '0%' }}
           />
         </div>
         <div className="text-xs text-siege-muted mt-1">
@@ -185,12 +194,12 @@ function MapCard({ map }) {
       <div className="flex gap-4 text-sm">
         <div>
           <span className="text-siege-muted">Attack </span>
-          <span className="text-white font-medium">{atkStrats.length}</span>
+          <span className="text-white font-medium">{map.strats.filter(s => s.side === 'ATK').length}</span>
           <span className="text-siege-muted"> sites</span>
         </div>
         <div>
           <span className="text-siege-muted">Defense </span>
-          <span className="text-white font-medium">{defStrats.length}</span>
+          <span className="text-white font-medium">{map.strats.filter(s => s.side === 'DEF').length}</span>
           <span className="text-siege-muted"> sites</span>
         </div>
       </div>

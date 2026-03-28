@@ -456,12 +456,20 @@ function buildMapsData(playersData) {
     const teamWinRateMatches = wr ? wr.totalMatches : 0
     const teamWinRateSeason  = activeSeason
 
-    // Rating badge driven by actual win% (not STACK_05 text)
+    // Y10S4 team win% (match-weighted across main stack prev season data)
+    const wrY10S4 = winRateByMapY10S4[mapKey]
+    const teamWinRateY10S4 = wrY10S4 && wrY10S4.totalMatches > 0
+      ? Math.round((wrY10S4.weightedSum / wrY10S4.totalMatches) * 10) / 10
+      : null
+    const teamWinRateMatchesY10S4 = wrY10S4 ? wrY10S4.totalMatches : 0
+
+    // Rating badge driven by actual Y11S1 win% — 5 tiers
     const rating = teamWinRate === null ? 'unknown'
       : teamWinRate >= 60 ? 'strong'
-      : teamWinRate >= 50 ? 'moderate'
-      : teamWinRate >= 40 ? 'weak'
-      : 'avoid'
+      : teamWinRate >= 50 ? 'even'
+      : teamWinRate >= 40 ? 'shaky'
+      : teamWinRate >= 30 ? 'avoid'
+      : 'ban'
 
     // Per-player stats by season (sorted by matches desc within each season)
     const statsForMap = {}
@@ -480,12 +488,14 @@ function buildMapsData(playersData) {
       displayName,
       rating,
       ratingLabel,
-      rankedPool,           // 'first' | 'second' | 'both' | null  (relative to full season)
-      inRankedPool: inFirst,  // true = currently active in Y11S1 First Half (first || both)
+      rankedPool,
+      inRankedPool: inFirst,
       stratCount: { total: strats.length, developed: devCount, partial: partialCount },
       teamWinRate,
       teamWinRateMatches,
       teamWinRateSeason,
+      teamWinRateY10S4,
+      teamWinRateMatchesY10S4,
       playerStats: statsForMap,
       strats,
       overviewContent: overview,

@@ -14,6 +14,8 @@
     "teamWinRate": 66.7,
     "teamWinRateMatches": 27,
     "teamWinRateSeason": "Y11S1",
+    "teamWinRateY10S4": 58.8,
+    "teamWinRateMatchesY10S4": 34,
     "playerStats": {
       "Y11S1": [
         {
@@ -336,7 +338,7 @@
   {
     "name": "Border",
     "displayName": "Border",
-    "rating": "moderate",
+    "rating": "even",
     "ratingLabel": "Strong",
     "rankedPool": "both",
     "inRankedPool": true,
@@ -348,6 +350,8 @@
     "teamWinRate": 59.5,
     "teamWinRateMatches": 42,
     "teamWinRateSeason": "Y11S1",
+    "teamWinRateY10S4": 67.9,
+    "teamWinRateMatchesY10S4": 56,
     "playerStats": {
       "Y11S1": [
         {
@@ -700,6 +704,8 @@
     "teamWinRate": 64.5,
     "teamWinRateMatches": 31,
     "teamWinRateSeason": "Y11S1",
+    "teamWinRateY10S4": 15.4,
+    "teamWinRateMatchesY10S4": 26,
     "playerStats": {
       "Y11S1": [
         {
@@ -1018,6 +1024,8 @@
     "teamWinRate": 70.6,
     "teamWinRateMatches": 34,
     "teamWinRateSeason": "Y11S1",
+    "teamWinRateY10S4": 58.1,
+    "teamWinRateMatchesY10S4": 31,
     "playerStats": {
       "Y11S1": [
         {
@@ -1325,7 +1333,7 @@
   {
     "name": "Coastline",
     "displayName": "Coastline",
-    "rating": "weak",
+    "rating": "shaky",
     "ratingLabel": "Situational",
     "rankedPool": "first",
     "inRankedPool": true,
@@ -1337,6 +1345,8 @@
     "teamWinRate": 47.2,
     "teamWinRateMatches": 36,
     "teamWinRateSeason": "Y11S1",
+    "teamWinRateY10S4": 52.4,
+    "teamWinRateMatchesY10S4": 21,
     "playerStats": {
       "Y11S1": [
         {
@@ -1446,7 +1456,7 @@
   {
     "name": "Consulate",
     "displayName": "Consulate",
-    "rating": "avoid",
+    "rating": "ban",
     "ratingLabel": "Weak",
     "rankedPool": "both",
     "inRankedPool": true,
@@ -1458,6 +1468,8 @@
     "teamWinRate": 28.6,
     "teamWinRateMatches": 14,
     "teamWinRateSeason": "Y11S1",
+    "teamWinRateY10S4": 46.9,
+    "teamWinRateMatchesY10S4": 32,
     "playerStats": {
       "Y11S1": [
         {
@@ -1772,7 +1784,7 @@
   {
     "name": "Emerald_Plains",
     "displayName": "Emerald Plains",
-    "rating": "avoid",
+    "rating": "ban",
     "ratingLabel": "Hard ban",
     "rankedPool": "first",
     "inRankedPool": true,
@@ -1784,6 +1796,8 @@
     "teamWinRate": 0,
     "teamWinRateMatches": 16,
     "teamWinRateSeason": "Y11S1",
+    "teamWinRateY10S4": null,
+    "teamWinRateMatchesY10S4": 0,
     "playerStats": {
       "Y11S1": [
         {
@@ -1839,6 +1853,8 @@
     "teamWinRate": null,
     "teamWinRateMatches": 0,
     "teamWinRateSeason": "Y11S1",
+    "teamWinRateY10S4": null,
+    "teamWinRateMatchesY10S4": 0,
     "playerStats": {},
     "strats": [],
     "overviewContent": "",
@@ -1847,7 +1863,7 @@
   {
     "name": "Fortress",
     "displayName": "Fortress",
-    "rating": "avoid",
+    "rating": "ban",
     "ratingLabel": "Avoid",
     "rankedPool": "both",
     "inRankedPool": true,
@@ -1859,6 +1875,8 @@
     "teamWinRate": 25,
     "teamWinRateMatches": 12,
     "teamWinRateSeason": "Y11S1",
+    "teamWinRateY10S4": 63.4,
+    "teamWinRateMatchesY10S4": 41,
     "playerStats": {
       "Y11S1": [
         {
@@ -1968,7 +1986,7 @@
   {
     "name": "Kafe Dostoyevsky",
     "displayName": "Kafe Dostoyevsky",
-    "rating": "weak",
+    "rating": "shaky",
     "ratingLabel": "Moderate",
     "rankedPool": "both",
     "inRankedPool": true,
@@ -1980,6 +1998,8 @@
     "teamWinRate": 43.5,
     "teamWinRateMatches": 23,
     "teamWinRateSeason": "Y11S1",
+    "teamWinRateY10S4": 62.2,
+    "teamWinRateMatchesY10S4": 45,
     "playerStats": {
       "Y11S1": [
         {
@@ -2117,6 +2137,8 @@
     "teamWinRate": null,
     "teamWinRateMatches": 0,
     "teamWinRateSeason": "Y11S1",
+    "teamWinRateY10S4": 51.2,
+    "teamWinRateMatchesY10S4": 43,
     "playerStats": {
       "Y10S4": [
         {
@@ -2184,7 +2206,7 @@
   {
     "name": "Lair",
     "displayName": "Lair",
-    "rating": "avoid",
+    "rating": "ban",
     "ratingLabel": "Avoid",
     "rankedPool": "both",
     "inRankedPool": true,
@@ -2196,6 +2218,8 @@
     "teamWinRate": 21.4,
     "teamWinRateMatches": 14,
     "teamWinRateSeason": "Y11S1",
+    "teamWinRateY10S4": 71.4,
+    "teamWinRateMatchesY10S4": 14,
     "playerStats": {
       "Y11S1": [
         {
@@ -2293,6 +2317,8 @@
     "teamWinRate": 34.3,
     "teamWinRateMatches": 35,
     "teamWinRateSeason": "Y11S1",
+    "teamWinRateY10S4": 43.5,
+    "teamWinRateMatchesY10S4": 23,
     "playerStats": {
       "Y11S1": [
         {
@@ -2430,6 +2456,8 @@
     "teamWinRate": 37.2,
     "teamWinRateMatches": 43,
     "teamWinRateSeason": "Y11S1",
+    "teamWinRateY10S4": 62.8,
+    "teamWinRateMatchesY10S4": 35,
     "playerStats": {
       "Y11S1": [
         {
@@ -2733,6 +2761,8 @@
     "teamWinRate": null,
     "teamWinRateMatches": 0,
     "teamWinRateSeason": "Y11S1",
+    "teamWinRateY10S4": 66.7,
+    "teamWinRateMatchesY10S4": 27,
     "playerStats": {
       "Y10S4": [
         {
@@ -2804,6 +2834,8 @@
     "teamWinRate": null,
     "teamWinRateMatches": 0,
     "teamWinRateSeason": "Y11S1",
+    "teamWinRateY10S4": 50,
+    "teamWinRateMatchesY10S4": 20,
     "playerStats": {
       "Y10S4": [
         {
@@ -3072,6 +3104,8 @@
     "teamWinRate": null,
     "teamWinRateMatches": 0,
     "teamWinRateSeason": "Y11S1",
+    "teamWinRateY10S4": null,
+    "teamWinRateMatchesY10S4": 0,
     "playerStats": {},
     "strats": [],
     "overviewContent": "",
@@ -3092,6 +3126,8 @@
     "teamWinRate": null,
     "teamWinRateMatches": 0,
     "teamWinRateSeason": "Y11S1",
+    "teamWinRateY10S4": 66.7,
+    "teamWinRateMatchesY10S4": 3,
     "playerStats": {
       "Y10S4": [
         {
@@ -3332,7 +3368,7 @@
   {
     "name": "Villa",
     "displayName": "Villa",
-    "rating": "moderate",
+    "rating": "even",
     "ratingLabel": "Avoid",
     "rankedPool": "first",
     "inRankedPool": true,
@@ -3344,6 +3380,8 @@
     "teamWinRate": 50,
     "teamWinRateMatches": 32,
     "teamWinRateSeason": "Y11S1",
+    "teamWinRateY10S4": 90.9,
+    "teamWinRateMatchesY10S4": 22,
     "playerStats": {
       "Y11S1": [
         {

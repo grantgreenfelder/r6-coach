@@ -1,9 +1,13 @@
 const ratingMap = {
-  strong: { label: '✅ Strong', cls: 'badge-strong' },
+  strong:  { label: '✅ Strong',  cls: 'badge-strong' },
+  even:    { label: '🔵 Even',    cls: 'badge-even' },
+  shaky:   { label: '⚠️ Shaky',   cls: 'badge-shaky' },
+  avoid:   { label: '🟠 Avoid',   cls: 'badge-avoid' },
+  ban:     { label: '❌ Ban',     cls: 'badge-ban' },
+  unknown: { label: '? Unknown',  cls: 'badge-unknown' },
+  // legacy
   moderate: { label: '⚠️ Moderate', cls: 'badge-moderate' },
-  weak: { label: '⚠️ Weak', cls: 'badge-weak' },
-  avoid: { label: '❌ Avoid', cls: 'badge-avoid' },
-  unknown: { label: '? Unknown', cls: 'badge-unknown' },
+  weak:     { label: '⚠️ Weak',     cls: 'badge-weak' },
 }
 
 // size="sm" | "md" (default) | "lg"
