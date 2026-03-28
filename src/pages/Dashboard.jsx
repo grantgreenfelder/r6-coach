@@ -82,11 +82,10 @@ function PlayerCard({ player }) {
         </div>
       </div>
 
-      {/* RIS bar with baseline marker */}
+      {/* RIS bar with baseline marker — tick already drawn inside RisBar */}
       <RisBar ris={ris} />
       <div className="flex justify-between text-xs text-siege-muted mb-2">
         <span className="flex items-center gap-1">RIS <HelpTip text={GLOSSARY.RIS_BAR} position="bottom" /></span>
-        <span style={{ marginLeft: `${RIS_BASELINE_PCT}%`, transform: 'translateX(-50%)' }} className="absolute text-white/20 text-xs">|</span>
         <span>baseline 50</span>
       </div>
 
