@@ -102,6 +102,12 @@
             "rounds": 8,
             "winRate": 50,
             "kd": 1.2
+          },
+          {
+            "player": "Bob",
+            "rounds": 6,
+            "winRate": 33.3,
+            "kd": 0.75
           }
         ],
         "y10s4": []
@@ -200,15 +206,15 @@
         "y11s1": [
           {
             "player": "Grant",
-            "rounds": 28,
-            "winRate": 32.1,
-            "kd": 1.1
+            "rounds": 32,
+            "winRate": 40.6,
+            "kd": 1.32
           },
           {
             "player": "Peej",
-            "rounds": 8,
+            "rounds": 12,
             "winRate": 50,
-            "kd": 1.4
+            "kd": 1.5
           },
           {
             "player": "Smigs",
@@ -350,9 +356,9 @@
           },
           {
             "player": "Krafty",
-            "rounds": 11,
-            "winRate": 36.4,
-            "kd": 0.43
+            "rounds": 13,
+            "winRate": 46.2,
+            "kd": 0.56
           }
         ],
         "y10s4": [
@@ -456,9 +462,15 @@
         "y11s1": [
           {
             "player": "Grant",
-            "rounds": 19,
-            "winRate": 42.1,
-            "kd": 1.14
+            "rounds": 20,
+            "winRate": 40,
+            "kd": 1.07
+          },
+          {
+            "player": "Peej",
+            "rounds": 5,
+            "winRate": 40,
+            "kd": 0.75
           },
           {
             "player": "Hound",
@@ -473,6 +485,12 @@
             "kd": 1.48
           },
           {
+            "player": "Sarge",
+            "rounds": 5,
+            "winRate": 20,
+            "kd": 0.75
+          },
+          {
             "player": "Slug",
             "rounds": 20,
             "winRate": 55,
@@ -480,15 +498,15 @@
           },
           {
             "player": "Krafty",
-            "rounds": 7,
-            "winRate": 57.1,
-            "kd": 0.5
+            "rounds": 8,
+            "winRate": 50,
+            "kd": 0.4
           },
           {
             "player": "Bob",
-            "rounds": 11,
-            "winRate": 36.4,
-            "kd": 0.88
+            "rounds": 21,
+            "winRate": 42.9,
+            "kd": 0.56
           }
         ],
         "y10s4": [
@@ -760,9 +778,9 @@
         "y11s1": [
           {
             "player": "Grant",
-            "rounds": 14,
-            "winRate": 28.6,
-            "kd": 1.08
+            "rounds": 19,
+            "winRate": 31.6,
+            "kd": 1.06
           },
           {
             "player": "Hound",
@@ -992,14 +1010,14 @@
         "y11s1": [
           {
             "player": "Grant",
-            "rounds": 5,
-            "winRate": 0,
-            "kd": 0.6
+            "rounds": 6,
+            "winRate": 16.7,
+            "kd": 0.8
           },
           {
             "player": "Peej",
-            "rounds": 8,
-            "winRate": 62.5,
+            "rounds": 10,
+            "winRate": 60,
             "kd": 0.5
           }
         ],
@@ -1097,9 +1115,9 @@
         "y11s1": [
           {
             "player": "Grant",
-            "rounds": 41,
-            "winRate": 39,
-            "kd": 1
+            "rounds": 44,
+            "winRate": 36.4,
+            "kd": 0.95
           },
           {
             "player": "Sarge",
@@ -1216,15 +1234,15 @@
         "y11s1": [
           {
             "player": "Peej",
-            "rounds": 26,
-            "winRate": 53.8,
-            "kd": 1.88
+            "rounds": 27,
+            "winRate": 51.9,
+            "kd": 1.78
           },
           {
             "player": "Bob",
-            "rounds": 15,
-            "winRate": 40,
-            "kd": 0.58
+            "rounds": 19,
+            "winRate": 47.4,
+            "kd": 0.73
           }
         ],
         "y10s4": [
@@ -1340,9 +1358,9 @@
         "y11s1": [
           {
             "player": "Peej",
-            "rounds": 6,
-            "winRate": 83.3,
-            "kd": 1.5
+            "rounds": 7,
+            "winRate": 71.4,
+            "kd": 1
           }
         ],
         "y10s4": []
@@ -1443,9 +1461,9 @@
         "y11s1": [
           {
             "player": "Grant",
-            "rounds": 57,
-            "winRate": 49.1,
-            "kd": 1.25
+            "rounds": 58,
+            "winRate": 48.3,
+            "kd": 1.24
           },
           {
             "player": "Hound",
@@ -1455,21 +1473,21 @@
           },
           {
             "player": "Sarge",
-            "rounds": 6,
-            "winRate": 66.7,
-            "kd": 1.75
+            "rounds": 13,
+            "winRate": 61.5,
+            "kd": 1.67
           },
           {
             "player": "Krafty",
-            "rounds": 5,
-            "winRate": 60,
-            "kd": 0.5
+            "rounds": 9,
+            "winRate": 44.4,
+            "kd": 0.43
           },
           {
             "player": "Bob",
-            "rounds": 17,
-            "winRate": 5.9,
-            "kd": 0.29
+            "rounds": 19,
+            "winRate": 5.3,
+            "kd": 0.26
           }
         ],
         "y10s4": [
@@ -1569,9 +1587,9 @@
           },
           {
             "player": "Peej",
-            "rounds": 29,
-            "winRate": 44.8,
-            "kd": 1.04
+            "rounds": 38,
+            "winRate": 47.4,
+            "kd": 1.17
           },
           {
             "player": "Sarge",
@@ -1785,9 +1803,9 @@
           },
           {
             "player": "Peej",
-            "rounds": 12,
-            "winRate": 33.3,
-            "kd": 1.11
+            "rounds": 17,
+            "winRate": 35.3,
+            "kd": 1.33
           },
           {
             "player": "Hound",
@@ -1911,9 +1929,9 @@
         "y11s1": [
           {
             "player": "Grant",
-            "rounds": 6,
-            "winRate": 0,
-            "kd": 0.17
+            "rounds": 7,
+            "winRate": 14.3,
+            "kd": 0.14
           },
           {
             "player": "Hound",
@@ -2018,9 +2036,9 @@
         "y11s1": [
           {
             "player": "Sarge",
-            "rounds": 10,
-            "winRate": 50,
-            "kd": 1.33
+            "rounds": 11,
+            "winRate": 54.5,
+            "kd": 1.14
           },
           {
             "player": "Krafty",
@@ -2255,9 +2273,9 @@
         "y11s1": [
           {
             "player": "Sarge",
-            "rounds": 33,
-            "winRate": 33.3,
-            "kd": 1
+            "rounds": 44,
+            "winRate": 36.4,
+            "kd": 1.31
           },
           {
             "player": "Slug",
@@ -2372,9 +2390,9 @@
         "y11s1": [
           {
             "player": "Grant",
-            "rounds": 36,
-            "winRate": 36.1,
-            "kd": 0.72
+            "rounds": 40,
+            "winRate": 37.5,
+            "kd": 0.84
           }
         ],
         "y10s4": [
@@ -2491,9 +2509,9 @@
         "y11s1": [
           {
             "player": "Grant",
-            "rounds": 24,
-            "winRate": 45.8,
-            "kd": 1.38
+            "rounds": 25,
+            "winRate": 44,
+            "kd": 1.36
           },
           {
             "player": "Sarge",
@@ -2503,9 +2521,9 @@
           },
           {
             "player": "Bob",
-            "rounds": 6,
-            "winRate": 66.7,
-            "kd": 1.5
+            "rounds": 7,
+            "winRate": 57.1,
+            "kd": 1.2
           }
         ],
         "y10s4": [
@@ -2616,15 +2634,15 @@
         "y11s1": [
           {
             "player": "Peej",
-            "rounds": 40,
-            "winRate": 37.5,
-            "kd": 1.26
+            "rounds": 47,
+            "winRate": 36.2,
+            "kd": 1.15
           },
           {
             "player": "Sarge",
-            "rounds": 6,
-            "winRate": 16.7,
-            "kd": 0.33
+            "rounds": 7,
+            "winRate": 14.3,
+            "kd": 0.29
           },
           {
             "player": "Slug",
@@ -2816,9 +2834,9 @@
         "y11s1": [
           {
             "player": "Sarge",
-            "rounds": 142,
-            "winRate": 43.7,
-            "kd": 1.19
+            "rounds": 149,
+            "winRate": 43,
+            "kd": 1.2
           }
         ],
         "y10s4": []
@@ -2928,9 +2946,9 @@
           },
           {
             "player": "Krafty",
-            "rounds": 50,
-            "winRate": 42,
-            "kd": 0.35
+            "rounds": 66,
+            "winRate": 40.9,
+            "kd": 0.32
           },
           {
             "player": "Bob",
@@ -3048,9 +3066,9 @@
         "y11s1": [
           {
             "player": "Grant",
-            "rounds": 14,
-            "winRate": 35.7,
-            "kd": 1.45
+            "rounds": 17,
+            "winRate": 35.3,
+            "kd": 1.14
           },
           {
             "player": "Smigs",
@@ -3072,9 +3090,9 @@
           },
           {
             "player": "Krafty",
-            "rounds": 9,
-            "winRate": 44.4,
-            "kd": 0.12
+            "rounds": 14,
+            "winRate": 50,
+            "kd": 0.25
           }
         ],
         "y10s4": [
@@ -3185,9 +3203,9 @@
         "y11s1": [
           {
             "player": "Grant",
-            "rounds": 9,
-            "winRate": 33.3,
-            "kd": 0.57
+            "rounds": 10,
+            "winRate": 30,
+            "kd": 0.5
           },
           {
             "player": "Slug",
@@ -3976,9 +3994,9 @@
           },
           {
             "player": "Krafty",
-            "rounds": 42,
-            "winRate": 57.1,
-            "kd": 0.22
+            "rounds": 44,
+            "winRate": 54.5,
+            "kd": 0.21
           }
         ],
         "y10s4": [
@@ -4113,9 +4131,9 @@
           },
           {
             "player": "Bob",
-            "rounds": 25,
-            "winRate": 32,
-            "kd": 0.68
+            "rounds": 28,
+            "winRate": 32.1,
+            "kd": 0.64
           }
         ],
         "y10s4": [
@@ -4353,9 +4371,9 @@
           },
           {
             "player": "Krafty",
-            "rounds": 9,
-            "winRate": 22.2,
-            "kd": 0.25
+            "rounds": 10,
+            "winRate": 30,
+            "kd": 0.22
           }
         ],
         "y10s4": []
@@ -4408,9 +4426,9 @@
         "y11s1": [
           {
             "player": "Grant",
-            "rounds": 7,
-            "winRate": 14.3,
-            "kd": 0.57
+            "rounds": 8,
+            "winRate": 12.5,
+            "kd": 0.5
           },
           {
             "player": "Slug",
@@ -4761,9 +4779,9 @@
         "y11s1": [
           {
             "player": "Grant",
-            "rounds": 35,
-            "winRate": 62.9,
-            "kd": 1.24
+            "rounds": 38,
+            "winRate": 65.8,
+            "kd": 1.3
           },
           {
             "player": "Hound",
@@ -4785,9 +4803,9 @@
           },
           {
             "player": "Krafty",
-            "rounds": 33,
-            "winRate": 60.6,
-            "kd": 0.3
+            "rounds": 54,
+            "winRate": 61.1,
+            "kd": 0.27
           }
         ],
         "y10s4": [
@@ -4914,9 +4932,9 @@
           },
           {
             "player": "Peej",
-            "rounds": 11,
-            "winRate": 54.5,
-            "kd": 2.17
+            "rounds": 14,
+            "winRate": 50,
+            "kd": 1.88
           },
           {
             "player": "Hound",
@@ -4938,9 +4956,9 @@
           },
           {
             "player": "Bob",
-            "rounds": 5,
-            "winRate": 60,
-            "kd": 0.4
+            "rounds": 7,
+            "winRate": 71.4,
+            "kd": 0.5
           }
         ],
         "y10s4": [
@@ -5063,8 +5081,8 @@
         "y11s1": [
           {
             "player": "Grant",
-            "rounds": 129,
-            "winRate": 55,
+            "rounds": 138,
+            "winRate": 55.1,
             "kd": 1.28
           },
           {
@@ -5081,9 +5099,9 @@
           },
           {
             "player": "Sarge",
-            "rounds": 25,
-            "winRate": 44,
-            "kd": 0.67
+            "rounds": 28,
+            "winRate": 50,
+            "kd": 0.89
           },
           {
             "player": "Slug",
@@ -5278,9 +5296,9 @@
         "y11s1": [
           {
             "player": "Peej",
-            "rounds": 53,
-            "winRate": 58.5,
-            "kd": 1.75
+            "rounds": 65,
+            "winRate": 61.5,
+            "kd": 1.71
           },
           {
             "player": "Slug",
@@ -5390,8 +5408,8 @@
         "y11s1": [
           {
             "player": "Krafty",
-            "rounds": 29,
-            "winRate": 31,
+            "rounds": 31,
+            "winRate": 35.5,
             "kd": 0.12
           }
         ],
@@ -5771,9 +5789,9 @@
         "y11s1": [
           {
             "player": "Sarge",
-            "rounds": 78,
-            "winRate": 59,
-            "kd": 1.28
+            "rounds": 88,
+            "winRate": 59.1,
+            "kd": 1.47
           },
           {
             "player": "Bob",
@@ -6000,9 +6018,9 @@
           },
           {
             "player": "Bob",
-            "rounds": 6,
-            "winRate": 33.3,
-            "kd": 1.25
+            "rounds": 7,
+            "winRate": 42.9,
+            "kd": 1.2
           }
         ],
         "y10s4": [
@@ -6522,15 +6540,15 @@
         "y11s1": [
           {
             "player": "Grant",
-            "rounds": 6,
-            "winRate": 66.7,
-            "kd": 0.4
+            "rounds": 8,
+            "winRate": 62.5,
+            "kd": 0.5
           },
           {
             "player": "Sarge",
-            "rounds": 22,
-            "winRate": 50,
-            "kd": 0.67
+            "rounds": 23,
+            "winRate": 52.2,
+            "kd": 0.62
           },
           {
             "player": "Slug",
@@ -6647,15 +6665,15 @@
         "y11s1": [
           {
             "player": "Grant",
-            "rounds": 39,
-            "winRate": 51.3,
-            "kd": 1.72
+            "rounds": 47,
+            "winRate": 59.6,
+            "kd": 2.04
           },
           {
             "player": "Peej",
-            "rounds": 10,
-            "winRate": 70,
-            "kd": 1.88
+            "rounds": 13,
+            "winRate": 69.2,
+            "kd": 2
           },
           {
             "player": "Hound",
@@ -6677,15 +6695,15 @@
           },
           {
             "player": "Krafty",
-            "rounds": 66,
-            "winRate": 56.1,
-            "kd": 0.58
+            "rounds": 67,
+            "winRate": 56.7,
+            "kd": 0.57
           },
           {
             "player": "Bob",
-            "rounds": 18,
-            "winRate": 55.6,
-            "kd": 0.92
+            "rounds": 23,
+            "winRate": 56.5,
+            "kd": 1.2
           }
         ],
         "y10s4": [
@@ -6832,15 +6850,15 @@
         "y11s1": [
           {
             "player": "Grant",
-            "rounds": 9,
-            "winRate": 88.9,
-            "kd": 2.2
+            "rounds": 11,
+            "winRate": 81.8,
+            "kd": 1.83
           },
           {
             "player": "Peej",
-            "rounds": 37,
-            "winRate": 45.9,
-            "kd": 0.89
+            "rounds": 42,
+            "winRate": 47.6,
+            "kd": 0.86
           },
           {
             "player": "Hound",
@@ -7266,9 +7284,9 @@
         "y11s1": [
           {
             "player": "Peej",
-            "rounds": 20,
-            "winRate": 50,
-            "kd": 1.79
+            "rounds": 26,
+            "winRate": 61.5,
+            "kd": 1.63
           },
           {
             "player": "Slug",
@@ -7278,9 +7296,9 @@
           },
           {
             "player": "Bob",
-            "rounds": 5,
-            "winRate": 20,
-            "kd": 0.25
+            "rounds": 7,
+            "winRate": 28.6,
+            "kd": 0.2
           }
         ],
         "y10s4": [
@@ -7610,15 +7628,15 @@
         "y11s1": [
           {
             "player": "Grant",
-            "rounds": 47,
-            "winRate": 53.2,
-            "kd": 1.74
+            "rounds": 52,
+            "winRate": 55.8,
+            "kd": 1.86
           },
           {
             "player": "Bob",
-            "rounds": 32,
-            "winRate": 40.6,
-            "kd": 0.9
+            "rounds": 42,
+            "winRate": 47.6,
+            "kd": 0.84
           }
         ],
         "y10s4": [
@@ -7726,9 +7744,9 @@
           },
           {
             "player": "Krafty",
-            "rounds": 16,
-            "winRate": 62.5,
-            "kd": 0.14
+            "rounds": 19,
+            "winRate": 68.4,
+            "kd": 0.33
           }
         ],
         "y10s4": [
@@ -7851,9 +7869,9 @@
         "y11s1": [
           {
             "player": "Sarge",
-            "rounds": 7,
-            "winRate": 71.4,
-            "kd": 0.75
+            "rounds": 9,
+            "winRate": 66.7,
+            "kd": 0.6
           }
         ],
         "y10s4": []
@@ -8036,9 +8054,9 @@
         "y11s1": [
           {
             "player": "Peej",
-            "rounds": 11,
-            "winRate": 54.5,
-            "kd": 1
+            "rounds": 12,
+            "winRate": 58.3,
+            "kd": 1.1
           },
           {
             "player": "Hound",
@@ -8048,9 +8066,9 @@
           },
           {
             "player": "Sarge",
-            "rounds": 42,
-            "winRate": 57.1,
-            "kd": 1
+            "rounds": 50,
+            "winRate": 60,
+            "kd": 1.17
           }
         ],
         "y10s4": [
@@ -8165,9 +8183,9 @@
         "y11s1": [
           {
             "player": "Bob",
-            "rounds": 10,
-            "winRate": 30,
-            "kd": 0.62
+            "rounds": 14,
+            "winRate": 42.9,
+            "kd": 0.55
           }
         ],
         "y10s4": [
@@ -8485,9 +8503,9 @@
         "y11s1": [
           {
             "player": "Sarge",
-            "rounds": 11,
-            "winRate": 36.4,
-            "kd": 0.56
+            "rounds": 12,
+            "winRate": 41.7,
+            "kd": 0.5
           }
         ],
         "y10s4": []
