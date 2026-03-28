@@ -301,7 +301,7 @@ export default function PlayerDetail() {
     player?.season || 'Y11S1',
   ]
   const tabLabels = {
-    alltime: 'All Time',
+    alltime: 'Profile',
     [player?.prevSeason]: player?.prevSeason || 'Prev Season',
     [player?.season]: player?.season || 'Current',
   }
