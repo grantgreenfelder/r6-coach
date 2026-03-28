@@ -39,8 +39,8 @@ export default function Maps() {
       return a.displayName.localeCompare(b.displayName)
     })
 
-  const ranked   = applyFilters(mapsData.filter(m => m.inRankedPool))
-  const unranked = applyFilters(mapsData.filter(m => !m.inRankedPool))
+  const tracked   = applyFilters(mapsData.filter(m => getWr(m) !== null))
+  const untracked = applyFilters(mapsData.filter(m => getWr(m) === null))
 
   return (
     <div className="p-6 max-w-6xl mx-auto space-y-8">
@@ -92,35 +92,35 @@ export default function Maps() {
         </div>
       </div>
 
-      {/* Ranked */}
-      {ranked.length > 0 && (
+      {/* Tracked */}
+      {tracked.length > 0 && (
         <div>
           <div className="flex items-center gap-3 mb-4">
-            <h2 className="text-white font-semibold text-sm uppercase tracking-wider">Ranked</h2>
+            <h2 className="text-white font-semibold text-sm uppercase tracking-wider">Tracked</h2>
             <div className="flex-1 h-px bg-siege-border" />
-            <span className="text-siege-muted text-xs">{ranked.length} maps</span>
+            <span className="text-siege-muted text-xs">{tracked.length} maps · {season}</span>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {ranked.map(map => <MapCard key={map.name} map={map} season={season} getWr={getWr} getWrM={getWrM} getRating={getRating} />)}
+            {tracked.map(map => <MapCard key={map.name} map={map} season={season} getWr={getWr} getWrM={getWrM} getRating={getRating} />)}
           </div>
         </div>
       )}
 
-      {/* Unranked */}
-      {unranked.length > 0 && (
+      {/* Untracked */}
+      {untracked.length > 0 && (
         <div>
           <div className="flex items-center gap-3 mb-4">
-            <h2 className="text-siege-muted font-semibold text-sm uppercase tracking-wider">Unranked</h2>
+            <h2 className="text-siege-muted font-semibold text-sm uppercase tracking-wider">Untracked</h2>
             <div className="flex-1 h-px bg-siege-border/40" />
-            <span className="text-siege-muted text-xs">{unranked.length} maps</span>
+            <span className="text-siege-muted text-xs">{untracked.length} maps · {season}</span>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 opacity-50">
-            {unranked.map(map => <MapCard key={map.name} map={map} season={season} getWr={getWr} getWrM={getWrM} getRating={getRating} />)}
+            {untracked.map(map => <MapCard key={map.name} map={map} season={season} getWr={getWr} getWrM={getWrM} getRating={getRating} />)}
           </div>
         </div>
       )}
 
-      {ranked.length === 0 && unranked.length === 0 && (
+      {tracked.length === 0 && untracked.length === 0 && (
         <p className="text-siege-muted text-center py-12">No maps found.</p>
       )}
     </div>
