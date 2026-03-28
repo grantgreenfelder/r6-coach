@@ -436,7 +436,9 @@ function buildMapsData(playersData) {
     const displayName = mapName.replace(/_/g, ' ')
     const mapDir = path.join(KB, 'MAPS', mapName)
     const overview = readFile(path.join(mapDir, '_OVERVIEW.md'))
-    const reference = readFile(path.join(mapDir, `${mapName}.md`))
+    // Prefer the richer _MAP_REFERENCE.md file when it exists; fall back to MapName.md
+    const refFileName = `${mapName.replace(/ /g, '_').toUpperCase()}_MAP_REFERENCE.md`
+    const reference = readFile(path.join(mapDir, refFileName)) || readFile(path.join(mapDir, `${mapName}.md`))
     const strats = parseMapStrats(mapName)
 
     // Keep STACK_05 label text for context, but rating badge is computed from win%
