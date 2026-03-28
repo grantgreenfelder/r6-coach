@@ -298,7 +298,7 @@ function StatsTab({ op }) {
       <div className="card">
         <div className="flex items-center gap-2 mb-1">
           <p className="text-siege-muted text-xs flex-1 flex items-center gap-1.5">
-            Win% bar <HelpTip text={GLOSSARY.WR} /> · K/D <HelpTip text={GLOSSARY.KD} /> · Rounds (volume bar)
+            Win% bar <HelpTip text={GLOSSARY.WR} /> · K/D <HelpTip text={GLOSSARY.KD} /> · Rounds Played
           </p>
           {sorted.length > displayed.length && (
             <button

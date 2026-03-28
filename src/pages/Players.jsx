@@ -53,8 +53,6 @@ export default function Players() {
   const { mainStack, bTeam } = playersData
   const [search, setSearch] = useState('')
   const [sortBy, setSortBy] = useState('ris')
-  const [teamFilter, setTeamFilter] = useState('all')
-
   const allPlayers = [
     ...mainStack.map(p => ({ ...p, team: 'main' })),
     ...bTeam.map(p => ({ ...p, team: 'bteam' })),
@@ -63,9 +61,7 @@ export default function Players() {
   const filtered = allPlayers
     .filter(p => {
       const q = search.toLowerCase()
-      const matchesSearch = !q || p.name.toLowerCase().includes(q) || (p.role || '').toLowerCase().includes(q)
-      const matchesTeam = teamFilter === 'all' || p.team === teamFilter
-      return matchesSearch && matchesTeam
+      return !q || p.name.toLowerCase().includes(q) || (p.role || '').toLowerCase().includes(q)
     })
     .sort((a, b) => {
       if (sortBy === 'ris') return (parseFloat(b.stats?.ris) || 0) - (parseFloat(a.stats?.ris) || 0)
@@ -92,16 +88,6 @@ export default function Players() {
           onChange={e => setSearch(e.target.value)}
           className="bg-siege-card border border-siege-border rounded px-3 py-1.5 text-sm text-white placeholder:text-siege-muted focus:outline-none focus:border-siege-accent flex-1 min-w-[180px] max-w-xs"
         />
-        <div className="flex gap-1">
-          {[['all', 'All'], ['main', 'Main Stack'], ['bteam', 'B Team']].map(([val, label]) => (
-            <button key={val} onClick={() => setTeamFilter(val)}
-              className={`px-3 py-1.5 rounded text-xs font-medium transition-colors ${
-                teamFilter === val ? 'bg-siege-accent text-siege-bg' : 'bg-siege-card border border-siege-border text-siege-muted hover:text-white'
-              }`}>
-              {label}
-            </button>
-          ))}
-        </div>
         <div className="flex gap-1 ml-auto">
           <span className="text-siege-muted text-xs self-center mr-1">Sort:</span>
           {[['ris', 'RIS'], ['kd', 'K/D'], ['wr', 'Win%'], ['name', 'A–Z']].map(([val, label]) => (

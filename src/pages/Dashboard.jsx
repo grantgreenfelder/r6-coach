@@ -3,7 +3,7 @@ import playersData from '../data/players.json'
 import mapsData from '../data/maps.json'
 import stackData from '../data/stack.json'
 import metaData from '../data/meta.json'
-import { RIS_MIN, RIS_MAX, RIS_BASELINE_PCT, risColor, wrColor } from '../utils/constants'
+import { RIS_MIN, RIS_MAX, RIS_BASELINE_PCT, risColor, wrColor, wrTileClass } from '../utils/constants'
 import HelpTip from '../components/HelpTip'
 import { GLOSSARY } from '../utils/glossary'
 
@@ -104,12 +104,9 @@ function PlayerCard({ player }) {
 
 function MapTile({ map }) {
   const wr = map.teamWinRate
-  const bg =
-    wr === null ? 'bg-siege-card border-siege-border text-siege-muted' :
-    wr >= 55 ? 'bg-siege-green/20 border-siege-green/50 text-siege-green' :
-    wr >= 45 ? 'bg-blue-500/15 border-blue-500/40 text-blue-300' :
-    wr >= 35 ? 'bg-yellow-500/15 border-yellow-500/40 text-yellow-400' :
-    'bg-siege-red/15 border-siege-red/40 text-siege-red'
+  const bg = wr === null
+    ? 'bg-siege-card border-siege-border text-siege-muted'
+    : wrTileClass(wr)
 
   return (
     <Link

@@ -722,15 +722,14 @@ function buildOperatorsData(playersData) {
     const rationaleMatch = coachRecSection.match(/\*\*Rationale:\*\*\s*([^\n]+)/)
     if (rationaleMatch) coachingRec.rationale = rationaleMatch[1].trim()
 
-    // Playstyle text (first paragraph, stripped)
+    // Playstyle text (full, stripped of headings and HR separators)
     const playstyleRaw = extractSection(content, 'Playstyle')
     const playstyleText = playstyleRaw
       .split('\n')
-      .filter(l => l.trim() && !l.startsWith('#'))
+      .filter(l => l.trim() && !l.startsWith('#') && !/^-{3,}$/.test(l.trim()))
       .join(' ')
       .replace(/\*\*/g, '')
       .trim()
-      .substring(0, 500)
 
     // Strengths / Weaknesses bullets
     function sectionBullets(heading, limit = 7) {
@@ -744,15 +743,14 @@ function buildOperatorsData(playersData) {
     const strengths  = sectionBullets('Strengths')
     const weaknesses = sectionBullets('Weaknesses')
 
-    // Stack Coaching Notes (plain text, stripped internal KB language)
+    // Stack Coaching Notes (full, stripped of headings, HR separators, and confidence lines)
     const stackNotesRaw = extractSection(content, 'Stack Coaching Notes')
     const stackNotes = stackNotesRaw
       .split('\n')
-      .filter(l => l.trim() && !l.startsWith('#') && !l.startsWith('*Confidence'))
+      .filter(l => l.trim() && !l.startsWith('#') && !l.startsWith('*Confidence') && !/^-{3,}$/.test(l.trim()))
       .join(' ')
       .replace(/\*\*/g, '')
       .trim()
-      .substring(0, 600)
 
     // Image URL — r6operators CDN (lowercase, no underscores/spaces)
     const imageKey = name.toLowerCase().replace(/_/g, '')

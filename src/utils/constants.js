@@ -1,37 +1,40 @@
 // ─── Shared constants for the R6 Coaching Dashboard ───────────────────────────
 // Single source of truth for thresholds and display helpers used across pages.
 
-// ─── Win Rate Thresholds (player/map level: 55/45/35) ─────────────────────────
-// Used for: map heatmap, session prep veto rows, player season summaries.
+// ─── Win Rate Thresholds (map/session level: 60/50/40/30 — matches 5-tier badge) ──
+// Used for: map heatmap, session prep veto rows, map stats tables.
 
 // Returns a Tailwind text color class.
 export function wrColor(wr) {
   const v = parseFloat(wr)
   if (isNaN(v)) return 'text-siege-muted'
-  if (v >= 55) return 'text-siege-green'
-  if (v >= 45) return 'text-white'
-  if (v >= 35) return 'text-yellow-400'
-  return 'text-siege-red'
+  if (v >= 60) return 'text-siege-green'
+  if (v >= 50) return 'text-blue-400'
+  if (v >= 40) return 'text-yellow-400'
+  if (v >= 30) return 'text-orange-400'
+  return 'text-red-400'
 }
 
 // Returns a Tailwind bg color class (for bar fills).
 export function wrBgColor(wr) {
   const v = parseFloat(wr)
   if (isNaN(v)) return 'bg-siege-muted'
-  if (v >= 55) return 'bg-siege-green'
-  if (v >= 45) return 'bg-blue-400'
-  if (v >= 35) return 'bg-yellow-500'
-  return 'bg-siege-red'
+  if (v >= 60) return 'bg-siege-green'
+  if (v >= 50) return 'bg-blue-500'
+  if (v >= 40) return 'bg-yellow-500'
+  if (v >= 30) return 'bg-orange-500'
+  return 'bg-red-600'
 }
 
 // Returns a Tailwind border+bg+text tile class (for map heatmap tiles).
 export function wrTileClass(wr) {
   const v = parseFloat(wr)
   if (isNaN(v)) return 'border-siege-border text-siege-muted bg-siege-border/10'
-  if (v >= 55) return 'border-siege-green/40 text-siege-green bg-siege-green/10'
-  if (v >= 45) return 'border-blue-400/40 text-blue-300 bg-blue-400/10'
-  if (v >= 35) return 'border-yellow-500/40 text-yellow-400 bg-yellow-500/10'
-  return 'border-siege-red/40 text-siege-red bg-siege-red/10'
+  if (v >= 60) return 'border-siege-green/40 text-siege-green bg-siege-green/10'
+  if (v >= 50) return 'border-blue-500/40 text-blue-300 bg-blue-500/10'
+  if (v >= 40) return 'border-yellow-500/40 text-yellow-400 bg-yellow-500/10'
+  if (v >= 30) return 'border-orange-500/40 text-orange-400 bg-orange-500/10'
+  return 'border-red-600/40 text-red-400 bg-red-600/10'
 }
 
 // ─── Operator Win Rate Thresholds (stricter: 58/48/38) ────────────────────────

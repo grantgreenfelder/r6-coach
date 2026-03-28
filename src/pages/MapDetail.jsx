@@ -75,8 +75,8 @@ export default function MapDetail() {
   const tabs = [
     { id: 'overview', label: 'Overview' },
     { id: 'stats',    label: 'Stats' },
-    { id: 'strats',   label: `Strats (${map.strats.length})` },
-    { id: 'reference',label: 'Reference' },
+    { id: 'strats',   label: 'Strats' },
+    { id: 'reference',label: 'Wiki' },
   ]
 
   return (
