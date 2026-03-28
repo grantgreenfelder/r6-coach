@@ -521,18 +521,6 @@
             "rounds": 5,
             "winRate": 20,
             "kd": 0.75
-          },
-          {
-            "player": "D-Man",
-            "rounds": 4,
-            "winRate": 0,
-            "kd": 0.25
-          },
-          {
-            "player": "TazRathmus",
-            "rounds": 3,
-            "winRate": 66.7,
-            "kd": 2
           }
         ]
       }
@@ -670,12 +658,6 @@
             "rounds": 61,
             "winRate": 50.8,
             "kd": 1.13
-          },
-          {
-            "player": "D-Man",
-            "rounds": 1,
-            "winRate": 100,
-            "kd": 0
           }
         ]
       }
@@ -1132,12 +1114,6 @@
             "rounds": 24,
             "winRate": 33.3,
             "kd": 0.57
-          },
-          {
-            "player": "TazRathmus",
-            "rounds": 2,
-            "winRate": 50,
-            "kd": 0
           }
         ]
       }
@@ -1257,12 +1233,6 @@
             "rounds": 40,
             "winRate": 50,
             "kd": 1
-          },
-          {
-            "player": "Hunter",
-            "rounds": 3,
-            "winRate": 66.7,
-            "kd": 0.5
           }
         ]
       }
@@ -1520,18 +1490,6 @@
             "rounds": 23,
             "winRate": 39.1,
             "kd": 0.83
-          },
-          {
-            "player": "Hunter",
-            "rounds": 4,
-            "winRate": 25,
-            "kd": 0.25
-          },
-          {
-            "player": "D-Man",
-            "rounds": 4,
-            "winRate": 0,
-            "kd": 0
           }
         ]
       }
@@ -2687,12 +2645,6 @@
             "rounds": 12,
             "winRate": 66.7,
             "kd": 0.71
-          },
-          {
-            "player": "TazRathmus",
-            "rounds": 1,
-            "winRate": 0,
-            "kd": 0
           }
         ]
       }
@@ -3671,14 +3623,7 @@
       "stackNotes": "Check with team roster: Does anyone main Finka? Her playstyle requires team communication around surge timing. In a casual 8-stack (Emerald to Bronze), coordinating surge moments can be challenging if callouts are unclear. Finka works best when the stack already has a primary hard breacher (Ace, Thermite) and needs sustain. Consider her if the stack struggles with close gunfights or frequently finds themselves low-HP in mid-round scenarios. ---",
       "stats": {
         "y11s1": [],
-        "y10s4": [
-          {
-            "player": "Hunter",
-            "rounds": 2,
-            "winRate": 100,
-            "kd": 1.5
-          }
-        ]
+        "y10s4": []
       }
     },
     {
@@ -4191,12 +4136,6 @@
             "rounds": 14,
             "winRate": 57.1,
             "kd": 0.36
-          },
-          {
-            "player": "Hunter",
-            "rounds": 4,
-            "winRate": 25,
-            "kd": 0.5
           }
         ]
       }
@@ -4729,12 +4668,6 @@
             "rounds": 61,
             "winRate": 54.1,
             "kd": 0.74
-          },
-          {
-            "player": "Hunter",
-            "rounds": 2,
-            "winRate": 100,
-            "kd": 0
           }
         ]
       }
@@ -5028,24 +4961,6 @@
             "rounds": 10,
             "winRate": 40,
             "kd": 0.6
-          },
-          {
-            "player": "Hunter",
-            "rounds": 2,
-            "winRate": 50,
-            "kd": 0.5
-          },
-          {
-            "player": "D-Man",
-            "rounds": 2,
-            "winRate": 100,
-            "kd": 0
-          },
-          {
-            "player": "TazRathmus",
-            "rounds": 3,
-            "winRate": 66.7,
-            "kd": 0
           }
         ]
       }
@@ -5189,12 +5104,6 @@
             "rounds": 45,
             "winRate": 51.1,
             "kd": 1.09
-          },
-          {
-            "player": "D-Man",
-            "rounds": 3,
-            "winRate": 66.7,
-            "kd": 0.5
           }
         ]
       }
@@ -5392,12 +5301,6 @@
             "rounds": 53,
             "winRate": 66,
             "kd": 1.33
-          },
-          {
-            "player": "Hunter",
-            "rounds": 3,
-            "winRate": 66.7,
-            "kd": 0
           }
         ]
       }
@@ -7392,12 +7295,6 @@
             "rounds": 119,
             "winRate": 54.6,
             "kd": 1.1
-          },
-          {
-            "player": "Hunter",
-            "rounds": 4,
-            "winRate": 100,
-            "kd": 1
           }
         ]
       }
@@ -7499,12 +7396,6 @@
             "rounds": 39,
             "winRate": 56.4,
             "kd": 0.96
-          },
-          {
-            "player": "Hunter",
-            "rounds": 2,
-            "winRate": 50,
-            "kd": 0.5
           }
         ]
       }
@@ -7629,24 +7520,6 @@
             "rounds": 11,
             "winRate": 54.5,
             "kd": 0.6
-          },
-          {
-            "player": "Hunter",
-            "rounds": 2,
-            "winRate": 50,
-            "kd": 3
-          },
-          {
-            "player": "D-Man",
-            "rounds": 1,
-            "winRate": 100,
-            "kd": 0
-          },
-          {
-            "player": "TazRathmus",
-            "rounds": 1,
-            "winRate": 0,
-            "kd": 0
           }
         ]
       }
@@ -7760,18 +7633,6 @@
             "rounds": 38,
             "winRate": 71.1,
             "kd": 1.11
-          },
-          {
-            "player": "Hunter",
-            "rounds": 2,
-            "winRate": 0,
-            "kd": 0.5
-          },
-          {
-            "player": "D-Man",
-            "rounds": 3,
-            "winRate": 100,
-            "kd": 1
           }
         ]
       }
@@ -8629,14 +8490,7 @@
             "kd": 0.56
           }
         ],
-        "y10s4": [
-          {
-            "player": "TazRathmus",
-            "rounds": 3,
-            "winRate": 33.3,
-            "kd": 0
-          }
-        ]
+        "y10s4": []
       }
     },
     {
