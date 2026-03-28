@@ -418,22 +418,6 @@
           "kd": 1.71,
           "atkWr": 31.3,
           "defWr": 73.3
-        },
-        {
-          "map": "Lair",
-          "matches": 4,
-          "winRate": 75,
-          "kd": 1.42,
-          "atkWr": 50,
-          "defWr": 66.7
-        },
-        {
-          "map": "Villa",
-          "matches": 4,
-          "winRate": 75,
-          "kd": 1.12,
-          "atkWr": 57.1,
-          "defWr": 72.7
         }
       ],
       "prevSeasonContent": "# Grant — Y10S4 (Tenfold Pursuit)\n\n_Season verified: 2026-03-06 | Status: ✅ Archived — Y10S4 ended. Final data pull: 2026-03-06 (R6 Tracker, season=40)._\n\n---\n\n## Core Stats\n\n| Stat | Value |\n|------|-------|\n| Rank | Emerald III |\n| RP | 3800 |\n| Max RP | 3924 |\n| Matches | 140 |\n| Win Rate | 50.7% |\n| K/D | 1.20 |\n| KDA | 1.62 |\n| Kills | 760 |\n| Deaths | 634 |\n| HS% | 35.60% |\n| ESR | 0.48 |\n| RIS | 57.1 (v1.0) |\n| Clutches Won | 21 |\n| Clutch Win% | 23.60% |\n\n---\n\n## Operators\n_Source: R6 Tracker, Y10S4 ranked. Full pool — all ops with 5+ rounds listed. Verified 2026-03-06._\n_Format: Operator — Rounds | Win% | K/D_\n\n**Attack**\n1. Amaru — 78r | 52.6% | 1.38\n2. Thatcher — 42r | 42.9% | 1.52\n3. Lion — 32r | 59.4% | 1.40\n4. Montagne — 32r | 34.4% | 0.59\n5. Osa — 31r | 32.3% | 0.85\n_Notable ATK: Capitão — 25r | 60.0% | 1.10 | Striker — 25r | 36.0% | 0.70 | Hibana — 20r | 45.0% | 1.00 | Glaz — 19r | 21.1% | 1.07 | Gridlock — 17r | 52.9% | 1.69 | IQ — 16r | 50.0% | 1.29 | Thermite — 16r | 31.2% | 0.92 | Flores — 12r | 58.3% | 1.67 | Ash — 10r | 30.0% | 1.12 | Grim — 9r | 44.4% | 0.11 | Ace — 7r | 42.9% | 0.60 | Sledge — 4r | 25.0% | 0.25 | Blitz — 4r | 25.0% | 0.25 | Buck — 4r | 0.0% | 0.25 | Sens — 3r | 33.3% | 0.33 | Fuze — 3r | 0.0% | 1.33_\n\n**Defense**\n1. Kapkan — 95r | 62.1% | 1.75\n2. Thorn — 90r | 65.6% | 1.65\n3. Bandit — 64r | 56.2% | 0.95\n4. Castle — 46r | 56.5% | 1.16\n5. Caveira — 30r | 56.7% | 0.92\n_Notable DEF: Mute — 20r | 55.0% | 1.00 | Frost — 16r | 50.0% | 1.45 | Smoke — 14r | 50.0% | 1.09 | Wamai — 8r | 87.5% | 2.40 | Kaid — 8r | 50.0% | 3.00 | Fenrir — 7r | 71.4% | 1.75 | Goyo — 7r | 57.1% | 0.80 | Denari — 6r | 66.7% | 0.33 | Lesion — 6r | 66.7% | 0.67 | Azami — 6r | 50.0% | 0.50 | Warden — 6r | 33.3% | 1.00 | Skopós — 3r | 100.0% | 4.00_\n\n**ATK identity:** Amaru entry + Thatcher support. Lion (59.4% WR, 1.40 K/D in 32r) emerging as a reliable mid-volume pick.\n**DEF identity:** Kapkan/Thorn trap anchor — elite. Kapkan leads by rounds (95r) with Thorn close behind (90r, 1.65 K/D). Wamai (87.5% WR, 2.40 K/D in 8r) is a notable high-efficiency outlier.\n---\n\n## Map Performance\n\n| Map | Matches | Win% | K/D | Atk% | Def% |\n|-----|---------|------|-----|------|------|\n| Border | 14 | 64.3% | 1.46 | 61.4% | 53.3% |\n| Kanal | 13 | 46.2% | 1.14 | 31.6% | 65.1% |\n| Bank | 10 | 60.0% | 1.47 | 50.0% | 63.9% |\n| Fortress | 9 | 66.7% | 1.61 | 44.0% | 71.4% |\n| Kafe Dostoyevsky | 9 | 55.6% | 0.87 | 40.0% | 65.2% |\n| Outback | 8 | 62.5% | 1.24 | 56.5% | 59.3% |\n| Chalet | 7 | 14.3% | 0.94 | 19.0% | 47.4% |\n| Clubhouse | 7 | 57.1% | 1.00 | 43.5% | 59.1% |\n| Consulate | 7 | 42.9% | 0.84 | 9.5% | 68.0% |\n| Nighthaven Labs | 7 | 28.6% | 1.10 | 27.3% | 57.9% |\n| Oregon | 7 | 71.4% | 1.96 | 61.1% | 71.4% |\n| Coastline | 6 | 50.0% | 1.18 | 47.4% | 50.0% |\n| Skyscraper | 5 | 60.0% | 1.71 | 31.3% | 73.3% |\n| Lair | 4 | 75.0% | 1.42 | 50.0% | 66.7% |\n| Villa | 4 | 75.0% | 1.12 | 57.1% | 72.7% |\n\n**Strong:** Oregon (71.4%, 1.96 K/D), Lair (75%), Villa (75%), Fortress (66.7%)\n**Weak:** Chalet (14.3%), Nighthaven (28.6%), Consulate (42.9%)\n\n---\n\n## Season Coaching Notes\n\n- Osa (32.3% WR) worth monitoring — if not converting value, consider dropping.\n- Montagne (34.4% WR) is role-expected but ensure team is capitalizing on his presence for plants.\n- Kanal ATK Win% (31.6%) is the single biggest individual map gap this season.\n- Defense is elite — Thorn/Kapkan formula is working. Don't change it.\n\n---\n\n## Data Flags\n- ✅ Stats and operators: final verified 2026-03-06 (season=40 pull — supersedes 2026-03-01 pull)\n- ✅ Season closed — Y10S4 archived. Final data pull: 2026-03-06 (R6 Tracker).\n",
@@ -797,78 +781,6 @@
           "kd": 1.8,
           "atkWr": 42.9,
           "defWr": 69.2
-        },
-        {
-          "map": "Consulate",
-          "matches": 4,
-          "winRate": 50,
-          "kd": 0.71,
-          "atkWr": 14.3,
-          "defWr": 76.9
-        },
-        {
-          "map": "Oregon",
-          "matches": 4,
-          "winRate": 75,
-          "kd": 1.14,
-          "atkWr": 66.7,
-          "defWr": 71.4
-        },
-        {
-          "map": "Bank",
-          "matches": 3,
-          "winRate": 66.7,
-          "kd": 1.09,
-          "atkWr": 57.1,
-          "defWr": 66.7
-        },
-        {
-          "map": "Theme Park",
-          "matches": 3,
-          "winRate": 66.7,
-          "kd": 1.5,
-          "atkWr": 55.6,
-          "defWr": 55.6
-        },
-        {
-          "map": "Villa",
-          "matches": 3,
-          "winRate": 100,
-          "kd": 0.86,
-          "atkWr": 60,
-          "defWr": 70
-        },
-        {
-          "map": "Chalet",
-          "matches": 2,
-          "winRate": 0,
-          "kd": 0.56,
-          "atkWr": 0,
-          "defWr": 40
-        },
-        {
-          "map": "Coastline",
-          "matches": 2,
-          "winRate": 0,
-          "kd": 1.33,
-          "atkWr": 16.7,
-          "defWr": 42.9
-        },
-        {
-          "map": "Nighthaven Labs",
-          "matches": 2,
-          "winRate": 0,
-          "kd": 0.83,
-          "atkWr": 12.5,
-          "defWr": 71.4
-        },
-        {
-          "map": "Skyscraper",
-          "matches": 1,
-          "winRate": 100,
-          "kd": 1.5,
-          "atkWr": 33.3,
-          "defWr": 100
         }
       ],
       "prevSeasonContent": "# Peej — Y10S4 (Tenfold Pursuit)\n\n_Season verified: 2026-03-06 | Operators corrected: 2026-03-01 (session 3) | Status: ✅ Archived — Y10S4 ended. Final data pull: 2026-03-06 (R6 Tracker, season=40)._\n\n---\n\n## Core Stats\n\n| Stat | Value |\n|------|-------|\n| Rank | Platinum IV |\n| RP | 3106 |\n| Max RP | 3124 |\n| Matches | 64 |\n| Win Rate | 56.2% |\n| K/D | 1.00 |\n| KDA | 1.44 |\n| Kills | 270 |\n| Deaths | 271 |\n| HS% | 33.90% |\n| ESR | 0.55 |\n| RIS | 55.5 (v1.0) |\n| Clutches Won | 9 |\n| Clutch Win% | 21.43% |\n\n_K/D settled to 1.00 on final pull (2026-03-06). Earlier 1.02 figure was mid-season._\n\n---\n\n## Operators\n_Source: R6 Tracker, Y10S4 ranked. Full pool — all ops with 5+ rounds listed. Verified 2026-03-06._\n_Format: Operator — Rounds | Win% | K/D_\n\n**Attack**\n1. Ash — 51r | 43.1% | 0.98\n2. Brava — 40r | 50.0% | 1.00\n3. Ying — 35r | 34.3% | 0.81\n4. Hibana — 15r | 40.0% | 0.90\n5. Nomad — 13r | 46.2% | 0.80\n_Notable ATK: Rauora — 11r | 27.3% | 0.89 | Dokkaebi — 7r | 71.4% | 0.50 | Twitch — 7r | 57.1% | 1.00 | Ram — 5r | 40.0% | 0.20 | Buck — 4r | 0.0% | 0.50 | Thermite — 4r | 25.0% | 0.25_\n\n**Defense**\n1. Maestro — 61r | 70.5% | 1.38\n2. Caveira — 53r | 66.0% | 1.33\n3. Fenrir — 39r | 56.4% | 0.96\n4. Azami — 26r | 65.4% | 0.69\n5. Valkyrie — 11r | 63.6% | 1.14\n_Notable DEF: Bandit — 4r | 50.0% | 1.00 | Thorn — 3r | 66.7% | 3.00 | Mute — 3r | 33.3% | 0.33_\n\n**ATK identity:** Ash/Brava entry fragger. Ying (35r) rounds out the pool but at low WR (34.3%) — needs evaluation.\n**DEF identity:** Maestro/Caveira intel + roam anchor. 70.5–66.0% WR on top two ops is elite-level. Azami (65.4% WR in 26r) confirmed as strong third DEF op.\n---\n\n## Map Performance\n\n| Map | Matches | Win% | K/D | Atk% | Def% |\n|-----|---------|------|-----|------|------|\n| Kafe Dostoyevsky | 7 | 71.4% | 1.00 | 40.0% | 76.2% |\n| Outback | 7 | 57.1% | 0.88 | 40.0% | 68.0% |\n| Border | 6 | 50.0% | 1.28 | 47.6% | 61.9% |\n| Fortress | 6 | 50.0% | 0.68 | 47.4% | 55.6% |\n| Clubhouse | 5 | 80.0% | 1.00 | 50.0% | 66.7% |\n| Kanal | 5 | 60.0% | 1.80 | 42.9% | 69.2% |\n| Consulate | 4 | 50.0% | 0.71 | 14.3% | 76.9% |\n| Oregon | 4 | 75.0% | 1.14 | 66.7% | 71.4% |\n| Bank | 3 | 66.7% | 1.09 | 57.1% | 66.7% |\n| Theme Park | 3 | 66.7% | 1.50 | 55.6% | 55.6% |\n| Villa | 3 | 100.0% | 0.86 | 60.0% | 70.0% |\n| Chalet | 2 | 0.0% | 0.56 | 0.0% | 40.0% |\n| Coastline | 2 | 0.0% | 1.33 | 16.7% | 42.9% |\n| Nighthaven Labs | 2 | 0.0% | 0.83 | 12.5% | 71.4% |\n| Skyscraper | 1 | 100.0% | 1.50 | 33.3% | 100.0% |\n\n**Strong:** Clubhouse (80%), Oregon (75%), Kafe (71.4%), Kanal (60%, 1.80 K/D)\n**Weak:** Nighthaven (0%), Coastline (0%), Chalet (0%) — all small samples\n**DEF-dominant pattern:** Kafe (76.2% Def WR), Consulate (76.9% Def WR), Kanal (69.2% Def WR) — consistently strong on defense side.\n\n---\n\n## Season Coaching Notes\n\n- 56.2% WR with 1.00 K/D at Platinum IV — WR and K/D both settled slightly on final pull (4 more matches played late season).\n- Maestro/Caveira DEF was the strongest individual DEF identity on the B Team — now confirmed in the main stack as of 2026-03-21.\n- Ying (34.3% WR) should drop — Ash/Brava/Hibana are all more efficient.\n- Nomad at ATK #5 (12r, 41.7% WR) — low sample, serviceable. Fits as soft-utility flex ATK.\n\n---\n\n## Data Flags\n- ✅ Stats and operators: final verified 2026-03-06 (season=40 pull — supersedes 2026-03-01 pull)\n- ✅ Operators corrected 2026-03-01 (session 3): Nomad moved from DEF → ATK. Valkyrie confirmed DEF #5.\n- ✅ Maps: Atk%/Def% columns added 2026-03-01 (session 3)\n- ✅ Season closed — Y10S4 archived. Final data pull: 2026-03-06 (R6 Tracker).\n",
@@ -1248,38 +1160,6 @@
           "kd": 0.91,
           "atkWr": 23.1,
           "defWr": 42.9
-        },
-        {
-          "map": "Chalet",
-          "matches": 4,
-          "winRate": 75,
-          "kd": 0.76,
-          "atkWr": 60,
-          "defWr": 61.5
-        },
-        {
-          "map": "Consulate",
-          "matches": 4,
-          "winRate": 25,
-          "kd": 0.75,
-          "atkWr": 26.7,
-          "defWr": 66.7
-        },
-        {
-          "map": "Fortress",
-          "matches": 4,
-          "winRate": 25,
-          "kd": 1.32,
-          "atkWr": 35.7,
-          "defWr": 41.7
-        },
-        {
-          "map": "Emerald Plains",
-          "matches": 3,
-          "winRate": 0,
-          "kd": 0.33,
-          "atkWr": 0,
-          "defWr": 44.4
         }
       ],
       "prevSeason": "Y10S4",
@@ -1405,14 +1285,6 @@
           "kd": 0.81,
           "atkWr": 40,
           "defWr": 60
-        },
-        {
-          "map": "Lair",
-          "matches": 3,
-          "winRate": 66.7,
-          "kd": 1.06,
-          "atkWr": 41.7,
-          "defWr": 70
         }
       ],
       "prevSeasonContent": "# Hound — Y10S4 (Tenfold Pursuit)\n\n_Season verified: 2026-03-06 | Status: ✅ Archived — Y10S4 ended. Final data pull: 2026-03-06 (R6 Tracker, season=40)._\n\n---\n\n## Core Stats\n\n| Stat | Value |\n|------|-------|\n| Rank | Emerald III |\n| RP | 3744 |\n| Max RP | 3832 |\n| Matches | 143 |\n| Win Rate | 56.6% |\n| K/D | 0.97 |\n| KDA | 1.33 |\n| Kills | 595 |\n| Deaths | 613 |\n| HS% | 47.60% |\n| ESR | 0.49 |\n| RIS | 46.5 (v1.0) |\n| Clutches Won | 10 |\n| Clutch Win% | 10.99% |\n\n---\n\n## Operators\n_Source: R6 Tracker, Y10S4 ranked. Full pool — all ops with 5+ rounds listed. Verified 2026-03-06._\n_Format: Operator — Rounds | Win% | K/D_\n\n**Attack**\n1. Thatcher — 47r | 44.7% | 1.06\n2. Thermite — 37r | 37.8% | 0.93\n3. Rauora — 36r | 58.3% | 0.72\n4. Fuze — 31r | 48.4% | 0.60\n5. Buck — 31r | 35.5% | 0.59\n_Notable ATK: Nomad — 29r | 44.8% | 1.37 | Gridlock — 27r | 51.9% | 1.47 | Montagne — 22r | 50.0% | 0.21 | Kali — 20r | 40.0% | 1.06 | Osa — 18r | 61.1% | 2.11 | Grim — 16r | 56.2% | 0.40 | Dokkaebi — 16r | 50.0% | 1.07 | Blackbeard — 15r | 40.0% | 0.33 | Flores — 12r | 58.3% | 1.00 | Glaz — 11r | 27.3% | 1.33 | Sledge — 8r | 37.5% | 0.83 | Capitão — 7r | 42.9% | 0.80 | Ace — 7r | 14.3% | 0.67 | Ying — 6r | 50.0% | 0.75 | Nøkk — 5r | 60.0% | 0.75 | Striker — 5r | 20.0% | 0.25 | Deimos — 3r | 66.7% | 3.00_\n\n**Defense**\n1. Castle — 81r | 64.2% | 0.85\n2. Bandit — 61r | 54.1% | 0.74\n3. Thorn — 46r | 52.2% | 1.19\n4. Azami — 41r | 63.4% | 0.93\n5. Frost — 40r | 70.0% | 1.25\n_Notable DEF: Maestro — 30r | 56.7% | 1.71 | Goyo — 19r | 57.9% | 0.31 | Aruni — 18r | 77.8% | 2.22 | Kaid — 15r | 80.0% | 1.78 | Echo — 15r | 53.3% | 1.44 | Denari — 13r | 69.2% | 2.43 | Lesion — 11r | 54.5% | 1.20 | Warden — 8r | 50.0% | 1.33 | Pulse — 7r | 57.1% | 2.00 | Kapkan — 6r | 33.3% | 0.25 | Doc — 5r | 60.0% | 0.00 | Skopós — 3r | 33.3% | 0.67_\n\n**ATK identity:** Thatcher/Thermite breach support. Rauora (36r, 58.3% WR) now fully established as a primary ATK pick.\n**DEF identity:** Castle barricade anchor + Frost/Azami traps. Frost (70.0% WR) is most efficient individual op. Aruni (77.8% WR, 2.22 K/D) and Kaid (80.0% WR, 1.78 K/D) are elite small-sample standouts.\n---\n\n## Map Performance\n\n| Map | Matches | Win% | K/D | Atk% | Def% |\n|-----|---------|------|-----|------|------|\n| Border | 14 | 64.3% | 1.18 | 58.7% | 53.3% |\n| Kafe Dostoyevsky | 14 | 64.3% | 1.02 | 43.6% | 66.7% |\n| Kanal | 13 | 53.8% | 0.98 | 34.3% | 66.7% |\n| Fortress | 11 | 72.7% | 1.12 | 39.4% | 75.7% |\n| Oregon | 11 | 54.5% | 0.98 | 48.6% | 63.6% |\n| Clubhouse | 9 | 66.7% | 1.09 | 45.2% | 60.0% |\n| Bank | 8 | 62.5% | 0.97 | 63.6% | 55.6% |\n| Consulate | 8 | 37.5% | 1.19 | 26.1% | 53.6% |\n| Villa | 7 | 85.7% | 1.14 | 53.8% | 73.9% |\n| Chalet | 6 | 16.7% | 0.56 | 20.0% | 50.0% |\n| Nighthaven Labs | 6 | 33.3% | 0.73 | 33.3% | 50.0% |\n| Outback | 6 | 66.7% | 1.00 | 60.0% | 65.0% |\n| Coastline | 5 | 60.0% | 0.67 | 58.3% | 46.2% |\n| Skyscraper | 5 | 40.0% | 0.81 | 40.0% | 60.0% |\n| Lair | 3 | 66.7% | 1.06 | 41.7% | 70.0% |\n\n**Strong:** Villa (85.7%), Fortress (72.7%), Clubhouse (66.7%), Border (64.3%), Kafe (64.3%)\n**Weak:** Chalet (16.7%, 0.56 K/D), Nighthaven (33.3%), Consulate (37.5%)\n\n---\n\n## Season Coaching Notes\n\n- Frost vs. Castle volume question: Frost (69.2% WR, 1.30 K/D) outperforms Castle on every individual metric. Coaching ask: is Castle usage intentional (coordinated barricade strategy) or a comfort pick?\n- Gridlock (26r, 50.0% WR, 1.57 K/D) is the unexpected bright spot — monitor if volume grows in Y11S1.\n- Rauora (33r, 57.6% WR) is an emerging ATK pick — worth watching if volume grows in Y11S1. Confirmed ATK operator (GAME KB verified).\n\n---\n\n## Data Flags\n- ✅ Stats and operators: final verified 2026-03-06 (season=40 pull — supersedes 2026-03-01 pull)\n- ✅ Rauora corrected from DEF → ATK (2026-03-01 session 3) — now in ATK top 5 by rounds\n- ✅ Season closed — Y10S4 archived. Final data pull: 2026-03-06 (R6 Tracker).\n",
@@ -1683,70 +1555,6 @@
           "kd": 0.52,
           "atkWr": 38.9,
           "defWr": 56.3
-        },
-        {
-          "map": "Coastline",
-          "matches": 4,
-          "winRate": 50,
-          "kd": 1.12,
-          "atkWr": 70,
-          "defWr": 25
-        },
-        {
-          "map": "Kafe Dostoyevsky",
-          "matches": 4,
-          "winRate": 50,
-          "kd": 1.38,
-          "atkWr": 36.4,
-          "defWr": 70
-        },
-        {
-          "map": "Clubhouse",
-          "matches": 3,
-          "winRate": 33.3,
-          "kd": 0.85,
-          "atkWr": 55.6,
-          "defWr": 25
-        },
-        {
-          "map": "Lair",
-          "matches": 3,
-          "winRate": 66.7,
-          "kd": 0.73,
-          "atkWr": 50,
-          "defWr": 77.8
-        },
-        {
-          "map": "Nighthaven Labs",
-          "matches": 3,
-          "winRate": 100,
-          "kd": 2.25,
-          "atkWr": 66.7,
-          "defWr": 85.7
-        },
-        {
-          "map": "Villa",
-          "matches": 3,
-          "winRate": 100,
-          "kd": 0.46,
-          "atkWr": 70,
-          "defWr": 66.7
-        },
-        {
-          "map": "Kanal",
-          "matches": 2,
-          "winRate": 100,
-          "kd": 1.43,
-          "atkWr": 60,
-          "defWr": 85.7
-        },
-        {
-          "map": "Outback",
-          "matches": 2,
-          "winRate": 50,
-          "kd": 0.89,
-          "atkWr": 60,
-          "defWr": 62.5
         }
       ],
       "prevSeasonContent": "# Smigs — Y10S4 (Tenfold Pursuit)\n\n_Season verified: 2026-03-06 | Status: ✅ Archived — Y10S4 ended. Final data pull: 2026-03-06 (R6 Tracker, season=40)._\n\n---\n\n## Core Stats\n\n| Stat | Value |\n|------|-------|\n| Rank | Emerald V |\n| RP | 3578 |\n| Max RP | 3761 |\n| Matches | 87 |\n| Win Rate | 55.2% |\n| K/D | 1.05 |\n| KDA | 1.34 |\n| Kills | 353 |\n| Deaths | 337 |\n| HS% | 52.30% |\n| ESR | 0.52 |\n| RIS | 57.8 (v1.0) |\n| Clutches Won | 15 |\n| Clutch Win% | 20.00% |\n\n---\n\n## Operators\n_Source: R6 Tracker, Y10S4 ranked. Full pool — all ops with 5+ rounds listed. Verified 2026-03-06._\n_Format: Operator — Rounds | Win% | K/D_\n\n**Attack**\n1. Thermite — 81r | 49.4% | 1.11\n2. Nomad — 40r | 42.5% | 0.60\n3. Osa — 27r | 48.1% | 1.06\n4. Capitão — 24r | 62.5% | 1.08\n5. Striker — 23r | 52.2% | 0.62\n_Notable ATK: Hibana — 17r | 47.1% | 0.69 | Ying — 10r | 50.0% | 1.00 | Ace — 8r | 50.0% | 0.33 | Gridlock — 6r | 16.7% | 0.80 | Thatcher — 5r | 40.0% | 2.67_\n\n**Defense**\n1. Kaid — 51r | 52.9% | 0.81\n2. Aruni — 49r | 51.0% | 1.60\n3. Castle — 37r | 59.5% | 1.22\n4. Thorn — 35r | 57.1% | 0.91\n5. Lesion — 27r | 59.3% | 1.67\n_Notable DEF: Goyo — 18r | 50.0% | 0.86 | Ela — 11r | 72.7% | 1.40 | Bandit — 10r | 60.0% | 1.60 | Mute — 7r | 85.7% | 1.00 | Tubarão — 5r | 100.0% | 5.00 | Melusi — 4r | 75.0% | 1.00 | Jäger — 3r | 66.7% | 0.67_\n\n**ATK identity:** Thermite hard breach anchor + utility. Capitão (62.5% WR, 1.08 K/D in 24r) is the standout ATK op by efficiency. Tubarão (100% WR, 5.00 K/D in 5r) — tiny sample but flags an unexpected pick.\n**DEF identity:** Zone-control anchor (Kaid/Aruni/Castle). Aruni is his best DEF fragger (1.60 K/D in 49r). Ela (72.7% WR, 1.40 K/D in 11r) is a high-efficiency depth pick.\n---\n\n## Map Performance\n\n| Map | Matches | Win% | K/D | Atk% | Def% |\n|-----|---------|------|-----|------|------|\n| Border | 9 | 77.8% | 1.23 | 65.5% | 57.1% |\n| Bank | 8 | 62.5% | 1.00 | 54.2% | 60.7% |\n| Oregon | 7 | 71.4% | 1.17 | 65.0% | 61.9% |\n| Chalet | 6 | 16.7% | 1.12 | 17.6% | 40.0% |\n| Fortress | 6 | 66.7% | 1.35 | 50.0% | 70.6% |\n| Consulate | 5 | 60.0% | 0.73 | 25.0% | 70.6% |\n| Skyscraper | 5 | 40.0% | 0.52 | 38.9% | 56.3% |\n| Coastline | 4 | 50.0% | 1.12 | 70.0% | 25.0% |\n| Kafe Dostoyevsky | 4 | 50.0% | 1.38 | 36.4% | 70.0% |\n| Clubhouse | 3 | 33.3% | 0.85 | 55.6% | 25.0% |\n| Lair | 3 | 66.7% | 0.73 | 50.0% | 77.8% |\n| Nighthaven Labs | 3 | 100.0% | 2.25 | 66.7% | 85.7% |\n| Villa | 3 | 100.0% | 0.46 | 70.0% | 66.7% |\n| Kanal | 2 | 100.0% | 1.43 | 60.0% | 85.7% |\n| Outback | 2 | 50.0% | 0.89 | 60.0% | 62.5% |\n\n**Strong:** Border (77.8%), Oregon (71.4%), Fortress (66.7%)\n**Weak:** Chalet (16.7%), Skyscraper (40%, 0.52 K/D), Clubhouse (33.3%)\n\n---\n\n## Season Coaching Notes\n\n- Capitão (60.9% WR, 23r) should get more volume in Y11S1 — best individual ATK WR in his pool.\n- Osa and Capitão outperforming Hibana/Striker — those should drop in priority.\n- Lesion (58.3% WR, 1.57 K/D) is the most efficient fragger in his DEF pool — very underutilized at 24r. Should see more volume.\n- Skyscraper is a genuine individual weakness this season (0.52 K/D).\n\n---\n\n## Data Flags\n- ✅ Stats and operators: final verified 2026-03-06 (season=40 pull — supersedes 2026-03-01 pull)\n- ✅ Nomad corrected from DEF → ATK (2026-03-01 session 3) — confirmed ATK operator\n- ✅ Season closed — Y10S4 archived. Final data pull: 2026-03-06 (R6 Tracker).\n",
@@ -2246,14 +2054,6 @@
           "kd": 1.45,
           "atkWr": 64.7,
           "defWr": 73.3
-        },
-        {
-          "map": "Lair",
-          "matches": 4,
-          "winRate": 75,
-          "kd": 1,
-          "atkWr": 46.2,
-          "defWr": 75
         }
       ],
       "prevSeasonContent": "# Sarge — Y10S4 (Tenfold Pursuit)\n\n_Season verified: 2026-03-06 | Status: ✅ Archived — Y10S4 ended. Final data pull: 2026-03-06 (R6 Tracker, season=40)._\n\n---\n\n## Core Stats\n\n| Stat | Value |\n|------|-------|\n| Rank | Platinum III |\n| RP | 3178 |\n| Max RP | 3437 |\n| Matches | 133 |\n| Win Rate | 51.9% |\n| K/D | 1.09 |\n| KDA | 1.42 |\n| Kills | 618 |\n| Deaths | 567 |\n| HS% | 48.20% |\n| ESR | 0.55 |\n| RIS | 56.1 (v1.0) |\n| Clutches Won | 19 |\n| Clutch Win% | 17.92% |\n\n---\n\n## Operators\n_Source: R6 Tracker, Y10S4 ranked. Full pool — all ops with 5+ rounds listed. Verified 2026-03-06._\n_Format: Operator — Rounds | Win% | K/D_\n\n**Attack**\n1. Thermite — 56r | 41.1% | 0.82\n2. Buck — 35r | 37.1% | 0.78\n3. IQ — 26r | 30.8% | 0.90\n4. Sledge — 24r | 33.3% | 0.57\n5. Thatcher — 23r | 39.1% | 0.83\n_Notable ATK: Hibana — 23r | 17.4% | 0.25 | Ying — 20r | 75.0% | 2.20 | Capitão — 19r | 31.6% | 1.07 | Ace — 18r | 38.9% | 0.67 | Amaru — 17r | 35.3% | 0.77 | Brava — 16r | 56.2% | 1.00 | Iana — 15r | 66.7% | 0.92 | Finka — 15r | 60.0% | 1.27 | Zofia — 14r | 57.1% | 2.38 | Osa — 12r | 41.7% | 1.11 | Nomad — 9r | 33.3% | 0.83 | Montagne — 8r | 25.0% | 0.14 | Ash — 8r | 50.0% | 0.43 | Dokkaebi — 8r | 25.0% | 0.71 | Ram — 7r | 42.9% | 0.14 | Twitch — 6r | 50.0% | 0.80 | Gridlock — 5r | 40.0% | 3.50 | Glaz — 5r | 40.0% | 1.00 | Striker — 5r | 60.0% | 0.75 | Grim — 4r | 75.0% | 2.00 | Rauora — 3r | 66.7% | 3.00 | Nøkk — 3r | 66.7% | 1.00_\n\n**Defense**\n1. Thunderbird — 116r | 59.5% | 1.45\n2. Vigil — 90r | 63.3% | 1.48\n3. Mute — 55r | 56.4% | 1.03\n4. Thorn — 22r | 63.6% | 1.54\n5. Aruni — 19r | 68.4% | 1.90\n_Notable DEF: Bandit — 16r | 75.0% | 1.86 | Mira — 15r | 73.3% | 3.25 | Caveira — 11r | 63.6% | 1.60 | Goyo — 10r | 50.0% | 1.25 | Echo — 8r | 37.5% | 1.00 | Azami — 7r | 57.1% | 2.00 | Kapkan — 7r | 42.9% | 0.83 | Jäger — 6r | 33.3% | 0.20 | Kaid — 5r | 20.0% | 0.40 | Frost — 4r | 50.0% | 0.67 | Castle — 4r | 100.0% | 0.67 | Tubarão — 4r | 50.0% | 1.33_\n\n**ATK identity:** All utility/breach ops, all sub-1.0 K/D. Role says entry fragger; ops say support. Mismatch. Ying (75.0% WR, 2.20 K/D in 20r) and Zofia (57.1% WR, 2.38 K/D in 14r) are the hidden ATK gems.\n**DEF identity:** Thunderbird/Vigil elite anchor + roamer. Mira (73.3% WR, 3.25 K/D in 15r) and Bandit (75.0% WR, 1.86 K/D in 16r) are notable high-value pickups. All top 5 DEF ops at 56%+ WR.\n---\n\n## Map Performance\n\n| Map | Matches | Win% | K/D | Atk% | Def% |\n|-----|---------|------|-----|------|------|\n| Border | 13 | 76.9% | 1.49 | 61.5% | 61.9% |\n| Kanal | 12 | 50.0% | 1.08 | 34.3% | 69.4% |\n| Kafe Dostoyevsky | 11 | 63.6% | 1.11 | 41.7% | 66.7% |\n| Fortress | 9 | 55.6% | 1.11 | 42.3% | 63.0% |\n| Consulate | 8 | 50.0% | 1.27 | 28.0% | 64.5% |\n| Chalet | 7 | 14.3% | 0.88 | 19.0% | 45.0% |\n| Clubhouse | 7 | 42.9% | 0.97 | 40.9% | 52.6% |\n| Nighthaven Labs | 7 | 42.9% | 1.00 | 34.8% | 66.7% |\n| Coastline | 6 | 50.0% | 0.96 | 47.4% | 50.0% |\n| Oregon | 6 | 50.0% | 1.00 | 40.0% | 68.4% |\n| Outback | 6 | 83.3% | 1.60 | 57.9% | 61.9% |\n| Bank | 5 | 40.0% | 0.88 | 38.9% | 57.9% |\n| Skyscraper | 5 | 60.0% | 0.86 | 31.3% | 71.4% |\n| Villa | 5 | 100.0% | 1.45 | 64.7% | 73.3% |\n| Lair | 4 | 75.0% | 1.00 | 46.2% | 75.0% |\n\n**Strong:** Villa (100%), Outback (83.3%, 1.60 K/D), Border (76.9%, 13 matches), Lair (75%)\n**Weak:** Chalet (14.3%), Bank (40%), Clubhouse (42.9%)\n\n---\n\n## Season Coaching Notes\n\n- **Hibana (17.4% WR in 23r) should be dropped immediately** — worst ATK op performance on the team.\n- Role/op mismatch: push toward Ash, Zofia, or Iana if \"Entry/Fragger\" role is to be maintained.\n- Defense is elite this season — all five DEF ops posting 55%+ WR with 1.46–1.60 K/D on top two.\n- Rank gap (Platinum vs. Emerald teammates) doesn't match stats. Direct conversation warranted.\n\n---\n\n## Data Flags\n- ✅ Stats and operators: final verified 2026-03-06 (season=40 pull — supersedes 2026-03-01 pull)\n- ✅ Season closed — Y10S4 archived. Final data pull: 2026-03-06 (R6 Tracker).\n",
@@ -2561,70 +2361,6 @@
           "kd": 0.75,
           "atkWr": 35,
           "defWr": 47.1
-        },
-        {
-          "map": "Consulate",
-          "matches": 4,
-          "winRate": 50,
-          "kd": 0.83,
-          "atkWr": 42.9,
-          "defWr": 64.3
-        },
-        {
-          "map": "Fortress",
-          "matches": 4,
-          "winRate": 25,
-          "kd": 1.26,
-          "atkWr": 40,
-          "defWr": 46.7
-        },
-        {
-          "map": "Kafe Dostoyevsky",
-          "matches": 4,
-          "winRate": 50,
-          "kd": 1.12,
-          "atkWr": 33.3,
-          "defWr": 62.5
-        },
-        {
-          "map": "Bank",
-          "matches": 3,
-          "winRate": 66.7,
-          "kd": 1,
-          "atkWr": 42.9,
-          "defWr": 66.7
-        },
-        {
-          "map": "Lair",
-          "matches": 3,
-          "winRate": 0,
-          "kd": 0.5,
-          "atkWr": 14.3,
-          "defWr": 37.5
-        },
-        {
-          "map": "Chalet",
-          "matches": 2,
-          "winRate": 100,
-          "kd": 3.25,
-          "atkWr": 100,
-          "defWr": 100
-        },
-        {
-          "map": "Clubhouse",
-          "matches": 2,
-          "winRate": 50,
-          "kd": 0.58,
-          "atkWr": 57.1,
-          "defWr": 50
-        },
-        {
-          "map": "Emerald Plains",
-          "matches": 2,
-          "winRate": 0,
-          "kd": 0.78,
-          "atkWr": 0,
-          "defWr": 50
         }
       ],
       "prevSeason": "Y10S4",
@@ -3122,78 +2858,6 @@
           "kd": 0.33,
           "atkWr": 29.4,
           "defWr": 73.3
-        },
-        {
-          "map": "Kanal",
-          "matches": 4,
-          "winRate": 50,
-          "kd": 0.28,
-          "atkWr": 36.4,
-          "defWr": 50
-        },
-        {
-          "map": "Oregon",
-          "matches": 3,
-          "winRate": 33.3,
-          "kd": 0.46,
-          "atkWr": 22.2,
-          "defWr": 62.5
-        },
-        {
-          "map": "Theme Park",
-          "matches": 3,
-          "winRate": 66.7,
-          "kd": 0.09,
-          "atkWr": 37.5,
-          "defWr": 71.4
-        },
-        {
-          "map": "Villa",
-          "matches": 3,
-          "winRate": 100,
-          "kd": 0.82,
-          "atkWr": 60,
-          "defWr": 77.8
-        },
-        {
-          "map": "Chalet",
-          "matches": 2,
-          "winRate": 0,
-          "kd": 0.42,
-          "atkWr": 14.3,
-          "defWr": 57.1
-        },
-        {
-          "map": "Outback",
-          "matches": 2,
-          "winRate": 0,
-          "kd": 0.22,
-          "atkWr": 0,
-          "defWr": 33.3
-        },
-        {
-          "map": "Coastline",
-          "matches": 1,
-          "winRate": 0,
-          "kd": 0.38,
-          "atkWr": 20,
-          "defWr": 75
-        },
-        {
-          "map": "Lair",
-          "matches": 1,
-          "winRate": 100,
-          "kd": 1.5,
-          "atkWr": 66.7,
-          "defWr": 100
-        },
-        {
-          "map": "Skyscraper",
-          "matches": 1,
-          "winRate": 0,
-          "kd": 0.2,
-          "atkWr": 0,
-          "defWr": 66.7
         }
       ],
       "prevSeasonContent": "# Krafty — Y10S4 (Tenfold Pursuit)\n\n_Season verified: 2026-03-06 | Maps updated: 2026-03-01 (session 3) | Status: ✅ Archived — Y10S4 ended. Final data pull: 2026-03-06 (R6 Tracker, season=40)._\n_Note: All-time ≈ Y10S4 for this player — newer player, minimal pre-Y10S4 history._\n_Note: Username changed from KraftySmokes → Eh_KraftySmokes (confirmed 2026-03-06). R6 Tracker link updated._\n\n---\n\n## Core Stats\n\n| Stat | Value |\n|------|-------|\n| Rank | Bronze III |\n| RP | 1736 |\n| Max RP | 1809 |\n| Matches | 63 |\n| Win Rate | 47.6% |\n| K/D | 0.44 |\n| KDA | 0.75 |\n| Kills | 141 |\n| Deaths | 317 |\n| HS% | 49.30% |\n| ESR | 0.23 |\n| RIS | 30.2 (v1.0) |\n| Clutches Won | 5 |\n| Clutch Win% | 12.50% |\n\n---\n\n## Operators\n_Source: R6 Tracker, Y10S4 ranked. Full pool — all ops with 5+ rounds listed. Verified 2026-03-06._\n_Format: Operator — Rounds | Win% | K/D_\n\n**Attack**\n1. Iana — 38r | 34.2% | 0.31\n2. Hibana — 32r | 37.5% | 0.58\n3. Lion — 30r | 40.0% | 0.52\n4. Maverick — 20r | 50.0% | 0.80\n5. Zero — 18r | 55.6% | 0.19\n_Notable ATK: Thatcher — 9r | 33.3% | 0.00 | Thermite — 7r | 57.1% | 0.17 | Nomad — 7r | 14.3% | 0.33 | Finka — 5r | 40.0% | 0.40 | Striker — 5r | 0.0% | 0.20 | Ying — 5r | 20.0% | 0.00 | Blitz — 4r | 50.0% | 0.00 | Nøkk — 3r | 33.3% | 0.00_\n\n**Defense**\n1. Lesion — 81r | 63.0% | 0.52\n2. Azami — 23r | 60.9% | 0.50\n3. Ela — 19r | 63.2% | 0.50\n4. Thorn — 17r | 52.9% | 0.50\n5. Doc — 14r | 50.0% | 0.91\n_Notable DEF: Frost — 12r | 50.0% | 0.36 | Alibi — 11r | 45.5% | 0.56 | Kapkan — 6r | 50.0% | 0.75 | Mute — 4r | 50.0% | 0.25 | Goyo — 3r | 33.3% | 0.33_\n\n**ATK identity:** Fragmented — Maverick (50% WR) is the ATK anchor. Zero improved to 55.6% WR but K/D remains very low (0.19). Build around Maverick.\n**DEF identity:** Lesion passive anchor (81r, 63.0% WR). All top DEF ops posting 50%+ WR — Lesion/Ela/Azami cluster is working.\n---\n\n## Map Performance\n\n| Map | Matches | Win% | K/D | Atk% | Def% |\n|-----|---------|------|-----|------|------|\n| Border | 8 | 37.5% | 0.44 | 40.0% | 42.3% |\n| Bank | 6 | 50.0% | 0.88 | 47.6% | 58.3% |\n| Fortress | 6 | 50.0% | 0.33 | 37.5% | 69.2% |\n| Kafe Dostoyevsky | 6 | 50.0% | 0.46 | 38.1% | 54.5% |\n| Clubhouse | 5 | 80.0% | 0.48 | 56.3% | 60.0% |\n| Consulate | 5 | 40.0% | 0.31 | 29.4% | 57.1% |\n| Nighthaven Labs | 5 | 40.0% | 0.33 | 29.4% | 73.3% |\n| Kanal | 4 | 50.0% | 0.28 | 36.4% | 50.0% |\n| Oregon | 3 | 33.3% | 0.46 | 22.2% | 62.5% |\n| Theme Park | 3 | 66.7% | 0.09 | 37.5% | 71.4% |\n| Villa | 3 | 100.0% | 0.82 | 60.0% | 77.8% |\n| Chalet | 2 | 0.0% | 0.42 | 14.3% | 57.1% |\n| Outback | 2 | 0.0% | 0.22 | 0.0% | 33.3% |\n| Coastline | 1 | 0.0% | 0.38 | 20.0% | 75.0% |\n| Lair | 1 | 100.0% | 1.50 | 66.7% | 100.0% |\n| Skyscraper | 1 | 0.0% | 0.20 | 0.0% | 66.7% |\n\n**Best:** Clubhouse (80%, 5 matches — most reliable), Villa (100%/3)\n**Pattern:** Consistently stronger on DEF side across most maps. Nighthaven DEF WR (73.3%) vs. ATK WR (29.4%) — the ATK side is dragging him down.\n**Worst:** Kanal (0.28 K/D), Consulate (0.31 K/D), Outback (0.22 K/D)\n\n---\n\n## Season Coaching Notes\n\n- Positioning/decision-making is the primary gap — not aim. High HS% + low K/D = peeking the wrong fights at the wrong times.\n- Drop Zero (0.08 K/D). Shift ATK volume toward Maverick.\n- Lesion is the right DEF anchor. All four passive trap ops posting 60%+ WR — this is working.\n- Clubhouse is the confidence map. Use it for stack practice and early-season momentum.\n- ATK side is consistently weaker than DEF on almost every map — compound this with poor ATK op selection and it's the clearest development area.\n\n---\n\n## Data Flags\n- ✅ Stats and operators: final verified 2026-03-06 (season=40 pull — supersedes 2026-03-01 pull)\n- ✅ Username updated: KraftySmokes → Eh_KraftySmokes (confirmed 2026-03-06)\n- ✅ All-time core stats corrected (prior KB had Smigs' stats duplicated here)\n- ✅ Maps: Atk%/Def% columns added 2026-03-01 (session 3)\n- ✅ Season closed — Y10S4 archived. Final data pull: 2026-03-06 (R6 Tracker).\n",
@@ -3463,110 +3127,6 @@
           "kd": 0.58,
           "atkWr": 47.1,
           "defWr": 42.1
-        },
-        {
-          "map": "Kafe Dostoyevsky",
-          "matches": 3,
-          "winRate": 66.7,
-          "kd": 0.6,
-          "atkWr": 44.4,
-          "defWr": 60
-        },
-        {
-          "map": "Nighthaven Labs",
-          "matches": 3,
-          "winRate": 0,
-          "kd": 0.53,
-          "atkWr": 10,
-          "defWr": 75
-        },
-        {
-          "map": "Oregon",
-          "matches": 3,
-          "winRate": 100,
-          "kd": 1.62,
-          "atkWr": 85.7,
-          "defWr": 75
-        },
-        {
-          "map": "Outback",
-          "matches": 3,
-          "winRate": 33.3,
-          "kd": 0.94,
-          "atkWr": 20,
-          "defWr": 63.6
-        },
-        {
-          "map": "Bank",
-          "matches": 2,
-          "winRate": 100,
-          "kd": 1.83,
-          "atkWr": 60,
-          "defWr": 83.3
-        },
-        {
-          "map": "Border",
-          "matches": 2,
-          "winRate": 100,
-          "kd": 1,
-          "atkWr": 50,
-          "defWr": 100
-        },
-        {
-          "map": "Coastline",
-          "matches": 2,
-          "winRate": 50,
-          "kd": 0.33,
-          "atkWr": 44.4,
-          "defWr": 62.5
-        },
-        {
-          "map": "Consulate",
-          "matches": 2,
-          "winRate": 0,
-          "kd": 0.42,
-          "atkWr": 0,
-          "defWr": 60
-        },
-        {
-          "map": "Fortress",
-          "matches": 2,
-          "winRate": 0,
-          "kd": 0.1,
-          "atkWr": 33.3,
-          "defWr": 0
-        },
-        {
-          "map": "Theme Park",
-          "matches": 2,
-          "winRate": 50,
-          "kd": 0.75,
-          "atkWr": 50,
-          "defWr": 50
-        },
-        {
-          "map": "Chalet",
-          "matches": 1,
-          "winRate": 0,
-          "kd": 0.8,
-          "atkWr": 0,
-          "defWr": 33.3
-        },
-        {
-          "map": "Clubhouse",
-          "matches": 1,
-          "winRate": 100,
-          "kd": 1.2,
-          "atkWr": 50,
-          "defWr": 75
-        },
-        {
-          "map": "Villa",
-          "matches": 1,
-          "winRate": 100,
-          "kd": 0.8,
-          "atkWr": 66.7,
-          "defWr": 66.7
         }
       ],
       "prevSeasonContent": "# Bob — Y10S4 (Tenfold Pursuit)\n\n_Season verified: 2026-03-06 | Operators corrected: 2026-03-01 (session 3) | Status: ✅ Archived — Y10S4 ended. Final data pull: 2026-03-06 (R6 Tracker, season=40)._\n\n---\n\n## Core Stats\n\n| Stat | Value |\n|------|-------|\n| Rank | Gold V |\n| RP | 2503 |\n| Max RP | 2511 |\n| Matches | 35 |\n| Win Rate | 45.7% |\n| K/D | 0.66 |\n| KDA | 1.12 |\n| Kills | 116 |\n| Deaths | 177 |\n| HS% | 24.80% |\n| ESR | 0.38 |\n| RIS | 37.1 (v1.0) |\n| Clutches Won | 3 |\n| Clutch Win% | 16.67% |\n\n_Small sample (35 matches) — treat all figures as directional._\n\n---\n\n## Operators\n_Source: R6 Tracker, Y10S4 ranked. Full pool — all ops with 5+ rounds listed. Verified 2026-03-06._\n_Format: Operator — Rounds | Win% | K/D_\n\n**Attack**\n1. Nomad — 14r | 57.1% | 0.36\n2. Dokkaebi — 13r | 69.2% | 0.40\n3. Glaz — 11r | 18.2% | 0.73\n4. Gridlock — 9r | 55.6% | 0.67\n5. Zero — 8r | 37.5% | 1.00\n_Notable ATK: Thermite — 7r | 28.6% | 0.00 | Lion — 7r | 28.6% | 0.29 | Thatcher — 5r | 20.0% | 0.25 | Nøkk — 4r | 25.0% | 0.50 | Maverick — 4r | 25.0% | 0.33 | Buck — 3r | 66.7% | 1.50 | Brava — 3r | 66.7% | 1.00 | Hibana — 3r | 0.0% | 1.33 | Fuze — 3r | 33.3% | 1.00_\n\n**Defense**\n1. Kapkan — 38r | 71.1% | 1.11\n2. Thorn — 13r | 53.8% | 0.42\n3. Frost — 11r | 54.5% | 0.60\n4. Kaid — 10r | 40.0% | 0.60\n5. Denari — 8r | 50.0% | 0.14\n_Notable DEF: Aruni — 6r | 83.3% | 2.67 | Mute — 5r | 40.0% | 1.00 | Melusi — 4r | 25.0% | 0.50_\n\n**ATK identity:** Fragmented — no coherent ATK strategy this season. Nomad leads ATK by rounds but is a soft-utility ATK op. Conventional picks needed (Thermite, Ash, Buck, Thatcher).\n**DEF identity:** Kapkan anchor (71.1% WR) is the one clear strength. Aruni (83.3% WR, 2.67 K/D in 6r) is a sleeper pick worth developing.\n---\n\n## Map Performance\n_Very small samples — directional only._\n\n| Map | Matches | Win% | K/D | Atk% | Def% |\n|-----|---------|------|-----|------|------|\n| Kanal | 6 | 33.3% | 0.58 | 47.1% | 42.1% |\n| Kafe Dostoyevsky | 3 | 66.7% | 0.60 | 44.4% | 60.0% |\n| Nighthaven Labs | 3 | 0.0% | 0.53 | 10.0% | 75.0% |\n| Oregon | 3 | 100.0% | 1.62 | 85.7% | 75.0% |\n| Outback | 3 | 33.3% | 0.94 | 20.0% | 63.6% |\n| Bank | 2 | 100.0% | 1.83 | 60.0% | 83.3% |\n| Border | 2 | 100.0% | 1.00 | 50.0% | 100.0% |\n| Coastline | 2 | 50.0% | 0.33 | 44.4% | 62.5% |\n| Consulate | 2 | 0.0% | 0.42 | 0.0% | 60.0% |\n| Fortress | 2 | 0.0% | 0.10 | 33.3% | 0.0% |\n| Theme Park | 2 | 50.0% | 0.75 | 50.0% | 50.0% |\n| Chalet | 1 | 0.0% | 0.80 | 0.0% | 33.3% |\n| Clubhouse | 1 | 100.0% | 1.20 | 50.0% | 75.0% |\n| Villa | 1 | 100.0% | 0.80 | 66.7% | 66.7% |\n\n**Most reliable signal:** Kanal (6 matches, 33.3% WR) — most consistent data, all negative.\n**Flag:** Fortress (0% WR, 0.10 K/D in 2 games) — directional concern.\n\n---\n\n## Season Coaching Notes\n\n- ATK pool needs a full rebuild. Switch to Thermite, Ash, Buck, or Thatcher immediately.\n- HS% drop (24.8% this season vs. ~49% career) is a significant red flag — monitor in Y11S1. If it persists, address directly.\n- Kapkan is the one clear anchor — keep playing it.\n- Aruni (83.3% WR, 2.67 K/D in 6r) is a hidden gem worth expanding in Y11S1.\n- Kanal is consistently bad — avoid aggressive assignments here.\n\n---\n\n## Data Flags\n- ✅ Stats and operators: final verified 2026-03-06 (season=40 pull — supersedes 2026-03-01 pull)\n- ✅ Operators corrected 2026-03-01 (session 3): Nomad moved from DEF → ATK. \"Denali\" corrected to Denari. Kaid moved up to DEF #4 (10r final).\n- ✅ All-time core stats corrected (prior KB had Sarge's data duplicated here)\n- ✅ Maps: Atk%/Def% columns added 2026-03-01 (session 3)\n- ✅ Season closed — Y10S4 archived. Final data pull: 2026-03-06 (R6 Tracker).\n",
