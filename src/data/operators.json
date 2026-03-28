@@ -3266,7 +3266,7 @@
           "Nøkk's image is completely removed from all defender cameras and observation tools while HEL is active",
           "Bulletproof Cameras, Maestro Evil Eyes, Black Mirror windows, Yokai drones, and all other observation tools cannot detect Nøkk",
           "Does NOT make Nøkk invisible to line-of-sight visual detection—defenders can still see her if they are looking directly at her",
-          "HEL has infinite charge duration once activated; can remain active indefinitely until deactivated or glitching occurs",
+          "HEL duration: 13 seconds _(Y11S1.1 buff, was 10s)_ — HEL deactivates after this time or upon glitch triggers",
           "Maximum recharge time: 120 seconds",
           "Minimum 20% charge required to activate HEL",
           "Once activated with 20% charge, HEL remains active indefinitely until glitch occurs",
@@ -4355,7 +4355,7 @@
           {
             "weapon": "POF-9",
             "type": "Assault Rifle",
-            "notes": "Primary AR"
+            "notes": "Primary AR — **37 dmg** _(Y11S1.1 buff, was 35)_"
           },
           {
             "weapon": "417",
@@ -5316,7 +5316,7 @@
           {
             "weapon": "M12",
             "type": "Submachine Gun",
-            "notes": "Sustained DPS, precision"
+            "notes": "Sustained DPS, precision — **42 dmg** _(Y11S1.1 buff, was 40)_"
           },
           {
             "weapon": "SPAS-15",
@@ -8540,14 +8540,14 @@
       },
       "gadget": {
         "name": "Armor Pack",
-        "description": "Body armor distribution pack — single deployable armor bag containing armor plates granting +20 bonus armor per pickup. All defending teammates can pick up plates individually throughout the round. Armor persists on map until destroyed.",
+        "description": "Body armor distribution pack — single deployable armor bag containing armor plates granting +25 bonus armor per pickup _(Y11S1.1 buff, was +20)_. All defending teammates can pick up plates individually throughout the round. Armor persists on map until destroyed.",
         "mechanics": [
           "One armor bag per round; deployed at round start on objective site",
           "Bag placement is permanent; persists entire round unless destroyed",
           "All defending teammates can individually pickup armor plates",
-          "Each plate grants +20 bonus armor (increased durability)",
+          "Each plate grants +25 bonus armor _(Y11S1.1 buff, was +20)_",
           "Armor stacks with operator base armor; cumulative effect",
-          "Rook himself receives +20 armor from his own bag",
+          "Rook himself receives +25 armor from his own bag _(Y11S1.1 buff, was +20)_",
           "Teammates interact with bag to equip armor plates",
           "Plates equip instantly; no animation or delay"
         ],
@@ -8874,7 +8874,7 @@
         "mechanics": [
           "Thrown adhesive devices that stick to surfaces and walls",
           "Active radius: 3.5 meters with line of sight required",
-          "When a projectile enters the radius, the Mag-NET stops its flight, resets the detonation timer, attracts it magnetically, and detonates it 3.5 seconds after capture",
+          "When a projectile enters the radius, the Mag-NET stops its flight, resets the detonation timer, attracts it magnetically, and detonates it 3.5 seconds after capture _(activation time: 1.5s to capture, Y11S1.1 buff from 2s)_",
           "Each Mag-NET can capture only one projectile at a time (max 6 total across all deployed Mag-NETs)",
           "If a Mag-NET is destroyed before detonation, the captured projectile is dropped and returns to normal behavior",
           "Frag Grenades, Smoke Grenades, Stun Grenades",
