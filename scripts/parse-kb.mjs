@@ -439,10 +439,9 @@ function buildMapsData(playersData) {
     const reference = readFile(path.join(mapDir, `${mapName}.md`))
     const strats = parseMapStrats(mapName)
 
-    // Find rating in STACK_05
+    // Keep STACK_05 label text for context, but rating badge is computed from win%
     const ratingMatch = stack05.match(new RegExp(`\\|\\s*\\*{0,2}${mapName.replace(/_/g, '[_ ]')}\\*{0,2}\\s*\\|\\s*([^|]+)\\|`,'i'))
     const ratingRaw = ratingMatch ? ratingMatch[1].trim() : ''
-    const rating = extractMapRating(ratingRaw)
     const ratingLabel = ratingRaw.replace(/[✅⚠️❌🔲]/g, '').trim() || '—'
 
     const devCount = strats.filter(s => s.status === 'developed').length
@@ -456,6 +455,13 @@ function buildMapsData(playersData) {
       : null
     const teamWinRateMatches = wr ? wr.totalMatches : 0
     const teamWinRateSeason  = activeSeason
+
+    // Rating badge driven by actual win% (not STACK_05 text)
+    const rating = teamWinRate === null ? 'unknown'
+      : teamWinRate >= 60 ? 'strong'
+      : teamWinRate >= 50 ? 'moderate'
+      : teamWinRate >= 40 ? 'weak'
+      : 'avoid'
 
     // Per-player stats by season (sorted by matches desc within each season)
     const statsForMap = {}

@@ -336,7 +336,7 @@
   {
     "name": "Border",
     "displayName": "Border",
-    "rating": "strong",
+    "rating": "moderate",
     "ratingLabel": "Strong",
     "rankedPool": "both",
     "inRankedPool": true,
@@ -1325,7 +1325,7 @@
   {
     "name": "Coastline",
     "displayName": "Coastline",
-    "rating": "moderate",
+    "rating": "weak",
     "ratingLabel": "Situational",
     "rankedPool": "first",
     "inRankedPool": true,
@@ -1446,7 +1446,7 @@
   {
     "name": "Consulate",
     "displayName": "Consulate",
-    "rating": "weak",
+    "rating": "avoid",
     "ratingLabel": "Weak",
     "rankedPool": "both",
     "inRankedPool": true,
@@ -1968,7 +1968,7 @@
   {
     "name": "Kafe Dostoyevsky",
     "displayName": "Kafe Dostoyevsky",
-    "rating": "moderate",
+    "rating": "weak",
     "ratingLabel": "Moderate",
     "rankedPool": "both",
     "inRankedPool": true,
@@ -2418,7 +2418,7 @@
   {
     "name": "Oregon",
     "displayName": "Oregon",
-    "rating": "weak",
+    "rating": "avoid",
     "ratingLabel": "Mixed",
     "rankedPool": "first",
     "inRankedPool": true,
@@ -2792,7 +2792,7 @@
   {
     "name": "Skyscraper",
     "displayName": "Skyscraper",
-    "rating": "moderate",
+    "rating": "unknown",
     "ratingLabel": "Moderate",
     "rankedPool": "second",
     "inRankedPool": false,
@@ -3080,7 +3080,7 @@
   {
     "name": "Theme_Park",
     "displayName": "Theme Park",
-    "rating": "strong",
+    "rating": "unknown",
     "ratingLabel": "Strong",
     "rankedPool": "second",
     "inRankedPool": false,
@@ -3332,7 +3332,7 @@
   {
     "name": "Villa",
     "displayName": "Villa",
-    "rating": "avoid",
+    "rating": "moderate",
     "ratingLabel": "Avoid",
     "rankedPool": "first",
     "inRankedPool": true,
