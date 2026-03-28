@@ -1,4 +1,4 @@
-import { useParams, Link, useNavigate } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import { useState } from 'react'
 import mapsData from '../data/maps.json'
 import RatingBadge from '../components/RatingBadge'
@@ -7,15 +7,55 @@ import { NotFound } from '../components/EmptyState'
 import MarkdownContent from '../components/MarkdownContent'
 import { wrColor, wrBgColor, kdColor } from '../utils/constants'
 
+// Win rate bar + text colour helpers (mirrors Maps.jsx 5-tier logic)
+function wrBarColor(wr) {
+  if (wr === null) return ''
+  if (wr >= 60) return 'bg-siege-green'
+  if (wr >= 50) return 'bg-blue-500'
+  if (wr >= 40) return 'bg-yellow-500'
+  if (wr >= 30) return 'bg-orange-500'
+  return 'bg-red-600'
+}
+function wrTextCol(wr) {
+  if (wr === null) return 'text-siege-muted'
+  if (wr >= 60) return 'text-siege-green'
+  if (wr >= 50) return 'text-blue-400'
+  if (wr >= 40) return 'text-yellow-400'
+  if (wr >= 30) return 'text-orange-400'
+  return 'text-red-400'
+}
+
+const POOL_BANNER = {
+  first: {
+    bg: 'bg-yellow-500/10 border-yellow-500/30 text-yellow-400',
+    icon: '⚠',
+    text: <>In ranked pool now — <strong>leaving at the Y11S1 mid-season split</strong>. Strat this map before it rotates out.</>,
+  },
+  both: {
+    bg: 'bg-siege-green/10 border-siege-green/30 text-siege-green',
+    icon: '✓',
+    text: <>In ranked pool for the <strong>full Y11S1 season</strong>.</>,
+  },
+  second: {
+    bg: 'bg-blue-500/10 border-blue-500/30 text-blue-300',
+    icon: '↩',
+    text: <>Not in the current pool — <strong>returns at the Y11S1 mid-season split</strong>. Good time to build strats now.</>,
+  },
+  none: {
+    bg: 'bg-siege-border/30 border-siege-border text-siege-muted',
+    icon: '—',
+    text: <>Not in the Y11S1 ranked pool.</>,
+  },
+}
+
 export default function MapDetail() {
   const { mapName } = useParams()
   const map = mapsData.find(m => m.name === mapName)
-  const [activeTab, setActiveTab] = useState('strats')
+  const [activeTab, setActiveTab] = useState('overview')
   const [sideFilter, setSideFilter] = useState('all')
 
-  // Stats tab — derive available seasons and default to the most recent
   const availableSeasons = map
-    ? Object.keys(map.playerStats || {}).sort().reverse()   // Y11S1 before Y10S4
+    ? Object.keys(map.playerStats || {}).sort().reverse()
     : []
   const [activeSeason, setActiveSeason] = useState(() => availableSeasons[0] || '')
 
@@ -26,164 +66,91 @@ export default function MapDetail() {
   const filteredStrats = map.strats.filter(s =>
     sideFilter === 'all' || s.side === sideFilter
   )
+  const atkStrats = map.strats.filter(s => s.side === 'ATK')
+  const defStrats = map.strats.filter(s => s.side === 'DEF')
+
+  const poolKey = map.rankedPool || (!map.inRankedPool ? 'none' : null)
+  const banner = poolKey ? POOL_BANNER[poolKey] : null
+
+  const tabs = [
+    { id: 'overview', label: 'Overview' },
+    { id: 'stats',    label: 'Stats' },
+    { id: 'strats',   label: `Strats (${map.strats.length})` },
+    { id: 'reference',label: 'Reference' },
+  ]
 
   return (
     <div className="p-6 max-w-5xl mx-auto space-y-6">
       {/* Breadcrumb */}
       <Link to="/maps" className="text-siege-muted hover:text-siege-accent text-sm">← Maps</Link>
 
-      {/* Header */}
-      <div className="card">
+      {/* Header card */}
+      <div className="card space-y-4">
+
+        {/* Title row */}
         <div className="flex items-start justify-between flex-wrap gap-4">
-          <div>
-            <h1 className="text-2xl font-bold text-white">{map.displayName}</h1>
-            {map.ratingLabel && map.ratingLabel !== '—' && (
-              <p className="text-siege-muted text-sm mt-1">{map.ratingLabel}</p>
-            )}
-          </div>
-          <RatingBadge rating={map.rating} label={map.ratingLabel} size="lg" />
+          <h1 className="text-2xl font-bold text-white">{map.displayName}</h1>
+          <RatingBadge rating={map.rating} size="lg" />
         </div>
 
-        {/* Pool status banner */}
-        {map.inRankedPool && map.rankedPool === 'first' && (
-          <div className="mt-3 flex items-center gap-2 px-3 py-2 rounded bg-yellow-500/10 border border-yellow-500/30 text-yellow-400 text-sm">
-            <span>⚠</span>
-            <span>In ranked pool now — <strong>leaving at the Y11S1 mid-season split</strong>. Strat this map before it rotates out.</span>
-          </div>
-        )}
-        {map.inRankedPool && map.rankedPool === 'both' && (
-          <div className="mt-3 flex items-center gap-2 px-3 py-2 rounded bg-siege-green/10 border border-siege-green/30 text-siege-green text-sm">
-            <span>✓</span>
-            <span>In ranked pool for the <strong>full Y11S1 season</strong>.</span>
-          </div>
-        )}
-        {!map.inRankedPool && map.rankedPool === 'second' && (
-          <div className="mt-3 flex items-center gap-2 px-3 py-2 rounded bg-siege-blue/10 border border-siege-blue/30 text-blue-300 text-sm">
-            <span>↩</span>
-            <span>Not in the current pool — <strong>returns at the Y11S1 mid-season split</strong>. Good time to build strats now.</span>
-          </div>
-        )}
-        {!map.inRankedPool && !map.rankedPool && (
-          <div className="mt-3 flex items-center gap-2 px-3 py-2 rounded bg-siege-border/30 border border-siege-border text-siege-muted text-sm">
-            <span>—</span>
-            <span>Not in the Y11S1 ranked pool.</span>
+        {/* Pool banner */}
+        {banner && (
+          <div className={`flex items-center gap-2 px-3 py-2 rounded border text-sm ${banner.bg}`}>
+            <span>{banner.icon}</span>
+            <span>{banner.text}</span>
           </div>
         )}
 
-        {/* Strat summary */}
-        <div className="mt-4 flex gap-6 text-sm">
-          <Stat label="Total Sites" value={map.stratCount.total} />
-          <Stat label="Developed" value={map.stratCount.developed} color="text-siege-green" />
-          <Stat label="Partial" value={map.stratCount.partial} color="text-yellow-500" />
-          <Stat label="Not Started" value={map.stratCount.total - map.stratCount.developed - map.stratCount.partial} color="text-siege-muted" />
+        {/* Win rate comparison — Y11S1 vs Y10S4 */}
+        <div className="grid grid-cols-2 gap-3">
+          <WinRateBlock
+            label="Y11S1"
+            wr={map.teamWinRate}
+            matches={map.teamWinRateMatches}
+            current
+          />
+          <WinRateBlock
+            label="Y10S4"
+            wr={map.teamWinRateY10S4}
+            matches={map.teamWinRateMatchesY10S4}
+          />
         </div>
 
-        {/* Progress bar */}
-        {map.stratCount.total > 0 && (
-          <div className="mt-3 h-2 bg-siege-border rounded-full overflow-hidden flex">
-            <div
-              className="bg-siege-green h-full transition-all"
-              style={{ width: `${(map.stratCount.developed / map.stratCount.total) * 100}%` }}
-            />
-            <div
-              className="bg-yellow-500 h-full transition-all"
-              style={{ width: `${(map.stratCount.partial / map.stratCount.total) * 100}%` }}
-            />
+        {/* Strat progress */}
+        <div>
+          <div className="flex gap-6 text-sm mb-2">
+            <StratStat label="Total Sites"  value={map.stratCount.total} />
+            <StratStat label="Ready"        value={map.stratCount.developed}  color="text-siege-green" />
+            <StratStat label="Partial"      value={map.stratCount.partial}    color="text-yellow-500" />
+            <StratStat label="Not Started"  value={map.stratCount.total - map.stratCount.developed - map.stratCount.partial} color="text-siege-muted" />
           </div>
-        )}
+          {map.stratCount.total > 0 && (
+            <div className="h-1.5 bg-siege-border rounded-full overflow-hidden flex">
+              <div className="bg-siege-green h-full" style={{ width: `${(map.stratCount.developed / map.stratCount.total) * 100}%` }} />
+              <div className="bg-yellow-500 h-full" style={{ width: `${(map.stratCount.partial / map.stratCount.total) * 100}%` }} />
+            </div>
+          )}
+        </div>
       </div>
 
       {/* Tabs */}
       <div className="flex gap-1 border-b border-siege-border">
-        {['strats', 'stats', 'overview', 'reference'].map(tab => (
+        {tabs.map(tab => (
           <button
-            key={tab}
-            onClick={() => setActiveTab(tab)}
-            className={`px-4 py-2 text-sm capitalize transition-colors border-b-2 -mb-px ${
-              activeTab === tab
+            key={tab.id}
+            onClick={() => setActiveTab(tab.id)}
+            className={`px-4 py-2 text-sm transition-colors border-b-2 -mb-px ${
+              activeTab === tab.id
                 ? 'border-siege-accent text-siege-accent'
                 : 'border-transparent text-siege-muted hover:text-white'
             }`}
           >
-            {tab === 'strats' ? `Strats (${map.strats.length})` : tab}
+            {tab.label}
           </button>
         ))}
       </div>
 
-      {/* Strats tab */}
-      {activeTab === 'strats' && (
-        <div className="space-y-4">
-          {/* Side filter */}
-          <div className="flex gap-2">
-            {[
-              { value: 'all', label: 'All' },
-              { value: 'ATK', label: 'Attack' },
-              { value: 'DEF', label: 'Defense' },
-            ].map(({ value, label }) => (
-              <button
-                key={value}
-                onClick={() => setSideFilter(value)}
-                className={`px-3 py-1.5 text-sm rounded border transition-colors ${
-                  sideFilter === value
-                    ? 'bg-siege-accent border-siege-accent text-siege-bg font-semibold'
-                    : 'border-siege-border text-siege-muted hover:text-white'
-                }`}
-              >
-                {label}
-              </button>
-            ))}
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            {filteredStrats.map(strat => (
-              <StratCard key={strat.filename} strat={strat} mapName={mapName} />
-            ))}
-          </div>
-
-          {filteredStrats.length === 0 && (
-            <p className="text-siege-muted text-center py-8">No strats for this filter.</p>
-          )}
-        </div>
-      )}
-
-      {/* Stats tab */}
-      {activeTab === 'stats' && (
-        <div className="space-y-4">
-          {availableSeasons.length === 0 ? (
-            <div className="card text-center py-10">
-              <p className="text-siege-muted">No player map data available yet.</p>
-              <p className="text-siege-muted text-sm mt-1">Data appears after the first stat pull with 5+ matches on this map.</p>
-            </div>
-          ) : (
-            <>
-              {/* Season selector */}
-              <div className="flex gap-2">
-                {availableSeasons.map(season => (
-                  <button
-                    key={season}
-                    onClick={() => setActiveSeason(season)}
-                    className={`px-3 py-1.5 text-sm rounded border transition-colors ${
-                      activeSeason === season
-                        ? 'bg-siege-accent border-siege-accent text-siege-bg font-semibold'
-                        : 'border-siege-border text-siege-muted hover:text-white'
-                    }`}
-                  >
-                    {season}
-                  </button>
-                ))}
-              </div>
-
-              {/* Stats table */}
-              <MapStatsTable
-                rows={map.playerStats[activeSeason] || []}
-                season={activeSeason}
-              />
-            </>
-          )}
-        </div>
-      )}
-
-      {/* Overview tab */}
+      {/* ── Overview ── */}
       {activeTab === 'overview' && (
         <div className="card">
           {map.overviewContent ? (
@@ -194,7 +161,110 @@ export default function MapDetail() {
         </div>
       )}
 
-      {/* Reference tab */}
+      {/* ── Stats ── */}
+      {activeTab === 'stats' && (
+        <div className="space-y-4">
+          {availableSeasons.length === 0 ? (
+            <div className="card text-center py-10">
+              <p className="text-siege-muted">No player map data available yet.</p>
+              <p className="text-siege-muted text-sm mt-1">Players appear here once they have 3+ ranked matches on this map.</p>
+            </div>
+          ) : (
+            <>
+              <div className="flex gap-2">
+                {availableSeasons.map(s => (
+                  <button
+                    key={s}
+                    onClick={() => setActiveSeason(s)}
+                    className={`px-3 py-1.5 text-sm rounded border transition-colors ${
+                      activeSeason === s
+                        ? 'bg-siege-accent border-siege-accent text-siege-bg font-semibold'
+                        : 'border-siege-border text-siege-muted hover:text-white'
+                    }`}
+                  >
+                    {s}
+                  </button>
+                ))}
+              </div>
+              <MapStatsTable rows={map.playerStats[activeSeason] || []} season={activeSeason} />
+            </>
+          )}
+        </div>
+      )}
+
+      {/* ── Strats ── */}
+      {activeTab === 'strats' && (
+        <div className="space-y-6">
+
+          {/* Legend + side filter */}
+          <div className="flex items-center justify-between flex-wrap gap-3">
+            <div className="flex items-center gap-4 text-xs text-siege-muted">
+              <span className="font-medium text-white">Status:</span>
+              {[
+                { status: 'developed',     label: 'Ready' },
+                { status: 'partial',       label: 'In progress' },
+                { status: 'not-developed', label: 'Not started' },
+              ].map(({ status, label }) => (
+                <span key={status} className="flex items-center gap-1.5">
+                  <StatusDot status={status} />
+                  {label}
+                </span>
+              ))}
+            </div>
+            <div className="flex gap-2">
+              {[
+                { value: 'all', label: 'All' },
+                { value: 'ATK', label: `Attack (${atkStrats.length})` },
+                { value: 'DEF', label: `Defense (${defStrats.length})` },
+              ].map(({ value, label }) => (
+                <button
+                  key={value}
+                  onClick={() => setSideFilter(value)}
+                  className={`px-3 py-1.5 text-sm rounded border transition-colors ${
+                    sideFilter === value
+                      ? 'bg-siege-accent border-siege-accent text-siege-bg font-semibold'
+                      : 'border-siege-border text-siege-muted hover:text-white'
+                  }`}
+                >
+                  {label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {filteredStrats.length === 0 && (
+            <p className="text-siege-muted text-center py-8">No strats for this filter.</p>
+          )}
+
+          {/* Attack section */}
+          {(sideFilter === 'all' || sideFilter === 'ATK') && atkStrats.length > 0 && (
+            <div>
+              <div className="flex items-center gap-3 mb-3">
+                <span className="text-siege-accent text-xs font-bold uppercase tracking-wider">Attack</span>
+                <div className="flex-1 h-px bg-siege-border" />
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {atkStrats.map(s => <StratCard key={s.filename} strat={s} mapName={mapName} />)}
+              </div>
+            </div>
+          )}
+
+          {/* Defense section */}
+          {(sideFilter === 'all' || sideFilter === 'DEF') && defStrats.length > 0 && (
+            <div>
+              <div className="flex items-center gap-3 mb-3">
+                <span className="text-siege-blue text-xs font-bold uppercase tracking-wider">Defense</span>
+                <div className="flex-1 h-px bg-siege-border" />
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {defStrats.map(s => <StratCard key={s.filename} strat={s} mapName={mapName} />)}
+              </div>
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* ── Reference ── */}
       {activeTab === 'reference' && (
         <div className="card">
           {map.referenceContent ? (
@@ -208,38 +278,83 @@ export default function MapDetail() {
   )
 }
 
+// ── Sub-components ──────────────────────────────────────────────────────────
+
+function WinRateBlock({ label, wr, matches, current }) {
+  return (
+    <div className={`rounded-lg p-3 border ${current ? 'border-siege-border bg-white/[0.03]' : 'border-siege-border/50'}`}>
+      <div className="flex items-center justify-between mb-1.5">
+        <span className={`text-xs font-semibold uppercase tracking-wider ${current ? 'text-white' : 'text-siege-muted'}`}>
+          {label}
+        </span>
+        {wr !== null
+          ? <span className={`text-sm font-bold ${wrTextCol(wr)}`}>{wr}%</span>
+          : <span className="text-xs text-siege-muted">No data</span>
+        }
+      </div>
+      <div className="h-1.5 bg-siege-border rounded-full overflow-hidden">
+        <div
+          className={`h-full rounded-full ${wrBarColor(wr)}`}
+          style={{ width: wr !== null ? `${Math.min(wr, 100)}%` : '0%' }}
+        />
+      </div>
+      {wr !== null && (
+        <p className="text-xs text-siege-muted mt-1">{matches}M sample</p>
+      )}
+    </div>
+  )
+}
+
 function StratCard({ strat, mapName }) {
-  const sideColor = strat.side === 'ATK' ? 'text-siege-accent' : 'text-siege-blue'
-  const encodedSide = strat.side.toLowerCase()
+  const isAtk = strat.side === 'ATK'
+  const sideColor = isAtk ? 'text-siege-accent' : 'text-siege-blue'
   const encodedSite = encodeURIComponent(strat.site)
+  const encodedSide = strat.side.toLowerCase()
+
+  // Up to 3 role names, comma-separated
+  const roleNames = strat.roles
+    .slice(0, 3)
+    .map(r => r.Role)
+    .join(' · ')
+  const hasMoreRoles = strat.roles.length > 3
 
   return (
     <Link
       to={`/maps/${mapName}/${encodedSide}/${encodedSite}`}
       className="card hover:border-siege-accent transition-colors block group"
     >
-      <div className="flex items-start justify-between">
-        <div>
-          <div className="flex items-center gap-2 mb-1">
-            <span className={`text-xs font-bold ${sideColor}`}>{strat.side === 'ATK' ? 'Attack' : 'Defense'}</span>
-            <StatusDot status={strat.status} />
-          </div>
-          <h3 className="text-white font-medium group-hover:text-siege-accent transition-colors">
-            {strat.site}
-          </h3>
+      <div className="flex items-start justify-between gap-2 mb-1">
+        <div className="flex items-center gap-2">
+          <StatusDot status={strat.status} />
+          {strat.formation && (
+            <span className={`text-xs font-mono border rounded px-1 py-0.5 ${isAtk ? 'border-siege-accent/30 text-siege-accent/70' : 'border-blue-500/30 text-blue-400/70'}`}>
+              {strat.formation}
+            </span>
+          )}
         </div>
-        <span className="text-siege-muted text-xs">View →</span>
+        <span className="text-siege-muted text-xs opacity-0 group-hover:opacity-100 transition-opacity">View →</span>
       </div>
 
-      {/* Role count */}
-      {strat.roles.length > 0 && (
-        <p className="text-siege-muted text-xs mt-2">{strat.roles.length} roles defined</p>
+      <h3 className="text-white font-semibold group-hover:text-siege-accent transition-colors leading-snug mb-1">
+        {strat.site}
+      </h3>
+
+      {strat.siteContext && (
+        <p className="text-siege-muted text-xs leading-relaxed line-clamp-2 mb-2">
+          {strat.siteContext}
+        </p>
+      )}
+
+      {roleNames && (
+        <p className="text-xs text-siege-muted/70 mt-auto">
+          {roleNames}{hasMoreRoles ? ` · +${strat.roles.length - 3} more` : ''}
+        </p>
       )}
     </Link>
   )
 }
 
-function Stat({ label, value, color = 'text-white' }) {
+function StratStat({ label, value, color = 'text-white' }) {
   return (
     <div>
       <div className={`text-lg font-bold ${color}`}>{value}</div>
@@ -258,26 +373,21 @@ function MapStatsTable({ rows, season }) {
     )
   }
 
-  // Compute match-weighted team averages
   const totalMatches = rows.reduce((s, r) => s + r.matches, 0)
+  const wavg = (field) =>
+    totalMatches > 0
+      ? Math.round((rows.reduce((s, r) => s + r[field] * r.matches, 0) / totalMatches) * 10) / 10
+      : null
   const avg = {
     matches: totalMatches,
-    winRate: totalMatches > 0
-      ? Math.round((rows.reduce((s, r) => s + r.winRate * r.matches, 0) / totalMatches) * 10) / 10
-      : null,
-    kd: totalMatches > 0
-      ? Math.round((rows.reduce((s, r) => s + r.kd * r.matches, 0) / totalMatches) * 100) / 100
-      : null,
-    atkWr: totalMatches > 0
-      ? Math.round((rows.reduce((s, r) => s + r.atkWr * r.matches, 0) / totalMatches) * 10) / 10
-      : null,
-    defWr: totalMatches > 0
-      ? Math.round((rows.reduce((s, r) => s + r.defWr * r.matches, 0) / totalMatches) * 10) / 10
-      : null,
+    winRate: wavg('winRate'),
+    kd:      totalMatches > 0 ? Math.round((rows.reduce((s,r) => s + r.kd * r.matches, 0) / totalMatches) * 100) / 100 : null,
+    atkWr:   wavg('atkWr'),
+    defWr:   wavg('defWr'),
   }
 
   const colHead = 'text-left text-xs text-siege-muted font-medium uppercase tracking-wide py-2 px-3'
-  const cell = 'py-2 px-3 text-sm'
+  const cell    = 'py-2 px-3 text-sm'
 
   return (
     <div className="card overflow-x-auto">
@@ -294,10 +404,7 @@ function MapStatsTable({ rows, season }) {
         </thead>
         <tbody>
           {rows.map((row, i) => (
-            <tr
-              key={row.callsign}
-              className={`border-b border-siege-border/50 ${i % 2 === 0 ? '' : 'bg-white/[0.02]'}`}
-            >
+            <tr key={row.callsign} className={`border-b border-siege-border/50 ${i % 2 !== 0 ? 'bg-white/[0.02]' : ''}`}>
               <td className={`${cell} font-medium text-white`}>{row.callsign}</td>
               <td className={`${cell} text-right text-siege-muted`}>{row.matches}</td>
               <td className={`${cell} text-right`}>
