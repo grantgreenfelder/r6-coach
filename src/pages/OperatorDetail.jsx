@@ -1,6 +1,7 @@
 import { useParams, Link } from 'react-router-dom'
 import { useState } from 'react'
 import operatorsData from '../data/operators.json'
+import playersData from '../data/players.json'
 
 // ─── Constants ────────────────────────────────────────────────────────────────
 
@@ -166,8 +167,10 @@ function WikiTab({ op }) {
 
 // ─── Stats Tab ────────────────────────────────────────────────────────────────
 
-const PLAYER_ORDER = ['Grant', 'Peej', 'Hound', 'Smigs', 'Sarge', 'Slug', 'Krafty', 'Bob', 'Hunter']
-const MAIN_STACK = new Set(['Grant', 'Peej', 'Hound', 'Smigs', 'Sarge'])
+const _mainNames = (playersData.mainStack || []).map(p => p.name)
+const _bTeamNames = (playersData.bTeam || []).map(p => p.name)
+const PLAYER_ORDER = [..._mainNames, ..._bTeamNames]
+const MAIN_STACK = new Set(_mainNames)
 
 function PlayerStatRow({ entry, maxRounds }) {
   const wr = entry.winRate

@@ -6,7 +6,15 @@ const ratingMap = {
   unknown: { label: '? Unknown', cls: 'badge-unknown' },
 }
 
-export default function RatingBadge({ rating }) {
+// size="sm" | "md" (default) | "lg"
+const sizeMap = {
+  sm: 'text-xs px-1.5 py-0.5',
+  md: 'text-xs px-2 py-0.5',
+  lg: 'text-sm px-3 py-1',
+}
+
+export default function RatingBadge({ rating, size = 'md' }) {
   const { label, cls } = ratingMap[rating] || ratingMap.unknown
-  return <span className={cls}>{label}</span>
+  const sizeCls = sizeMap[size] || sizeMap.md
+  return <span className={`${cls} ${sizeCls}`}>{label}</span>
 }

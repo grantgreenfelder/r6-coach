@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import playersData from '../data/players.json'
 
@@ -50,23 +51,76 @@ function PlayerCard({ player }) {
 
 export default function Players() {
   const { mainStack, bTeam } = playersData
+  const [search, setSearch] = useState('')
+  const [sortBy, setSortBy] = useState('ris')
+  const [teamFilter, setTeamFilter] = useState('all')
 
-  const allPlayers = [...mainStack, ...bTeam].sort((a, b) => {
-    const risA = parseFloat(a.stats?.ris) || 0
-    const risB = parseFloat(b.stats?.ris) || 0
-    return risB - risA
-  })
+  const allPlayers = [
+    ...mainStack.map(p => ({ ...p, team: 'main' })),
+    ...bTeam.map(p => ({ ...p, team: 'bteam' })),
+  ]
+
+  const filtered = allPlayers
+    .filter(p => {
+      const q = search.toLowerCase()
+      const matchesSearch = !q || p.name.toLowerCase().includes(q) || (p.role || '').toLowerCase().includes(q)
+      const matchesTeam = teamFilter === 'all' || p.team === teamFilter
+      return matchesSearch && matchesTeam
+    })
+    .sort((a, b) => {
+      if (sortBy === 'ris') return (parseFloat(b.stats?.ris) || 0) - (parseFloat(a.stats?.ris) || 0)
+      if (sortBy === 'kd')  return (parseFloat(b.stats?.kd)  || 0) - (parseFloat(a.stats?.kd)  || 0)
+      if (sortBy === 'wr')  return (parseFloat(b.stats?.winRate) || 0) - (parseFloat(a.stats?.winRate) || 0)
+      if (sortBy === 'name') return a.name.localeCompare(b.name)
+      return 0
+    })
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-5">
       <div>
         <h1 className="text-2xl font-bold text-white">Roster</h1>
         <p className="text-siege-muted text-sm mt-1">Player profiles and season stats</p>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {allPlayers.map(p => <PlayerCard key={p.name} player={p} />)}
+      {/* Search + filters */}
+      <div className="flex flex-wrap gap-2 items-center">
+        <input
+          type="text"
+          placeholder="Search by name or role..."
+          value={search}
+          onChange={e => setSearch(e.target.value)}
+          className="bg-siege-card border border-siege-border rounded px-3 py-1.5 text-sm text-white placeholder:text-siege-muted focus:outline-none focus:border-siege-accent flex-1 min-w-[180px] max-w-xs"
+        />
+        <div className="flex gap-1">
+          {[['all', 'All'], ['main', 'Main Stack'], ['bteam', 'B Team']].map(([val, label]) => (
+            <button key={val} onClick={() => setTeamFilter(val)}
+              className={`px-3 py-1.5 rounded text-xs font-medium transition-colors ${
+                teamFilter === val ? 'bg-siege-accent text-siege-bg' : 'bg-siege-card border border-siege-border text-siege-muted hover:text-white'
+              }`}>
+              {label}
+            </button>
+          ))}
+        </div>
+        <div className="flex gap-1 ml-auto">
+          <span className="text-siege-muted text-xs self-center mr-1">Sort:</span>
+          {[['ris', 'RIS'], ['kd', 'K/D'], ['wr', 'Win%'], ['name', 'A–Z']].map(([val, label]) => (
+            <button key={val} onClick={() => setSortBy(val)}
+              className={`px-2.5 py-1.5 rounded text-xs font-medium transition-colors ${
+                sortBy === val ? 'bg-siege-accent text-siege-bg' : 'bg-siege-card border border-siege-border text-siege-muted hover:text-white'
+              }`}>
+              {label}
+            </button>
+          ))}
+        </div>
       </div>
+
+      {filtered.length === 0 ? (
+        <p className="text-siege-muted text-sm text-center py-12">No players match "{search}"</p>
+      ) : (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {filtered.map(p => <PlayerCard key={p.name} player={p} />)}
+        </div>
+      )}
     </div>
   )
 }

@@ -3,6 +3,7 @@ import playersData from '../data/players.json'
 import mapsData from '../data/maps.json'
 import stackData from '../data/stack.json'
 import metaData from '../data/meta.json'
+import { RIS_MIN, RIS_MAX, RIS_BASELINE_PCT, risColor, wrColor } from '../utils/constants'
 
 // ─── Insight Strip ─────────────────────────────────────────────────────────────
 
@@ -20,17 +21,12 @@ function InsightCard({ label, value, sub, color = 'text-siege-accent', to }) {
 // ─── Player Card ───────────────────────────────────────────────────────────────
 
 // RIS bar: scale 25–75 so the typical range fills the full bar width.
-// Baseline of 50 is marked with a tick. Green above, yellow near, red below.
-const RIS_MIN = 25
-const RIS_MAX = 75
-const RIS_BASELINE = 50
-const baselinePct = ((RIS_BASELINE - RIS_MIN) / (RIS_MAX - RIS_MIN)) * 100 // 50%
-
+// Baseline of 50 is marked with a tick.
 function RisBar({ ris }) {
   const risNum = parseFloat(ris)
   if (isNaN(risNum)) return null
   const fillPct = Math.max(0, Math.min(100, ((risNum - RIS_MIN) / (RIS_MAX - RIS_MIN)) * 100))
-  const color = risNum >= 58 ? 'bg-siege-green' : risNum >= 48 ? 'bg-blue-400' : risNum >= 38 ? 'bg-yellow-500' : 'bg-siege-red'
+  const color = risColor(ris)
 
   return (
     <div className="relative h-2 bg-siege-border rounded-full overflow-visible mb-1">
@@ -79,11 +75,7 @@ function PlayerCard({ player }) {
           <p className="text-siege-muted text-xs mt-0.5">RIS</p>
         </div>
         <div className="text-center">
-          <p className={`text-lg font-bold leading-none ${
-            wrNum >= 55 ? 'text-siege-green' :
-            wrNum >= 45 ? 'text-white' :
-            wrNum >= 35 ? 'text-yellow-400' : 'text-siege-red'
-          }`}>{winRate ?? '—'}</p>
+          <p className={`text-lg font-bold leading-none ${wrColor(wrNum)}`}>{winRate ?? '—'}</p>
           <p className="text-siege-muted text-xs mt-0.5">Win%</p>
         </div>
       </div>
@@ -92,7 +84,7 @@ function PlayerCard({ player }) {
       <RisBar ris={ris} />
       <div className="flex justify-between text-xs text-siege-muted mb-2">
         <span>RIS</span>
-        <span style={{ marginLeft: `${baselinePct}%`, transform: 'translateX(-50%)' }} className="absolute text-white/20 text-xs">|</span>
+        <span style={{ marginLeft: `${RIS_BASELINE_PCT}%`, transform: 'translateX(-50%)' }} className="absolute text-white/20 text-xs">|</span>
         <span>baseline 50</span>
       </div>
 

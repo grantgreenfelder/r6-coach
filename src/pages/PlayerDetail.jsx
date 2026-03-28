@@ -376,7 +376,7 @@ export default function PlayerDetail() {
           operators={player.prevSeasonOperators}
           mapPerformance={player.prevSeasonMapPerformance}
           notes={y10s4Notes}
-          priorities={[]}
+          priorities={player.prevSeasonPriorities || []}
         />
       )}
 

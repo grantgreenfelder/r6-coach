@@ -3,8 +3,8 @@ import playersData from '../data/players.json'
 import stackData from '../data/stack.json'
 import mapsData from '../data/maps.json'
 
-const MAIN_STACK = ['Grant', 'Peej', 'Hound', 'Smigs', 'Sarge']
-const B_TEAM = ['Slug', 'Krafty', 'Bob', 'Hunter']
+const MAIN_STACK = (playersData.mainStack || []).map(p => p.name)
+const B_TEAM = (playersData.bTeam || []).map(p => p.name)
 const ALL_PLAYERS = [...MAIN_STACK, ...B_TEAM]
 
 export default function SessionPrep() {

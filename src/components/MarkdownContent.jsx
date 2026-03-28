@@ -1,4 +1,5 @@
 import { marked } from 'marked'
+import DOMPurify from 'dompurify'
 import { useMemo } from 'react'
 
 marked.setOptions({ breaks: true, gfm: true })
@@ -6,7 +7,7 @@ marked.setOptions({ breaks: true, gfm: true })
 export default function MarkdownContent({ content, className = '' }) {
   const html = useMemo(() => {
     if (!content) return ''
-    return marked.parse(content)
+    return DOMPurify.sanitize(marked.parse(content))
   }, [content])
 
   return (
