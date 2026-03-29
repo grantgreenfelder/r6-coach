@@ -334,7 +334,7 @@ function PlayerCallout({ player }) {
         <div className="flex items-center gap-3">
           {/* Op portrait chips — ATK first, then DEF */}
           <div className="flex -space-x-1 flex-shrink-0">
-            {[...(player.atkOps || '').split(','), ...(player.defOps || '').split(',')]
+            {[...(player.atkOps || '').split(/[,/]/), ...(player.defOps || '').split(/[,/]/)]
               .map(s => s.trim()).filter(Boolean).slice(0, 4)
               .map((name, i) => (
                 <div
