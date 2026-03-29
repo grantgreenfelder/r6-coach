@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import operatorsData from '../data/operators.json'
+import { getPortraitUrl } from '../utils/operatorPortraits'
 
 const SIDE_COLORS = {
   ATK: { dot: 'bg-orange-400', text: 'text-orange-400', badge: 'bg-orange-400/10 text-orange-400 border-orange-400/30' },
@@ -9,6 +10,7 @@ const SIDE_COLORS = {
 
 function OperatorTile({ op }) {
   const [imgError, setImgError] = useState(false)
+  const portraitSrc = getPortraitUrl(op.name)
   return (
     <Link
       to={`/operators/${op.name}`}
@@ -19,9 +21,9 @@ function OperatorTile({ op }) {
       <div className="w-14 h-14 rounded-lg overflow-hidden bg-black/40 flex items-center justify-center flex-shrink-0">
         {!imgError ? (
           <img
-            src={op.imageUrl}
+            src={portraitSrc}
             alt={op.name}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover object-top"
             onError={() => setImgError(true)}
           />
         ) : (

@@ -3,6 +3,7 @@ import { useState } from 'react'
 import operatorsData from '../data/operators.json'
 import playersData from '../data/players.json'
 import { opWrColor, opWrBgColor, kdColor } from '../utils/constants'
+import { getPortraitUrl } from '../utils/operatorPortraits'
 import { NotFound } from '../components/EmptyState'
 import HelpTip from '../components/HelpTip'
 import { GLOSSARY } from '../utils/glossary'
@@ -345,9 +346,9 @@ export default function OperatorDetail() {
         <div className="w-20 h-20 rounded-xl overflow-hidden bg-black/40 flex items-center justify-center flex-shrink-0">
           {!imgError ? (
             <img
-              src={op.imageUrl}
+              src={getPortraitUrl(op.name)}
               alt={op.name}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover object-top"
               onError={() => setImgError(true)}
             />
           ) : (

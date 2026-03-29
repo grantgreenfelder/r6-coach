@@ -6,6 +6,7 @@ import metaData from '../data/meta.json'
 import { RIS_MIN, RIS_MAX, RIS_BASELINE_PCT, risColor, wrColor, wrTileClass } from '../utils/constants'
 import HelpTip from '../components/HelpTip'
 import { GLOSSARY } from '../utils/glossary'
+import { getMapThumbnailUrl } from '../utils/mapThumbnails'
 
 // ─── Insight Strip ─────────────────────────────────────────────────────────────
 
@@ -107,14 +108,21 @@ function MapTile({ map }) {
   const bg = wr === null
     ? 'bg-siege-card border-siege-border text-siege-muted'
     : wrTileClass(wr)
+  const thumbnailUrl = getMapThumbnailUrl(map.name)
 
   return (
     <Link
       to={`/maps/${map.name}`}
-      className={`border rounded-lg px-1.5 py-2.5 sm:px-2 sm:py-2 text-center hover:opacity-80 transition-opacity min-h-[52px] flex flex-col justify-center ${bg}`}
+      className={`relative overflow-hidden border rounded-lg px-1.5 py-2.5 sm:px-2 sm:py-2 text-center hover:opacity-80 transition-opacity min-h-[52px] flex flex-col justify-center ${bg}`}
     >
-      <p className="text-[10px] sm:text-xs font-medium leading-tight truncate">{map.displayName}</p>
-      <p className="text-xs sm:text-sm font-bold mt-0.5">{wr !== null ? `${wr}%` : '—'}</p>
+      {thumbnailUrl && (
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-20 pointer-events-none"
+          style={{ backgroundImage: `url(${thumbnailUrl})` }}
+        />
+      )}
+      <p className="relative text-[10px] sm:text-xs font-medium leading-tight truncate">{map.displayName}</p>
+      <p className="relative text-xs sm:text-sm font-bold mt-0.5">{wr !== null ? `${wr}%` : '—'}</p>
     </Link>
   )
 }

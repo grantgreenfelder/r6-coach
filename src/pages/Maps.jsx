@@ -3,6 +3,7 @@ import { useState } from 'react'
 import mapsData from '../data/maps.json'
 import RatingBadge from '../components/RatingBadge'
 import StatusDot from '../components/StatusDot'
+import { getMapThumbnailUrl } from '../utils/mapThumbnails'
 
 const SEASONS = ['Y11S1', 'Y10S4']
 
@@ -152,12 +153,20 @@ function MapCard({ map, season, getWr, getWrM, getRating }) {
     wr >= 30     ? 'text-orange-400 font-semibold' :
                    'text-red-400 font-semibold'
 
+  const thumbnailUrl = getMapThumbnailUrl(map.name)
+
   return (
     <Link
       to={`/maps/${map.name}`}
-      className="card hover:border-siege-accent transition-colors block group"
+      className="card hover:border-siege-accent transition-colors block group relative overflow-hidden"
     >
-      <div className="flex items-start justify-between mb-2">
+      {thumbnailUrl && (
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-[0.12] pointer-events-none"
+          style={{ backgroundImage: `url(${thumbnailUrl})` }}
+        />
+      )}
+      <div className="flex items-start justify-between mb-2 relative">
         <h2 className="text-white font-semibold text-lg group-hover:text-siege-accent transition-colors">
           {map.displayName}
         </h2>
