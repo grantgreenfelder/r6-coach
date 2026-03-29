@@ -3,6 +3,7 @@ import playersData from '../data/players.json'
 import stackData from '../data/stack.json'
 import { wrColor, wrBgColor } from '../utils/constants'
 import mapsData from '../data/maps.json'
+import { getPortraitUrl } from '../utils/operatorPortraits'
 
 const MAIN_STACK = (playersData.mainStack || []).map(p => p.name)
 const B_TEAM = (playersData.bTeam || []).map(p => p.name)
@@ -331,8 +332,20 @@ function PlayerCallout({ player }) {
       {/* Header */}
       <div className="flex items-center justify-between mb-2">
         <div className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-full bg-siege-accent flex items-center justify-center text-sm font-bold text-siege-bg flex-shrink-0">
-            {player.name[0]}
+          {/* Op portrait chips — ATK first, then DEF */}
+          <div className="flex -space-x-1 flex-shrink-0">
+            {[...(player.atkOps || '').split(','), ...(player.defOps || '').split(',')]
+              .map(s => s.trim()).filter(Boolean).slice(0, 4)
+              .map((name, i) => (
+                <div
+                  key={i}
+                  className="w-8 h-8 rounded-full overflow-hidden ring-2 ring-siege-card bg-siege-border flex-shrink-0"
+                  title={name}
+                >
+                  <img src={getPortraitUrl(name)} alt={name} className="w-full h-full object-cover object-top" />
+                </div>
+              ))
+            }
           </div>
           <div>
             <span className="text-white font-semibold">{player.name}</span>

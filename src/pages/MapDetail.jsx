@@ -6,6 +6,7 @@ import StatusDot from '../components/StatusDot'
 import { NotFound } from '../components/EmptyState'
 import MarkdownContent from '../components/MarkdownContent'
 import { wrColor, wrBgColor, kdColor } from '../utils/constants'
+import { getMapThumbnailUrl } from '../utils/mapThumbnails'
 
 // Win rate bar + text colour helpers (mirrors Maps.jsx 5-tier logic)
 function wrBarColor(wr) {
@@ -84,52 +85,76 @@ export default function MapDetail() {
       {/* Breadcrumb */}
       <Link to="/maps" className="text-siege-muted hover:text-siege-accent text-sm">← Maps</Link>
 
-      {/* Header card */}
-      <div className="card space-y-4">
+      {/* Header card — hero image + stats */}
+      <div className="card overflow-hidden p-0">
 
-        {/* Title row */}
-        <div className="flex items-start justify-between flex-wrap gap-4">
-          <h1 className="text-2xl font-bold text-white">{map.displayName}</h1>
-          <RatingBadge rating={map.rating} size="lg" />
-        </div>
+        {/* Hero image with gradient overlay */}
+        {(() => {
+          const thumbUrl = getMapThumbnailUrl(map.name)
+          return thumbUrl ? (
+            <div className="relative h-36 sm:h-44 overflow-hidden">
+              <div
+                className="absolute inset-0 bg-cover bg-center scale-105"
+                style={{ backgroundImage: `url(${thumbUrl})` }}
+              />
+              {/* dark gradient — heavier at bottom so text is readable */}
+              <div className="absolute inset-0 bg-gradient-to-t from-siege-card via-siege-card/60 to-black/20" />
+              {/* Map name + rating pinned to bottom-left / right */}
+              <div className="absolute bottom-0 left-0 right-0 px-4 pb-3 flex items-end justify-between gap-3">
+                <h1 className="text-2xl sm:text-3xl font-bold text-white drop-shadow">{map.displayName}</h1>
+                <RatingBadge rating={map.rating} size="lg" />
+              </div>
+            </div>
+          ) : (
+            /* fallback: plain title row */
+            <div className="px-4 pt-4 flex items-start justify-between flex-wrap gap-4">
+              <h1 className="text-2xl font-bold text-white">{map.displayName}</h1>
+              <RatingBadge rating={map.rating} size="lg" />
+            </div>
+          )
+        })()}
 
-        {/* Pool banner */}
-        {banner && (
-          <div className={`flex items-center gap-2 px-3 py-2 rounded border text-sm ${banner.bg}`}>
-            <span>{banner.icon}</span>
-            <span>{banner.text}</span>
-          </div>
-        )}
+        {/* Card body */}
+        <div className="px-4 pb-4 space-y-4 pt-3">
 
-        {/* Win rate comparison — Y11S1 vs Y10S4 */}
-        <div className="grid grid-cols-2 gap-3">
-          <WinRateBlock
-            label="Y11S1"
-            wr={map.teamWinRate}
-            matches={map.teamWinRateMatches}
-            current
-          />
-          <WinRateBlock
-            label="Y10S4"
-            wr={map.teamWinRateY10S4}
-            matches={map.teamWinRateMatchesY10S4}
-          />
-        </div>
-
-        {/* Strat progress */}
-        <div>
-          <div className="flex gap-6 text-sm mb-2">
-            <StratStat label="Total Sites"  value={map.stratCount.total} />
-            <StratStat label="Ready"        value={map.stratCount.developed}  color="text-siege-green" />
-            <StratStat label="Partial"      value={map.stratCount.partial}    color="text-yellow-500" />
-            <StratStat label="Not Started"  value={map.stratCount.total - map.stratCount.developed - map.stratCount.partial} color="text-siege-muted" />
-          </div>
-          {map.stratCount.total > 0 && (
-            <div className="h-1.5 bg-siege-border rounded-full overflow-hidden flex">
-              <div className="bg-siege-green h-full" style={{ width: `${(map.stratCount.developed / map.stratCount.total) * 100}%` }} />
-              <div className="bg-yellow-500 h-full" style={{ width: `${(map.stratCount.partial / map.stratCount.total) * 100}%` }} />
+          {/* Pool banner */}
+          {banner && (
+            <div className={`flex items-center gap-2 px-3 py-2 rounded border text-sm ${banner.bg}`}>
+              <span>{banner.icon}</span>
+              <span>{banner.text}</span>
             </div>
           )}
+
+          {/* Win rate comparison — Y11S1 vs Y10S4 */}
+          <div className="grid grid-cols-2 gap-3">
+            <WinRateBlock
+              label="Y11S1"
+              wr={map.teamWinRate}
+              matches={map.teamWinRateMatches}
+              current
+            />
+            <WinRateBlock
+              label="Y10S4"
+              wr={map.teamWinRateY10S4}
+              matches={map.teamWinRateMatchesY10S4}
+            />
+          </div>
+
+          {/* Strat progress */}
+          <div>
+            <div className="flex gap-6 text-sm mb-2">
+              <StratStat label="Total Sites"  value={map.stratCount.total} />
+              <StratStat label="Ready"        value={map.stratCount.developed}  color="text-siege-green" />
+              <StratStat label="Partial"      value={map.stratCount.partial}    color="text-yellow-500" />
+              <StratStat label="Not Started"  value={map.stratCount.total - map.stratCount.developed - map.stratCount.partial} color="text-siege-muted" />
+            </div>
+            {map.stratCount.total > 0 && (
+              <div className="h-1.5 bg-siege-border rounded-full overflow-hidden flex">
+                <div className="bg-siege-green h-full" style={{ width: `${(map.stratCount.developed / map.stratCount.total) * 100}%` }} />
+                <div className="bg-yellow-500 h-full" style={{ width: `${(map.stratCount.partial / map.stratCount.total) * 100}%` }} />
+              </div>
+            )}
+          </div>
         </div>
       </div>
 

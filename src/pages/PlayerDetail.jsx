@@ -5,6 +5,7 @@ import { opWrColor, opWrBgColor, wrColor, wrBgColor, kdColor, risTextColor } fro
 import { NotFound } from '../components/EmptyState'
 import HelpTip from '../components/HelpTip'
 import { GLOSSARY } from '../utils/glossary'
+import { getPortraitUrl } from '../utils/operatorPortraits'
 
 // ─── Markdown helpers ──────────────────────────────────────────────────────────
 
@@ -62,8 +63,15 @@ function OpRow({ op, maxRounds }) {
 
   return (
     <div className="flex items-center gap-2 py-1.5 border-b border-siege-border/40 last:border-0">
-      {/* Op name + flag */}
-      <div className="flex items-center gap-1.5 w-28 flex-shrink-0 min-w-0">
+      {/* Op portrait + name + flag */}
+      <div className="flex items-center gap-1.5 w-32 flex-shrink-0 min-w-0">
+        <div className="w-6 h-6 rounded overflow-hidden bg-siege-border flex-shrink-0 ring-1 ring-siege-border/60">
+          <img
+            src={getPortraitUrl(op.name)}
+            alt=""
+            className="w-full h-full object-cover object-top"
+          />
+        </div>
         <span className="text-white text-sm font-medium truncate">{op.name}</span>
         {op.flag && (
           <span title={FLAG_LABEL[op.flag] || op.flag} className="text-xs leading-none flex-shrink-0">{op.flag}</span>

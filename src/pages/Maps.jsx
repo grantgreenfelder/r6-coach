@@ -158,69 +158,78 @@ function MapCard({ map, season, getWr, getWrM, getRating }) {
   return (
     <Link
       to={`/maps/${map.name}`}
-      className="card hover:border-siege-accent transition-colors block group relative overflow-hidden"
+      className="card hover:border-siege-accent transition-colors block group overflow-hidden p-0"
     >
-      {thumbnailUrl && (
-        <div
-          className="absolute inset-0 bg-cover bg-center opacity-[0.12] pointer-events-none"
-          style={{ backgroundImage: `url(${thumbnailUrl})` }}
-        />
-      )}
-      <div className="flex items-start justify-between mb-2 relative">
-        <h2 className="text-white font-semibold text-lg group-hover:text-siege-accent transition-colors">
-          {map.displayName}
-        </h2>
-        <RatingBadge rating={rating} />
-      </div>
-
-      {/* Win rate bar */}
-      <div className="mb-3">
-        <div className="flex justify-between text-xs mb-1">
-          {wr !== null ? (
-            <>
-              <span className={wrTextColor}>
-                {wr}% Win Rate
-                <span className="text-siege-muted font-normal ml-1">· {season}</span>
-              </span>
-              <span className="text-siege-muted">{wrM}M sample</span>
-            </>
-          ) : (
-            <span className="text-siege-muted">No {season} data</span>
-          )}
-        </div>
-        <div className="h-1.5 bg-siege-border rounded-full overflow-hidden">
-          <div
-            className={`h-full rounded-full transition-all ${barColor}`}
-            style={{ width: wr !== null ? `${Math.min(wr, 100)}%` : '0%' }}
-          />
-        </div>
-        <div className="text-xs text-siege-muted mt-1">
-          {devCount} strats ready · {partialCount} partial · {totalCount - devCount - partialCount} not started
+      {/* Image strip header */}
+      <div className="relative h-20 overflow-hidden bg-siege-border">
+        {thumbnailUrl && (
+          <>
+            <div
+              className="absolute inset-0 bg-cover bg-center scale-105 group-hover:scale-110 transition-transform duration-500"
+              style={{ backgroundImage: `url(${thumbnailUrl})` }}
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-siege-card/90 to-black/10" />
+          </>
+        )}
+        <div className="absolute bottom-0 left-0 right-0 px-3 pb-2 flex items-end justify-between gap-2">
+          <h2 className="text-white font-semibold text-base group-hover:text-siege-accent transition-colors leading-tight drop-shadow">
+            {map.displayName}
+          </h2>
+          <RatingBadge rating={rating} />
         </div>
       </div>
 
-      {/* Attack / Defense split */}
-      <div className="flex gap-4 text-sm">
-        <div>
-          <span className="text-siege-muted">Attack </span>
-          <span className="text-white font-medium">{map.strats.filter(s => s.side === 'ATK').length}</span>
-          <span className="text-siege-muted"> sites</span>
+      {/* Card body */}
+      <div className="p-3">
+        {/* Win rate bar */}
+        <div className="mb-3">
+          <div className="flex justify-between text-xs mb-1">
+            {wr !== null ? (
+              <>
+                <span className={wrTextColor}>
+                  {wr}% Win Rate
+                  <span className="text-siege-muted font-normal ml-1">· {season}</span>
+                </span>
+                <span className="text-siege-muted">{wrM}M sample</span>
+              </>
+            ) : (
+              <span className="text-siege-muted">No {season} data</span>
+            )}
+          </div>
+          <div className="h-1.5 bg-siege-border rounded-full overflow-hidden">
+            <div
+              className={`h-full rounded-full transition-all ${barColor}`}
+              style={{ width: wr !== null ? `${Math.min(wr, 100)}%` : '0%' }}
+            />
+          </div>
+          <div className="text-xs text-siege-muted mt-1">
+            {devCount} strats ready · {partialCount} partial · {totalCount - devCount - partialCount} not started
+          </div>
         </div>
-        <div>
-          <span className="text-siege-muted">Defense </span>
-          <span className="text-white font-medium">{map.strats.filter(s => s.side === 'DEF').length}</span>
-          <span className="text-siege-muted"> sites</span>
-        </div>
-      </div>
 
-      {/* Quick strat status dots */}
-      {map.strats.length > 0 && (
-        <div className="mt-3 flex flex-wrap gap-1">
-          {map.strats.map(s => (
-            <StatusDot key={s.filename} status={s.status} title={`${s.side} ${s.site}`} />
-          ))}
+        {/* Attack / Defense split */}
+        <div className="flex gap-4 text-sm">
+          <div>
+            <span className="text-siege-muted">Attack </span>
+            <span className="text-white font-medium">{map.strats.filter(s => s.side === 'ATK').length}</span>
+            <span className="text-siege-muted"> sites</span>
+          </div>
+          <div>
+            <span className="text-siege-muted">Defense </span>
+            <span className="text-white font-medium">{map.strats.filter(s => s.side === 'DEF').length}</span>
+            <span className="text-siege-muted"> sites</span>
+          </div>
         </div>
-      )}
+
+        {/* Quick strat status dots */}
+        {map.strats.length > 0 && (
+          <div className="mt-3 flex flex-wrap gap-1">
+            {map.strats.map(s => (
+              <StatusDot key={s.filename} status={s.status} title={`${s.side} ${s.site}`} />
+            ))}
+          </div>
+        )}
+      </div>
     </Link>
   )
 }

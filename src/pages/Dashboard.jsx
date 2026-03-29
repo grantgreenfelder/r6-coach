@@ -7,6 +7,32 @@ import { RIS_MIN, RIS_MAX, RIS_BASELINE_PCT, risColor, wrColor, wrTileClass } fr
 import HelpTip from '../components/HelpTip'
 import { GLOSSARY } from '../utils/glossary'
 import { getMapThumbnailUrl } from '../utils/mapThumbnails'
+import { getPortraitUrl } from '../utils/operatorPortraits'
+
+// ─── Op Portrait Chips ─────────────────────────────────────────────────────────
+
+function OpChips({ label, opsString }) {
+  if (!opsString) return null
+  const ops = opsString.split(',').map(s => s.trim()).filter(Boolean)
+  return (
+    <div className="flex items-center gap-1">
+      <span className="text-gray-500 text-[10px]">{label}</span>
+      {ops.map(name => (
+        <div
+          key={name}
+          className="w-5 h-5 rounded overflow-hidden bg-siege-border flex-shrink-0 ring-1 ring-siege-border"
+          title={name}
+        >
+          <img
+            src={getPortraitUrl(name)}
+            alt={name}
+            className="w-full h-full object-cover object-top"
+          />
+        </div>
+      ))}
+    </div>
+  )
+}
 
 // ─── Insight Strip ─────────────────────────────────────────────────────────────
 
@@ -92,9 +118,9 @@ function PlayerCard({ player }) {
 
       {/* Ops */}
       {(player.atkOps || player.defOps) && (
-        <div className="flex gap-3 text-xs text-siege-muted">
-          {player.atkOps && <span><span className="text-gray-500">Atk </span>{player.atkOps}</span>}
-          {player.defOps && <span><span className="text-gray-500">Def </span>{player.defOps}</span>}
+        <div className="flex gap-3">
+          <OpChips label="Atk" opsString={player.atkOps} />
+          <OpChips label="Def" opsString={player.defOps} />
         </div>
       )}
     </Link>
