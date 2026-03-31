@@ -66,7 +66,7 @@ const PORTRAITS = {
   skopos:      BASE + '3lK6qZnfGtclnA6uhyGovV/63e2969f276794c8c240c207c34e41a6/r6s-operators-list-skopos.png',
   sledge:      BASE + '6eIdbZWLBIdtCygNAu9uue/8856e29f0e9ebc3b6ed996223586ebce/r6-operators-list-sledge.png',
   smoke:       BASE + '2Tm9rzdq6j9cpdW9qjnnrw/10d42d14755002e1056d1a940841482c/r6-operators-list-smoke.png',
-  solidsnake:  BASE + '7vApDDlVt8oDbshANnYbGC/2ba6d3cbd2649979ebbbf9c2ebdb4d7d/r6s-operators-list-solidsnake.png',
+  solid_snake: BASE + '7vApDDlVt8oDbshANnYbGC/2ba6d3cbd2649979ebbbf9c2ebdb4d7d/r6s-operators-list-solidsnake.png',
   solis:       BASE + '2OV2K9FVqJdSNAogr0Wpod/62f2016a6c660714eb9a3c4a1f8196d4/r6s-operators-list-solis.png',
   striker:     BASE + '17NnCKm86wr8XUEajrYiOz/c971adfefc7e0910a99b3da91a2573e8/r6s-operators-list-striker.png',
   tachanka:    BASE + '5P9kGyOrnsu7lRyr9xC71t/53981da03fa36adf99adf61bc098bd4a/r6s-operators-list-tachanka.png',
