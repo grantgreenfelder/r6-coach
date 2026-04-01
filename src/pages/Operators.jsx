@@ -69,7 +69,7 @@ function OperatorTile({ op }) {
           {mains.map(initial => (
             <span
               key={initial}
-              className="w-4 h-4 rounded-full bg-siege-accent/20 text-siege-accent text-[9px] font-bold flex items-center justify-center leading-none"
+              className="w-4 h-4 rounded-full bg-siege-border text-gray-300 text-[9px] font-bold flex items-center justify-center leading-none"
             >
               {initial}
             </span>
@@ -156,7 +156,7 @@ export default function Operators() {
       {/* Mains legend */}
       <p className="text-siege-muted text-xs -mt-3">
         <span className="inline-flex items-center gap-1">
-          <span className="w-4 h-4 rounded-full bg-siege-accent/20 text-siege-accent text-[9px] font-bold flex items-center justify-center">G</span>
+          <span className="w-4 h-4 rounded-full bg-siege-border text-gray-300 text-[9px] font-bold flex items-center justify-center">G</span>
           {' '}= player initial — indicates a roster main for that operator
         </span>
       </p>

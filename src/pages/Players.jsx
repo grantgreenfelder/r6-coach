@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import playersData from '../data/players.json'
-import { RIS_MIN, RIS_MAX, RIS_BASELINE_PCT, risColor, wrColor } from '../utils/constants'
+import { RIS_MIN, RIS_MAX, RIS_BASELINE_PCT, risColor, risTextColor, wrColor } from '../utils/constants'
 import HelpTip from '../components/HelpTip'
 import { GLOSSARY } from '../utils/glossary'
 import { getPortraitUrl } from '../utils/operatorPortraits'
@@ -126,7 +126,7 @@ function PlayerCard({ player }) {
           </p>
         </div>
         <div className="text-center">
-          <p className="text-siege-accent text-lg font-bold leading-none">{displayRis}</p>
+          <p className={`text-lg font-bold leading-none ${risTextColor(ris)}`}>{displayRis}</p>
           <p className="text-siege-muted text-xs mt-0.5 flex items-center justify-center gap-1">
             RIS <HelpTip text={GLOSSARY.RIS} />
           </p>

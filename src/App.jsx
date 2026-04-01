@@ -1,15 +1,17 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { Component } from 'react'
+import { Component, Suspense, lazy } from 'react'
 import Layout from './components/Layout.jsx'
-import Dashboard from './pages/Dashboard.jsx'
-import Players from './pages/Players.jsx'
-import PlayerDetail from './pages/PlayerDetail.jsx'
-import Maps from './pages/Maps.jsx'
-import MapDetail from './pages/MapDetail.jsx'
-import StratViewer from './pages/StratViewer.jsx'
-import SessionPrep from './pages/SessionPrep.jsx'
-import Operators from './pages/Operators.jsx'
-import OperatorDetail from './pages/OperatorDetail.jsx'
+import PageSkeleton from './components/PageSkeleton.jsx'
+
+const Dashboard     = lazy(() => import('./pages/Dashboard.jsx'))
+const Players       = lazy(() => import('./pages/Players.jsx'))
+const PlayerDetail  = lazy(() => import('./pages/PlayerDetail.jsx'))
+const Maps          = lazy(() => import('./pages/Maps.jsx'))
+const MapDetail     = lazy(() => import('./pages/MapDetail.jsx'))
+const StratViewer   = lazy(() => import('./pages/StratViewer.jsx'))
+const SessionPrep   = lazy(() => import('./pages/SessionPrep.jsx'))
+const Operators     = lazy(() => import('./pages/Operators.jsx'))
+const OperatorDetail = lazy(() => import('./pages/OperatorDetail.jsx'))
 
 class ErrorBoundary extends Component {
   constructor(props) {
@@ -53,19 +55,21 @@ export default function App() {
   return (
     <ErrorBoundary>
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<Dashboard />} />
-            <Route path="players" element={<Players />} />
-            <Route path="players/:name" element={<PlayerDetail />} />
-            <Route path="maps" element={<Maps />} />
-            <Route path="maps/:mapName" element={<MapDetail />} />
-            <Route path="maps/:mapName/:side/:site" element={<StratViewer />} />
-            <Route path="session-prep" element={<SessionPrep />} />
-            <Route path="operators" element={<Operators />} />
-            <Route path="operators/:name" element={<OperatorDetail />} />
-          </Route>
-        </Routes>
+        <Suspense fallback={<div className="min-h-screen bg-siege-bg"><PageSkeleton page="generic" /></div>}>
+          <Routes>
+            <Route path="/" element={<Layout />}>
+              <Route index element={<Suspense fallback={<PageSkeleton page="dashboard" />}><Dashboard /></Suspense>} />
+              <Route path="players" element={<Suspense fallback={<PageSkeleton />}><Players /></Suspense>} />
+              <Route path="players/:name" element={<Suspense fallback={<PageSkeleton page="detail" />}><PlayerDetail /></Suspense>} />
+              <Route path="maps" element={<Suspense fallback={<PageSkeleton />}><Maps /></Suspense>} />
+              <Route path="maps/:mapName" element={<Suspense fallback={<PageSkeleton page="detail" />}><MapDetail /></Suspense>} />
+              <Route path="maps/:mapName/:side/:site" element={<Suspense fallback={<PageSkeleton page="detail" />}><StratViewer /></Suspense>} />
+              <Route path="session-prep" element={<Suspense fallback={<PageSkeleton />}><SessionPrep /></Suspense>} />
+              <Route path="operators" element={<Suspense fallback={<PageSkeleton />}><Operators /></Suspense>} />
+              <Route path="operators/:name" element={<Suspense fallback={<PageSkeleton page="detail" />}><OperatorDetail /></Suspense>} />
+            </Route>
+          </Routes>
+        </Suspense>
       </BrowserRouter>
     </ErrorBoundary>
   )

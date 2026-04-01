@@ -4,7 +4,7 @@ import playersData from '../data/players.json'
 import mapsData from '../data/maps.json'
 import stackData from '../data/stack.json'
 import metaData from '../data/meta.json'
-import { RIS_MIN, RIS_MAX, RIS_BASELINE_PCT, risColor, wrColor, wrTileClass } from '../utils/constants'
+import { RIS_MIN, RIS_MAX, RIS_BASELINE_PCT, risColor, risTextColor, wrColor, wrTileClass } from '../utils/constants'
 import HelpTip from '../components/HelpTip'
 import { GLOSSARY } from '../utils/glossary'
 import { getMapThumbnailUrl } from '../utils/mapThumbnails'
@@ -117,7 +117,7 @@ function PlayerCard({ player }) {
           <p className="text-siege-muted text-xs mt-0.5 flex items-center justify-center gap-1">K/D <HelpTip text={GLOSSARY.KD} /></p>
         </div>
         <div className="text-center">
-          <p className="text-siege-accent text-lg font-bold leading-none">{ris ?? '—'}</p>
+          <p className={`text-lg font-bold leading-none ${risTextColor(ris)}`}>{ris ?? '—'}</p>
           <p className="text-siege-muted text-xs mt-0.5 flex items-center justify-center gap-1">RIS <HelpTip text={GLOSSARY.RIS} /></p>
         </div>
         <div className="text-center">

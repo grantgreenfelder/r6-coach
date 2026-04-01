@@ -81,8 +81,26 @@ export default function Layout() {
       <header className="bg-siege-surface border-b border-siege-border sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 flex items-center h-14">
           {/* Wordmark */}
-          <div className="flex items-center gap-3 flex-shrink-0">
-            <span className="text-siege-accent font-bold text-lg tracking-widest uppercase">Eh_</span>
+          <div className="flex items-center gap-2.5 flex-shrink-0">
+            {/* Hex icon — pointed-top hexagon, matches R6 visual language */}
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+              <polygon
+                points="14,1 26,7.5 26,20.5 14,27 2,20.5 2,7.5"
+                fill="#e8a020"
+                stroke="#e8a020"
+                strokeWidth="0"
+              />
+              <text
+                x="14" y="18"
+                textAnchor="middle"
+                fontSize="9"
+                fontWeight="800"
+                fontFamily="system-ui, sans-serif"
+                letterSpacing="0.5"
+                fill="#1c1c1c"
+              >EH</text>
+            </svg>
+            <span className="text-siege-accent font-bold text-base tracking-widest uppercase leading-none">Eh_</span>
             <span className="text-white font-semibold hidden sm:block">R6 Coach</span>
             <span className="text-siege-muted text-xs hidden lg:block">Rainbow Six Siege · Coaching Dashboard</span>
           </div>
