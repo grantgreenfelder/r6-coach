@@ -342,7 +342,7 @@ function PlayerCallout({ player }) {
                   className="w-8 h-8 rounded-full overflow-hidden ring-2 ring-siege-card bg-siege-border flex-shrink-0"
                   title={name}
                 >
-                  <img src={getPortraitUrl(name)} alt={name} className="w-full h-full object-cover object-top" />
+                  <img src={getPortraitUrl(name)} alt={name} loading="lazy" className="w-full h-full object-cover object-top" onError={e => { e.currentTarget.style.display = 'none' }} />
                 </div>
               ))
             }
@@ -408,7 +408,7 @@ function PlayerToggle({ name, active, team, onToggle }) {
   return (
     <button
       onClick={onToggle}
-      className={`px-3 py-1.5 text-sm rounded border font-medium transition-colors hover:opacity-90 ${baseColor}`}
+      className={`px-3 py-1.5 text-sm rounded border font-medium transition-all hover:opacity-90 ${baseColor} ${!active ? 'opacity-50 hover:opacity-70' : ''}`}
     >
       {name}
     </button>

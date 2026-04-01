@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { useState } from 'react'
 import playersData from '../data/players.json'
 import mapsData from '../data/maps.json'
 import stackData from '../data/stack.json'
@@ -11,37 +12,53 @@ import { getPortraitUrl } from '../utils/operatorPortraits'
 
 // ─── Op Portrait Chips ─────────────────────────────────────────────────────────
 
+function PortraitChip({ name }) {
+  const [err, setErr] = useState(false)
+  return (
+    <div
+      className="w-5 h-5 rounded overflow-hidden bg-siege-border flex-shrink-0 ring-1 ring-siege-border flex items-center justify-center"
+      title={name}
+    >
+      {!err ? (
+        <img
+          src={getPortraitUrl(name)}
+          alt={name}
+          loading="lazy"
+          className="w-full h-full object-cover object-top"
+          onError={() => setErr(true)}
+        />
+      ) : (
+        <span className="text-siege-accent text-[8px] font-bold leading-none select-none">{name[0]}</span>
+      )}
+    </div>
+  )
+}
+
 function OpChips({ label, opsString }) {
   if (!opsString) return null
   const ops = opsString.split(/[,/]/).map(s => s.trim()).filter(Boolean)
   return (
     <div className="flex items-center gap-1">
       <span className="text-gray-500 text-[10px]">{label}</span>
-      {ops.map(name => (
-        <div
-          key={name}
-          className="w-5 h-5 rounded overflow-hidden bg-siege-border flex-shrink-0 ring-1 ring-siege-border"
-          title={name}
-        >
-          <img
-            src={getPortraitUrl(name)}
-            alt={name}
-            className="w-full h-full object-cover object-top"
-          />
-        </div>
-      ))}
+      {ops.map(name => <PortraitChip key={name} name={name} />)}
     </div>
   )
 }
 
 // ─── Insight Strip ─────────────────────────────────────────────────────────────
 
-function InsightCard({ label, value, sub, color = 'text-siege-accent', to }) {
+function InsightCard({ label, value, sub, color = 'text-siege-accent', to, thumbnailUrl }) {
   const inner = (
-    <div className="card flex-1 min-w-0">
-      <p className="text-siege-muted text-xs uppercase tracking-wider mb-1">{label}</p>
-      <p className={`text-xl font-bold truncate ${color}`}>{value}</p>
-      {sub && <p className="text-siege-muted text-xs mt-0.5 truncate">{sub}</p>}
+    <div className="card flex-1 min-w-0 relative overflow-hidden">
+      {thumbnailUrl && (
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-[0.08] pointer-events-none"
+          style={{ backgroundImage: `url(${thumbnailUrl})` }}
+        />
+      )}
+      <p className="relative text-siege-muted text-xs uppercase tracking-wider mb-1">{label}</p>
+      <p className={`relative text-xl font-bold truncate ${color}`}>{value}</p>
+      {sub && <p className="relative text-siege-muted text-xs mt-0.5 truncate">{sub}</p>}
     </div>
   )
   return to ? <Link to={to} className="flex-1 min-w-0 hover:opacity-80 transition-opacity">{inner}</Link> : inner
@@ -225,6 +242,7 @@ export default function Dashboard() {
           sub={bestMap ? `${bestMap.teamWinRate}% win rate` : 'no data'}
           color="text-siege-green"
           to={bestMap ? `/maps/${bestMap.name}` : undefined}
+          thumbnailUrl={bestMap ? getMapThumbnailUrl(bestMap.name) : undefined}
         />
         <InsightCard
           label="Ban Target"
@@ -232,6 +250,7 @@ export default function Dashboard() {
           sub={banTarget ? `${banTarget.teamWinRate}% win rate` : 'no data'}
           color="text-siege-red"
           to={banTarget ? `/maps/${banTarget.name}` : undefined}
+          thumbnailUrl={banTarget ? getMapThumbnailUrl(banTarget.name) : undefined}
         />
         <InsightCard
           label="Team Avg Win%"

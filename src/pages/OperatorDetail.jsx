@@ -343,16 +343,17 @@ export default function OperatorDetail() {
       {/* Header card */}
       <div className="card flex items-start gap-5 flex-wrap">
         {/* Portrait */}
-        <div className="w-20 h-20 rounded-xl overflow-hidden bg-black/40 flex items-center justify-center flex-shrink-0">
+        <div className="w-28 h-36 sm:w-32 sm:h-40 rounded-xl overflow-hidden bg-black/40 flex items-center justify-center flex-shrink-0 ring-1 ring-siege-border">
           {!imgError ? (
             <img
               src={getPortraitUrl(op.name)}
               alt={op.name}
+              loading="lazy"
               className="w-full h-full object-cover object-top"
               onError={() => setImgError(true)}
             />
           ) : (
-            <span className="text-3xl font-bold text-siege-accent/60">{op.name[0]}</span>
+            <span className="text-4xl font-bold text-siege-accent/60">{op.name[0]}</span>
           )}
         </div>
 

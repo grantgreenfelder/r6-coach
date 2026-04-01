@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import mapsData from '../data/maps.json'
 import RatingBadge from '../components/RatingBadge'
-import StatusDot from '../components/StatusDot'
 import { getMapThumbnailUrl } from '../utils/mapThumbnails'
 
 const SEASONS = ['Y11S1', 'Y10S4']
@@ -221,12 +220,25 @@ function MapCard({ map, season, getWr, getWrM, getRating }) {
           </div>
         </div>
 
-        {/* Quick strat status dots */}
+        {/* Strat readiness — segmented bar */}
         {map.strats.length > 0 && (
-          <div className="mt-3 flex flex-wrap gap-1">
-            {map.strats.map(s => (
-              <StatusDot key={s.filename} status={s.status} title={`${s.side} ${s.site}`} />
-            ))}
+          <div className="mt-3">
+            <div className="flex h-1.5 rounded-full overflow-hidden gap-px bg-siege-border">
+              {map.strats.map(s => (
+                <div
+                  key={s.filename}
+                  title={`${s.side} ${s.site} — ${s.status}`}
+                  className={`flex-1 h-full ${
+                    s.status === 'developed'     ? 'bg-siege-green' :
+                    s.status === 'partial'       ? 'bg-yellow-500' :
+                                                   'bg-siege-border'
+                  }`}
+                />
+              ))}
+            </div>
+            <p className="text-[10px] text-siege-muted mt-1">
+              {devCount} ready · {partialCount} partial · {totalCount - devCount - partialCount} not started
+            </p>
           </div>
         )}
       </div>

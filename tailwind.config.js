@@ -14,7 +14,7 @@ export default {
           red: '#e03030',
           green: '#30a050',
           blue: '#3080e0',
-          muted: '#6b7280',
+          muted: '#8a9099',
         },
       },
     },

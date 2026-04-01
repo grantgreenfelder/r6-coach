@@ -23,6 +23,7 @@ function OperatorTile({ op }) {
           <img
             src={portraitSrc}
             alt={op.name}
+            loading="lazy"
             className="w-full h-full object-cover object-top"
             onError={() => setImgError(true)}
           />
@@ -58,9 +59,17 @@ function CategoryGroup({ category, operators, side }) {
 
 export default function Operators() {
   const [activeSide, setActiveSide] = useState('ATK')
+  const [search, setSearch] = useState('')
   const ops = activeSide === 'ATK' ? operatorsData.atk : operatorsData.def
   const categories = activeSide === 'ATK' ? operatorsData.atkCategories : operatorsData.defCategories
-  const colors = SIDE_COLORS[activeSide]
+
+  const q = search.toLowerCase().trim()
+  const isSearching = q.length > 0
+
+  // When searching: show flat filtered list; otherwise: category groups
+  const flatFiltered = isSearching
+    ? ops.filter(o => o.name.toLowerCase().includes(q))
+    : []
 
   return (
     <div className="space-y-6">
@@ -73,34 +82,59 @@ export default function Operators() {
           </p>
         </div>
 
-        {/* ATK / DEF toggle */}
-        <div className="flex rounded-lg border border-siege-border overflow-hidden">
-          {['ATK', 'DEF'].map(side => (
-            <button
-              key={side}
-              onClick={() => setActiveSide(side)}
-              className={`px-5 py-2 text-sm font-semibold transition-colors ${
-                activeSide === side
-                  ? side === 'ATK'
-                    ? 'bg-orange-400/20 text-orange-400'
-                    : 'bg-blue-400/20 text-blue-400'
-                  : 'text-siege-muted hover:text-white'
-              }`}
-            >
-              {side === 'ATK' ? '⚔ Attack' : '🛡 Defense'}
-            </button>
-          ))}
+        <div className="flex items-center gap-2 flex-wrap">
+          {/* Search */}
+          <input
+            type="text"
+            placeholder="Search operators..."
+            value={search}
+            onChange={e => setSearch(e.target.value)}
+            className="bg-siege-card border border-siege-border rounded px-3 py-1.5 text-sm text-white placeholder-siege-muted focus:outline-none focus:border-siege-accent w-44"
+          />
+
+          {/* ATK / DEF toggle */}
+          <div className="flex rounded-lg border border-siege-border overflow-hidden">
+            {['ATK', 'DEF'].map(side => (
+              <button
+                key={side}
+                onClick={() => { setActiveSide(side); setSearch('') }}
+                className={`px-5 py-2 text-sm font-semibold transition-colors ${
+                  activeSide === side
+                    ? side === 'ATK'
+                      ? 'bg-orange-400/20 text-orange-400'
+                      : 'bg-blue-400/20 text-blue-400'
+                    : 'text-siege-muted hover:text-white'
+                }`}
+              >
+                {side === 'ATK' ? '⚔ Attack' : '🛡 Defense'}
+              </button>
+            ))}
+          </div>
         </div>
       </div>
 
-      {/* Category groups */}
-      <div className="space-y-7">
-        {categories.map(cat => {
-          const catOps = ops.filter(o => o.category === cat)
-          if (catOps.length === 0) return null
-          return <CategoryGroup key={cat} category={cat} operators={catOps} side={activeSide} />
-        })}
-      </div>
+      {/* Search results — flat grid */}
+      {isSearching ? (
+        flatFiltered.length > 0 ? (
+          <div>
+            <p className="text-siege-muted text-xs mb-3">{flatFiltered.length} result{flatFiltered.length !== 1 ? 's' : ''}</p>
+            <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 gap-2">
+              {flatFiltered.map(op => <OperatorTile key={op.name} op={op} />)}
+            </div>
+          </div>
+        ) : (
+          <p className="text-siege-muted text-center py-12">No operators match "{search}"</p>
+        )
+      ) : (
+        /* Category groups */
+        <div className="space-y-7">
+          {categories.map(cat => {
+            const catOps = ops.filter(o => o.category === cat)
+            if (catOps.length === 0) return null
+            return <CategoryGroup key={cat} category={cat} operators={catOps} side={activeSide} />
+          })}
+        </div>
+      )}
     </div>
   )
 }

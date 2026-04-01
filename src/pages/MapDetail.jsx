@@ -92,7 +92,7 @@ export default function MapDetail() {
         {(() => {
           const thumbUrl = getMapThumbnailUrl(map.name)
           return thumbUrl ? (
-            <div className="relative h-36 sm:h-44 overflow-hidden">
+            <div className="relative h-48 sm:h-64 overflow-hidden">
               <div
                 className="absolute inset-0 bg-cover bg-center scale-105"
                 style={{ backgroundImage: `url(${thumbUrl})` }}
@@ -126,19 +126,27 @@ export default function MapDetail() {
           )}
 
           {/* Win rate comparison — Y11S1 vs Y10S4 */}
-          <div className="grid grid-cols-2 gap-3">
-            <WinRateBlock
-              label="Y11S1"
-              wr={map.teamWinRate}
-              matches={map.teamWinRateMatches}
-              current
-            />
-            <WinRateBlock
-              label="Y10S4"
-              wr={map.teamWinRateY10S4}
-              matches={map.teamWinRateMatchesY10S4}
-            />
-          </div>
+          {(() => {
+            const curr = map.teamWinRate
+            const prev = map.teamWinRateY10S4
+            const delta = (curr !== null && prev !== null) ? Math.round((curr - prev) * 10) / 10 : null
+            return (
+              <div className="grid grid-cols-2 gap-3">
+                <WinRateBlock
+                  label="Y11S1"
+                  wr={curr}
+                  matches={map.teamWinRateMatches}
+                  current
+                  delta={delta}
+                />
+                <WinRateBlock
+                  label="Y10S4"
+                  wr={prev}
+                  matches={map.teamWinRateMatchesY10S4}
+                />
+              </div>
+            )
+          })()}
 
           {/* Strat progress */}
           <div>
@@ -301,17 +309,24 @@ export default function MapDetail() {
 
 // ── Sub-components ──────────────────────────────────────────────────────────
 
-function WinRateBlock({ label, wr, matches, current }) {
+function WinRateBlock({ label, wr, matches, current, delta }) {
+  const deltaSign = delta > 0 ? '+' : ''
+  const deltaCls  = delta > 0 ? 'text-siege-green' : delta < 0 ? 'text-red-400' : 'text-siege-muted'
   return (
     <div className={`rounded-lg p-3 border ${current ? 'border-siege-border bg-white/[0.03]' : 'border-siege-border/50'}`}>
       <div className="flex items-center justify-between mb-1.5">
         <span className={`text-xs font-semibold uppercase tracking-wider ${current ? 'text-white' : 'text-siege-muted'}`}>
           {label}
         </span>
-        {wr !== null
-          ? <span className={`text-sm font-bold ${wrTextCol(wr)}`}>{wr}%</span>
-          : <span className="text-xs text-siege-muted">No data</span>
-        }
+        <div className="flex items-center gap-2">
+          {current && delta !== null && (
+            <span className={`text-xs font-semibold ${deltaCls}`}>{deltaSign}{delta}%</span>
+          )}
+          {wr !== null
+            ? <span className={`text-sm font-bold ${wrTextCol(wr)}`}>{wr}%</span>
+            : <span className="text-xs text-siege-muted">No data</span>
+          }
+        </div>
       </div>
       <div className="h-1.5 bg-siege-border rounded-full overflow-hidden">
         <div

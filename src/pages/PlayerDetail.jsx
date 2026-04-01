@@ -7,6 +7,27 @@ import HelpTip from '../components/HelpTip'
 import { GLOSSARY } from '../utils/glossary'
 import { getPortraitUrl } from '../utils/operatorPortraits'
 
+// ─── Portrait chip with fallback ──────────────────────────────────────────────
+
+function PortraitChip({ name }) {
+  const [err, setErr] = useState(false)
+  return (
+    <div className="w-6 h-6 rounded overflow-hidden bg-siege-border flex-shrink-0 ring-1 ring-siege-border/60 flex items-center justify-center">
+      {!err ? (
+        <img
+          src={getPortraitUrl(name)}
+          alt=""
+          loading="lazy"
+          className="w-full h-full object-cover object-top"
+          onError={() => setErr(true)}
+        />
+      ) : (
+        <span className="text-siege-accent text-[8px] font-bold leading-none select-none">{name[0]}</span>
+      )}
+    </div>
+  )
+}
+
 // ─── Markdown helpers ──────────────────────────────────────────────────────────
 
 function extractSection(content, heading) {
@@ -65,13 +86,8 @@ function OpRow({ op, maxRounds }) {
     <div className="flex items-center gap-2 py-1.5 border-b border-siege-border/40 last:border-0">
       {/* Op portrait + name + flag */}
       <div className="flex items-center gap-1.5 w-32 flex-shrink-0 min-w-0">
-        <div className="w-6 h-6 rounded overflow-hidden bg-siege-border flex-shrink-0 ring-1 ring-siege-border/60">
-          <img
-            src={getPortraitUrl(op.name)}
-            alt=""
-            className="w-full h-full object-cover object-top"
-          />
-        </div>
+        <PortraitChip name={op.name} />
+
         <span className="text-white text-sm font-medium truncate">{op.name}</span>
         {op.flag && (
           <span title={FLAG_LABEL[op.flag] || op.flag} className="text-xs leading-none flex-shrink-0">{op.flag}</span>
@@ -313,6 +329,11 @@ export default function PlayerDetail() {
     [player?.prevSeason]: player?.prevSeason || 'Prev Season',
     [player?.season]: player?.season || 'Current',
   }
+  // Match counts for season tabs — shown as a subtle badge
+  const tabMatches = {
+    [player?.prevSeason]: player?.prevSeasonStats?.matches,
+    [player?.season]: player?.stats?.matches,
+  }
 
   const [activeTab, setActiveTab] = useState(player?.season || 'Y11S1')
 
@@ -359,13 +380,18 @@ export default function PlayerDetail() {
           <button
             key={tab}
             onClick={() => setActiveTab(tab)}
-            className={`px-4 py-2.5 text-sm font-medium transition-colors border-b-2 -mb-px ${
+            className={`px-4 py-2.5 text-sm font-medium transition-colors border-b-2 -mb-px flex items-center gap-1.5 ${
               activeTab === tab
                 ? 'border-siege-accent text-siege-accent'
                 : 'border-transparent text-siege-muted hover:text-white'
             }`}
           >
             {tabLabels[tab] || tab}
+            {tabMatches[tab] && (
+              <span className="text-[10px] px-1.5 py-0.5 rounded bg-siege-border text-siege-muted font-normal leading-none">
+                {tabMatches[tab]}M
+              </span>
+            )}
           </button>
         ))}
       </div>
