@@ -3,13 +3,14 @@ import { Link } from 'react-router-dom'
 import operatorsData from '../data/operators.json'
 import playersData from '../data/players.json'
 import { getPortraitUrl } from '../utils/operatorPortraits'
+import PlayerAvatar from '../components/PlayerAvatar.jsx'
 
 const SIDE_COLORS = {
   ATK: { dot: 'bg-orange-400', text: 'text-orange-400', badge: 'bg-orange-400/10 text-orange-400 border-orange-400/30' },
   DEF: { dot: 'bg-blue-400',   text: 'text-blue-400',   badge: 'bg-blue-400/10 text-blue-400 border-blue-400/30' },
 }
 
-// Build a lookup: normalized op name → [player initials] who play it
+// Build a lookup: normalized op name → [full player names] who play it
 function buildMainsMap() {
   const allPlayers = [
     ...(playersData.mainStack || []),
@@ -23,7 +24,7 @@ function buildMainsMap() {
     for (const op of ops) {
       const key = normalize(op)
       if (!map[key]) map[key] = []
-      map[key].push(player.name[0])
+      map[key].push(player.name)
     }
   }
   return map
@@ -66,13 +67,10 @@ function OperatorTile({ op }) {
       {/* Player mains chips */}
       {mains.length > 0 && (
         <div className="flex gap-0.5 flex-wrap justify-center">
-          {mains.map(initial => (
-            <span
-              key={initial}
-              className="w-4 h-4 rounded-full bg-siege-border text-gray-300 text-[9px] font-bold flex items-center justify-center leading-none"
-            >
-              {initial}
-            </span>
+          {mains.map(name => (
+            <div key={name} title={name}>
+              <PlayerAvatar name={name} size="xs" />
+            </div>
           ))}
         </div>
       )}
@@ -156,8 +154,8 @@ export default function Operators() {
       {/* Mains legend */}
       <p className="text-siege-muted text-xs -mt-3">
         <span className="inline-flex items-center gap-1">
-          <span className="w-4 h-4 rounded-full bg-siege-border text-gray-300 text-[9px] font-bold flex items-center justify-center">G</span>
-          {' '}= player initial — indicates a roster main for that operator
+          <PlayerAvatar name="Grant" size="xs" />
+          {' '}= roster main — hover chip for player name
         </span>
       </p>
 

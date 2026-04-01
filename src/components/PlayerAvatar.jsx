@@ -15,6 +15,7 @@ export default function PlayerAvatar({ name, size = 'sm' }) {
   const photoUrl = getPlayerPhotoUrl(name)
 
   const dims = {
+    xs: 'w-5 h-5 text-[8px]',
     sm: 'w-8 h-8 text-sm',
     md: 'w-10 h-10 text-base',
     lg: 'w-14 h-14 text-xl',

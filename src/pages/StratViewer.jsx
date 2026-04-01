@@ -3,6 +3,7 @@ import { useState, useMemo } from 'react'
 import mapsData from '../data/maps.json'
 import StatusDot from '../components/StatusDot'
 import MarkdownContent from '../components/MarkdownContent'
+import PlayerAvatar from '../components/PlayerAvatar.jsx'
 import { NotFound } from '../components/EmptyState'
 
 // ─── Content Parsers (run client-side from strat.content) ─────────────────────
@@ -179,9 +180,7 @@ function RoleCards({ roles, playerDescriptions, activePlayer }) {
               }`}
             >
               <div className="flex items-center gap-2 mb-1.5">
-                <div className="w-7 h-7 rounded-full bg-siege-accent/20 flex items-center justify-center text-siege-accent text-xs font-bold flex-shrink-0">
-                  {player[0]}
-                </div>
+                <PlayerAvatar name={player} size="sm" />
                 <span className="text-white font-semibold text-sm">{player}</span>
               </div>
               <p className="text-siege-accent text-xs font-medium mb-1">{role}</p>
@@ -384,9 +383,7 @@ function PlayerFocusHeader({ player, roles, playerDescriptions, side }) {
   return (
     <div className={`card border ${SIDE_BORDER[side]}`}>
       <div className="flex items-center gap-3 mb-3">
-        <div className="w-10 h-10 rounded-full bg-siege-accent/20 flex items-center justify-center text-siege-accent font-bold text-lg flex-shrink-0">
-          {player[0]}
-        </div>
+        <PlayerAvatar name={player} size="md" />
         <div>
           <h2 className="text-white font-bold text-lg leading-none">{player}</h2>
           <span className={`text-xs font-semibold mt-0.5 inline-block px-2 py-0.5 rounded-full ${SIDE_PILL[side]}`}>
