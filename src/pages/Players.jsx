@@ -50,12 +50,13 @@ function PlayerCard({ player }) {
 }
 
 export default function Players() {
-  const { mainStack, bTeam } = playersData
+  const { mainStack, bTeam, other = [] } = playersData
   const [search, setSearch] = useState('')
   const [sortBy, setSortBy] = useState('ris')
   const allPlayers = [
     ...mainStack.map(p => ({ ...p, team: 'main' })),
     ...bTeam.map(p => ({ ...p, team: 'bteam' })),
+    ...other.map(p => ({ ...p, team: 'other' })),
   ]
 
   const filtered = allPlayers
