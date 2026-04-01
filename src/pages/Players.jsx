@@ -5,6 +5,7 @@ import { RIS_MIN, RIS_MAX, RIS_BASELINE_PCT, risColor, risTextColor, wrColor } f
 import HelpTip from '../components/HelpTip'
 import { GLOSSARY } from '../utils/glossary'
 import { getPortraitUrl } from '../utils/operatorPortraits'
+import PlayerAvatar from '../components/PlayerAvatar.jsx'
 
 // ─── RIS Bar ──────────────────────────────────────────────────────────────────
 // Always renders the track so the bar isn't just missing for low-data players.
@@ -102,9 +103,7 @@ function PlayerCard({ player }) {
       {/* Name + rank */}
       <div className="flex items-center justify-between mb-3">
         <div className="flex items-center gap-2 min-w-0 flex-1">
-          <div className="w-8 h-8 rounded-full bg-siege-accent/20 flex items-center justify-center text-siege-accent font-bold text-sm flex-shrink-0">
-            {player.name[0]}
-          </div>
+          <PlayerAvatar name={player.name} size="sm" />
           <div className="min-w-0">
             <span className="text-white font-semibold group-hover:text-siege-accent transition-colors block truncate">
               {player.name}

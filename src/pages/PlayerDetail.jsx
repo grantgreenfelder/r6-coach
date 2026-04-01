@@ -6,6 +6,7 @@ import { NotFound } from '../components/EmptyState'
 import HelpTip from '../components/HelpTip'
 import { GLOSSARY } from '../utils/glossary'
 import { getPortraitUrl } from '../utils/operatorPortraits'
+import PlayerAvatar from '../components/PlayerAvatar.jsx'
 
 // ─── Portrait chip with fallback ──────────────────────────────────────────────
 
@@ -357,9 +358,7 @@ export default function PlayerDetail() {
       {/* Header */}
       <div className="card flex items-start gap-5 flex-wrap">
         <div className="flex flex-col items-center gap-2 flex-shrink-0">
-          <div className="w-14 h-14 rounded-full bg-siege-accent flex items-center justify-center text-xl font-bold text-siege-bg">
-            {player.name[0]}
-          </div>
+          <PlayerAvatar name={player.name} size="lg" />
           {/* Top op portraits */}
           {(player.atkOps || player.defOps) && (
             <div className="flex gap-1">
