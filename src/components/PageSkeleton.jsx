@@ -22,7 +22,7 @@ function CardSkeleton({ lines = 3, className = '' }) {
 // Dashboard-shaped skeleton: KPI row + player grid + bottom row
 function DashboardSkeleton() {
   return (
-    <div className="p-6 max-w-5xl mx-auto space-y-6">
+    <div className="max-w-5xl mx-auto space-y-6">
       <Bone className="h-6 w-40" />
       <div className="grid grid-cols-3 gap-4">
         {[1, 2, 3].map(i => <CardSkeleton key={i} lines={2} />)}
@@ -41,7 +41,7 @@ function DashboardSkeleton() {
 // Generic list/detail skeleton: header card + content cards
 function GenericSkeleton({ cards = 2 }) {
   return (
-    <div className="p-6 max-w-5xl mx-auto space-y-6">
+    <div className="max-w-5xl mx-auto space-y-6">
       <Bone className="h-4 w-16" />
       <CardSkeleton lines={4} />
       <div className="flex gap-4">

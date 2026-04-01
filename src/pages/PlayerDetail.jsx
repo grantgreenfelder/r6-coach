@@ -63,9 +63,9 @@ function extractIdentityField(text, field) {
 
 function StatBox({ label, value, accent, tip }) {
   return (
-    <div className="bg-black/30 border border-siege-border rounded-lg p-2 sm:p-3 text-center">
-      <div className={`text-sm sm:text-xl font-bold leading-none truncate ${accent || 'text-white'}`}>{value || '—'}</div>
-      <div className="text-siege-muted text-[10px] sm:text-xs mt-1 sm:mt-1.5 uppercase tracking-wider flex items-center justify-center gap-1">
+    <div className="bg-black/30 border border-siege-border rounded-lg p-1.5 sm:p-3 text-center">
+      <div className={`text-xs sm:text-xl font-bold leading-none truncate ${accent || 'text-white'}`}>{value || '—'}</div>
+      <div className="text-siege-muted text-[9px] sm:text-xs mt-1 sm:mt-1.5 uppercase tracking-wider flex items-center justify-center gap-0.5">
         {label}{tip && <HelpTip text={tip} />}
       </div>
     </div>
@@ -269,7 +269,7 @@ function SeasonTab({ stats, operators, mapPerformance, notes, priorities }) {
     <div className="space-y-4">
 
       {/* Stats row */}
-      <div className="grid grid-cols-5 gap-2">
+      <div className="grid grid-cols-5 gap-1 sm:gap-2">
         <StatBox label="Rank"    value={stats?.rank} />
         <StatBox label="K/D"     value={stats?.kd}       tip={GLOSSARY.KD} />
         <StatBox label="Win%"    value={stats?.winRate}  tip={GLOSSARY.WR}  accent={wrAccent} />
@@ -350,7 +350,7 @@ export default function PlayerDetail() {
   const y10s4Notes = extractBullets(extractSection(player.prevSeasonContent, 'Season Coaching Notes'))
 
   return (
-    <div className="p-6 max-w-5xl mx-auto space-y-5">
+    <div className="max-w-5xl mx-auto space-y-5">
 
       {/* Breadcrumb */}
       <Link to="/players" className="text-siege-muted hover:text-siege-accent text-sm">← Players</Link>

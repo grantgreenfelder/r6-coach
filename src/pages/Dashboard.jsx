@@ -50,7 +50,7 @@ function OpChips({ label, opsString }) {
 
 function InsightCard({ label, value, sub, color = 'text-siege-accent', to, thumbnailUrl }) {
   const inner = (
-    <div className="card flex-1 min-w-0 relative overflow-hidden">
+    <div className="card min-w-0 relative overflow-hidden">
       {thumbnailUrl && (
         <div
           className="absolute inset-0 bg-cover bg-center opacity-[0.08] pointer-events-none"
@@ -62,7 +62,7 @@ function InsightCard({ label, value, sub, color = 'text-siege-accent', to, thumb
       {sub && <p className="relative text-siege-muted text-xs mt-0.5 truncate">{sub}</p>}
     </div>
   )
-  return to ? <Link to={to} className="flex-1 min-w-0 hover:opacity-80 transition-opacity">{inner}</Link> : inner
+  return to ? <Link to={to} className="min-w-0 hover:opacity-80 transition-opacity">{inner}</Link> : inner
 }
 
 // ─── Player Card ───────────────────────────────────────────────────────────────
@@ -234,7 +234,7 @@ export default function Dashboard() {
       </div>
 
       {/* Insight strip */}
-      <div className="flex gap-3 flex-wrap sm:flex-nowrap">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
         <InsightCard
           label="Best Map Right Now"
           value={bestMap ? bestMap.displayName : '—'}
@@ -278,7 +278,8 @@ export default function Dashboard() {
           <h2 className="text-white font-semibold text-sm uppercase tracking-wider">
             Ranked Pool — Win% Heatmap
           </h2>
-          <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-siege-muted">
+          {/* Legend — hidden on mobile to save space, colors are self-evident with the tiles */}
+          <div className="hidden sm:flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-siege-muted">
             <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-siege-green inline-block" />≥60% Strong</span>
             <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-blue-400 inline-block" />50–59% Even</span>
             <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-yellow-400 inline-block" />40–49% Shaky</span>

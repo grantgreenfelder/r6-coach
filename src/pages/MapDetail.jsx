@@ -81,7 +81,7 @@ export default function MapDetail() {
   ]
 
   return (
-    <div className="p-6 max-w-5xl mx-auto space-y-6">
+    <div className="max-w-5xl mx-auto space-y-6">
       {/* Breadcrumb */}
       <Link to="/maps" className="text-siege-muted hover:text-siege-accent text-sm">← Maps</Link>
 

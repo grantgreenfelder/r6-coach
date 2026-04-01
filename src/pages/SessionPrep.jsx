@@ -20,7 +20,7 @@ export default function SessionPrep() {
   const tonightPlayers = tonight.map(name => allPlayers.find(p => p.name === name)).filter(Boolean)
 
   return (
-    <div className="p-6 max-w-5xl mx-auto space-y-6">
+    <div className="max-w-5xl mx-auto space-y-6">
       <h1 className="text-2xl font-bold text-white">Session Prep</h1>
 
       {/* Roster selector */}
@@ -329,17 +329,17 @@ function PlayerCallout({ player }) {
 
   return (
     <div className="border-b border-siege-border/50 pb-4 last:border-0 last:pb-0">
-      {/* Header */}
-      <div className="flex items-center justify-between mb-2">
-        <div className="flex items-center gap-3">
+      {/* Header — wraps to two lines on mobile */}
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2 gap-1">
+        <div className="flex items-center gap-2">
           {/* Op portrait chips — ATK first, then DEF */}
-          <div className="flex gap-1.5 flex-shrink-0">
+          <div className="flex gap-1 flex-shrink-0">
             {[...(player.atkOps || '').split(/[,/]/), ...(player.defOps || '').split(/[,/]/)]
               .map(s => s.trim()).filter(Boolean).slice(0, 4)
               .map((name, i) => (
                 <div
                   key={i}
-                  className="w-10 h-10 rounded-full overflow-hidden ring-1 ring-siege-border bg-siege-border flex-shrink-0"
+                  className="w-8 h-8 sm:w-10 sm:h-10 rounded-full overflow-hidden ring-1 ring-siege-border bg-siege-border flex-shrink-0"
                   title={name}
                 >
                   <img src={getPortraitUrl(name)} alt={name} loading="lazy" className="w-full h-full object-cover object-top" onError={e => { e.currentTarget.style.display = 'none' }} />
@@ -352,14 +352,14 @@ function PlayerCallout({ player }) {
             <span className="text-siege-muted text-xs ml-2">{rank}</span>
           </div>
         </div>
-        <div className="flex gap-3 text-xs">
+        <div className="flex gap-2 sm:gap-3 text-xs ml-10 sm:ml-0">
           <span><span className="text-siege-muted">K/D </span><span className="text-white font-medium">{kd ?? '—'}</span></span>
           <span><span className="text-siege-muted">RIS </span><span className="text-siege-accent font-medium">{ris ?? '—'}</span></span>
           <span><span className="text-siege-muted">Win </span><span className="text-white font-medium">{winRate ?? '—'}</span></span>
         </div>
       </div>
 
-      <div className="ml-11 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1">
+      <div className="ml-10 sm:ml-11 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1">
         {/* Positives */}
         {positives.length > 0 && (
           <div>
