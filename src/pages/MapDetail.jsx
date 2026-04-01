@@ -473,19 +473,25 @@ function OverviewAccordion({ content }) {
 
       {/* Expand / Collapse all */}
       {sections.length > 1 && (
-        <div className="flex justify-end gap-4 text-xs px-1">
+        <div className="flex justify-end gap-2 px-1">
           <button
             onClick={() => setAll(true)}
             disabled={allOpen}
-            className="text-siege-muted hover:text-white disabled:opacity-30 transition-colors"
+            className="flex items-center gap-1.5 px-2.5 py-1 rounded border border-siege-border text-xs text-siege-muted hover:text-white hover:border-siege-muted disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
           >
+            <svg className="w-3 h-3" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15" />
+            </svg>
             Expand all
           </button>
           <button
             onClick={() => setAll(false)}
             disabled={allClosed}
-            className="text-siege-muted hover:text-white disabled:opacity-30 transition-colors"
+            className="flex items-center gap-1.5 px-2.5 py-1 rounded border border-siege-border text-xs text-siege-muted hover:text-white hover:border-siege-muted disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
           >
+            <svg className="w-3 h-3" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 9V4.5M9 9H4.5M9 9 3.75 3.75M9 15v4.5M9 15H4.5M9 15l-5.25 5.25M15 9h4.5M15 9V4.5M15 9l5.25-5.25M15 15h4.5M15 15v4.5m0-4.5 5.25 5.25" />
+            </svg>
             Collapse all
           </button>
         </div>

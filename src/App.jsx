@@ -3,6 +3,7 @@ import { Component, Suspense, lazy } from 'react'
 import Layout from './components/Layout.jsx'
 import PageSkeleton from './components/PageSkeleton.jsx'
 
+const NotFound      = lazy(() => import('./pages/NotFound.jsx'))
 const Dashboard     = lazy(() => import('./pages/Dashboard.jsx'))
 const Players       = lazy(() => import('./pages/Players.jsx'))
 const PlayerDetail  = lazy(() => import('./pages/PlayerDetail.jsx'))
@@ -67,6 +68,7 @@ export default function App() {
               <Route path="session-prep" element={<Suspense fallback={<PageSkeleton />}><SessionPrep /></Suspense>} />
               <Route path="operators" element={<Suspense fallback={<PageSkeleton />}><Operators /></Suspense>} />
               <Route path="operators/:name" element={<Suspense fallback={<PageSkeleton page="detail" />}><OperatorDetail /></Suspense>} />
+              <Route path="*" element={<Suspense fallback={null}><NotFound /></Suspense>} />
             </Route>
           </Routes>
         </Suspense>

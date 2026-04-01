@@ -2,6 +2,7 @@ import { useParams, Link } from 'react-router-dom'
 import { useState, useMemo } from 'react'
 import mapsData from '../data/maps.json'
 import StatusDot from '../components/StatusDot'
+import MarkdownContent from '../components/MarkdownContent'
 import { NotFound } from '../components/EmptyState'
 
 // ─── Content Parsers (run client-side from strat.content) ─────────────────────
@@ -300,7 +301,9 @@ function WatchForCard({ watchItems }) {
       <div className="space-y-3">
         {watchItems.map((w, i) => (
           <div key={i} className="flex gap-2.5">
-            <span className="text-siege-red text-sm flex-shrink-0 mt-0.5">⚠</span>
+            <svg className="w-4 h-4 text-siege-red flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" />
+            </svg>
             <div>
               {w.title && <span className="text-white text-sm font-semibold">{w.title} — </span>}
               <span className="text-gray-400 text-sm">{w.text}</span>
@@ -537,6 +540,18 @@ export default function StratViewer() {
       {/* Win Conditions */}
       <WinConditionsCard winConditions={parsed.winConditions} activePlayer={activePlayer} />
 
+      {/* Raw content fallback — shown when structured parsing produced nothing */}
+      {activePlayer === 'all' &&
+        !parsed.spawn && !parsed.executeSteps?.length && !parsed.postPlant?.length &&
+        !parsed.watchItems?.length && !parsed.winConditions?.length &&
+        strat.content && (
+          <div className="card">
+            <SectionHeading>Strat Notes</SectionHeading>
+            <MarkdownContent content={strat.content} />
+          </div>
+        )
+      }
+
       {/* Bottom nav */}
       <StratNav currentStrat={strat} allStrats={map.strats} mapName={mapName} />
 
@@ -546,6 +561,17 @@ export default function StratViewer() {
 
 // ─── Strat Navigation ─────────────────────────────────────────────────────────
 
+function StratNavLabel({ strat }) {
+  const sideColor = strat.side === 'ATK' ? 'text-orange-400' : 'text-blue-400'
+  return (
+    <>
+      <span className={`font-semibold ${sideColor}`}>{strat.side}</span>
+      <span className="text-siege-muted"> · </span>
+      <span>{strat.site}</span>
+    </>
+  )
+}
+
 function StratNav({ currentStrat, allStrats, mapName, inline }) {
   const currentIdx = allStrats.findIndex(
     s => s.side === currentStrat.side && s.site === currentStrat.site
@@ -554,22 +580,24 @@ function StratNav({ currentStrat, allStrats, mapName, inline }) {
   const next = currentIdx < allStrats.length - 1 ? allStrats[currentIdx + 1] : null
 
   if (inline) {
+    if (!prev && !next) return null
     return (
-      <div className="flex gap-2 text-sm flex-shrink-0">
+      <div className="flex gap-3 text-sm flex-shrink-0">
         {prev && (
           <Link
             to={`/maps/${mapName}/${prev.side.toLowerCase()}/${encodeURIComponent(prev.site)}`}
-            className="text-siege-muted hover:text-siege-accent flex items-center gap-1"
+            className="text-siege-muted hover:text-white flex items-center gap-1 transition-colors"
           >
-            ← {prev.side} {prev.site}
+            ←&nbsp;<StratNavLabel strat={prev} />
           </Link>
         )}
+        {prev && next && <span className="text-siege-border">·</span>}
         {next && (
           <Link
             to={`/maps/${mapName}/${next.side.toLowerCase()}/${encodeURIComponent(next.site)}`}
-            className="text-siege-muted hover:text-siege-accent flex items-center gap-1"
+            className="text-siege-muted hover:text-white flex items-center gap-1 transition-colors"
           >
-            {next.side} {next.site} →
+            <StratNavLabel strat={next} />&nbsp;→
           </Link>
         )}
       </div>
@@ -583,17 +611,17 @@ function StratNav({ currentStrat, allStrats, mapName, inline }) {
       {prev ? (
         <Link
           to={`/maps/${mapName}/${prev.side.toLowerCase()}/${encodeURIComponent(prev.site)}`}
-          className="text-siege-muted hover:text-siege-accent text-sm flex items-center gap-1"
+          className="text-siege-muted hover:text-white text-sm flex items-center gap-1 transition-colors"
         >
-          ← {prev.side} {prev.site}
+          ←&nbsp;<StratNavLabel strat={prev} />
         </Link>
       ) : <div />}
       {next ? (
         <Link
           to={`/maps/${mapName}/${next.side.toLowerCase()}/${encodeURIComponent(next.site)}`}
-          className="text-siege-muted hover:text-siege-accent text-sm flex items-center gap-1"
+          className="text-siege-muted hover:text-white text-sm flex items-center gap-1 transition-colors"
         >
-          {next.side} {next.site} →
+          <StratNavLabel strat={next} />&nbsp;→
         </Link>
       ) : <div />}
     </div>
