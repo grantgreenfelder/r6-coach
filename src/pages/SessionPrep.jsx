@@ -48,7 +48,7 @@ export default function SessionPrep() {
           <button
             key={tab}
             onClick={() => setActiveTab(tab)}
-            className={`px-4 py-1.5 text-sm capitalize rounded-full font-medium transition-all ${
+            className={`px-4 py-2.5 sm:py-1.5 text-sm capitalize rounded-full font-medium transition-all ${
               activeTab === tab
                 ? 'bg-siege-accent text-siege-bg shadow-sm'
                 : 'text-siege-muted hover:text-white'
@@ -408,7 +408,7 @@ function PlayerToggle({ name, active, team, onToggle }) {
   return (
     <button
       onClick={onToggle}
-      className={`px-3 py-1.5 text-sm rounded border font-medium transition-all hover:opacity-90 ${baseColor} ${!active ? 'opacity-50 hover:opacity-70' : ''}`}
+      className={`px-3 py-2.5 sm:py-1.5 text-sm rounded border font-medium transition-all hover:opacity-90 ${baseColor} ${!active ? 'opacity-50 hover:opacity-70' : ''}`}
     >
       {name}
     </button>

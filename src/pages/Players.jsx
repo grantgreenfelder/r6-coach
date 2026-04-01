@@ -207,7 +207,7 @@ export default function Players() {
           <span className="text-siege-muted text-xs mr-1">Sort:</span>
           {[['ris', 'RIS'], ['kd', 'K/D'], ['wr', 'Win%'], ['name', 'A–Z']].map(([val, label]) => (
             <button key={val} onClick={() => setSortBy(val)}
-              className={`px-2.5 py-1 rounded text-xs font-medium transition-colors ${
+              className={`px-2.5 py-2 sm:py-1 rounded text-xs font-medium transition-colors ${
                 sortBy === val
                   ? 'bg-siege-accent text-siege-bg'
                   : 'text-siege-muted hover:text-white'

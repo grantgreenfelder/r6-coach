@@ -477,7 +477,10 @@ export default function StratViewer() {
               <p className="text-siege-muted text-sm mt-1.5 max-w-2xl leading-relaxed">{strat.siteContext}</p>
             )}
           </div>
-          <StratNav currentStrat={strat} allStrats={map.strats} mapName={mapName} inline />
+          {/* Inline strat nav — hidden on mobile (bottom nav serves that role) */}
+          <div className="hidden sm:block">
+            <StratNav currentStrat={strat} allStrats={map.strats} mapName={mapName} inline />
+          </div>
         </div>
       </div>
 
@@ -604,11 +607,11 @@ function StratNav({ currentStrat, allStrats, mapName, inline }) {
   if (!prev && !next) return null
 
   return (
-    <div className="flex justify-between pt-4 border-t border-siege-border">
+    <div className="flex justify-between pt-2 border-t border-siege-border">
       {prev ? (
         <Link
           to={`/maps/${mapName}/${prev.side.toLowerCase()}/${encodeURIComponent(prev.site)}`}
-          className="text-siege-muted hover:text-white text-sm flex items-center gap-1 transition-colors"
+          className="text-siege-muted hover:text-white text-sm flex items-center gap-1 transition-colors py-3 pr-4"
         >
           ←&nbsp;<StratNavLabel strat={prev} />
         </Link>
@@ -616,7 +619,7 @@ function StratNav({ currentStrat, allStrats, mapName, inline }) {
       {next ? (
         <Link
           to={`/maps/${mapName}/${next.side.toLowerCase()}/${encodeURIComponent(next.site)}`}
-          className="text-siege-muted hover:text-white text-sm flex items-center gap-1 transition-colors"
+          className="text-siege-muted hover:text-white text-sm flex items-center gap-1 transition-colors py-3 pl-4"
         >
           <StratNavLabel strat={next} />&nbsp;→
         </Link>

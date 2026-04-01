@@ -387,13 +387,13 @@ export default function PlayerDetail() {
         </div>
       </div>
 
-      {/* Tab bar */}
-      <div className="flex gap-1 border-b border-siege-border">
+      {/* Tab bar — scrollable on mobile so tabs never wrap */}
+      <div className="flex gap-1 border-b border-siege-border overflow-x-auto">
         {tabs.map(tab => (
           <button
             key={tab}
             onClick={() => setActiveTab(tab)}
-            className={`px-4 py-2.5 text-sm font-medium transition-colors border-b-2 -mb-px flex items-center gap-1.5 ${
+            className={`px-4 py-2.5 text-sm font-medium transition-colors border-b-2 -mb-px flex items-center gap-1.5 whitespace-nowrap flex-shrink-0 ${
               activeTab === tab
                 ? 'border-siege-accent text-siege-accent'
                 : 'border-transparent text-siege-muted hover:text-white'

@@ -127,7 +127,7 @@ export default function Operators() {
             placeholder="Search operators..."
             value={search}
             onChange={e => setSearch(e.target.value)}
-            className="bg-siege-card border border-siege-border rounded px-3 py-1.5 text-sm text-white placeholder-siege-muted focus:outline-none focus:border-siege-accent w-44"
+            className="bg-siege-card border border-siege-border rounded px-3 py-2.5 sm:py-1.5 text-sm text-white placeholder-siege-muted focus:outline-none focus:border-siege-accent w-44"
           />
 
           {/* ATK / DEF toggle */}

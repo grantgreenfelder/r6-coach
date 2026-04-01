@@ -61,7 +61,7 @@ export default function Maps() {
             <span className="text-siege-muted text-xs mr-1">Sort:</span>
             {[{ value: 'winrate', label: 'Win%' }, { value: 'name', label: 'A–Z' }].map(s => (
               <button key={s.value} onClick={() => setSortBy(s.value)}
-                className={`px-2.5 py-1 rounded text-xs font-medium transition-colors ${sortBy === s.value ? 'bg-siege-accent text-siege-bg' : 'text-siege-muted hover:text-white'}`}>
+                className={`px-2.5 py-2 sm:py-1 rounded text-xs font-medium transition-colors ${sortBy === s.value ? 'bg-siege-accent text-siege-bg' : 'text-siege-muted hover:text-white'}`}>
                 {s.label}
               </button>
             ))}
@@ -71,7 +71,7 @@ export default function Maps() {
             <span className="text-siege-muted text-xs mr-1">Season:</span>
             {SEASONS.map(s => (
               <button key={s} onClick={() => setSeason(s)}
-                className={`px-2.5 py-1 rounded text-xs font-medium transition-colors ${season === s ? 'bg-siege-accent text-siege-bg' : 'text-siege-muted hover:text-white'}`}>
+                className={`px-2.5 py-2 sm:py-1 rounded text-xs font-medium transition-colors ${season === s ? 'bg-siege-accent text-siege-bg' : 'text-siege-muted hover:text-white'}`}>
                 {s}
               </button>
             ))}
