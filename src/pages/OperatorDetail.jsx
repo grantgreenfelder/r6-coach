@@ -33,9 +33,9 @@ function BulletList({ items }) {
   )
 }
 
-function SectionCard({ title, children }) {
+function SectionCard({ title, children, accentLeft }) {
   return (
-    <div className="card space-y-3">
+    <div className={`card space-y-3 ${accentLeft ? `border-l-2 ${accentLeft}` : ''}`}>
       <h3 className="text-siege-accent font-semibold text-xs uppercase tracking-wider">{title}</h3>
       {children}
     </div>
@@ -114,10 +114,10 @@ function WikiTab({ op }) {
 
       {/* Strengths + Weaknesses */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-        <SectionCard title="Strengths">
+        <SectionCard title="Strengths" accentLeft="border-siege-green">
           <BulletList items={op.strengths} />
         </SectionCard>
-        <SectionCard title="Weaknesses">
+        <SectionCard title="Weaknesses" accentLeft="border-siege-red">
           <BulletList items={op.weaknesses} />
         </SectionCard>
       </div>
@@ -406,6 +406,13 @@ export default function OperatorDetail() {
           </button>
         ))}
       </div>
+
+      {/* Tab context label */}
+      {activeTab === 'stats' && (
+        <p className="text-siege-muted text-xs -mt-4">
+          Team performance data for {op.name.replace(/_/g, ' ')} across all tracked players and seasons.
+        </p>
+      )}
 
       {/* Tab content */}
       {activeTab === 'wiki'  && <WikiTab  op={op} />}

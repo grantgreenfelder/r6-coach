@@ -278,9 +278,13 @@ function SeasonTab({ stats, operators, mapPerformance, notes, priorities }) {
 
       {/* Operators — full width card */}
       <div className="card">
-        <div className="flex items-center gap-2 mb-4">
+        <div className="flex items-center justify-between flex-wrap gap-2 mb-4">
           <h3 className="text-siege-accent font-semibold text-xs uppercase tracking-wider">Operators</h3>
-          <span className="text-siege-muted text-xs ml-1">— Win% bar · K/D · Rounds played (volume bar)</span>
+          <div className="flex items-center gap-3 text-[11px] text-siege-muted">
+            <span className="flex items-center gap-1.5"><span className="w-6 h-1 bg-siege-muted/40 rounded-full inline-block" />Rounds played</span>
+            <span className="flex items-center gap-1.5"><span className="w-6 h-1.5 bg-siege-green rounded-full inline-block" />Win% bar</span>
+            <span>K/D</span>
+          </div>
         </div>
         <OpsTable operators={operators} />
       </div>
@@ -352,8 +356,18 @@ export default function PlayerDetail() {
 
       {/* Header */}
       <div className="card flex items-start gap-5 flex-wrap">
-        <div className="w-14 h-14 rounded-full bg-siege-accent flex items-center justify-center text-xl font-bold text-siege-bg flex-shrink-0">
-          {player.name[0]}
+        <div className="flex flex-col items-center gap-2 flex-shrink-0">
+          <div className="w-14 h-14 rounded-full bg-siege-accent flex items-center justify-center text-xl font-bold text-siege-bg">
+            {player.name[0]}
+          </div>
+          {/* Top op portraits */}
+          {(player.atkOps || player.defOps) && (
+            <div className="flex gap-1">
+              {[...(player.atkOps || '').split(/[,/]/), ...(player.defOps || '').split(/[,/]/)]
+                .map(s => s.trim()).filter(Boolean).slice(0, 4)
+                .map(name => <PortraitChip key={name} name={name} />)}
+            </div>
+          )}
         </div>
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-3 flex-wrap">
@@ -363,7 +377,7 @@ export default function PlayerDetail() {
                 href={`https://r6.tracker.network/r6siege/profile/ubi/${player.tracker}/overview`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-xs text-siege-muted hover:text-siege-accent border border-siege-border rounded px-2 py-0.5"
+                className="text-xs text-siege-muted hover:text-siege-accent border border-siege-border hover:border-siege-accent rounded px-2 py-0.5 transition-colors"
               >
                 r6.tracker ↗
               </a>

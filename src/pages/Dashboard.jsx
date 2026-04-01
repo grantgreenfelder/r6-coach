@@ -228,7 +228,7 @@ export default function Dashboard() {
         </div>
         <Link
           to="/session-prep"
-          className="px-4 py-2 rounded bg-siege-accent text-siege-bg font-semibold text-sm hover:opacity-90 transition-opacity"
+          className="text-siege-accent text-sm font-medium hover:underline transition-colors"
         >
           Session Prep →
         </Link>
@@ -297,11 +297,11 @@ export default function Dashboard() {
         </Link>
       </div>
 
-      {/* Bottom row: Spotlight + Team Focus */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+      {/* Bottom row: Team Focus (wider) + Spotlight */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
 
-        {/* Spotlight */}
-        <div className="card">
+        {/* Spotlight — 1 col */}
+        <div className="card lg:col-span-1">
           <h2 className="text-white font-semibold text-sm uppercase tracking-wider mb-4">⭐ Spotlight</h2>
           <div className="space-y-3">
 
@@ -352,9 +352,9 @@ export default function Dashboard() {
           </div>
         </div>
 
-        {/* Team Focus of the Week */}
+        {/* Team Focus — 2 cols */}
         {teamFocusItems.length > 0 && (
-          <div className="card">
+          <div className="card lg:col-span-2">
             <h2 className="text-white font-semibold text-sm uppercase tracking-wider mb-4">Team Focus</h2>
             <div className="space-y-3">
               {teamFocusItems.map((item, i) => (

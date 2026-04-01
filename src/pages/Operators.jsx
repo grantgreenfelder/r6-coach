@@ -1,6 +1,7 @@
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 import { Link } from 'react-router-dom'
 import operatorsData from '../data/operators.json'
+import playersData from '../data/players.json'
 import { getPortraitUrl } from '../utils/operatorPortraits'
 
 const SIDE_COLORS = {
@@ -8,14 +9,39 @@ const SIDE_COLORS = {
   DEF: { dot: 'bg-blue-400',   text: 'text-blue-400',   badge: 'bg-blue-400/10 text-blue-400 border-blue-400/30' },
 }
 
+// Build a lookup: normalized op name → [player initials] who play it
+function buildMainsMap() {
+  const allPlayers = [
+    ...(playersData.mainStack || []),
+    ...(playersData.bTeam || []),
+  ]
+  const map = {}
+  const normalize = s => s.toLowerCase().replace(/\s+/g, '_').replace(/-/g, '').replace(/ü/g, 'u')
+  for (const player of allPlayers) {
+    const ops = [...(player.atkOps || '').split(/[,/]/), ...(player.defOps || '').split(/[,/]/)]
+      .map(s => s.trim()).filter(Boolean)
+    for (const op of ops) {
+      const key = normalize(op)
+      if (!map[key]) map[key] = []
+      map[key].push(player.name[0])
+    }
+  }
+  return map
+}
+
+const MAINS_MAP = buildMainsMap()
+
 function OperatorTile({ op }) {
   const [imgError, setImgError] = useState(false)
   const portraitSrc = getPortraitUrl(op.name)
+  const normalizedKey = op.name.toLowerCase().replace(/\s+/g, '_').replace(/-/g, '').replace(/ü/g, 'u')
+  const mains = MAINS_MAP[normalizedKey] || []
+
   return (
     <Link
       to={`/operators/${op.name}`}
-      className="group flex flex-col items-center gap-1.5 p-2 sm:p-3 rounded-lg border border-siege-border
-                 bg-siege-card hover:border-siege-accent/50 hover:bg-siege-accent/5 transition-all"
+      className="group flex flex-col items-center gap-1 p-2 sm:p-3 rounded-lg border border-siege-border
+                 bg-siege-card hover:border-siege-accent/50 hover:bg-siege-accent/5 transition-all relative"
     >
       {/* Portrait */}
       <div className="w-14 h-14 rounded-lg overflow-hidden bg-black/40 flex items-center justify-center flex-shrink-0">
@@ -37,6 +63,19 @@ function OperatorTile({ op }) {
       <span className="text-white text-[11px] font-medium text-center leading-tight group-hover:text-siege-accent transition-colors w-full line-clamp-2">
         {op.name.replace(/_/g, ' ')}
       </span>
+      {/* Player mains chips */}
+      {mains.length > 0 && (
+        <div className="flex gap-0.5 flex-wrap justify-center">
+          {mains.map(initial => (
+            <span
+              key={initial}
+              className="w-4 h-4 rounded-full bg-siege-accent/20 text-siege-accent text-[9px] font-bold flex items-center justify-center leading-none"
+            >
+              {initial}
+            </span>
+          ))}
+        </div>
+      )}
     </Link>
   )
 }
@@ -48,7 +87,9 @@ function CategoryGroup({ category, operators, side }) {
       <div className="flex items-center gap-2 mb-3">
         <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${colors.dot}`} />
         <span className={`text-xs font-semibold uppercase tracking-wider ${colors.text}`}>{category}</span>
-        <span className="text-siege-muted text-xs ml-1">{operators.length}</span>
+        <span className="ml-1 bg-siege-border text-siege-muted text-[10px] font-medium px-1.5 py-0.5 rounded-full leading-none">
+          {operators.length}
+        </span>
       </div>
       <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 gap-2">
         {operators.map(op => <OperatorTile key={op.name} op={op} />)}
@@ -66,9 +107,8 @@ export default function Operators() {
   const q = search.toLowerCase().trim()
   const isSearching = q.length > 0
 
-  // When searching: show flat filtered list; otherwise: category groups
   const flatFiltered = isSearching
-    ? ops.filter(o => o.name.toLowerCase().includes(q))
+    ? ops.filter(o => o.name.toLowerCase().replace(/_/g, ' ').includes(q))
     : []
 
   return (
@@ -106,12 +146,20 @@ export default function Operators() {
                     : 'text-siege-muted hover:text-white'
                 }`}
               >
-                {side === 'ATK' ? '⚔ Attack' : '🛡 Defense'}
+                {side === 'ATK' ? 'Attack' : 'Defense'}
               </button>
             ))}
           </div>
         </div>
       </div>
+
+      {/* Mains legend */}
+      <p className="text-siege-muted text-xs -mt-3">
+        <span className="inline-flex items-center gap-1">
+          <span className="w-4 h-4 rounded-full bg-siege-accent/20 text-siege-accent text-[9px] font-bold flex items-center justify-center">G</span>
+          {' '}= player initial — indicates a roster main for that operator
+        </span>
+      </p>
 
       {/* Search results — flat grid */}
       {isSearching ? (
@@ -126,7 +174,6 @@ export default function Operators() {
           <p className="text-siege-muted text-center py-12">No operators match "{search}"</p>
         )
       ) : (
-        /* Category groups */
         <div className="space-y-7">
           {categories.map(cat => {
             const catOps = ops.filter(o => o.category === cat)

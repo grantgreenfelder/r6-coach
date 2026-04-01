@@ -91,10 +91,13 @@ function PlayerCard({ player }) {
   const displayWr  = parseFloat(winRate) ? winRate : '—'
   const wrNum = parseFloat(winRate) || 0
 
+  // Non-main players get a subtly dimmer card to signal secondary tier
+  const dimCls = player.team === 'main' ? '' : 'opacity-75'
+
   return (
     <Link
       to={`/players/${player.name}`}
-      className="card hover:border-siege-accent transition-colors group"
+      className={`card hover:border-siege-accent transition-all hover:opacity-100 group ${dimCls}`}
     >
       {/* Name + rank */}
       <div className="flex items-center justify-between mb-3">
@@ -142,15 +145,17 @@ function PlayerCard({ player }) {
       <RisBar ris={ris} />
       <div className="flex justify-between text-xs text-siege-muted mb-2">
         <span className="flex items-center gap-1">RIS <HelpTip text={GLOSSARY.RIS_BAR} position="bottom" /></span>
-        <span>baseline 50</span>
+        {parseFloat(ris) ? <span>baseline 50</span> : <span className="italic">no data</span>}
       </div>
 
-      {/* Op portrait chips */}
-      {(player.atkOps || player.defOps) && (
+      {/* Op portrait chips — or placeholder if none */}
+      {(player.atkOps || player.defOps) ? (
         <div className="flex gap-3">
           <OpChips label="Atk" opsString={player.atkOps} />
           <OpChips label="Def" opsString={player.defOps} />
         </div>
+      ) : (
+        <p className="text-siege-muted text-xs italic">Operators not tracked</p>
       )}
     </Link>
   )
@@ -188,24 +193,25 @@ export default function Players() {
         <p className="text-siege-muted text-sm mt-1">Player profiles and season stats</p>
       </div>
 
-      {/* Search + sort */}
-      <div className="flex flex-wrap gap-2 items-center">
+      {/* Search + sort — unified filter bar */}
+      <div className="flex items-center gap-2 bg-siege-card border border-siege-border rounded-lg px-3 py-2 flex-wrap">
         <input
           type="text"
           aria-label="Search players"
           placeholder="Search by name or role..."
           value={search}
           onChange={e => setSearch(e.target.value)}
-          className="bg-siege-card border border-siege-border rounded px-3 py-1.5 text-sm text-white placeholder:text-siege-muted focus:outline-none focus:border-siege-accent flex-1 min-w-[180px] max-w-xs"
+          className="bg-transparent text-sm text-white placeholder:text-siege-muted focus:outline-none flex-1 min-w-[140px]"
         />
-        <div className="flex gap-1 ml-auto">
-          <span className="text-siege-muted text-xs self-center mr-1">Sort:</span>
+        <div className="w-px h-4 bg-siege-border flex-shrink-0 hidden sm:block" />
+        <div className="flex items-center gap-1 flex-shrink-0">
+          <span className="text-siege-muted text-xs mr-1">Sort:</span>
           {[['ris', 'RIS'], ['kd', 'K/D'], ['wr', 'Win%'], ['name', 'A–Z']].map(([val, label]) => (
             <button key={val} onClick={() => setSortBy(val)}
-              className={`px-2.5 py-1.5 rounded text-xs font-medium transition-colors ${
+              className={`px-2.5 py-1 rounded text-xs font-medium transition-colors ${
                 sortBy === val
                   ? 'bg-siege-accent text-siege-bg'
-                  : 'bg-siege-card border border-siege-border text-siege-muted hover:text-white'
+                  : 'text-siege-muted hover:text-white'
               }`}>
               {label}
             </button>

@@ -47,44 +47,31 @@ export default function Maps() {
       {/* Header + controls */}
       <div className="flex items-center justify-between flex-wrap gap-4">
         <h1 className="text-2xl font-bold text-white">Maps</h1>
-        <div className="flex gap-2 flex-wrap items-center">
+        {/* Unified filter bar */}
+        <div className="flex items-center gap-2 bg-siege-card border border-siege-border rounded-lg px-3 py-2 flex-wrap">
           <input
             type="text"
             placeholder="Search maps..."
             value={search}
             onChange={e => setSearch(e.target.value)}
-            className="bg-siege-card border border-siege-border rounded px-3 py-1.5 text-sm text-white placeholder-siege-muted focus:outline-none focus:border-siege-accent"
+            className="bg-transparent text-sm text-white placeholder:text-siege-muted focus:outline-none flex-1 min-w-[120px]"
           />
-
-          {/* Sort toggle */}
-          <div className="flex rounded border border-siege-border overflow-hidden">
+          <div className="w-px h-4 bg-siege-border flex-shrink-0 hidden sm:block" />
+          <div className="flex items-center gap-1 flex-shrink-0">
+            <span className="text-siege-muted text-xs mr-1">Sort:</span>
             {[{ value: 'winrate', label: 'Win%' }, { value: 'name', label: 'A–Z' }].map(s => (
-              <button
-                key={s.value}
-                onClick={() => setSortBy(s.value)}
-                className={`px-3 py-1.5 text-sm transition-colors ${
-                  sortBy === s.value
-                    ? 'bg-siege-accent text-siege-bg font-semibold'
-                    : 'text-siege-muted hover:text-white'
-                }`}
-              >
+              <button key={s.value} onClick={() => setSortBy(s.value)}
+                className={`px-2.5 py-1 rounded text-xs font-medium transition-colors ${sortBy === s.value ? 'bg-siege-accent text-siege-bg' : 'text-siege-muted hover:text-white'}`}>
                 {s.label}
               </button>
             ))}
           </div>
-
-          {/* Season selector */}
-          <div className="flex rounded border border-siege-border overflow-hidden">
+          <div className="w-px h-4 bg-siege-border flex-shrink-0 hidden sm:block" />
+          <div className="flex items-center gap-1 flex-shrink-0">
+            <span className="text-siege-muted text-xs mr-1">Season:</span>
             {SEASONS.map(s => (
-              <button
-                key={s}
-                onClick={() => setSeason(s)}
-                className={`px-3 py-1.5 text-sm transition-colors ${
-                  season === s
-                    ? 'bg-siege-accent text-siege-bg font-semibold'
-                    : 'text-siege-muted hover:text-white'
-                }`}
-              >
+              <button key={s} onClick={() => setSeason(s)}
+                className={`px-2.5 py-1 rounded text-xs font-medium transition-colors ${season === s ? 'bg-siege-accent text-siege-bg' : 'text-siege-muted hover:text-white'}`}>
                 {s}
               </button>
             ))}
@@ -203,20 +190,6 @@ function MapCard({ map, season, getWr, getWrM, getRating }) {
           </div>
           <div className="text-xs text-siege-muted mt-1">
             {devCount} strats ready · {partialCount} partial · {totalCount - devCount - partialCount} not started
-          </div>
-        </div>
-
-        {/* Attack / Defense split */}
-        <div className="flex gap-4 text-sm">
-          <div>
-            <span className="text-siege-muted">Attack </span>
-            <span className="text-white font-medium">{map.strats.filter(s => s.side === 'ATK').length}</span>
-            <span className="text-siege-muted"> sites</span>
-          </div>
-          <div>
-            <span className="text-siege-muted">Defense </span>
-            <span className="text-white font-medium">{map.strats.filter(s => s.side === 'DEF').length}</span>
-            <span className="text-siege-muted"> sites</span>
           </div>
         </div>
 

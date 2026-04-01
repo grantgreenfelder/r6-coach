@@ -1,0 +1,218 @@
+import { useState, useEffect, useRef, useCallback } from 'react'
+import { useNavigate } from 'react-router-dom'
+import playersData from '../data/players.json'
+import mapsData from '../data/maps.json'
+import operatorsData from '../data/operators.json'
+
+// ─── Build search index once ──────────────────────────────────────────────────
+
+const allPlayers = [
+  ...(playersData.mainStack || []),
+  ...(playersData.bTeam || []),
+  ...(playersData.other || []),
+]
+
+const INDEX = [
+  ...allPlayers.map(p => ({
+    type: 'player',
+    label: p.name,
+    sub: p.role || '',
+    href: `/players/${p.name}`,
+    key: p.name.toLowerCase(),
+  })),
+  ...mapsData.map(m => ({
+    type: 'map',
+    label: m.displayName,
+    sub: m.teamWinRate !== null ? `${m.teamWinRate}% win rate` : 'Untracked',
+    href: `/maps/${m.name}`,
+    key: m.displayName.toLowerCase(),
+  })),
+  ...[...operatorsData.atk, ...operatorsData.def].map(op => ({
+    type: 'operator',
+    label: op.name.replace(/_/g, ' '),
+    sub: op.side === 'ATK' ? 'Attacker' : 'Defender',
+    href: `/operators/${op.name}`,
+    key: op.name.toLowerCase().replace(/_/g, ' '),
+  })),
+]
+
+const TYPE_ORDER = { player: 0, map: 1, operator: 2 }
+const TYPE_LABEL = { player: 'Players', map: 'Maps', operator: 'Operators' }
+const TYPE_ICON  = {
+  player:   '👤',
+  map:      '🗺',
+  operator: '🎯',
+}
+
+function search(q) {
+  if (!q.trim()) return []
+  const needle = q.toLowerCase().trim()
+  return INDEX
+    .filter(item => item.key.includes(needle) || item.label.toLowerCase().includes(needle))
+    .sort((a, b) => {
+      const aStarts = a.key.startsWith(needle) ? 0 : 1
+      const bStarts = b.key.startsWith(needle) ? 0 : 1
+      if (aStarts !== bStarts) return aStarts - bStarts
+      return TYPE_ORDER[a.type] - TYPE_ORDER[b.type]
+    })
+    .slice(0, 12)
+}
+
+// ─── Component ────────────────────────────────────────────────────────────────
+
+export default function GlobalSearch() {
+  const [open, setOpen]     = useState(false)
+  const [query, setQuery]   = useState('')
+  const [active, setActive] = useState(0)
+  const inputRef            = useRef(null)
+  const navigate            = useNavigate()
+
+  const results = search(query)
+
+  // Keyboard shortcut: Cmd+K / Ctrl+K
+  useEffect(() => {
+    const handler = (e) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault()
+        setOpen(o => !o)
+      }
+      if (e.key === 'Escape') setOpen(false)
+    }
+    window.addEventListener('keydown', handler)
+    return () => window.removeEventListener('keydown', handler)
+  }, [])
+
+  // Focus input when opened
+  useEffect(() => {
+    if (open) {
+      setQuery('')
+      setActive(0)
+      setTimeout(() => inputRef.current?.focus(), 30)
+    }
+  }, [open])
+
+  const go = useCallback((href) => {
+    navigate(href)
+    setOpen(false)
+    setQuery('')
+  }, [navigate])
+
+  const handleKey = (e) => {
+    if (e.key === 'ArrowDown') {
+      e.preventDefault()
+      setActive(a => Math.min(a + 1, results.length - 1))
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault()
+      setActive(a => Math.max(a - 1, 0))
+    } else if (e.key === 'Enter') {
+      if (results[active]) go(results[active].href)
+    }
+  }
+
+  if (!open) {
+    return (
+      <button
+        onClick={() => setOpen(true)}
+        aria-label="Open search (⌘K)"
+        className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-siege-card border border-siege-border text-siege-muted text-sm hover:border-siege-accent/50 hover:text-white transition-colors"
+      >
+        <svg className="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+          <circle cx="11" cy="11" r="8" /><path d="m21 21-4.35-4.35" />
+        </svg>
+        <span className="hidden sm:inline">Search</span>
+        <kbd className="hidden sm:inline-flex items-center gap-0.5 px-1 py-0.5 rounded bg-siege-border text-siege-muted text-[10px] font-mono leading-none">
+          ⌘K
+        </kbd>
+      </button>
+    )
+  }
+
+  return (
+    <div
+      className="fixed inset-0 z-50 flex items-start justify-center pt-[15vh] bg-black/60 backdrop-blur-sm"
+      onClick={e => { if (e.target === e.currentTarget) setOpen(false) }}
+    >
+      <div className="w-full max-w-lg mx-4 bg-siege-card border border-siege-border rounded-xl shadow-2xl overflow-hidden">
+        {/* Input */}
+        <div className="flex items-center gap-3 px-4 py-3 border-b border-siege-border">
+          <svg className="w-4 h-4 text-siege-muted flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+            <circle cx="11" cy="11" r="8" /><path d="m21 21-4.35-4.35" />
+          </svg>
+          <input
+            ref={inputRef}
+            type="text"
+            value={query}
+            onChange={e => { setQuery(e.target.value); setActive(0) }}
+            onKeyDown={handleKey}
+            placeholder="Search players, maps, operators…"
+            className="flex-1 bg-transparent text-white text-sm placeholder:text-siege-muted focus:outline-none"
+          />
+          <kbd
+            onClick={() => setOpen(false)}
+            className="cursor-pointer px-1.5 py-0.5 rounded bg-siege-border text-siege-muted text-[10px] font-mono"
+          >
+            ESC
+          </kbd>
+        </div>
+
+        {/* Results */}
+        {results.length > 0 ? (
+          <ul className="max-h-80 overflow-y-auto py-2">
+            {results.map((item, i) => (
+              <li key={item.href}>
+                <button
+                  onClick={() => go(item.href)}
+                  onMouseEnter={() => setActive(i)}
+                  className={`w-full flex items-center gap-3 px-4 py-2.5 text-left transition-colors ${
+                    i === active ? 'bg-siege-accent/10' : 'hover:bg-siege-border/30'
+                  }`}
+                >
+                  <span className="text-base w-5 text-center flex-shrink-0" aria-hidden="true">
+                    {TYPE_ICON[item.type]}
+                  </span>
+                  <div className="flex-1 min-w-0">
+                    <span className={`text-sm font-medium block truncate ${i === active ? 'text-siege-accent' : 'text-white'}`}>
+                      {item.label}
+                    </span>
+                    {item.sub && (
+                      <span className="text-[11px] text-siege-muted truncate block">{item.sub}</span>
+                    )}
+                  </div>
+                  <span className="text-[10px] text-siege-muted flex-shrink-0 uppercase tracking-wide">
+                    {TYPE_LABEL[item.type]}
+                  </span>
+                </button>
+              </li>
+            ))}
+          </ul>
+        ) : query.trim() ? (
+          <p className="text-siege-muted text-sm text-center py-10">No results for "{query}"</p>
+        ) : (
+          <div className="py-6 px-4">
+            <p className="text-siege-muted text-xs uppercase tracking-wider mb-3">Jump to</p>
+            <div className="flex gap-2 flex-wrap">
+              {['Players', 'Maps', 'Operators'].map(label => (
+                <button
+                  key={label}
+                  onClick={() => setQuery(label.slice(0, 3).toLowerCase())}
+                  className="px-3 py-1.5 rounded-full bg-siege-border text-siege-muted text-xs hover:text-white hover:bg-siege-border/70 transition-colors"
+                >
+                  {label}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Footer hint */}
+        {results.length > 0 && (
+          <div className="flex items-center gap-3 px-4 py-2 border-t border-siege-border text-[10px] text-siege-muted">
+            <span><kbd className="font-mono">↑↓</kbd> navigate</span>
+            <span><kbd className="font-mono">↵</kbd> open</span>
+            <span><kbd className="font-mono">ESC</kbd> close</span>
+          </div>
+        )}
+      </div>
+    </div>
+  )
+}

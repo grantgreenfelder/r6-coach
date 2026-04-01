@@ -43,15 +43,15 @@ export default function SessionPrep() {
       </div>
 
       {/* Tabs */}
-      <div className="flex gap-1 border-b border-siege-border">
+      <div className="flex bg-siege-card border border-siege-border rounded-full p-1 w-fit">
         {['brief', 'map veto'].map(tab => (
           <button
             key={tab}
             onClick={() => setActiveTab(tab)}
-            className={`px-4 py-2 text-sm capitalize transition-colors border-b-2 -mb-px ${
+            className={`px-4 py-1.5 text-sm capitalize rounded-full font-medium transition-all ${
               activeTab === tab
-                ? 'border-siege-accent text-siege-accent'
-                : 'border-transparent text-siege-muted hover:text-white'
+                ? 'bg-siege-accent text-siege-bg shadow-sm'
+                : 'text-siege-muted hover:text-white'
             }`}
           >
             {tab}
@@ -66,7 +66,7 @@ export default function SessionPrep() {
           <div className="card">
             <h2 className="text-siege-accent font-semibold text-sm uppercase tracking-wider mb-3">Player Callouts</h2>
             {tonightPlayers.length > 0 ? (
-              <div className="space-y-4">
+              <div className="space-y-6">
                 {tonightPlayers.map(player => (
                   <PlayerCallout key={player.name} player={player} />
                 ))}
@@ -333,13 +333,13 @@ function PlayerCallout({ player }) {
       <div className="flex items-center justify-between mb-2">
         <div className="flex items-center gap-3">
           {/* Op portrait chips — ATK first, then DEF */}
-          <div className="flex -space-x-1 flex-shrink-0">
+          <div className="flex gap-1.5 flex-shrink-0">
             {[...(player.atkOps || '').split(/[,/]/), ...(player.defOps || '').split(/[,/]/)]
               .map(s => s.trim()).filter(Boolean).slice(0, 4)
               .map((name, i) => (
                 <div
                   key={i}
-                  className="w-8 h-8 rounded-full overflow-hidden ring-2 ring-siege-card bg-siege-border flex-shrink-0"
+                  className="w-10 h-10 rounded-full overflow-hidden ring-1 ring-siege-border bg-siege-border flex-shrink-0"
                   title={name}
                 >
                   <img src={getPortraitUrl(name)} alt={name} loading="lazy" className="w-full h-full object-cover object-top" onError={e => { e.currentTarget.style.display = 'none' }} />
