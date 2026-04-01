@@ -137,9 +137,10 @@ function parsePlayer(name) {
   // → "Ash / Twitch"
   function extractOpsFromIdentity(content, side) {
     // Y11S1 format: "**ATK identity:** Ash is the primary ATK pick (29r / 44.8%). Secondary: Twitch (27r / 40.7%)."
-    const reWithSecondary = new RegExp(`\\*\\*${side} identity:\\*\\*\\s*(\\w+) is the primary[^S]*Secondary:\\s*(\\w+)`, 'i')
+    // Secondary group: match words/spaces up to the opening paren — handles "Solid Snake (21r...)"
+    const reWithSecondary = new RegExp(`\\*\\*${side} identity:\\*\\*\\s*(\\w+) is the primary[^S]*Secondary:\\s*([\\w][\\w ]*?)\\s*\\(`, 'i')
     const m = content.match(reWithSecondary)
-    if (m) return `${m[1]} / ${m[2]}`
+    if (m) return `${m[1]} / ${m[2].trim()}`
     const rePrimary = new RegExp(`\\*\\*${side} identity:\\*\\*\\s*(\\w+) is the primary`, 'i')
     const mp = content.match(rePrimary)
     if (mp) return mp[1]
@@ -208,8 +209,12 @@ function parsePlayer(name) {
     })
     .filter(l => l.length > 5)
 
+  // Display name overrides — tracker/folder name → preferred callsign
+  const DISPLAY_NAMES = { TazRathmus: 'Tyrone' }
+  const displayName = DISPLAY_NAMES[name] || name
+
   return {
-    name,
+    name: displayName,
     tracker,
     team,
     role,
