@@ -149,20 +149,44 @@ export default function MapDetail() {
           })()}
 
           {/* Strat progress */}
-          <div>
-            <div className="flex gap-6 text-sm mb-2">
-              <StratStat label="Total Sites"  value={map.stratCount.total} />
-              <StratStat label="Ready"        value={map.stratCount.developed}  color="text-siege-green" />
-              <StratStat label="Partial"      value={map.stratCount.partial}    color="text-yellow-500" />
-              <StratStat label="Not Started"  value={map.stratCount.total - map.stratCount.developed - map.stratCount.partial} color="text-siege-muted" />
-            </div>
-            {map.stratCount.total > 0 && (
-              <div className="h-1.5 bg-siege-border rounded-full overflow-hidden flex">
-                <div className="bg-siege-green h-full" style={{ width: `${(map.stratCount.developed / map.stratCount.total) * 100}%` }} />
-                <div className="bg-yellow-500 h-full" style={{ width: `${(map.stratCount.partial / map.stratCount.total) * 100}%` }} />
+          {(() => {
+            const { developed, partial, total } = map.stratCount
+            const notStarted = total - developed - partial
+            const tooltip = `${developed} ready · ${partial} partial · ${notStarted} not started`
+            return (
+              <div>
+                <div className="flex gap-6 text-sm mb-2">
+                  <StratStat label="Total Sites"  value={total} />
+                  <StratStat label="Ready"        value={developed}   color="text-siege-green" />
+                  <StratStat label="Partial"      value={partial}     color="text-yellow-500" />
+                  <StratStat label="Not Started"  value={notStarted}  color="text-siege-muted" />
+                </div>
+                {total > 0 && (
+                  <div
+                    className="h-1.5 bg-siege-border rounded-full overflow-hidden flex cursor-default"
+                    title={tooltip}
+                    aria-label={`Strat readiness: ${tooltip}`}
+                  >
+                    <div
+                      className="bg-siege-green h-full"
+                      style={{ width: `${(developed / total) * 100}%` }}
+                      title={`${developed} ready`}
+                    />
+                    <div
+                      className="bg-yellow-500 h-full"
+                      style={{ width: `${(partial / total) * 100}%` }}
+                      title={`${partial} in progress`}
+                    />
+                    <div
+                      className="bg-siege-border h-full"
+                      style={{ width: `${(notStarted / total) * 100}%` }}
+                      title={`${notStarted} not started`}
+                    />
+                  </div>
+                )}
               </div>
-            )}
-          </div>
+            )
+          })()}
         </div>
       </div>
 
@@ -474,14 +498,17 @@ function OverviewAccordion({ content }) {
           <div key={section.title} className="card overflow-hidden p-0">
             <button
               onClick={() => toggleSection(section.title)}
-              className="w-full flex items-center justify-between px-4 py-3 text-left hover:bg-white/[0.03] transition-colors"
+              className="w-full flex items-center justify-between px-4 py-3 text-left hover:bg-white/[0.03] transition-colors group"
             >
-              <span className={`font-semibold text-sm ${isOpen ? 'text-white' : 'text-siege-muted'}`}>
+              <span className={`font-semibold text-sm transition-colors ${isOpen ? 'text-white' : 'text-siege-muted group-hover:text-white'}`}>
                 {section.title}
               </span>
-              <span className={`text-xs transition-transform duration-200 ${isOpen ? 'rotate-180' : ''} text-siege-muted`}>
-                ▼
-              </span>
+              <svg
+                className={`w-4 h-4 text-siege-muted flex-shrink-0 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
+                fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="m6 9 6 6 6-6" />
+              </svg>
             </button>
             {isOpen && (
               <div className="px-4 pb-4 pt-1 border-t border-siege-border">
