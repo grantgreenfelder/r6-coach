@@ -56,6 +56,21 @@ function OpChips({ label, opsString }) {
   )
 }
 
+// Normalize long rank strings to something card-friendly
+function shortRank(rank) {
+  if (!rank) return ''
+  if (/unranked/i.test(rank)) return 'Unranked'
+  // "Emerald III", "Platinum IV" etc — fine as-is
+  return rank
+}
+
+// Role field can contain long coaching notes for C Team players — cap at first sentence
+function shortRole(role) {
+  if (!role) return ''
+  const dot = role.indexOf('.')
+  return dot > 0 && dot < 40 ? role.slice(0, dot) : role
+}
+
 // ─── Player Card ──────────────────────────────────────────────────────────────
 function PlayerCard({ player }) {
   const { kd, ris, winRate, rank } = player.stats || {}
@@ -73,7 +88,7 @@ function PlayerCard({ player }) {
     >
       {/* Name + rank */}
       <div className="flex items-center justify-between mb-3">
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 min-w-0 flex-1">
           <div className="w-8 h-8 rounded-full bg-siege-accent/20 flex items-center justify-center text-siege-accent font-bold text-sm flex-shrink-0">
             {player.name[0]}
           </div>
@@ -82,11 +97,11 @@ function PlayerCard({ player }) {
               {player.name}
             </span>
             {player.role && (
-              <span className="text-gray-500 text-xs block truncate">{player.role}</span>
+              <span className="text-gray-500 text-xs block truncate">{shortRole(player.role)}</span>
             )}
           </div>
         </div>
-        <span className="text-siege-muted text-xs flex-shrink-0 ml-2">{rank}</span>
+        <span className="text-siege-muted text-xs flex-shrink-0 ml-2">{shortRank(rank)}</span>
       </div>
 
       {/* Stats */}
