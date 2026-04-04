@@ -13,6 +13,7 @@ const StratViewer   = lazy(() => import('./pages/StratViewer.jsx'))
 const SessionPrep   = lazy(() => import('./pages/SessionPrep.jsx'))
 const Operators     = lazy(() => import('./pages/Operators.jsx'))
 const OperatorDetail = lazy(() => import('./pages/OperatorDetail.jsx'))
+const Compare       = lazy(() => import('./pages/Compare.jsx'))
 
 class ErrorBoundary extends Component {
   constructor(props) {
@@ -68,6 +69,7 @@ export default function App() {
               <Route path="session-prep" element={<Suspense fallback={<PageSkeleton />}><SessionPrep /></Suspense>} />
               <Route path="operators" element={<Suspense fallback={<PageSkeleton />}><Operators /></Suspense>} />
               <Route path="operators/:name" element={<Suspense fallback={<PageSkeleton page="detail" />}><OperatorDetail /></Suspense>} />
+              <Route path="compare" element={<Suspense fallback={<PageSkeleton />}><Compare /></Suspense>} />
               <Route path="*" element={<Suspense fallback={null}><NotFound /></Suspense>} />
             </Route>
           </Routes>
