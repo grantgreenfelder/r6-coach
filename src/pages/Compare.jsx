@@ -2,7 +2,7 @@ import { useState, useMemo } from 'react'
 import { Link } from 'react-router-dom'
 import playersData from '../data/players.json'
 import PlayerAvatar from '../components/PlayerAvatar.jsx'
-import { risTextColor, risColor, wrColor, kdColor, RIS_MIN, RIS_MAX, RIS_BASELINE_PCT } from '../utils/constants'
+import { risTextColor, risColor, wrColor, kdColor, opWrColor, RIS_MIN, RIS_MAX, RIS_BASELINE_PCT } from '../utils/constants'
 import HelpTip from '../components/HelpTip'
 import { GLOSSARY } from '../utils/glossary'
 
@@ -108,13 +108,56 @@ function PlayerSelector({ selected, onToggle }) {
 
 // ─── Stat Comparison Table ─────────────────────────────────────────────────────
 
+// ESR colour: 0.55+ good, 0.45+ ok, below bad
+function esrColor(v) {
+  const n = parseFloat(v)
+  if (isNaN(n)) return 'text-siege-muted'
+  if (n >= 0.55) return 'text-siege-green'
+  if (n >= 0.45) return 'text-blue-300'
+  if (n >= 0.38) return 'text-yellow-400'
+  return 'text-siege-red'
+}
+// Clutch WR colour (small numbers — 25%+ good)
+function clutchWrColor(v) {
+  const n = parseFloat(v)
+  if (isNaN(n)) return 'text-siege-muted'
+  if (n >= 30) return 'text-siege-green'
+  if (n >= 20) return 'text-blue-300'
+  if (n >= 12) return 'text-yellow-400'
+  return 'text-siege-red'
+}
+// HS% colour: R6 average is ~40%, so 50%+ is strong
+function hsColor(v) {
+  const n = parseFloat(v)
+  if (isNaN(n)) return 'text-siege-muted'
+  if (n >= 50) return 'text-siege-green'
+  if (n >= 40) return 'text-blue-300'
+  if (n >= 30) return 'text-yellow-400'
+  return 'text-siege-red'
+}
+
+// Section dividers — fake rows with no data, just a label
+const SECTION = (label) => ({ _section: true, label })
+
 const STAT_ROWS = [
-  { key: 'rank',    label: 'Rank',    format: v => v || '—', color: () => '', higherIsBetter: true, noHighlight: true },
-  { key: 'ris',     label: 'RIS',     format: v => v ?? '—', color: risTextColor, higherIsBetter: true, helpKey: 'RIS' },
-  { key: 'kd',      label: 'K/D',     format: v => v ?? '—', color: kdColor,      higherIsBetter: true, helpKey: 'KD' },
-  { key: 'winRate', label: 'Win%',    format: v => v ?? '—', color: wrColor,      higherIsBetter: true, helpKey: 'WR' },
-  { key: 'matches', label: 'Matches', format: v => v ?? '—', color: () => 'text-siege-muted', higherIsBetter: true, noHighlight: true },
-  { key: 'rp',      label: 'RP',      format: v => v ? Number(v).toLocaleString() : '—', color: () => 'text-gray-300', higherIsBetter: true, noHighlight: true },
+  SECTION('Overview'),
+  { key: 'rank',     label: 'Rank',        format: v => v || '—',  color: () => 'text-gray-300', higherIsBetter: true, noHighlight: true },
+  { key: 'ris',      label: 'RIS',         format: v => v ?? '—',  color: risTextColor,  higherIsBetter: true, helpKey: 'RIS', showBar: true },
+  { key: 'winRate',  label: 'Win %',        format: v => v ?? '—',  color: wrColor,       higherIsBetter: true, helpKey: 'WR' },
+  { key: 'matches',  label: 'Matches',     format: v => v ?? '—',  color: () => 'text-siege-muted', higherIsBetter: true, noHighlight: true },
+  { key: 'rp',       label: 'RP',          format: v => v ? Number(v).toLocaleString() : '—', color: () => 'text-gray-300', higherIsBetter: true, noHighlight: true },
+
+  SECTION('Kills & Efficiency'),
+  { key: 'kd',       label: 'K/D',         format: v => v ?? '—',  color: kdColor,       higherIsBetter: true, helpKey: 'KD' },
+  { key: 'kda',      label: 'KDA',         format: v => v ?? '—',  color: kdColor,       higherIsBetter: true },
+  { key: 'kills',    label: 'Kills',       format: v => v ?? '—',  color: () => 'text-gray-300', higherIsBetter: true, noHighlight: true },
+  { key: 'deaths',   label: 'Deaths',      format: v => v ?? '—',  color: () => 'text-gray-300', higherIsBetter: false, noHighlight: true },
+  { key: 'hs',       label: 'HS %',         format: v => v !== '—' && v ? `${parseFloat(v).toFixed(1)}%` : '—', color: hsColor, higherIsBetter: true },
+
+  SECTION('Round Impact'),
+  { key: 'esr',      label: 'ESR',         format: v => v ?? '—',  color: esrColor,      higherIsBetter: true },
+  { key: 'clutches', label: 'Clutches Won',format: v => v ?? '—',  color: () => 'text-gray-300', higherIsBetter: true },
+  { key: 'clutchWR', label: 'Clutch Win %', format: v => v !== '—' && v ? `${parseFloat(v).toFixed(1)}%` : '—', color: clutchWrColor, higherIsBetter: true },
 ]
 
 function StatTable({ players }) {
@@ -137,7 +180,18 @@ function StatTable({ players }) {
           </tr>
         </thead>
         <tbody>
-          {STAT_ROWS.map(row => {
+          {STAT_ROWS.map((row, rowIdx) => {
+            // Section divider row
+            if (row._section) {
+              return (
+                <tr key={`section-${rowIdx}`}>
+                  <td colSpan={players.length + 1} className="pt-4 pb-1">
+                    <span className="text-siege-accent text-[10px] font-semibold uppercase tracking-widest">{row.label}</span>
+                  </td>
+                </tr>
+              )
+            }
+
             const rawVals = players.map(p => {
               const s = p.stats || {}
               return s[row.key]
@@ -145,15 +199,15 @@ function StatTable({ players }) {
 
             // Build numeric values for best-highlight
             const numVals = rawVals.map(v => {
-              if (row.key === 'winRate') return cleanPct(v)
+              if (row.key === 'winRate' || row.key === 'clutchWR' || row.key === 'hs') return cleanPct(v)
               return statVal(v)
             })
 
             const best = row.noHighlight ? -1 : bestIndex(numVals, row.higherIsBetter)
 
             return (
-              <tr key={row.key} className="border-b border-siege-border/40 last:border-0">
-                <td className="py-3 text-siege-muted text-xs font-medium">
+              <tr key={row.key} className="border-b border-siege-border/30 last:border-0">
+                <td className="py-2.5 text-siege-muted text-xs font-medium">
                   <span className="flex items-center gap-1">
                     {row.label}
                     {row.helpKey && <HelpTip text={GLOSSARY[row.helpKey]} />}
@@ -166,12 +220,12 @@ function StatTable({ players }) {
                   const colorCls = numericVal !== null ? row.color(numericVal) : 'text-siege-muted'
                   const isBest = i === best
                   return (
-                    <td key={p.name} className={`py-3 text-center ${isBest ? 'relative' : ''}`}>
+                    <td key={p.name} className="py-2.5 text-center relative">
                       {isBest && (
-                        <span className="absolute inset-x-2 inset-y-1 bg-siege-accent/5 rounded pointer-events-none" />
+                        <span className="absolute inset-x-2 inset-y-0.5 bg-siege-accent/5 rounded pointer-events-none" />
                       )}
                       <span className={`font-semibold relative ${colorCls}`}>{displayVal}</span>
-                      {row.key === 'ris' && (
+                      {row.showBar && (
                         <div className="px-3">
                           <RisBar ris={raw} />
                         </div>
