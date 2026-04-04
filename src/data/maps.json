@@ -2,7 +2,7 @@
   {
     "name": "Bank",
     "displayName": "Bank",
-    "rating": "strong",
+    "rating": "even",
     "ratingLabel": "Strong",
     "rankedPool": "both",
     "inRankedPool": true,
@@ -11,8 +11,8 @@
       "developed": 4,
       "partial": 4
     },
-    "teamWinRate": 66.7,
-    "teamWinRateMatches": 27,
+    "teamWinRate": 55,
+    "teamWinRateMatches": 40,
     "teamWinRateSeason": "Y11S1",
     "teamWinRateY10S4": 58.8,
     "teamWinRateMatchesY10S4": 34,
@@ -20,43 +20,59 @@
       "Y11S1": [
         {
           "callsign": "Grant",
-          "matches": 9,
-          "winRate": 55.6,
-          "kd": 1.31,
-          "atkWr": 34.8,
-          "defWr": 70.8
+          "matches": 13,
+          "winRate": 46.2,
+          "kd": 1.39,
+          "atkWr": 33.3,
+          "defWr": 64.7
         },
         {
           "callsign": "Krafty",
-          "matches": 9,
-          "winRate": 66.7,
-          "kd": 0.36,
-          "atkWr": 42.3,
-          "defWr": 64
-        },
-        {
-          "callsign": "Sarge",
-          "matches": 7,
-          "winRate": 57.1,
-          "kd": 1.04,
-          "atkWr": 28.6,
-          "defWr": 66.7
+          "matches": 12,
+          "winRate": 58.3,
+          "kd": 0.33,
+          "atkWr": 41.2,
+          "defWr": 59.4
         },
         {
           "callsign": "Peej",
-          "matches": 6,
-          "winRate": 83.3,
-          "kd": 1.5,
-          "atkWr": 50,
-          "defWr": 70.6
+          "matches": 9,
+          "winRate": 66.7,
+          "kd": 1.49,
+          "atkWr": 41.4,
+          "defWr": 68
+        },
+        {
+          "callsign": "Sarge",
+          "matches": 9,
+          "winRate": 55.6,
+          "kd": 1,
+          "atkWr": 33.3,
+          "defWr": 62.5
         },
         {
           "callsign": "Hound",
-          "matches": 5,
-          "winRate": 80,
-          "kd": 0.94,
-          "atkWr": 53.8,
-          "defWr": 71.4
+          "matches": 6,
+          "winRate": 66.7,
+          "kd": 0.83,
+          "atkWr": 56.3,
+          "defWr": 58.8
+        },
+        {
+          "callsign": "Bob",
+          "matches": 4,
+          "winRate": 25,
+          "kd": 0.55,
+          "atkWr": 21.4,
+          "defWr": 55.6
+        },
+        {
+          "callsign": "Smigs",
+          "matches": 3,
+          "winRate": 33.3,
+          "kd": 1.21,
+          "atkWr": 33.3,
+          "defWr": 55.6
         },
         {
           "callsign": "Slug",
@@ -338,7 +354,7 @@
   {
     "name": "Border",
     "displayName": "Border",
-    "rating": "even",
+    "rating": "strong",
     "ratingLabel": "Strong",
     "rankedPool": "both",
     "inRankedPool": true,
@@ -347,8 +363,8 @@
       "developed": 6,
       "partial": 1
     },
-    "teamWinRate": 59.5,
-    "teamWinRateMatches": 42,
+    "teamWinRate": 62.9,
+    "teamWinRateMatches": 62,
     "teamWinRateSeason": "Y11S1",
     "teamWinRateY10S4": 67.9,
     "teamWinRateMatchesY10S4": 56,
@@ -356,27 +372,43 @@
       "Y11S1": [
         {
           "callsign": "Grant",
-          "matches": 14,
-          "winRate": 57.1,
-          "kd": 1.33,
-          "atkWr": 43.8,
-          "defWr": 61.9
+          "matches": 19,
+          "winRate": 63.2,
+          "kd": 1.28,
+          "atkWr": 47.5,
+          "defWr": 61.4
         },
         {
           "callsign": "Hound",
-          "matches": 11,
-          "winRate": 54.5,
-          "kd": 1.09,
-          "atkWr": 39.5,
-          "defWr": 65.6
+          "matches": 14,
+          "winRate": 57.1,
+          "kd": 1.22,
+          "atkWr": 41.3,
+          "defWr": 64.1
         },
         {
           "callsign": "Sarge",
-          "matches": 10,
-          "winRate": 60,
-          "kd": 1.17,
-          "atkWr": 45.7,
-          "defWr": 62.5
+          "matches": 14,
+          "winRate": 64.3,
+          "kd": 1.21,
+          "atkWr": 47.7,
+          "defWr": 64.3
+        },
+        {
+          "callsign": "Krafty",
+          "matches": 11,
+          "winRate": 72.7,
+          "kd": 0.44,
+          "atkWr": 57.1,
+          "defWr": 62.9
+        },
+        {
+          "callsign": "Peej",
+          "matches": 9,
+          "winRate": 77.8,
+          "kd": 1.53,
+          "atkWr": 64.3,
+          "defWr": 59.3
         },
         {
           "callsign": "Slug",
@@ -387,28 +419,20 @@
           "defWr": 62.5
         },
         {
-          "callsign": "Krafty",
-          "matches": 8,
-          "winRate": 62.5,
-          "kd": 0.37,
-          "atkWr": 50,
-          "defWr": 62.5
-        },
-        {
-          "callsign": "Peej",
-          "matches": 7,
-          "winRate": 71.4,
-          "kd": 1.42,
-          "atkWr": 60.9,
-          "defWr": 57.9
-        },
-        {
           "callsign": "Bob",
-          "matches": 4,
-          "winRate": 25,
-          "kd": 0.85,
-          "atkWr": 38.5,
-          "defWr": 41.7
+          "matches": 7,
+          "winRate": 42.9,
+          "kd": 0.91,
+          "atkWr": 43.5,
+          "defWr": 42.9
+        },
+        {
+          "callsign": "Smigs",
+          "matches": 6,
+          "winRate": 50,
+          "kd": 0.89,
+          "atkWr": 42.1,
+          "defWr": 47.4
         }
       ],
       "Y10S4": [
@@ -692,7 +716,7 @@
   {
     "name": "Chalet",
     "displayName": "Chalet",
-    "rating": "strong",
+    "rating": "even",
     "ratingLabel": "Strong",
     "rankedPool": "both",
     "inRankedPool": true,
@@ -701,13 +725,29 @@
       "developed": 0,
       "partial": 0
     },
-    "teamWinRate": 64.5,
-    "teamWinRateMatches": 31,
+    "teamWinRate": 58.8,
+    "teamWinRateMatches": 34,
     "teamWinRateSeason": "Y11S1",
     "teamWinRateY10S4": 15.4,
     "teamWinRateMatchesY10S4": 26,
     "playerStats": {
       "Y11S1": [
+        {
+          "callsign": "Grant",
+          "matches": 10,
+          "winRate": 60,
+          "kd": 1.28,
+          "atkWr": 51.5,
+          "defWr": 64.5
+        },
+        {
+          "callsign": "Sarge",
+          "matches": 10,
+          "winRate": 60,
+          "kd": 1.27,
+          "atkWr": 51.5,
+          "defWr": 64.5
+        },
         {
           "callsign": "Krafty",
           "matches": 10,
@@ -715,14 +755,6 @@
           "kd": 0.4,
           "atkWr": 50,
           "defWr": 63.3
-        },
-        {
-          "callsign": "Grant",
-          "matches": 9,
-          "winRate": 66.7,
-          "kd": 1.47,
-          "atkWr": 55.2,
-          "defWr": 66.7
         },
         {
           "callsign": "Peej",
@@ -733,28 +765,20 @@
           "defWr": 63.3
         },
         {
-          "callsign": "Sarge",
-          "matches": 9,
-          "winRate": 66.7,
-          "kd": 1.35,
-          "atkWr": 55.2,
-          "defWr": 66.7
-        },
-        {
           "callsign": "Bob",
-          "matches": 5,
-          "winRate": 40,
-          "kd": 1.04,
-          "atkWr": 38.9,
-          "defWr": 58.8
+          "matches": 6,
+          "winRate": 33.3,
+          "kd": 1.16,
+          "atkWr": 36.4,
+          "defWr": 57.1
         },
         {
           "callsign": "Hound",
-          "matches": 4,
-          "winRate": 75,
-          "kd": 0.76,
-          "atkWr": 60,
-          "defWr": 61.5
+          "matches": 5,
+          "winRate": 60,
+          "kd": 0.74,
+          "atkWr": 52.6,
+          "defWr": 58.8
         }
       ],
       "Y10S4": [
@@ -1021,8 +1045,8 @@
       "developed": 1,
       "partial": 4
     },
-    "teamWinRate": 70.6,
-    "teamWinRateMatches": 34,
+    "teamWinRate": 68.2,
+    "teamWinRateMatches": 44,
     "teamWinRateSeason": "Y11S1",
     "teamWinRateY10S4": 58.1,
     "teamWinRateMatchesY10S4": 31,
@@ -1030,19 +1054,35 @@
       "Y11S1": [
         {
           "callsign": "Grant",
-          "matches": 10,
-          "winRate": 70,
-          "kd": 1.17,
-          "atkWr": 50,
-          "defWr": 60.6
+          "matches": 12,
+          "winRate": 66.7,
+          "kd": 1.24,
+          "atkWr": 46.2,
+          "defWr": 61
         },
         {
           "callsign": "Sarge",
+          "matches": 11,
+          "winRate": 72.7,
+          "kd": 1.29,
+          "atkWr": 48.6,
+          "defWr": 63.9
+        },
+        {
+          "callsign": "Krafty",
           "matches": 10,
-          "winRate": 80,
-          "kd": 1.32,
-          "atkWr": 50,
-          "defWr": 66.7
+          "winRate": 60,
+          "kd": 0.42,
+          "atkWr": 35.5,
+          "defWr": 62.5
+        },
+        {
+          "callsign": "Peej",
+          "matches": 8,
+          "winRate": 62.5,
+          "kd": 1.29,
+          "atkWr": 43.5,
+          "defWr": 63
         },
         {
           "callsign": "Hound",
@@ -1053,28 +1093,20 @@
           "defWr": 59.3
         },
         {
-          "callsign": "Krafty",
-          "matches": 8,
-          "winRate": 62.5,
-          "kd": 0.36,
-          "atkWr": 37.5,
-          "defWr": 62.5
-        },
-        {
-          "callsign": "Peej",
-          "matches": 6,
-          "winRate": 66.7,
-          "kd": 1.36,
-          "atkWr": 50,
-          "defWr": 63.2
+          "callsign": "Smigs",
+          "matches": 5,
+          "winRate": 80,
+          "kd": 1.08,
+          "atkWr": 44.4,
+          "defWr": 68.4
         },
         {
           "callsign": "Bob",
-          "matches": 4,
-          "winRate": 50,
-          "kd": 0.44,
-          "atkWr": 40,
-          "defWr": 46.2
+          "matches": 5,
+          "winRate": 60,
+          "kd": 0.5,
+          "atkWr": 35.7,
+          "defWr": 55.6
         }
       ],
       "Y10S4": [
@@ -1342,8 +1374,8 @@
       "developed": 0,
       "partial": 0
     },
-    "teamWinRate": 47.2,
-    "teamWinRateMatches": 36,
+    "teamWinRate": 47.8,
+    "teamWinRateMatches": 46,
     "teamWinRateSeason": "Y11S1",
     "teamWinRateY10S4": 52.4,
     "teamWinRateMatchesY10S4": 21,
@@ -1351,11 +1383,11 @@
       "Y11S1": [
         {
           "callsign": "Grant",
-          "matches": 12,
-          "winRate": 41.7,
-          "kd": 0.94,
-          "atkWr": 52.9,
-          "defWr": 46.9
+          "matches": 15,
+          "winRate": 40,
+          "kd": 1,
+          "atkWr": 50,
+          "defWr": 45
         },
         {
           "callsign": "Hound",
@@ -1367,19 +1399,27 @@
         },
         {
           "callsign": "Krafty",
-          "matches": 9,
-          "winRate": 44.4,
-          "kd": 0.41,
-          "atkWr": 47.8,
-          "defWr": 44.4
+          "matches": 11,
+          "winRate": 45.5,
+          "kd": 0.35,
+          "atkWr": 48.3,
+          "defWr": 43.8
         },
         {
           "callsign": "Sarge",
-          "matches": 8,
-          "winRate": 62.5,
-          "kd": 0.79,
-          "atkWr": 56.5,
-          "defWr": 54.2
+          "matches": 9,
+          "winRate": 66.7,
+          "kd": 0.93,
+          "atkWr": 57.7,
+          "defWr": 55.6
+        },
+        {
+          "callsign": "Peej",
+          "matches": 7,
+          "winRate": 28.6,
+          "kd": 1.11,
+          "atkWr": 43.5,
+          "defWr": 45.5
         },
         {
           "callsign": "Slug",
@@ -1390,20 +1430,20 @@
           "defWr": 40
         },
         {
-          "callsign": "Peej",
-          "matches": 5,
-          "winRate": 20,
-          "kd": 1.03,
-          "atkWr": 41.2,
-          "defWr": 47.1
+          "callsign": "Bob",
+          "matches": 6,
+          "winRate": 33.3,
+          "kd": 0.77,
+          "atkWr": 52.9,
+          "defWr": 28.6
         },
         {
-          "callsign": "Bob",
-          "matches": 5,
-          "winRate": 40,
-          "kd": 0.9,
-          "atkWr": 57.1,
-          "defWr": 33.3
+          "callsign": "Smigs",
+          "matches": 4,
+          "winRate": 50,
+          "kd": 1.19,
+          "atkWr": 41.7,
+          "defWr": 54.5
         }
       ],
       "Y10S4": [
@@ -1465,8 +1505,8 @@
       "developed": 0,
       "partial": 0
     },
-    "teamWinRate": 28.6,
-    "teamWinRateMatches": 14,
+    "teamWinRate": 23.5,
+    "teamWinRateMatches": 34,
     "teamWinRateSeason": "Y11S1",
     "teamWinRateY10S4": 46.9,
     "teamWinRateMatchesY10S4": 32,
@@ -1474,43 +1514,59 @@
       "Y11S1": [
         {
           "callsign": "Sarge",
-          "matches": 6,
-          "winRate": 33.3,
-          "kd": 1.09,
-          "atkWr": 34.8,
-          "defWr": 63.2
-        },
-        {
-          "callsign": "Grant",
-          "matches": 4,
-          "winRate": 25,
-          "kd": 1.4,
-          "atkWr": 31.3,
-          "defWr": 58.3
-        },
-        {
-          "callsign": "Hound",
-          "matches": 4,
-          "winRate": 25,
-          "kd": 0.75,
-          "atkWr": 26.7,
-          "defWr": 66.7
-        },
-        {
-          "callsign": "Slug",
-          "matches": 4,
-          "winRate": 50,
-          "kd": 0.83,
-          "atkWr": 42.9,
-          "defWr": 64.3
+          "matches": 11,
+          "winRate": 27.3,
+          "kd": 1.3,
+          "atkWr": 40,
+          "defWr": 50
         },
         {
           "callsign": "Krafty",
-          "matches": 4,
+          "matches": 9,
+          "winRate": 22.2,
+          "kd": 0.22,
+          "atkWr": 39.4,
+          "defWr": 44.8
+        },
+        {
+          "callsign": "Grant",
+          "matches": 8,
           "winRate": 25,
-          "kd": 0.21,
+          "kd": 1.2,
+          "atkWr": 35.7,
+          "defWr": 48
+        },
+        {
+          "callsign": "Peej",
+          "matches": 5,
+          "winRate": 20,
+          "kd": 0.7,
           "atkWr": 31.3,
-          "defWr": 58.3
+          "defWr": 50
+        },
+        {
+          "callsign": "Hound",
+          "matches": 5,
+          "winRate": 20,
+          "kd": 0.62,
+          "atkWr": 27.8,
+          "defWr": 60
+        },
+        {
+          "callsign": "Smigs",
+          "matches": 5,
+          "winRate": 20,
+          "kd": 1.25,
+          "atkWr": 42.1,
+          "defWr": 43.8
+        },
+        {
+          "callsign": "Slug",
+          "matches": 5,
+          "winRate": 40,
+          "kd": 1,
+          "atkWr": 47.4,
+          "defWr": 55.6
         }
       ],
       "Y10S4": [
@@ -1863,7 +1919,7 @@
   {
     "name": "Fortress",
     "displayName": "Fortress",
-    "rating": "ban",
+    "rating": "avoid",
     "ratingLabel": "Avoid",
     "rankedPool": "both",
     "inRankedPool": true,
@@ -1872,8 +1928,8 @@
       "developed": 0,
       "partial": 0
     },
-    "teamWinRate": 25,
-    "teamWinRateMatches": 12,
+    "teamWinRate": 35.7,
+    "teamWinRateMatches": 14,
     "teamWinRateSeason": "Y11S1",
     "teamWinRateY10S4": 63.4,
     "teamWinRateMatchesY10S4": 41,
@@ -1881,11 +1937,19 @@
       "Y11S1": [
         {
           "callsign": "Grant",
-          "matches": 4,
-          "winRate": 25,
-          "kd": 1,
-          "atkWr": 18.2,
-          "defWr": 50
+          "matches": 5,
+          "winRate": 40,
+          "kd": 1.38,
+          "atkWr": 37.5,
+          "defWr": 42.9
+        },
+        {
+          "callsign": "Sarge",
+          "matches": 5,
+          "winRate": 40,
+          "kd": 0.76,
+          "atkWr": 42.1,
+          "defWr": 43.8
         },
         {
           "callsign": "Hound",
@@ -1894,14 +1958,6 @@
           "kd": 1.32,
           "atkWr": 35.7,
           "defWr": 41.7
-        },
-        {
-          "callsign": "Sarge",
-          "matches": 4,
-          "winRate": 25,
-          "kd": 0.76,
-          "atkWr": 28.6,
-          "defWr": 50
         },
         {
           "callsign": "Slug",
@@ -1913,11 +1969,11 @@
         },
         {
           "callsign": "Krafty",
-          "matches": 3,
-          "winRate": 0,
-          "kd": 0.18,
-          "atkWr": 27.3,
-          "defWr": 33.3
+          "matches": 4,
+          "winRate": 25,
+          "kd": 0.16,
+          "atkWr": 43.8,
+          "defWr": 30.8
         }
       ],
       "Y10S4": [
@@ -1986,7 +2042,7 @@
   {
     "name": "Kafe Dostoyevsky",
     "displayName": "Kafe Dostoyevsky",
-    "rating": "shaky",
+    "rating": "even",
     "ratingLabel": "Moderate",
     "rankedPool": "both",
     "inRankedPool": true,
@@ -1995,8 +2051,8 @@
       "developed": 0,
       "partial": 0
     },
-    "teamWinRate": 43.5,
-    "teamWinRateMatches": 23,
+    "teamWinRate": 50,
+    "teamWinRateMatches": 26,
     "teamWinRateSeason": "Y11S1",
     "teamWinRateY10S4": 62.2,
     "teamWinRateMatchesY10S4": 45,
@@ -2004,11 +2060,27 @@
       "Y11S1": [
         {
           "callsign": "Grant",
-          "matches": 8,
-          "winRate": 37.5,
-          "kd": 1.35,
-          "atkWr": 37,
-          "defWr": 51.7
+          "matches": 9,
+          "winRate": 44.4,
+          "kd": 1.37,
+          "atkWr": 36.7,
+          "defWr": 56.3
+        },
+        {
+          "callsign": "Hound",
+          "matches": 6,
+          "winRate": 66.7,
+          "kd": 0.93,
+          "atkWr": 40,
+          "defWr": 63.6
+        },
+        {
+          "callsign": "Sarge",
+          "matches": 6,
+          "winRate": 50,
+          "kd": 1.17,
+          "atkWr": 38.1,
+          "defWr": 61.9
         },
         {
           "callsign": "Peej",
@@ -2019,20 +2091,12 @@
           "defWr": 43.8
         },
         {
-          "callsign": "Hound",
+          "callsign": "Krafty",
           "matches": 5,
           "winRate": 60,
-          "kd": 0.88,
-          "atkWr": 41.2,
-          "defWr": 57.9
-        },
-        {
-          "callsign": "Sarge",
-          "matches": 5,
-          "winRate": 40,
-          "kd": 1.16,
-          "atkWr": 38.9,
-          "defWr": 55.6
+          "kd": 0.18,
+          "atkWr": 43.8,
+          "defWr": 58.8
         },
         {
           "callsign": "Slug",
@@ -2041,14 +2105,6 @@
           "kd": 1.12,
           "atkWr": 33.3,
           "defWr": 62.5
-        },
-        {
-          "callsign": "Krafty",
-          "matches": 4,
-          "winRate": 50,
-          "kd": 0.17,
-          "atkWr": 46.2,
-          "defWr": 50
         }
       ],
       "Y10S4": [
@@ -2305,7 +2361,7 @@
   {
     "name": "Nighthaven_Labs",
     "displayName": "Nighthaven Labs",
-    "rating": "avoid",
+    "rating": "shaky",
     "ratingLabel": "Avoid",
     "rankedPool": "both",
     "inRankedPool": true,
@@ -2314,8 +2370,8 @@
       "developed": 0,
       "partial": 0
     },
-    "teamWinRate": 34.3,
-    "teamWinRateMatches": 35,
+    "teamWinRate": 40.4,
+    "teamWinRateMatches": 47,
     "teamWinRateSeason": "Y11S1",
     "teamWinRateY10S4": 43.5,
     "teamWinRateMatchesY10S4": 23,
@@ -2323,35 +2379,51 @@
       "Y11S1": [
         {
           "callsign": "Grant",
-          "matches": 11,
-          "winRate": 36.4,
-          "kd": 0.79,
-          "atkWr": 37.8,
-          "defWr": 51.4
+          "matches": 14,
+          "winRate": 42.9,
+          "kd": 1.02,
+          "atkWr": 39.6,
+          "defWr": 55.6
         },
         {
           "callsign": "Sarge",
-          "matches": 10,
-          "winRate": 40,
-          "kd": 1.09,
-          "atkWr": 36.4,
-          "defWr": 53.1
+          "matches": 11,
+          "winRate": 36.4,
+          "kd": 1,
+          "atkWr": 37.8,
+          "defWr": 50
         },
         {
           "callsign": "Peej",
-          "matches": 8,
-          "winRate": 37.5,
-          "kd": 1.29,
-          "atkWr": 39.1,
-          "defWr": 56
+          "matches": 10,
+          "winRate": 50,
+          "kd": 1.36,
+          "atkWr": 40,
+          "defWr": 64.5
+        },
+        {
+          "callsign": "Krafty",
+          "matches": 9,
+          "winRate": 55.6,
+          "kd": 0.5,
+          "atkWr": 39.3,
+          "defWr": 60
         },
         {
           "callsign": "Hound",
-          "matches": 6,
-          "winRate": 16.7,
-          "kd": 0.69,
-          "atkWr": 28.6,
-          "defWr": 50
+          "matches": 7,
+          "winRate": 14.3,
+          "kd": 0.72,
+          "atkWr": 32,
+          "defWr": 45.8
+        },
+        {
+          "callsign": "Bob",
+          "matches": 7,
+          "winRate": 42.9,
+          "kd": 0.73,
+          "atkWr": 34.8,
+          "defWr": 60
         },
         {
           "callsign": "Slug",
@@ -2362,20 +2434,12 @@
           "defWr": 47.1
         },
         {
-          "callsign": "Krafty",
-          "matches": 6,
-          "winRate": 50,
-          "kd": 0.3,
-          "atkWr": 35.3,
-          "defWr": 53.3
-        },
-        {
-          "callsign": "Bob",
+          "callsign": "Smigs",
           "matches": 5,
-          "winRate": 20,
-          "kd": 0.8,
-          "atkWr": 31.3,
-          "defWr": 42.9
+          "winRate": 60,
+          "kd": 1.14,
+          "atkWr": 47.1,
+          "defWr": 60
         }
       ],
       "Y10S4": [
@@ -2453,8 +2517,8 @@
       "developed": 1,
       "partial": 4
     },
-    "teamWinRate": 37.2,
-    "teamWinRateMatches": 43,
+    "teamWinRate": 38.5,
+    "teamWinRateMatches": 52,
     "teamWinRateSeason": "Y11S1",
     "teamWinRateY10S4": 62.8,
     "teamWinRateMatchesY10S4": 35,
@@ -2462,51 +2526,67 @@
       "Y11S1": [
         {
           "callsign": "Grant",
-          "matches": 15,
-          "winRate": 46.7,
-          "kd": 1.12,
-          "atkWr": 42.9,
-          "defWr": 52.1
+          "matches": 17,
+          "winRate": 47.1,
+          "kd": 1.11,
+          "atkWr": 43.4,
+          "defWr": 50
         },
         {
           "callsign": "Sarge",
-          "matches": 12,
-          "winRate": 33.3,
-          "kd": 1.05,
-          "atkWr": 37.8,
-          "defWr": 47.2
+          "matches": 14,
+          "winRate": 28.6,
+          "kd": 0.97,
+          "atkWr": 35,
+          "defWr": 42.9
         },
         {
           "callsign": "Hound",
-          "matches": 9,
-          "winRate": 33.3,
+          "matches": 10,
+          "winRate": 30,
           "kd": 0.78,
           "atkWr": 35.7,
           "defWr": 53.8
         },
         {
           "callsign": "Slug",
-          "matches": 9,
-          "winRate": 55.6,
-          "kd": 1.35,
-          "atkWr": 46.4,
-          "defWr": 55.6
+          "matches": 10,
+          "winRate": 50,
+          "kd": 1.2,
+          "atkWr": 43.3,
+          "defWr": 53.3
         },
         {
           "callsign": "Peej",
-          "matches": 7,
-          "winRate": 28.6,
-          "kd": 1.04,
-          "atkWr": 33.3,
-          "defWr": 52.6
+          "matches": 8,
+          "winRate": 37.5,
+          "kd": 1.03,
+          "atkWr": 37.5,
+          "defWr": 57.1
         },
         {
           "callsign": "Krafty",
-          "matches": 6,
-          "winRate": 16.7,
-          "kd": 0.35,
-          "atkWr": 35,
-          "defWr": 36.8
+          "matches": 8,
+          "winRate": 25,
+          "kd": 0.36,
+          "atkWr": 36,
+          "defWr": 40
+        },
+        {
+          "callsign": "Bob",
+          "matches": 4,
+          "winRate": 25,
+          "kd": 0.76,
+          "atkWr": 40,
+          "defWr": 27.3
+        },
+        {
+          "callsign": "Smigs",
+          "matches": 3,
+          "winRate": 66.7,
+          "kd": 0.87,
+          "atkWr": 44.4,
+          "defWr": 60
         }
       ],
       "Y10S4": [
@@ -3377,8 +3457,8 @@
       "developed": 8,
       "partial": 0
     },
-    "teamWinRate": 50,
-    "teamWinRateMatches": 32,
+    "teamWinRate": 51.3,
+    "teamWinRateMatches": 39,
     "teamWinRateSeason": "Y11S1",
     "teamWinRateY10S4": 90.9,
     "teamWinRateMatchesY10S4": 22,
@@ -3386,11 +3466,11 @@
       "Y11S1": [
         {
           "callsign": "Grant",
-          "matches": 12,
-          "winRate": 50,
-          "kd": 1.78,
-          "atkWr": 38.5,
-          "defWr": 57.9
+          "matches": 13,
+          "winRate": 53.8,
+          "kd": 1.7,
+          "atkWr": 40,
+          "defWr": 61
         },
         {
           "callsign": "Sarge",
@@ -3426,19 +3506,27 @@
         },
         {
           "callsign": "Bob",
-          "matches": 6,
-          "winRate": 50,
-          "kd": 0.53,
-          "atkWr": 35,
-          "defWr": 60
+          "matches": 7,
+          "winRate": 57.1,
+          "kd": 0.59,
+          "atkWr": 38.1,
+          "defWr": 65.2
         },
         {
           "callsign": "Peej",
+          "matches": 6,
+          "winRate": 83.3,
+          "kd": 1.54,
+          "atkWr": 58.8,
+          "defWr": 70
+        },
+        {
+          "callsign": "Smigs",
           "matches": 5,
-          "winRate": 80,
-          "kd": 1.26,
-          "atkWr": 56.3,
-          "defWr": 64.7
+          "winRate": 40,
+          "kd": 1.62,
+          "atkWr": 42.9,
+          "defWr": 53.8
         }
       ],
       "Y10S4": [
