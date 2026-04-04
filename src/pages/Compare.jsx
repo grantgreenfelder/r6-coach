@@ -298,27 +298,25 @@ function MapComparison({ players }) {
 function OperatorOverlap({ players }) {
   const [side, setSide] = useState('atk')
 
-  // Collect all operators from operators array, for each player, per side
+  // operators shape: { atk: [{name, rounds, winRate, kd, ...}], def: [...] }
   const allOps = useMemo(() => {
     const opSet = new Set()
     players.forEach(p => {
-      (p.operators || [])
-        .filter(op => side === 'atk' ? op.side?.toLowerCase() === 'atk' : op.side?.toLowerCase() === 'def')
-        .forEach(op => opSet.add(op.operator))
+      const list = p.operators?.[side] || []
+      list.forEach(op => opSet.add(op.name))
     })
     return Array.from(opSet).sort()
   }, [players, side])
 
-  // Build lookup: opName → { playerName: { wr, rounds, kd } }
+  // Build lookup: opName → { playerName: opEntry }
   const lookup = useMemo(() => {
     const result = {}
     players.forEach(p => {
-      (p.operators || [])
-        .filter(op => side === 'atk' ? op.side?.toLowerCase() === 'atk' : op.side?.toLowerCase() === 'def')
-        .forEach(op => {
-          if (!result[op.operator]) result[op.operator] = {}
-          result[op.operator][p.name] = op
-        })
+      const list = p.operators?.[side] || []
+      list.forEach(op => {
+        if (!result[op.name]) result[op.name] = {}
+        result[op.name][p.name] = op
+      })
     })
     return result
   }, [players, side])
@@ -369,7 +367,7 @@ function OperatorOverlap({ players }) {
           {sortedOps.map(opName => {
             const wrs = players.map(p => {
               const opData = lookup[opName]?.[p.name]
-              return opData ? parseFloat(opData.wr) || null : null
+              return opData ? parseFloat(opData.winRate) ?? null : null
             })
             const best = bestIndex(wrs, true)
             const playCount = players.filter(p => lookup[opName]?.[p.name]).length
@@ -389,7 +387,7 @@ function OperatorOverlap({ players }) {
                 </td>
                 {players.map((p, i) => {
                   const opData = lookup[opName]?.[p.name]
-                  const wr = opData ? parseFloat(opData.wr) : null
+                  const wr = opData ? parseFloat(opData.winRate) : null
                   const rounds = opData?.rounds
                   const isBest = i === best
                   return (
