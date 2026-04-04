@@ -207,25 +207,10 @@ function MapVeto({ tonightPlayers, tonight }) {
   )
 }
 
-// STACK_05 rating badge colour map
-const RATING_BADGE = {
-  'Protect':     'bg-siege-green/20 text-siege-green border-siege-green/30',
-  'Strong':      'bg-siege-green/15 text-siege-green border-siege-green/25',
-  'Moderate':    'bg-blue-400/15 text-blue-300 border-blue-400/25',
-  'Situational': 'bg-yellow-400/15 text-yellow-300 border-yellow-400/25',
-  'Avoid':       'bg-orange-400/15 text-orange-300 border-orange-400/25',
-  'Hard ban':    'bg-siege-red/20 text-siege-red border-siege-red/30',
-}
-
 function MapVetoRow({ map, idx, total, banSlot, onMoveUp, onMoveDown, tonight }) {
   const isBan = banSlot !== null
   const wr = map.rosterWinRate
   const wrCls = wr === null ? 'text-siege-muted' : wrColor(wr)
-  const ratingLabel = map.ratingLabel && map.ratingLabel !== '—' && map.ratingLabel !== 'Unknown'
-    ? map.ratingLabel : null
-  const ratingCls = ratingLabel
-    ? (RATING_BADGE[ratingLabel] || 'bg-siege-border/30 text-siege-muted border-siege-border/40')
-    : ''
 
   return (
     <div className={`flex items-center gap-3 rounded-lg px-3 py-2 border transition-colors ${
@@ -246,16 +231,11 @@ function MapVetoRow({ map, idx, total, banSlot, onMoveUp, onMoveDown, tonight })
         )}
       </div>
 
-      {/* Map name + STACK_05 rating badge */}
-      <div className="flex-1 min-w-0 flex items-center gap-2">
-        <span className={`text-sm font-medium truncate ${isBan ? 'text-white' : 'text-gray-300'}`}>
+      {/* Map name — flex-1 so it fills remaining space */}
+      <div className="flex-1 min-w-0">
+        <span className={`text-sm font-medium truncate block ${isBan ? 'text-white' : 'text-gray-300'}`}>
           {map.displayName}
         </span>
-        {ratingLabel && (
-          <span className={`hidden sm:inline-block text-[10px] font-semibold px-1.5 py-0.5 rounded border flex-shrink-0 ${ratingCls}`}>
-            {ratingLabel}
-          </span>
-        )}
       </div>
 
       {/* Win rate */}
