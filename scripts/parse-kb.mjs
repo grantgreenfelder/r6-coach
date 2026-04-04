@@ -235,6 +235,11 @@ function parsePlayer(name) {
     coachingPriorities: coachingLines,
     profileContent: profile,
     coachingContent: coaching,
+    // Structural coaching sections — each is raw markdown text for the section only
+    coachingRole:       extractSection(coaching, 'Your Role'),
+    coachingWorking:    extractSection(coaching, "What's Working"),
+    coachingAreas:      extractSection(coaching, 'Areas to (Watch|Explore)'),
+    coachingPrioritiesText: extractSection(coaching, '\\w+ Priorities'),
     seasonContent: latestSeason
       .replace(/\*\*\[ATK\]\*\*/g, '**Attack**')
       .replace(/\*\*\[DEF\]\*\*/g, '**Defense**')
@@ -613,15 +618,14 @@ function buildOperatorsData(playersData) {
     }
   }
 
-  // Alias table — tracker spelling → canonical KB name
-  const ALIASES = {
-    'Capitão': 'Capitao',
-    'Nøkk': 'Nokk',
-    'Jäger': 'Jager',
-    'Skopós': 'Skopos',
-    'Tubarão': 'Tubarao',
-    'Solid Snake': 'Solid_Snake',
-  }
+  // Alias table — tracker spelling → canonical KB name.
+  // Source of truth is operator-roles.json _aliases section. Falls back to empty object if missing.
+  const ALIASES = rolesConfig._aliases
+    ? Object.fromEntries(
+        Object.entries(rolesConfig._aliases)
+          .filter(([k]) => !k.startsWith('_'))
+      )
+    : {}
   // Build reverse: canonical → aliases (for stats lookup)
   const reverseAliases = {}
   for (const [alias, canon] of Object.entries(ALIASES)) {

@@ -224,7 +224,19 @@ function PriorityList({ items }) {
 
 // ─── Tabs ──────────────────────────────────────────────────────────────────────
 
-function CoachingTab({ coachingContent }) {
+function CoachingSection({ title, content, accentClass = 'text-siege-accent', borderClass = 'border-siege-border/50' }) {
+  if (!content) return null
+  return (
+    <div className={`card border ${borderClass}`}>
+      <h3 className={`font-semibold text-xs uppercase tracking-wider mb-3 ${accentClass}`}>{title}</h3>
+      <MarkdownContent content={content} />
+    </div>
+  )
+}
+
+function CoachingTab({ player }) {
+  const { coachingContent, coachingRole, coachingWorking, coachingAreas, coachingPrioritiesText } = player
+
   if (!coachingContent) {
     return (
       <div className="card text-siege-muted text-sm text-center py-8">
@@ -232,11 +244,56 @@ function CoachingTab({ coachingContent }) {
       </div>
     )
   }
-  // Strip the H1 line — player name is already shown in the page header
-  const stripped = coachingContent.replace(/^#\s+[^\n]+\n/, '').trimStart()
+
+  // If structured sections were extracted, render as cards; fall back to raw markdown
+  const hasStructure = coachingRole || coachingWorking || coachingAreas || coachingPrioritiesText
+
+  if (!hasStructure) {
+    const stripped = coachingContent.replace(/^#\s+[^\n]+\n/, '').trimStart()
+    return <div className="card"><MarkdownContent content={stripped} /></div>
+  }
+
+  // Extract the meta line (e.g. "_Season: Y11S1 | Updated: 2026-04-03 (145M)_") for the header
+  const metaLine = coachingContent.match(/_Season:[^\n]+_/)?.[0] || ''
+
   return (
-    <div className="card">
-      <MarkdownContent content={stripped} />
+    <div className="space-y-3">
+      {/* Meta line */}
+      {metaLine && (
+        <p className="text-siege-muted text-xs px-1">{metaLine.replace(/_/g, '')}</p>
+      )}
+
+      {/* Your Role */}
+      <CoachingSection
+        title="Your Role"
+        content={coachingRole}
+        accentClass="text-gray-400"
+        borderClass="border-siege-border/40"
+      />
+
+      {/* Two-col: What's Working + Areas to Watch */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
+        <CoachingSection
+          title="What's Working"
+          content={coachingWorking}
+          accentClass="text-siege-green"
+          borderClass="border-siege-green/20"
+        />
+        <CoachingSection
+          title="Areas to Watch"
+          content={coachingAreas}
+          accentClass="text-yellow-400"
+          borderClass="border-yellow-400/20"
+        />
+      </div>
+
+      {/* Priorities */}
+      <CoachingSection
+        title="Priorities This Season"
+        content={coachingPrioritiesText}
+        accentClass="text-siege-accent"
+        borderClass="border-siege-accent/30"
+      />
     </div>
   )
 }
@@ -432,7 +489,7 @@ export default function PlayerDetail() {
       {/* Tab content */}
       {activeTab === 'alltime' && <AllTimeTab player={player} />}
 
-      {activeTab === 'coaching' && <CoachingTab coachingContent={player.coachingContent} />}
+      {activeTab === 'coaching' && <CoachingTab player={player} />}
 
       {activeTab === player.prevSeason && player.prevSeasonStats && (
         <SeasonTab
