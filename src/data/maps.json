@@ -1497,7 +1497,7 @@
     "name": "Consulate",
     "displayName": "Consulate",
     "rating": "ban",
-    "ratingLabel": "Weak",
+    "ratingLabel": "Avoid",
     "rankedPool": "both",
     "inRankedPool": true,
     "stratCount": {
@@ -2509,7 +2509,7 @@
     "name": "Oregon",
     "displayName": "Oregon",
     "rating": "avoid",
-    "ratingLabel": "Mixed",
+    "ratingLabel": "Avoid",
     "rankedPool": "first",
     "inRankedPool": true,
     "stratCount": {
@@ -3449,7 +3449,7 @@
     "name": "Villa",
     "displayName": "Villa",
     "rating": "even",
-    "ratingLabel": "Avoid",
+    "ratingLabel": "Situational",
     "rankedPool": "first",
     "inRankedPool": true,
     "stratCount": {
