@@ -442,6 +442,7 @@ function OperatorOverlap({ players }) {
                 {players.map((p, i) => {
                   const opData = lookup[opName]?.[p.name]
                   const wr = opData ? parseFloat(opData.winRate) : null
+                  const kd = opData ? parseFloat(opData.kd) : null
                   const rounds = opData?.rounds
                   const isBest = i === best
                   return (
@@ -453,6 +454,9 @@ function OperatorOverlap({ players }) {
                         <div className="relative">
                           <span className={`font-semibold text-sm ${wr !== null ? wrColor(wr) : 'text-gray-400'}`}>
                             {wr !== null ? `${wr.toFixed(1)}%` : '—'}
+                          </span>
+                          <span className={`block text-xs leading-none mt-0.5 ${kd !== null ? kdColor(kd) : 'text-gray-600'}`}>
+                            {kd !== null ? `${kd.toFixed(2)} K/D` : ''}
                           </span>
                           {rounds && <span className="block text-[10px] text-gray-600 leading-none mt-0.5">{rounds}R</span>}
                         </div>
@@ -467,7 +471,7 @@ function OperatorOverlap({ players }) {
           })}
         </tbody>
       </table>
-      <p className="text-siege-muted text-[10px] mt-3">×N = number of selected players who run this operator. WR = win rate on operator. R = rounds played.</p>
+      <p className="text-siege-muted text-[10px] mt-3">×N = number of selected players who run this operator. WR = operator win rate. K/D = operator kill/death ratio. R = rounds played.</p>
     </div>
   )
 }
@@ -507,6 +511,16 @@ export default function Compare() {
 
       {hasEnough && (
         <>
+          {/* Season label */}
+          {(() => {
+            const season = selectedPlayers[0]?.season
+            return season ? (
+              <p className="text-siege-muted text-xs -mt-2">
+                All stats: <span className="text-gray-300 font-medium">{season}</span>
+              </p>
+            ) : null
+          })()}
+
           {/* View Toggle */}
           <div className="flex items-center gap-1 bg-siege-card border border-siege-border rounded-lg p-1 w-fit">
             {[['stats', 'Season Stats'], ['maps', 'Map WR'], ['ops', 'Operator Overlap']].map(([val, label]) => (
