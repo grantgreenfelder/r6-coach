@@ -80,12 +80,14 @@ function parseOperators(content) {
         // Format: "1. OperatorName — 54r | 48.1% | 1.30 ⭐"
         const m = l.match(/^\d+\.\s+(.+?)\s+—\s+(\d+)r\s+\|\s+([\d.]+)%\s+\|\s+([\d.]+)\s*([⭐✅⚠️]*)/)
         if (!m) return null
+        const rounds = parseInt(m[2], 10)
         return {
           name: m[1].trim(),
-          rounds: parseInt(m[2], 10),
+          rounds,
           winRate: parseFloat(m[3]),
           kd: parseFloat(m[4]),
           flag: m[5]?.trim() || '',
+          smallSample: rounds < 10,
         }
       })
       .filter(Boolean)
@@ -303,13 +305,25 @@ function buildPlayersData() {
     fs.statSync(path.join(playersDir, n)).isDirectory()
   )
 
+  // Preferred display order — update when roster changes.
+  // Any player in the KB whose team matches but is NOT listed here will be appended
+  // at the end of their group rather than silently dropped into "other".
   const mainStackOrder = ['Grant', 'Peej', 'Hound', 'Smigs', 'Sarge']
   const bTeamOrder = ['Slug', 'Krafty', 'Bob', 'Hunter']
 
   const all = names.map(parsePlayer).filter(Boolean)
-  const mainStack = mainStackOrder.map(n => all.find(p => p.name === n)).filter(Boolean)
-  const bTeam = bTeamOrder.map(n => all.find(p => p.name === n)).filter(Boolean)
-  const other = all.filter(p => !mainStackOrder.includes(p.name) && !bTeamOrder.includes(p.name))
+
+  const mainStack = [
+    ...mainStackOrder.map(n => all.find(p => p.name === n)).filter(Boolean),
+    ...all.filter(p => /main/i.test(p.team) && !mainStackOrder.includes(p.name)),
+  ]
+  const bTeam = [
+    ...bTeamOrder.map(n => all.find(p => p.name === n)).filter(Boolean),
+    ...all.filter(p => /b.?team/i.test(p.team) && !bTeamOrder.includes(p.name)),
+  ]
+  const mainNames = new Set(mainStack.map(p => p.name))
+  const bNames    = new Set(bTeam.map(p => p.name))
+  const other = all.filter(p => !mainNames.has(p.name) && !bNames.has(p.name))
 
   return { mainStack, bTeam, other }
 }
@@ -620,18 +634,17 @@ function buildOperatorsData(playersData) {
   const opStats = {}
   function addStat(opName, season, playerName, entry) {
     const canon = ALIASES[opName] ?? opName
-    if (!opStats[canon]) opStats[canon] = { y10s4: [], y11s1: [] }
+    if (!opStats[canon]) opStats[canon] = {}
     if (!opStats[canon][season]) opStats[canon][season] = []
     opStats[canon][season].push({ player: playerName, rounds: entry.rounds, winRate: entry.winRate, kd: entry.kd })
   }
 
-  // Map a season name string (e.g. 'Y11S1') to the stats bucket key
+  // Map any season name string (e.g. 'Y11S1', 'Y11S2') to a lowercase bucket key.
+  // Handles future seasons automatically without needing code changes.
   function seasonKey(name) {
     if (!name) return null
-    const n = name.toUpperCase()
-    if (n === 'Y11S1') return 'y11s1'
-    if (n === 'Y10S4') return 'y10s4'
-    return null
+    const m = name.match(/Y(\d+)S(\d+)/i)
+    return m ? `y${m[1]}s${m[2]}` : null
   }
 
   const allPlayers = [...playersData.mainStack, ...playersData.bTeam, ...playersData.other]

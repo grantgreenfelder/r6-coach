@@ -32,105 +32,120 @@
             "rounds": 71,
             "winRate": 45.1,
             "kd": 1.27,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Sledge",
             "rounds": 52,
             "winRate": 36.5,
             "kd": 1.05,
-            "flag": "⚠️"
+            "flag": "⚠️",
+            "smallSample": false
           },
           {
             "name": "Lion",
             "rounds": 41,
             "winRate": 36.6,
             "kd": 0.82,
-            "flag": "⚠️"
+            "flag": "⚠️",
+            "smallSample": false
           },
           {
             "name": "Hibana",
             "rounds": 41,
             "winRate": 46.3,
             "kd": 1.28,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Amaru",
             "rounds": 33,
             "winRate": 45.5,
             "kd": 1.21,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Capitao",
             "rounds": 24,
             "winRate": 45.8,
             "kd": 1.11,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Flores",
             "rounds": 22,
             "winRate": 31.8,
             "kd": 0.95,
-            "flag": "⚠️"
+            "flag": "⚠️",
+            "smallSample": false
           },
           {
             "name": "Gridlock",
             "rounds": 21,
             "winRate": 23.8,
             "kd": 1.29,
-            "flag": "⚠️"
+            "flag": "⚠️",
+            "smallSample": false
           },
           {
             "name": "Thermite",
             "rounds": 20,
             "winRate": 40,
             "kd": 1.07,
-            "flag": "⚠️"
+            "flag": "⚠️",
+            "smallSample": false
           },
           {
             "name": "Dokkaebi",
             "rounds": 12,
             "winRate": 50,
             "kd": 0.78,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Deimos",
             "rounds": 12,
             "winRate": 33.3,
             "kd": 0.4,
-            "flag": "⚠️"
+            "flag": "⚠️",
+            "smallSample": false
           },
           {
             "name": "Twitch",
             "rounds": 11,
             "winRate": 45.5,
             "kd": 1.14,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Glaz",
             "rounds": 10,
             "winRate": 70,
             "kd": 1.5,
-            "flag": "⭐"
+            "flag": "⭐",
+            "smallSample": false
           },
           {
             "name": "Ash",
             "rounds": 8,
             "winRate": 62.5,
             "kd": 0.83,
-            "flag": "⭐"
+            "flag": "⭐",
+            "smallSample": true
           },
           {
             "name": "Solid Snake",
             "rounds": 8,
             "winRate": 12.5,
             "kd": 0.5,
-            "flag": "⚠️"
+            "flag": "⚠️",
+            "smallSample": true
           }
         ],
         "def": [
@@ -139,63 +154,72 @@
             "rounds": 166,
             "winRate": 53.6,
             "kd": 1.23,
-            "flag": "✅"
+            "flag": "✅",
+            "smallSample": false
           },
           {
             "name": "Kapkan",
             "rounds": 60,
             "winRate": 56.7,
             "kd": 1.9,
-            "flag": "✅"
+            "flag": "✅",
+            "smallSample": false
           },
           {
             "name": "Thorn",
             "rounds": 53,
             "winRate": 60.4,
             "kd": 1.91,
-            "flag": "⭐"
+            "flag": "⭐",
+            "smallSample": false
           },
           {
             "name": "Castle",
             "rounds": 48,
             "winRate": 64.6,
             "kd": 1.39,
-            "flag": "⭐"
+            "flag": "⭐",
+            "smallSample": false
           },
           {
             "name": "Bandit",
             "rounds": 17,
             "winRate": 29.4,
             "kd": 0.47,
-            "flag": "⚠️"
+            "flag": "⚠️",
+            "smallSample": false
           },
           {
             "name": "Kaid",
             "rounds": 16,
             "winRate": 50,
             "kd": 1,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Maestro",
             "rounds": 13,
             "winRate": 76.9,
             "kd": 2.14,
-            "flag": "⭐"
+            "flag": "⭐",
+            "smallSample": false
           },
           {
             "name": "Azami",
             "rounds": 13,
             "winRate": 38.5,
             "kd": 1,
-            "flag": "⚠️"
+            "flag": "⚠️",
+            "smallSample": false
           },
           {
             "name": "Smoke",
             "rounds": 8,
             "winRate": 62.5,
             "kd": 0.5,
-            "flag": "⭐"
+            "flag": "⭐",
+            "smallSample": true
           }
         ]
       },
@@ -446,35 +470,40 @@
             "rounds": 78,
             "winRate": 52.6,
             "kd": 1.38,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Thatcher",
             "rounds": 42,
             "winRate": 42.9,
             "kd": 1.52,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Lion",
             "rounds": 32,
             "winRate": 59.4,
             "kd": 1.4,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Montagne",
             "rounds": 32,
             "winRate": 34.4,
             "kd": 0.59,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Osa",
             "rounds": 31,
             "winRate": 32.3,
             "kd": 0.85,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           }
         ],
         "def": [
@@ -483,35 +512,40 @@
             "rounds": 95,
             "winRate": 62.1,
             "kd": 1.75,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Thorn",
             "rounds": 90,
             "winRate": 65.6,
             "kd": 1.65,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Bandit",
             "rounds": 64,
             "winRate": 56.2,
             "kd": 0.95,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Castle",
             "rounds": 46,
             "winRate": 56.5,
             "kd": 1.16,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Caveira",
             "rounds": 30,
             "winRate": 56.7,
             "kd": 0.92,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           }
         ]
       }
@@ -548,70 +582,80 @@
             "rounds": 65,
             "winRate": 38.5,
             "kd": 1.11,
-            "flag": "⚠️"
+            "flag": "⚠️",
+            "smallSample": false
           },
           {
             "name": "Twitch",
             "rounds": 55,
             "winRate": 43.6,
             "kd": 1.14,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Brava",
             "rounds": 33,
             "winRate": 54.5,
             "kd": 1.55,
-            "flag": "✅"
+            "flag": "✅",
+            "smallSample": false
           },
           {
             "name": "Dokkaebi",
             "rounds": 20,
             "winRate": 40,
             "kd": 1.62,
-            "flag": "⚠️"
+            "flag": "⚠️",
+            "smallSample": false
           },
           {
             "name": "Hibana",
             "rounds": 13,
             "winRate": 46.2,
             "kd": 1.33,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Nomad",
             "rounds": 12,
             "winRate": 41.7,
             "kd": 0.91,
-            "flag": "⚠️"
+            "flag": "⚠️",
+            "smallSample": false
           },
           {
             "name": "Ram",
             "rounds": 11,
             "winRate": 54.5,
             "kd": 0.56,
-            "flag": "✅"
+            "flag": "✅",
+            "smallSample": false
           },
           {
             "name": "Kali",
             "rounds": 9,
             "winRate": 66.7,
             "kd": 1.2,
-            "flag": "⭐"
+            "flag": "⭐",
+            "smallSample": true
           },
           {
             "name": "Ying",
             "rounds": 8,
             "winRate": 50,
             "kd": 0.57,
-            "flag": ""
+            "flag": "",
+            "smallSample": true
           },
           {
             "name": "Thermite",
             "rounds": 8,
             "winRate": 50,
             "kd": 1.4,
-            "flag": ""
+            "flag": "",
+            "smallSample": true
           }
         ],
         "def": [
@@ -620,49 +664,56 @@
             "rounds": 90,
             "winRate": 64.4,
             "kd": 1.77,
-            "flag": "⭐"
+            "flag": "⭐",
+            "smallSample": false
           },
           {
             "name": "Maestro",
             "rounds": 46,
             "winRate": 47.8,
             "kd": 0.81,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Valkyrie",
             "rounds": 43,
             "winRate": 58.1,
             "kd": 1.4,
-            "flag": "✅"
+            "flag": "✅",
+            "smallSample": false
           },
           {
             "name": "Thorn",
             "rounds": 18,
             "winRate": 72.2,
             "kd": 2.55,
-            "flag": "⭐"
+            "flag": "⭐",
+            "smallSample": false
           },
           {
             "name": "Kaid",
             "rounds": 15,
             "winRate": 46.7,
             "kd": 1.67,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Azami",
             "rounds": 12,
             "winRate": 58.3,
             "kd": 1.1,
-            "flag": "✅"
+            "flag": "✅",
+            "smallSample": false
           },
           {
             "name": "Fenrir",
             "rounds": 6,
             "winRate": 16.7,
             "kd": 0.4,
-            "flag": ""
+            "flag": "",
+            "smallSample": true
           }
         ]
       },
@@ -865,35 +916,40 @@
             "rounds": 51,
             "winRate": 43.1,
             "kd": 0.98,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Brava",
             "rounds": 40,
             "winRate": 50,
             "kd": 1,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Ying",
             "rounds": 35,
             "winRate": 34.3,
             "kd": 0.81,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Hibana",
             "rounds": 15,
             "winRate": 40,
             "kd": 0.9,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Nomad",
             "rounds": 13,
             "winRate": 46.2,
             "kd": 0.8,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           }
         ],
         "def": [
@@ -902,35 +958,40 @@
             "rounds": 61,
             "winRate": 70.5,
             "kd": 1.38,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Caveira",
             "rounds": 53,
             "winRate": 66,
             "kd": 1.33,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Fenrir",
             "rounds": 39,
             "winRate": 56.4,
             "kd": 0.96,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Azami",
             "rounds": 26,
             "winRate": 65.4,
             "kd": 0.69,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Valkyrie",
             "rounds": 11,
             "winRate": 63.6,
             "kd": 1.14,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           }
         ]
       }
@@ -967,105 +1028,120 @@
             "rounds": 40,
             "winRate": 35,
             "kd": 0.85,
-            "flag": "⚠️"
+            "flag": "⚠️",
+            "smallSample": false
           },
           {
             "name": "Osa",
             "rounds": 38,
             "winRate": 36.8,
             "kd": 0.47,
-            "flag": "⚠️"
+            "flag": "⚠️",
+            "smallSample": false
           },
           {
             "name": "Grim",
             "rounds": 30,
             "winRate": 43.3,
             "kd": 0.95,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Thatcher",
             "rounds": 29,
             "winRate": 41.4,
             "kd": 0.95,
-            "flag": "⚠️"
+            "flag": "⚠️",
+            "smallSample": false
           },
           {
             "name": "Nomad",
             "rounds": 28,
             "winRate": 32.1,
             "kd": 0.65,
-            "flag": "⚠️"
+            "flag": "⚠️",
+            "smallSample": false
           },
           {
             "name": "Fuze",
             "rounds": 23,
             "winRate": 39.1,
             "kd": 1.11,
-            "flag": "⚠️"
+            "flag": "⚠️",
+            "smallSample": false
           },
           {
             "name": "Rauora",
             "rounds": 15,
             "winRate": 53.3,
             "kd": 0.73,
-            "flag": "✅"
+            "flag": "✅",
+            "smallSample": false
           },
           {
             "name": "Montagne",
             "rounds": 13,
             "winRate": 30.8,
             "kd": 0.27,
-            "flag": "⚠️"
+            "flag": "⚠️",
+            "smallSample": false
           },
           {
             "name": "Gridlock",
             "rounds": 11,
             "winRate": 72.7,
             "kd": 4,
-            "flag": "⭐"
+            "flag": "⭐",
+            "smallSample": false
           },
           {
             "name": "Flores",
             "rounds": 10,
             "winRate": 30,
             "kd": 1.12,
-            "flag": "⚠️"
+            "flag": "⚠️",
+            "smallSample": false
           },
           {
             "name": "Dokkaebi",
             "rounds": 10,
             "winRate": 40,
             "kd": 0.2,
-            "flag": "⚠️"
+            "flag": "⚠️",
+            "smallSample": false
           },
           {
             "name": "Buck",
             "rounds": 7,
             "winRate": 57.1,
             "kd": 1.4,
-            "flag": ""
+            "flag": "",
+            "smallSample": true
           },
           {
             "name": "Ying",
             "rounds": 7,
             "winRate": 42.9,
             "kd": 1,
-            "flag": ""
+            "flag": "",
+            "smallSample": true
           },
           {
             "name": "IQ",
             "rounds": 6,
             "winRate": 50,
             "kd": 3.67,
-            "flag": ""
+            "flag": "",
+            "smallSample": true
           },
           {
             "name": "Blackbeard",
             "rounds": 5,
             "winRate": 40,
             "kd": 1,
-            "flag": ""
+            "flag": "",
+            "smallSample": true
           }
         ],
         "def": [
@@ -1074,98 +1150,112 @@
             "rounds": 53,
             "winRate": 49.1,
             "kd": 0.79,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Bandit",
             "rounds": 39,
             "winRate": 53.8,
             "kd": 0.97,
-            "flag": "✅"
+            "flag": "✅",
+            "smallSample": false
           },
           {
             "name": "Azami",
             "rounds": 29,
             "winRate": 62.1,
             "kd": 1.15,
-            "flag": "⭐"
+            "flag": "⭐",
+            "smallSample": false
           },
           {
             "name": "Frost",
             "rounds": 26,
             "winRate": 57.7,
             "kd": 1.06,
-            "flag": "✅"
+            "flag": "✅",
+            "smallSample": false
           },
           {
             "name": "Kaid",
             "rounds": 24,
             "winRate": 45.8,
             "kd": 1.18,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Mute",
             "rounds": 19,
             "winRate": 42.1,
             "kd": 0.24,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Mozzie",
             "rounds": 18,
             "winRate": 44.4,
             "kd": 0.67,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Maestro",
             "rounds": 12,
             "winRate": 66.7,
             "kd": 1.25,
-            "flag": "⭐"
+            "flag": "⭐",
+            "smallSample": false
           },
           {
             "name": "Aruni",
             "rounds": 9,
             "winRate": 44.4,
             "kd": 0.57,
-            "flag": ""
+            "flag": "",
+            "smallSample": true
           },
           {
             "name": "Echo",
             "rounds": 9,
             "winRate": 88.9,
             "kd": 0.5,
-            "flag": "⭐"
+            "flag": "⭐",
+            "smallSample": true
           },
           {
             "name": "Thorn",
             "rounds": 8,
             "winRate": 62.5,
             "kd": 1.67,
-            "flag": "⭐"
+            "flag": "⭐",
+            "smallSample": true
           },
           {
             "name": "Warden",
             "rounds": 5,
             "winRate": 80,
             "kd": 0.5,
-            "flag": ""
+            "flag": "",
+            "smallSample": true
           },
           {
             "name": "Thunderbird",
             "rounds": 5,
             "winRate": 60,
             "kd": 1.33,
-            "flag": ""
+            "flag": "",
+            "smallSample": true
           },
           {
             "name": "Valkyrie",
             "rounds": 5,
             "winRate": 60,
             "kd": 0.5,
-            "flag": ""
+            "flag": "",
+            "smallSample": true
           }
         ]
       },
@@ -1416,35 +1506,40 @@
             "rounds": 47,
             "winRate": 44.7,
             "kd": 1.06,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Thermite",
             "rounds": 37,
             "winRate": 37.8,
             "kd": 0.93,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Rauora",
             "rounds": 36,
             "winRate": 58.3,
             "kd": 0.72,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Fuze",
             "rounds": 31,
             "winRate": 48.4,
             "kd": 0.6,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Buck",
             "rounds": 31,
             "winRate": 35.5,
             "kd": 0.59,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           }
         ],
         "def": [
@@ -1453,35 +1548,40 @@
             "rounds": 81,
             "winRate": 64.2,
             "kd": 0.85,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Bandit",
             "rounds": 61,
             "winRate": 54.1,
             "kd": 0.74,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Thorn",
             "rounds": 46,
             "winRate": 52.2,
             "kd": 1.19,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Azami",
             "rounds": 41,
             "winRate": 63.4,
             "kd": 0.93,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Frost",
             "rounds": 40,
             "winRate": 70,
             "kd": 1.25,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           }
         ]
       }
@@ -1518,49 +1618,56 @@
             "rounds": 65,
             "winRate": 47.7,
             "kd": 1.34,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Hibana",
             "rounds": 13,
             "winRate": 15.4,
             "kd": 1.18,
-            "flag": "⚠️"
+            "flag": "⚠️",
+            "smallSample": false
           },
           {
             "name": "Nomad",
             "rounds": 12,
             "winRate": 66.7,
             "kd": 1.14,
-            "flag": "⭐"
+            "flag": "⭐",
+            "smallSample": false
           },
           {
             "name": "Ace",
             "rounds": 11,
             "winRate": 54.5,
             "kd": 1.43,
-            "flag": "✅"
+            "flag": "✅",
+            "smallSample": false
           },
           {
             "name": "Striker",
             "rounds": 11,
             "winRate": 27.3,
             "kd": 0.6,
-            "flag": "⚠️"
+            "flag": "⚠️",
+            "smallSample": false
           },
           {
             "name": "Osa",
             "rounds": 6,
             "winRate": 50,
             "kd": 2.67,
-            "flag": ""
+            "flag": "",
+            "smallSample": true
           },
           {
             "name": "Capitao",
             "rounds": 5,
             "winRate": 20,
             "kd": 0.6,
-            "flag": ""
+            "flag": "",
+            "smallSample": true
           }
         ],
         "def": [
@@ -1569,56 +1676,64 @@
             "rounds": 30,
             "winRate": 46.7,
             "kd": 1.13,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Kaid",
             "rounds": 24,
             "winRate": 58.3,
             "kd": 1.92,
-            "flag": "✅"
+            "flag": "✅",
+            "smallSample": false
           },
           {
             "name": "Bandit",
             "rounds": 15,
             "winRate": 73.3,
             "kd": 1.22,
-            "flag": "⭐"
+            "flag": "⭐",
+            "smallSample": false
           },
           {
             "name": "Thorn",
             "rounds": 15,
             "winRate": 60,
             "kd": 0.8,
-            "flag": "⭐"
+            "flag": "⭐",
+            "smallSample": false
           },
           {
             "name": "Mute",
             "rounds": 10,
             "winRate": 70,
             "kd": 1.33,
-            "flag": "⭐"
+            "flag": "⭐",
+            "smallSample": false
           },
           {
             "name": "Lesion",
             "rounds": 9,
             "winRate": 44.4,
             "kd": 1.14,
-            "flag": ""
+            "flag": "",
+            "smallSample": true
           },
           {
             "name": "Castle",
             "rounds": 8,
             "winRate": 62.5,
             "kd": 0.8,
-            "flag": "⭐"
+            "flag": "⭐",
+            "smallSample": true
           },
           {
             "name": "Melusi",
             "rounds": 5,
             "winRate": 20,
             "kd": 0.6,
-            "flag": ""
+            "flag": "",
+            "smallSample": true
           }
         ]
       },
@@ -1813,35 +1928,40 @@
             "rounds": 81,
             "winRate": 49.4,
             "kd": 1.11,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Nomad",
             "rounds": 40,
             "winRate": 42.5,
             "kd": 0.6,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Osa",
             "rounds": 27,
             "winRate": 48.1,
             "kd": 1.06,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Capitão",
             "rounds": 24,
             "winRate": 62.5,
             "kd": 1.08,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Striker",
             "rounds": 23,
             "winRate": 52.2,
             "kd": 0.62,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           }
         ],
         "def": [
@@ -1850,35 +1970,40 @@
             "rounds": 51,
             "winRate": 52.9,
             "kd": 0.81,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Aruni",
             "rounds": 49,
             "winRate": 51,
             "kd": 1.6,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Castle",
             "rounds": 37,
             "winRate": 59.5,
             "kd": 1.22,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Thorn",
             "rounds": 35,
             "winRate": 57.1,
             "kd": 0.91,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Lesion",
             "rounds": 27,
             "winRate": 59.3,
             "kd": 1.67,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           }
         ]
       }
@@ -1915,105 +2040,120 @@
             "rounds": 163,
             "winRate": 43.6,
             "kd": 1.2,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Jackal",
             "rounds": 62,
             "winRate": 32.3,
             "kd": 1.18,
-            "flag": "⚠️"
+            "flag": "⚠️",
+            "smallSample": false
           },
           {
             "name": "Capitao",
             "rounds": 24,
             "winRate": 50,
             "kd": 1.47,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Thatcher",
             "rounds": 16,
             "winRate": 56.2,
             "kd": 2,
-            "flag": "✅"
+            "flag": "✅",
+            "smallSample": false
           },
           {
             "name": "Iana",
             "rounds": 13,
             "winRate": 61.5,
             "kd": 1.38,
-            "flag": "⭐"
+            "flag": "⭐",
+            "smallSample": false
           },
           {
             "name": "Sledge",
             "rounds": 12,
             "winRate": 41.7,
             "kd": 0.55,
-            "flag": "⚠️"
+            "flag": "⚠️",
+            "smallSample": false
           },
           {
             "name": "Ying",
             "rounds": 10,
             "winRate": 30,
             "kd": 1.11,
-            "flag": "⚠️"
+            "flag": "⚠️",
+            "smallSample": false
           },
           {
             "name": "Twitch",
             "rounds": 9,
             "winRate": 22.2,
             "kd": 0.25,
-            "flag": "⚠️"
+            "flag": "⚠️",
+            "smallSample": true
           },
           {
             "name": "Amaru",
             "rounds": 9,
             "winRate": 55.6,
             "kd": 0.67,
-            "flag": "✅"
+            "flag": "✅",
+            "smallSample": true
           },
           {
             "name": "Ash",
             "rounds": 9,
             "winRate": 11.1,
             "kd": 0.33,
-            "flag": "⚠️"
+            "flag": "⚠️",
+            "smallSample": true
           },
           {
             "name": "Nomad",
             "rounds": 8,
             "winRate": 50,
             "kd": 0.71,
-            "flag": ""
+            "flag": "",
+            "smallSample": true
           },
           {
             "name": "Buck",
             "rounds": 7,
             "winRate": 28.6,
             "kd": 0.43,
-            "flag": ""
+            "flag": "",
+            "smallSample": true
           },
           {
             "name": "Thermite",
             "rounds": 6,
             "winRate": 16.7,
             "kd": 0.6,
-            "flag": ""
+            "flag": "",
+            "smallSample": true
           },
           {
             "name": "Ace",
             "rounds": 6,
             "winRate": 16.7,
             "kd": 1,
-            "flag": ""
+            "flag": "",
+            "smallSample": true
           },
           {
             "name": "Hibana",
             "rounds": 5,
             "winRate": 40,
             "kd": 0.6,
-            "flag": ""
+            "flag": "",
+            "smallSample": true
           }
         ],
         "def": [
@@ -2022,98 +2162,112 @@
             "rounds": 105,
             "winRate": 56.2,
             "kd": 1.39,
-            "flag": "✅"
+            "flag": "✅",
+            "smallSample": false
           },
           {
             "name": "Azami",
             "rounds": 62,
             "winRate": 59.7,
             "kd": 1.24,
-            "flag": "✅"
+            "flag": "✅",
+            "smallSample": false
           },
           {
             "name": "Mute",
             "rounds": 33,
             "winRate": 48.5,
             "kd": 0.73,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Smoke",
             "rounds": 24,
             "winRate": 50,
             "kd": 0.65,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Doc",
             "rounds": 15,
             "winRate": 46.7,
             "kd": 1,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Thunderbird",
             "rounds": 15,
             "winRate": 53.3,
             "kd": 1.4,
-            "flag": "✅"
+            "flag": "✅",
+            "smallSample": false
           },
           {
             "name": "Melusi",
             "rounds": 15,
             "winRate": 60,
             "kd": 0.78,
-            "flag": "⭐"
+            "flag": "⭐",
+            "smallSample": false
           },
           {
             "name": "Thorn",
             "rounds": 14,
             "winRate": 42.9,
             "kd": 1,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Rook",
             "rounds": 13,
             "winRate": 46.2,
             "kd": 0.5,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Jager",
             "rounds": 13,
             "winRate": 46.2,
             "kd": 0.8,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Aruni",
             "rounds": 12,
             "winRate": 58.3,
             "kd": 1.12,
-            "flag": "✅"
+            "flag": "✅",
+            "smallSample": false
           },
           {
             "name": "Goyo",
             "rounds": 7,
             "winRate": 28.6,
             "kd": 0.67,
-            "flag": ""
+            "flag": "",
+            "smallSample": true
           },
           {
             "name": "Echo",
             "rounds": 6,
             "winRate": 66.7,
             "kd": 1,
-            "flag": ""
+            "flag": "",
+            "smallSample": true
           },
           {
             "name": "Warden",
             "rounds": 6,
             "winRate": 66.7,
             "kd": 0.25,
-            "flag": ""
+            "flag": "",
+            "smallSample": true
           }
         ]
       },
@@ -2364,35 +2518,40 @@
             "rounds": 56,
             "winRate": 41.1,
             "kd": 0.82,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Buck",
             "rounds": 35,
             "winRate": 37.1,
             "kd": 0.78,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "IQ",
             "rounds": 26,
             "winRate": 30.8,
             "kd": 0.9,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Sledge",
             "rounds": 24,
             "winRate": 33.3,
             "kd": 0.57,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Thatcher",
             "rounds": 23,
             "winRate": 39.1,
             "kd": 0.83,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           }
         ],
         "def": [
@@ -2401,35 +2560,40 @@
             "rounds": 116,
             "winRate": 59.5,
             "kd": 1.45,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Vigil",
             "rounds": 90,
             "winRate": 63.3,
             "kd": 1.48,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Mute",
             "rounds": 55,
             "winRate": 56.4,
             "kd": 1.03,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Thorn",
             "rounds": 22,
             "winRate": 63.6,
             "kd": 1.54,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Aruni",
             "rounds": 19,
             "winRate": 68.4,
             "kd": 1.9,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           }
         ]
       }
@@ -2468,98 +2632,112 @@
             "rounds": 26,
             "winRate": 30.8,
             "kd": 0.76,
-            "flag": "⚠️"
+            "flag": "⚠️",
+            "smallSample": false
           },
           {
             "name": "Buck",
             "rounds": 23,
             "winRate": 21.7,
             "kd": 1.15,
-            "flag": "⚠️"
+            "flag": "⚠️",
+            "smallSample": false
           },
           {
             "name": "Thermite",
             "rounds": 20,
             "winRate": 55,
             "kd": 0.81,
-            "flag": "✅"
+            "flag": "✅",
+            "smallSample": false
           },
           {
             "name": "Jackal",
             "rounds": 20,
             "winRate": 45,
             "kd": 1.77,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Hibana",
             "rounds": 17,
             "winRate": 41.2,
             "kd": 1.38,
-            "flag": "⚠️"
+            "flag": "⚠️",
+            "smallSample": false
           },
           {
             "name": "Zero",
             "rounds": 10,
             "winRate": 70,
             "kd": 2,
-            "flag": "⭐"
+            "flag": "⭐",
+            "smallSample": false
           },
           {
             "name": "Capitao",
             "rounds": 9,
             "winRate": 66.7,
             "kd": 0.4,
-            "flag": "⭐"
+            "flag": "⭐",
+            "smallSample": true
           },
           {
             "name": "Maverick",
             "rounds": 8,
             "winRate": 25,
             "kd": 0.5,
-            "flag": "⚠️"
+            "flag": "⚠️",
+            "smallSample": true
           },
           {
             "name": "Deimos",
             "rounds": 8,
             "winRate": 50,
             "kd": 1,
-            "flag": ""
+            "flag": "",
+            "smallSample": true
           },
           {
             "name": "Ash",
             "rounds": 8,
             "winRate": 50,
             "kd": 0.57,
-            "flag": ""
+            "flag": "",
+            "smallSample": true
           },
           {
             "name": "Sens",
             "rounds": 6,
             "winRate": 33.3,
             "kd": 1.5,
-            "flag": ""
+            "flag": "",
+            "smallSample": true
           },
           {
             "name": "Ace",
             "rounds": 5,
             "winRate": 40,
             "kd": 1.5,
-            "flag": ""
+            "flag": "",
+            "smallSample": true
           },
           {
             "name": "Flores",
             "rounds": 5,
             "winRate": 40,
             "kd": 2,
-            "flag": ""
+            "flag": "",
+            "smallSample": true
           },
           {
             "name": "Montagne",
             "rounds": 5,
             "winRate": 20,
             "kd": 0.2,
-            "flag": ""
+            "flag": "",
+            "smallSample": true
           }
         ],
         "def": [
@@ -2568,77 +2746,88 @@
             "rounds": 58,
             "winRate": 67.2,
             "kd": 1.21,
-            "flag": "⭐"
+            "flag": "⭐",
+            "smallSample": false
           },
           {
             "name": "Solis",
             "rounds": 25,
             "winRate": 60,
             "kd": 2,
-            "flag": "⭐"
+            "flag": "⭐",
+            "smallSample": false
           },
           {
             "name": "Smoke",
             "rounds": 23,
             "winRate": 43.5,
             "kd": 0.65,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Kaid",
             "rounds": 11,
             "winRate": 45.5,
             "kd": 1.11,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Castle",
             "rounds": 10,
             "winRate": 60,
             "kd": 0.89,
-            "flag": "⭐"
+            "flag": "⭐",
+            "smallSample": false
           },
           {
             "name": "Mute",
             "rounds": 9,
             "winRate": 33.3,
             "kd": 0.71,
-            "flag": "⚠️"
+            "flag": "⚠️",
+            "smallSample": true
           },
           {
             "name": "Frost",
             "rounds": 6,
             "winRate": 83.3,
             "kd": 1.33,
-            "flag": ""
+            "flag": "",
+            "smallSample": true
           },
           {
             "name": "Echo",
             "rounds": 6,
             "winRate": 50,
             "kd": 0.2,
-            "flag": ""
+            "flag": "",
+            "smallSample": true
           },
           {
             "name": "Warden",
             "rounds": 5,
             "winRate": 40,
             "kd": 0.5,
-            "flag": ""
+            "flag": "",
+            "smallSample": true
           },
           {
             "name": "Caveira",
             "rounds": 5,
             "winRate": 40,
             "kd": 0,
-            "flag": ""
+            "flag": "",
+            "smallSample": true
           },
           {
             "name": "Pulse",
             "rounds": 5,
             "winRate": 40,
             "kd": 0.75,
-            "flag": ""
+            "flag": "",
+            "smallSample": true
           }
         ]
       },
@@ -2873,35 +3062,40 @@
             "rounds": 71,
             "winRate": 38,
             "kd": 1.07,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Buck",
             "rounds": 61,
             "winRate": 50.8,
             "kd": 1.13,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Hibana",
             "rounds": 56,
             "winRate": 48.2,
             "kd": 1,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Blackbeard",
             "rounds": 46,
             "winRate": 43.5,
             "kd": 1,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Thermite",
             "rounds": 43,
             "winRate": 58.1,
             "kd": 0.87,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           }
         ],
         "def": [
@@ -2910,35 +3104,40 @@
             "rounds": 128,
             "winRate": 64.1,
             "kd": 1.31,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Valkyrie",
             "rounds": 119,
             "winRate": 54.6,
             "kd": 1.1,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Solis",
             "rounds": 54,
             "winRate": 64.8,
             "kd": 1.33,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Kaid",
             "rounds": 45,
             "winRate": 46.7,
             "kd": 1.06,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Mute",
             "rounds": 45,
             "winRate": 51.1,
             "kd": 1.09,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           }
         ]
       }
@@ -2975,70 +3174,80 @@
             "rounds": 111,
             "winRate": 47.7,
             "kd": 0.31,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Montagne",
             "rounds": 50,
             "winRate": 58,
             "kd": 0.24,
-            "flag": "✅"
+            "flag": "✅",
+            "smallSample": false
           },
           {
             "name": "Iana",
             "rounds": 43,
             "winRate": 34.9,
             "kd": 0.18,
-            "flag": "⚠️"
+            "flag": "⚠️",
+            "smallSample": false
           },
           {
             "name": "Capitao",
             "rounds": 25,
             "winRate": 52,
             "kd": 0.37,
-            "flag": "✅"
+            "flag": "✅",
+            "smallSample": false
           },
           {
             "name": "Maverick",
             "rounds": 17,
             "winRate": 41.2,
             "kd": 0.54,
-            "flag": "⚠️"
+            "flag": "⚠️",
+            "smallSample": false
           },
           {
             "name": "Thermite",
             "rounds": 13,
             "winRate": 46.2,
             "kd": 0.22,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Blitz",
             "rounds": 11,
             "winRate": 36.4,
             "kd": 0.2,
-            "flag": "⚠️"
+            "flag": "⚠️",
+            "smallSample": false
           },
           {
             "name": "Thatcher",
             "rounds": 10,
             "winRate": 50,
             "kd": 0.57,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Sens",
             "rounds": 10,
             "winRate": 30,
             "kd": 0.22,
-            "flag": "⚠️"
+            "flag": "⚠️",
+            "smallSample": false
           },
           {
             "name": "Rauora",
             "rounds": 5,
             "winRate": 0,
             "kd": 0.4,
-            "flag": ""
+            "flag": "",
+            "smallSample": true
           }
         ],
         "def": [
@@ -3047,63 +3256,72 @@
             "rounds": 106,
             "winRate": 56.6,
             "kd": 0.49,
-            "flag": "✅"
+            "flag": "✅",
+            "smallSample": false
           },
           {
             "name": "Thorn",
             "rounds": 75,
             "winRate": 57.3,
             "kd": 0.53,
-            "flag": "✅"
+            "flag": "✅",
+            "smallSample": false
           },
           {
             "name": "Clash",
             "rounds": 38,
             "winRate": 36.8,
             "kd": 0.13,
-            "flag": "⚠️"
+            "flag": "⚠️",
+            "smallSample": false
           },
           {
             "name": "Lesion",
             "rounds": 20,
             "winRate": 65,
             "kd": 0.31,
-            "flag": "⭐"
+            "flag": "⭐",
+            "smallSample": false
           },
           {
             "name": "Mozzie",
             "rounds": 17,
             "winRate": 47.1,
             "kd": 0.5,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Frost",
             "rounds": 16,
             "winRate": 37.5,
             "kd": 0.54,
-            "flag": "⚠️"
+            "flag": "⚠️",
+            "smallSample": false
           },
           {
             "name": "Fenrir",
             "rounds": 9,
             "winRate": 44.4,
             "kd": 1,
-            "flag": ""
+            "flag": "",
+            "smallSample": true
           },
           {
             "name": "Goyo",
             "rounds": 6,
             "winRate": 66.7,
             "kd": 0.25,
-            "flag": ""
+            "flag": "",
+            "smallSample": true
           },
           {
             "name": "Azami",
             "rounds": 5,
             "winRate": 40,
             "kd": 0,
-            "flag": ""
+            "flag": "",
+            "smallSample": true
           }
         ]
       },
@@ -3306,35 +3524,40 @@
             "rounds": 38,
             "winRate": 34.2,
             "kd": 0.31,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Hibana",
             "rounds": 32,
             "winRate": 37.5,
             "kd": 0.58,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Lion",
             "rounds": 30,
             "winRate": 40,
             "kd": 0.52,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Maverick",
             "rounds": 20,
             "winRate": 50,
             "kd": 0.8,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Zero",
             "rounds": 18,
             "winRate": 55.6,
             "kd": 0.19,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           }
         ],
         "def": [
@@ -3343,35 +3566,40 @@
             "rounds": 81,
             "winRate": 63,
             "kd": 0.52,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Azami",
             "rounds": 23,
             "winRate": 60.9,
             "kd": 0.5,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Ela",
             "rounds": 19,
             "winRate": 63.2,
             "kd": 0.5,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Thorn",
             "rounds": 17,
             "winRate": 52.9,
             "kd": 0.5,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Doc",
             "rounds": 14,
             "winRate": 50,
             "kd": 0.91,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           }
         ]
       }
@@ -3408,70 +3636,80 @@
             "rounds": 31,
             "winRate": 32.3,
             "kd": 0.61,
-            "flag": "⚠️"
+            "flag": "⚠️",
+            "smallSample": false
           },
           {
             "name": "Brava",
             "rounds": 29,
             "winRate": 37.9,
             "kd": 0.65,
-            "flag": "⚠️"
+            "flag": "⚠️",
+            "smallSample": false
           },
           {
             "name": "Thermite",
             "rounds": 26,
             "winRate": 38.5,
             "kd": 0.48,
-            "flag": "⚠️"
+            "flag": "⚠️",
+            "smallSample": false
           },
           {
             "name": "Thatcher",
             "rounds": 24,
             "winRate": 16.7,
             "kd": 0.41,
-            "flag": "⚠️"
+            "flag": "⚠️",
+            "smallSample": false
           },
           {
             "name": "Gridlock",
             "rounds": 10,
             "winRate": 50,
             "kd": 0.5,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Amaru",
             "rounds": 9,
             "winRate": 44.4,
             "kd": 1.14,
-            "flag": ""
+            "flag": "",
+            "smallSample": true
           },
           {
             "name": "Ace",
             "rounds": 6,
             "winRate": 33.3,
             "kd": 0.75,
-            "flag": ""
+            "flag": "",
+            "smallSample": true
           },
           {
             "name": "Blackbeard",
             "rounds": 6,
             "winRate": 33.3,
             "kd": 0.2,
-            "flag": ""
+            "flag": "",
+            "smallSample": true
           },
           {
             "name": "Hibana",
             "rounds": 5,
             "winRate": 60,
             "kd": 0.5,
-            "flag": ""
+            "flag": "",
+            "smallSample": true
           },
           {
             "name": "Striker",
             "rounds": 5,
             "winRate": 20,
             "kd": 0.4,
-            "flag": ""
+            "flag": "",
+            "smallSample": true
           }
         ],
         "def": [
@@ -3480,63 +3718,72 @@
             "rounds": 51,
             "winRate": 49,
             "kd": 0.84,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Denari",
             "rounds": 31,
             "winRate": 48.4,
             "kd": 0.6,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Thorn",
             "rounds": 29,
             "winRate": 55.2,
             "kd": 1.11,
-            "flag": "✅"
+            "flag": "✅",
+            "smallSample": false
           },
           {
             "name": "Maestro",
             "rounds": 12,
             "winRate": 75,
             "kd": 1.4,
-            "flag": "⭐"
+            "flag": "⭐",
+            "smallSample": false
           },
           {
             "name": "Vigil",
             "rounds": 11,
             "winRate": 27.3,
             "kd": 0.4,
-            "flag": "⚠️"
+            "flag": "⚠️",
+            "smallSample": false
           },
           {
             "name": "Kaid",
             "rounds": 9,
             "winRate": 66.7,
             "kd": 1,
-            "flag": "⭐"
+            "flag": "⭐",
+            "smallSample": true
           },
           {
             "name": "Aruni",
             "rounds": 8,
             "winRate": 37.5,
             "kd": 1,
-            "flag": "⚠️"
+            "flag": "⚠️",
+            "smallSample": true
           },
           {
             "name": "Valkyrie",
             "rounds": 8,
             "winRate": 37.5,
             "kd": 0.17,
-            "flag": "⚠️"
+            "flag": "⚠️",
+            "smallSample": true
           },
           {
             "name": "Frost",
             "rounds": 5,
             "winRate": 80,
             "kd": 2.5,
-            "flag": ""
+            "flag": "",
+            "smallSample": true
           }
         ]
       },
@@ -3667,35 +3914,40 @@
             "rounds": 14,
             "winRate": 57.1,
             "kd": 0.36,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Dokkaebi",
             "rounds": 13,
             "winRate": 69.2,
             "kd": 0.4,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Glaz",
             "rounds": 11,
             "winRate": 18.2,
             "kd": 0.73,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Gridlock",
             "rounds": 9,
             "winRate": 55.6,
             "kd": 0.67,
-            "flag": ""
+            "flag": "",
+            "smallSample": true
           },
           {
             "name": "Zero",
             "rounds": 8,
             "winRate": 37.5,
             "kd": 1,
-            "flag": ""
+            "flag": "",
+            "smallSample": true
           }
         ],
         "def": [
@@ -3704,35 +3956,40 @@
             "rounds": 38,
             "winRate": 71.1,
             "kd": 1.11,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Thorn",
             "rounds": 13,
             "winRate": 53.8,
             "kd": 0.42,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Frost",
             "rounds": 11,
             "winRate": 54.5,
             "kd": 0.6,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Kaid",
             "rounds": 10,
             "winRate": 40,
             "kd": 0.6,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Denari",
             "rounds": 8,
             "winRate": 50,
             "kd": 0.14,
-            "flag": ""
+            "flag": "",
+            "smallSample": true
           }
         ]
       }
@@ -3769,28 +4026,32 @@
             "rounds": 18,
             "winRate": 50,
             "kd": 0.88,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Striker",
             "rounds": 9,
             "winRate": 33.3,
             "kd": 0.38,
-            "flag": "⚠️"
+            "flag": "⚠️",
+            "smallSample": true
           },
           {
             "name": "Ace",
             "rounds": 8,
             "winRate": 37.5,
             "kd": 1,
-            "flag": "⚠️"
+            "flag": "⚠️",
+            "smallSample": true
           },
           {
             "name": "Brava",
             "rounds": 7,
             "winRate": 28.6,
             "kd": 0.75,
-            "flag": ""
+            "flag": "",
+            "smallSample": true
           }
         ],
         "def": [
@@ -3799,28 +4060,32 @@
             "rounds": 17,
             "winRate": 52.9,
             "kd": 0.71,
-            "flag": "✅"
+            "flag": "✅",
+            "smallSample": false
           },
           {
             "name": "Castle",
             "rounds": 15,
             "winRate": 53.3,
             "kd": 0.64,
-            "flag": "✅"
+            "flag": "✅",
+            "smallSample": false
           },
           {
             "name": "Thorn",
             "rounds": 9,
             "winRate": 55.6,
             "kd": 1.14,
-            "flag": "✅"
+            "flag": "✅",
+            "smallSample": true
           },
           {
             "name": "Valkyrie",
             "rounds": 5,
             "winRate": 20,
             "kd": 0.2,
-            "flag": ""
+            "flag": "",
+            "smallSample": true
           }
         ]
       },
@@ -3845,42 +4110,48 @@
             "rounds": 12,
             "winRate": 66.7,
             "kd": 0.71,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Striker",
             "rounds": 11,
             "winRate": 45.5,
             "kd": 0.67,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Dokkaebi",
             "rounds": 10,
             "winRate": 50,
             "kd": 0.5,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Ying",
             "rounds": 7,
             "winRate": 42.9,
             "kd": 0.67,
-            "flag": ""
+            "flag": "",
+            "smallSample": true
           },
           {
             "name": "Blackbeard",
             "rounds": 6,
             "winRate": 50,
             "kd": 0.67,
-            "flag": ""
+            "flag": "",
+            "smallSample": true
           },
           {
             "name": "Thermite",
             "rounds": 5,
             "winRate": 20,
             "kd": 0.75,
-            "flag": ""
+            "flag": "",
+            "smallSample": true
           }
         ],
         "def": [
@@ -3889,21 +4160,24 @@
             "rounds": 28,
             "winRate": 53.6,
             "kd": 0.5,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Thorn",
             "rounds": 17,
             "winRate": 35.3,
             "kd": 1,
-            "flag": ""
+            "flag": "",
+            "smallSample": false
           },
           {
             "name": "Castle",
             "rounds": 9,
             "winRate": 77.8,
             "kd": 0.57,
-            "flag": ""
+            "flag": "",
+            "smallSample": true
           }
         ]
       }
@@ -3975,35 +4249,40 @@
             "rounds": 5,
             "winRate": 100,
             "kd": 1.33,
-            "flag": ""
+            "flag": "",
+            "smallSample": true
           },
           {
             "name": "Sledge",
             "rounds": 3,
             "winRate": 66.7,
             "kd": 0,
-            "flag": ""
+            "flag": "",
+            "smallSample": true
           },
           {
             "name": "Thermite",
             "rounds": 2,
             "winRate": 50,
             "kd": 0.5,
-            "flag": ""
+            "flag": "",
+            "smallSample": true
           },
           {
             "name": "Fuze",
             "rounds": 2,
             "winRate": 50,
             "kd": 0,
-            "flag": ""
+            "flag": "",
+            "smallSample": true
           },
           {
             "name": "Gridlock",
             "rounds": 2,
             "winRate": 0,
             "kd": 0,
-            "flag": ""
+            "flag": "",
+            "smallSample": true
           }
         ],
         "def": [
@@ -4012,28 +4291,32 @@
             "rounds": 4,
             "winRate": 75,
             "kd": 0.33,
-            "flag": ""
+            "flag": "",
+            "smallSample": true
           },
           {
             "name": "Lesion",
             "rounds": 4,
             "winRate": 75,
             "kd": 0.5,
-            "flag": ""
+            "flag": "",
+            "smallSample": true
           },
           {
             "name": "Kapkan",
             "rounds": 2,
             "winRate": 0,
             "kd": 0.5,
-            "flag": ""
+            "flag": "",
+            "smallSample": true
           },
           {
             "name": "Kaid",
             "rounds": 2,
             "winRate": 50,
             "kd": 2,
-            "flag": ""
+            "flag": "",
+            "smallSample": true
           }
         ]
       },
@@ -4058,7 +4341,8 @@
             "rounds": 6,
             "winRate": 66.7,
             "kd": 0.2,
-            "flag": ""
+            "flag": "",
+            "smallSample": true
           }
         ],
         "def": [
@@ -4067,7 +4351,8 @@
             "rounds": 5,
             "winRate": 40,
             "kd": 0.25,
-            "flag": ""
+            "flag": "",
+            "smallSample": true
           }
         ]
       }

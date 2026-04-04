@@ -7,6 +7,7 @@ import HelpTip from '../components/HelpTip'
 import { GLOSSARY } from '../utils/glossary'
 import { getPortraitUrl } from '../utils/operatorPortraits'
 import PlayerAvatar from '../components/PlayerAvatar.jsx'
+import MarkdownContent from '../components/MarkdownContent.jsx'
 
 // ─── Portrait chip with fallback ──────────────────────────────────────────────
 
@@ -223,6 +224,23 @@ function PriorityList({ items }) {
 
 // ─── Tabs ──────────────────────────────────────────────────────────────────────
 
+function CoachingTab({ coachingContent }) {
+  if (!coachingContent) {
+    return (
+      <div className="card text-siege-muted text-sm text-center py-8">
+        No coaching brief available yet.
+      </div>
+    )
+  }
+  // Strip the H1 line — player name is already shown in the page header
+  const stripped = coachingContent.replace(/^#\s+[^\n]+\n/, '').trimStart()
+  return (
+    <div className="card">
+      <MarkdownContent content={stripped} />
+    </div>
+  )
+}
+
 function AllTimeTab({ player }) {
   const identitySection = extractSection(player.profileContent, 'Identity')
   const careerSection = extractSection(player.profileContent, 'Career Coaching Notes')
@@ -326,11 +344,13 @@ export default function PlayerDetail() {
 
   const tabs = [
     'alltime',
+    ...(player?.coachingContent ? ['coaching'] : []),
     ...(player?.prevSeason ? [player.prevSeason] : []),
     player?.season || 'Y11S1',
   ]
   const tabLabels = {
     alltime: 'Profile',
+    coaching: 'Coaching',
     [player?.prevSeason]: player?.prevSeason || 'Prev Season',
     [player?.season]: player?.season || 'Current',
   }
@@ -411,6 +431,8 @@ export default function PlayerDetail() {
 
       {/* Tab content */}
       {activeTab === 'alltime' && <AllTimeTab player={player} />}
+
+      {activeTab === 'coaching' && <CoachingTab coachingContent={player.coachingContent} />}
 
       {activeTab === player.prevSeason && player.prevSeasonStats && (
         <SeasonTab

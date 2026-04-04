@@ -169,12 +169,91 @@ function MapTile({ map }) {
   )
 }
 
+// ─── RIS Leaderboard ───────────────────────────────────────────────────────────
+
+function RisLeaderboard({ players }) {
+  const sorted = [...players]
+    .filter(p => p.stats?.ris && p.stats.ris !== '—')
+    .sort((a, b) => parseFloat(b.stats.ris) - parseFloat(a.stats.ris))
+
+  return (
+    <div className="card lg:col-span-1">
+      <h2 className="text-white font-semibold text-sm uppercase tracking-wider mb-4 flex items-center gap-1.5">
+        RIS Standings <HelpTip text={GLOSSARY.RIS} />
+      </h2>
+      <div className="space-y-1">
+        {sorted.map((p, i) => {
+          const ris = parseFloat(p.stats.ris)
+          const fillPct = Math.max(0, Math.min(100, ((ris - RIS_MIN) / (RIS_MAX - RIS_MIN)) * 100))
+          const barColor = risColor(ris)
+          const textColor = risTextColor(ris)
+          return (
+            <Link
+              key={p.name}
+              to={`/players/${p.name}`}
+              className="flex items-center gap-2 p-1.5 rounded-lg hover:bg-siege-border/30 transition-colors group"
+            >
+              <span className="text-siege-muted text-xs w-4 flex-shrink-0 tabular-nums text-right">{i + 1}</span>
+              <PlayerAvatar name={p.name} size="xs" />
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center justify-between mb-0.5">
+                  <span className="text-gray-300 text-xs group-hover:text-white transition-colors truncate">{p.name}</span>
+                  <span className={`text-xs font-bold tabular-nums flex-shrink-0 ml-2 ${textColor}`}>{p.stats.ris}</span>
+                </div>
+                <div className="relative h-1.5 bg-siege-border rounded-full overflow-visible">
+                  <div className={`absolute top-0 left-0 h-full rounded-full ${barColor}`} style={{ width: `${fillPct}%` }} />
+                  <div className="absolute top-0 h-full w-px bg-white/25" style={{ left: `${RIS_BASELINE_PCT}%` }} />
+                </div>
+              </div>
+            </Link>
+          )
+        })}
+      </div>
+      <p className="text-siege-muted text-[10px] mt-3 text-right">baseline 50 · tick = Gold</p>
+    </div>
+  )
+}
+
+// ─── Coaching Focus ────────────────────────────────────────────────────────────
+
+function CoachingFocus({ items }) {
+  if (!items || items.length === 0) return null
+  return (
+    <div className="card">
+      <h2 className="text-white font-semibold text-sm uppercase tracking-wider mb-4">Priority Coaching Items</h2>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
+        {items.map((item, i) => (
+          <div key={i} className="flex gap-3 p-3 rounded-lg bg-black/20 border border-siege-border/50">
+            <span className="text-siege-accent font-bold text-sm flex-shrink-0 w-5 tabular-nums">{i + 1}.</span>
+            <div className="min-w-0">
+              <div className="flex items-center gap-2 flex-wrap mb-1">
+                <p className="text-white text-sm font-semibold leading-snug">{item.text}</p>
+                {item.playerTag && (
+                  <Link
+                    to={`/players/${item.playerTag}`}
+                    className="text-[10px] px-1.5 py-0.5 rounded bg-siege-accent/20 text-siege-accent hover:bg-siege-accent/40 transition-colors font-medium flex-shrink-0"
+                    onClick={e => e.stopPropagation()}
+                  >
+                    {item.playerTag}
+                  </Link>
+                )}
+              </div>
+              {item.body && <p className="text-siege-muted text-xs leading-relaxed">{item.body}</p>}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
+
 // ─── Dashboard ─────────────────────────────────────────────────────────────────
 
 export default function Dashboard() {
   const mainStack = playersData.mainStack || []
   const rankedMaps = mapsData.filter(m => m.inRankedPool)
   const teamFocusItems = stackData.teamFocusItems || []
+  const coachingItems = stackData.coachingItemsStructured || []
 
   // Best / ban target maps
   const rankedWithWR = rankedMaps.filter(m => m.teamWinRate !== null)
@@ -297,8 +376,11 @@ export default function Dashboard() {
         </Link>
       </div>
 
-      {/* Bottom row: Team Focus (wider) + Spotlight */}
+      {/* Bottom row: RIS Leaderboard + Spotlight + Team Focus */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+
+        {/* RIS Leaderboard — 1 col */}
+        <RisLeaderboard players={mainStack} />
 
         {/* Spotlight — 1 col */}
         <div className="card lg:col-span-1">
@@ -352,9 +434,9 @@ export default function Dashboard() {
           </div>
         </div>
 
-        {/* Team Focus — 2 cols */}
+        {/* Team Focus — 1 col */}
         {teamFocusItems.length > 0 && (
-          <div className="card lg:col-span-2">
+          <div className="card lg:col-span-1">
             <h2 className="text-white font-semibold text-sm uppercase tracking-wider mb-4">Team Focus</h2>
             <div className="space-y-3">
               {teamFocusItems.map((item, i) => (
@@ -371,6 +453,10 @@ export default function Dashboard() {
         )}
 
       </div>
+
+      {/* Priority Coaching Items — full width */}
+      <CoachingFocus items={coachingItems} />
+
     </div>
   )
 }
