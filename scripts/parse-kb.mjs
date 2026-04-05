@@ -929,6 +929,34 @@ fs.writeFileSync(path.join(OUT, 'stack.json'), JSON.stringify(stack, null, 2))
 fs.writeFileSync(path.join(OUT, 'handoff.json'), JSON.stringify(handoff, null, 2))
 fs.writeFileSync(path.join(OUT, 'operators.json'), JSON.stringify(operators, null, 2))
 
+// Build and write a lightweight search index — used by GlobalSearch instead of the
+// three fat JSON files, keeping them out of the main bundle chunk.
+const allPlayersList = [...players.mainStack, ...players.bTeam, ...(players.other || [])]
+const searchIndex = [
+  ...allPlayersList.map(p => ({
+    type: 'player',
+    label: p.name,
+    sub: p.role || '',
+    href: `/players/${p.name}`,
+    key: p.name.toLowerCase(),
+  })),
+  ...maps.map(m => ({
+    type: 'map',
+    label: m.displayName,
+    sub: m.teamWinRate !== null ? `${m.teamWinRate}% win rate` : 'Untracked',
+    href: `/maps/${m.name}`,
+    key: m.displayName.toLowerCase(),
+  })),
+  ...[...operators.atk, ...operators.def].map(op => ({
+    type: 'operator',
+    label: op.name.replace(/_/g, ' '),
+    sub: op.side === 'ATK' ? 'Attacker' : 'Defender',
+    href: `/operators/${op.name}`,
+    key: op.name.toLowerCase().replace(/_/g, ' '),
+  })),
+]
+fs.writeFileSync(path.join(OUT, 'search-index.json'), JSON.stringify(searchIndex))
+
 // Write a metadata file with last parse timestamp
 fs.writeFileSync(path.join(OUT, 'meta.json'), JSON.stringify({
   parsedAt: new Date().toISOString(),

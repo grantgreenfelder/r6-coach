@@ -1,5 +1,8 @@
-name = "r6-coach"
-compatibility_date = "2024-01-01"
-
-[site]
-bucket = "./dist"
+# Cloudflare Pages configuration
+# Deployment is handled via Cloudflare Pages git integration (auto-deploy on push to main).
+# This file is informational only — Pages reads build settings from the dashboard.
+#
+# Dashboard: https://dash.cloudflare.com → Pages → r6-coach
+# Build command:            npm run build
+# Build output directory:   dist
+# Node version:             18+

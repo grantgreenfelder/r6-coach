@@ -1,0 +1,25 @@
+# Cloudflare Pages _headers
+# https://developers.cloudflare.com/pages/configuration/headers/
+
+# ── Security headers on all responses ────────────────────────────────────────
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+
+# ── Long-lived cache for hashed Vite assets ───────────────────────────────────
+# Vite appends a content hash to every asset filename (e.g. index-BbBkGX25.js)
+# so immutable caching is safe — the URL changes whenever the file changes.
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# ── Player avatar images — long cache, not hashed but rarely change ───────────
+/players/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+# ── Favicon and icons — medium cache ─────────────────────────────────────────
+/favicon.svg
+  Cache-Control: public, max-age=86400
+/icons.svg
+  Cache-Control: public, max-age=86400
