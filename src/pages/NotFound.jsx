@@ -5,17 +5,18 @@ export default function NotFound() {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-[60vh] text-center px-4 space-y-5">
-      {/* Hex icon */}
+      {/* DOE shield icon */}
       <svg width="56" height="56" viewBox="0 0 56 56" fill="none" aria-hidden="true">
-        <polygon
-          points="28,2 52,15 52,41 28,54 4,41 4,15"
+        <path
+          d="M28 4 L48 12 L48 30 C48 40 39 49 28 52 C17 49 8 40 8 30 L8 12 Z"
           fill="none"
-          stroke="#e8a020"
+          stroke="#c9a227"
           strokeWidth="1.5"
           strokeOpacity="0.4"
+          strokeLinejoin="round"
         />
-        <text x="28" y="35" textAnchor="middle" fontSize="22" fontWeight="800"
-          fontFamily="system-ui, sans-serif" fill="#e8a020" fillOpacity="0.7">
+        <text x="28" y="37" textAnchor="middle" fontSize="18" fontWeight="800"
+          fontFamily="system-ui, sans-serif" fill="#c9a227" fillOpacity="0.7">
           404
         </text>
       </svg>
@@ -26,7 +27,7 @@ export default function NotFound() {
           <code className="text-siege-accent/80 font-mono text-xs bg-siege-card border border-siege-border rounded px-1.5 py-0.5">
             {pathname}
           </code>
-          {' '}doesn't exist in the coaching dashboard.
+          {' '}doesn't exist in the R6 Division.
         </p>
       </div>
 

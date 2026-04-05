@@ -74,7 +74,7 @@ function mobilePageTitle(pathname) {
   if (pathname === '/operators') return 'Operators'
   if (pathname === '/session-prep') return 'Session Prep'
   if (pathname === '/compare') return 'Compare'
-  return 'R6 Coach'
+  return 'DOE · R6'
 }
 
 export default function Layout() {

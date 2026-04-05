@@ -1,4 +1,4 @@
-// ─── Shared constants for the R6 Coaching Dashboard ───────────────────────────
+// ─── Shared constants for the DOE · R6 Division ───────────────────────────────
 // Single source of truth for thresholds and display helpers used across pages.
 
 // ─── Win Rate Thresholds (map/session level: 60/50/40/30 — matches 5-tier badge) ──
