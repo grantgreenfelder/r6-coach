@@ -4,22 +4,21 @@
 
 @layer base {
   body {
-    background-color: #0d0d0d;
+    background-color: #0a0f1a;
     color: #f0f0f0;
     font-family: 'Inter', system-ui, sans-serif;
   }
   ::-webkit-scrollbar { width: 6px; height: 6px; }
-  ::-webkit-scrollbar-track { background: #161616; }
-  ::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
-  ::-webkit-scrollbar-thumb:hover { background: #555; }
+  ::-webkit-scrollbar-track { background: #0e1726; }
+  ::-webkit-scrollbar-thumb { background: #1d2d47; border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: #2a3f5f; }
 
-  /* Global focus-visible ring — keyboard nav only, not mouse clicks */
+  /* Global focus-visible ring — DOE gold */
   :focus-visible {
-    outline: 2px solid #e8a020;
+    outline: 2px solid #c9a227;
     outline-offset: 2px;
     border-radius: 4px;
   }
-  /* Suppress default focus outline since we handle it above */
   :focus:not(:focus-visible) {
     outline: none;
   }
@@ -33,27 +32,27 @@
   .badge-avoid   { @apply bg-orange-900/50 text-orange-400 border border-orange-700/60 text-xs px-2 py-0.5 rounded font-medium; }
   .badge-ban     { @apply bg-red-900/60 text-red-400 border border-red-700 text-xs px-2 py-0.5 rounded font-medium; }
   .badge-unknown { @apply bg-gray-800 text-gray-400 border border-gray-700 text-xs px-2 py-0.5 rounded font-medium; }
-  /* legacy aliases kept for any other components still using old names */
   .badge-moderate { @apply bg-yellow-900/40 text-yellow-400 border border-yellow-700/50 text-xs px-2 py-0.5 rounded font-medium; }
   .badge-weak     { @apply bg-orange-900/50 text-orange-400 border border-orange-700/60 text-xs px-2 py-0.5 rounded font-medium; }
-  .badge-main { @apply bg-amber-900/20 text-amber-400 border border-amber-700/40 text-xs px-2 py-0.5 rounded font-medium; }
+  .badge-main  { @apply bg-amber-900/20 text-amber-400 border border-amber-700/40 text-xs px-2 py-0.5 rounded font-medium; }
   .badge-bteam { @apply bg-blue-900/30 text-blue-400 border border-blue-700/40 text-xs px-2 py-0.5 rounded font-medium; }
 }
 
+/* ── Markdown content — DOE gold accent, navy borders ─────────────────────── */
 .md-content h1 { font-size: 1.2rem; font-weight: 700; color: white; margin: 1.2rem 0 0.5rem; }
-.md-content h2 { font-size: 1rem; font-weight: 600; color: #e8a020; margin: 1rem 0 0.4rem; padding-bottom: 0.25rem; border-bottom: 1px solid #2a2a2a; }
+.md-content h2 { font-size: 1rem; font-weight: 600; color: #c9a227; margin: 1rem 0 0.4rem; padding-bottom: 0.25rem; border-bottom: 1px solid #1d2d47; }
 .md-content h3 { font-size: 0.9rem; font-weight: 600; color: #d0d0d0; margin: 0.8rem 0 0.3rem; }
 .md-content p { color: #b0b0b0; font-size: 0.85rem; line-height: 1.6; margin-bottom: 0.6rem; }
 .md-content ul, .md-content ol { color: #b0b0b0; font-size: 0.85rem; margin-bottom: 0.6rem; padding-left: 1.2rem; }
 .md-content li { margin-bottom: 0.2rem; }
-.md-content blockquote { border-left: 2px solid #e8a020; padding-left: 0.75rem; color: #888; font-size: 0.85rem; margin: 0.5rem 0; }
-.md-content code { background: rgba(0,0,0,0.5); color: #f97316; padding: 0 3px; border-radius: 3px; font-size: 0.8rem; font-family: monospace; }
-.md-content pre { background: rgba(0,0,0,0.5); padding: 0.75rem; border-radius: 6px; font-size: 0.8rem; overflow-x: auto; margin-bottom: 0.6rem; }
+.md-content blockquote { border-left: 2px solid #c9a227; padding-left: 0.75rem; color: #888; font-size: 0.85rem; margin: 0.5rem 0; }
+.md-content code { background: rgba(0,0,0,0.4); color: #f97316; padding: 0 3px; border-radius: 3px; font-size: 0.8rem; font-family: monospace; }
+.md-content pre { background: rgba(0,0,0,0.4); padding: 0.75rem; border-radius: 6px; font-size: 0.8rem; overflow-x: auto; margin-bottom: 0.6rem; }
 .md-content strong { color: white; font-weight: 600; }
 .md-content em { color: #888; font-style: italic; }
-.md-content hr { border-color: #2a2a2a; margin: 1rem 0; }
+.md-content hr { border-color: #1d2d47; margin: 1rem 0; }
 .md-content table { width: 100%; font-size: 0.82rem; margin-bottom: 0.8rem; border-collapse: collapse; }
-.md-content th { text-align: left; color: #e8a020; font-weight: 600; padding: 0.3rem 0.6rem 0.3rem 0; border-bottom: 1px solid #2a2a2a; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; }
-.md-content td { padding: 0.4rem 0.6rem 0.4rem 0; color: #b0b0b0; border-bottom: 1px solid rgba(42,42,42,0.5); }
-.md-content a { color: #e8a020; text-decoration: none; }
+.md-content th { text-align: left; color: #c9a227; font-weight: 600; padding: 0.3rem 0.6rem 0.3rem 0; border-bottom: 1px solid #1d2d47; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; }
+.md-content td { padding: 0.4rem 0.6rem 0.4rem 0; color: #b0b0b0; border-bottom: 1px solid rgba(29,45,71,0.6); }
+.md-content a { color: #c9a227; text-decoration: none; }
 .md-content a:hover { text-decoration: underline; }

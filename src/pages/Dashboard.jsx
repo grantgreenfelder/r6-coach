@@ -300,9 +300,15 @@ export default function Dashboard() {
 
       {/* Header */}
       <div className="flex items-center justify-between flex-wrap gap-3">
-        <div>
-          <h1 className="text-2xl font-bold text-white">Dashboard</h1>
-          <p className="text-siege-muted text-xs mt-0.5">KB snapshot · {parsedDate}</p>
+        <div className="flex items-center gap-3">
+          <img src="/doe-seal.png" alt="DOE" className="w-11 h-11 rounded-full ring-1 ring-doe-gold/30 flex-shrink-0" />
+          <div>
+            <div className="flex items-center gap-2">
+              <h1 className="text-2xl font-bold text-white leading-tight">R6 Division</h1>
+              <span className="text-[10px] font-semibold tracking-widest uppercase text-siege-accent border border-siege-accent/30 px-1.5 py-0.5 rounded">DOE</span>
+            </div>
+            <p className="text-siege-muted text-xs mt-0.5">Season Dashboard · KB snapshot {parsedDate}</p>
+          </div>
         </div>
         <Link
           to="/session-prep"

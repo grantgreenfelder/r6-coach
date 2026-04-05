@@ -92,34 +92,26 @@ export default function Layout() {
       <header className="bg-siege-surface border-b border-siege-border sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 flex items-center h-14">
           {/* Wordmark */}
-          <div className="flex items-center gap-2.5 flex-shrink-0">
-            {/* Hex icon — pointed-top hexagon, matches R6 visual language */}
-            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
-              <polygon
-                points="14,1 26,7.5 26,20.5 14,27 2,20.5 2,7.5"
-                fill="#e8a020"
-                stroke="#e8a020"
-                strokeWidth="0"
-              />
-              <text
-                x="14" y="18"
-                textAnchor="middle"
-                fontSize="9"
-                fontWeight="800"
-                fontFamily="system-ui, sans-serif"
-                letterSpacing="0.5"
-                fill="#1c1c1c"
-              >EH</text>
-            </svg>
-            <span className="text-siege-accent font-bold text-base tracking-widest uppercase leading-none">Eh_</span>
-            <span className="text-white font-semibold hidden sm:block">R6 Coach</span>
-            <span className="text-siege-muted text-xs hidden lg:block">Rainbow Six Siege · Coaching Dashboard</span>
+          <div className="flex items-center gap-3 flex-shrink-0">
+            <img
+              src="/doe-seal.png"
+              alt="Department of Eh"
+              className="w-9 h-9 rounded-full flex-shrink-0 ring-1 ring-doe-gold/30"
+            />
+            <div className="flex flex-col leading-tight">
+              <span className="text-white font-bold text-sm tracking-wider uppercase leading-none">Department of Eh</span>
+              <span className="text-siege-accent text-[10px] font-semibold tracking-widest uppercase leading-none mt-0.5">R6 Division</span>
+            </div>
+            <div className="hidden lg:flex items-center gap-2 pl-3 border-l border-siege-border ml-1">
+              <span className="text-siege-muted text-xs">Rainbow Six Siege · Gaming Services</span>
+            </div>
           </div>
 
           {/* Mobile: centered page title */}
-          <span className="sm:hidden flex-1 text-center text-white font-semibold text-sm">
-            {mobilePageTitle(location.pathname)}
-          </span>
+          <div className="sm:hidden flex-1 flex flex-col items-center leading-tight">
+            <span className="text-white font-semibold text-sm leading-none">{mobilePageTitle(location.pathname)}</span>
+            <span className="text-siege-accent text-[9px] font-semibold tracking-widest uppercase leading-none mt-0.5">DOE · R6</span>
+          </div>
 
           {/* Desktop nav */}
           <nav aria-label="Main navigation" className="hidden sm:flex items-center gap-1 ml-auto">
@@ -159,8 +151,10 @@ export default function Layout() {
 
       {/* Footer — hidden on mobile */}
       <footer className="hidden sm:block border-t border-siege-border py-3 px-4 text-center text-xs">
-        <span className={dateColor}>{datePrefix}KB last parsed: {formatted}</span>
-        <span className="text-siege-muted"> · {metaData.mapCount} maps · {metaData.stratCount} strats · {metaData.playerCount} players · {metaData.operatorCount || 77} operators tracked</span>
+        <span className="text-siege-muted">Department of Eh · Gaming Services · R6 Division</span>
+        <span className="text-siege-border mx-2">·</span>
+        <span className={dateColor}>{datePrefix}KB parsed: {formatted}</span>
+        <span className="text-siege-muted"> · {metaData.mapCount} maps · {metaData.stratCount} strats · {metaData.playerCount} players · {metaData.operatorCount || 77} operators</span>
       </footer>
 
       {/* Mobile bottom nav */}
