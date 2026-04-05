@@ -99,9 +99,48 @@ function parseOperators(content) {
   }
 }
 
+// ─── Teaching priorities ──────────────────────────────────────────────────────
+
+function parseTeachingPriorities(name, playerIndexText) {
+  if (!playerIndexText) return { priorities: [], pattern: '' }
+
+  // Find the ### Name heading (case-insensitive match on name)
+  const lines = playerIndexText.split('\n')
+  const headingIdx = lines.findIndex(l => l.match(new RegExp(`^###\\s+${name}\\s*$`, 'i')))
+  if (headingIdx === -1) return { priorities: [], pattern: '' }
+
+  // Collect lines until the next ### heading or --- separator
+  const sectionLines = []
+  for (let i = headingIdx + 1; i < lines.length; i++) {
+    const l = lines[i]
+    if (l.match(/^###\s+/) || l.match(/^---\s*$/)) break
+    sectionLines.push(l)
+  }
+  const section = sectionLines.join('\n')
+
+  // Parse the priority table (columns: Pri, Tip Refs, Core Teaching, Confidence)
+  const tableRows = parseMarkdownTable(section)
+  const priorities = tableRows
+    .map(row => {
+      const pri        = parseInt(row['Pri'] || row['pri'] || '0', 10)
+      const tipRefs    = (row['Tip Refs'] || row['Tip refs'] || '').split(',').map(s => s.trim()).filter(Boolean)
+      const teaching   = (row['Core Teaching'] || row['Core teaching'] || '').trim()
+      const confidence = (row['Confidence'] || row['confidence'] || '').trim()
+      return { pri, tipRefs, teaching, confidence }
+    })
+    .filter(r => r.pri > 0 && r.teaching)
+    .slice(0, 5)   // top 5 only
+
+  // Extract Pattern line: "**Pattern:** ..."
+  const patternMatch = section.match(/\*\*Pattern:\*\*\s*(.+)/)
+  const pattern = patternMatch ? patternMatch[1].trim() : ''
+
+  return { priorities, pattern }
+}
+
 // ─── Players ─────────────────────────────────────────────────────────────────
 
-function parsePlayer(name) {
+function parsePlayer(name, playerIndexText = '') {
   const dir = path.join(KB, 'PLAYERS', name)
   if (!fs.existsSync(dir)) return null
 
@@ -247,6 +286,11 @@ function parsePlayer(name) {
     coachingWorking:    extractSection(coaching, "What's Working"),
     coachingAreas:      extractSection(coaching, 'Areas to (Watch|Explore)'),
     coachingPrioritiesText: extractSection(coaching, '\\w+ Priorities'),
+    // Teaching priorities from PLAYER_INDEX.md
+    ...(() => {
+      const t = parseTeachingPriorities(name, playerIndexText)
+      return { teachingPriorities: t.priorities, teachingPattern: t.pattern }
+    })(),
     seasonContent: latestSeason
       .replace(/\*\*\[ATK\]\*\*/g, '**Attack**')
       .replace(/\*\*\[DEF\]\*\*/g, '**Defense**')
@@ -317,13 +361,17 @@ function buildPlayersData() {
     fs.statSync(path.join(playersDir, n)).isDirectory()
   )
 
+  // Read PLAYER_INDEX once — passed into every parsePlayer call
+  const TEACHINGS_PATH = '/sessions/loving-inspiring-johnson/mnt/Claude/R6 Siege Coach/Teachings/PLAYER_INDEX.md'
+  const playerIndexText = readFile(TEACHINGS_PATH)
+
   // Preferred display order — update when roster changes.
   // Any player in the KB whose team matches but is NOT listed here will be appended
   // at the end of their group rather than silently dropped into "other".
   const mainStackOrder = ['Grant', 'Peej', 'Hound', 'Smigs', 'Sarge']
   const bTeamOrder = ['Slug', 'Krafty', 'Bob', 'Hunter']
 
-  const all = names.map(parsePlayer).filter(Boolean)
+  const all = names.map(n => parsePlayer(n, playerIndexText)).filter(Boolean)
 
   const mainStack = [
     ...mainStackOrder.map(n => all.find(p => p.name === n)).filter(Boolean),

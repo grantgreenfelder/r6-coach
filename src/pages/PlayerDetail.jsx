@@ -234,6 +234,55 @@ function CoachingSection({ title, content, accentClass = 'text-siege-accent', bo
   )
 }
 
+// Colour-code confidence badges
+function ConfidenceBadge({ text }) {
+  if (!text) return null
+  const t = text.toLowerCase()
+  const cls = t.includes('tier 1') ? 'bg-siege-green/10 text-siege-green border-siege-green/20'
+    : t.includes('tier 2')         ? 'bg-blue-500/10 text-blue-300 border-blue-500/20'
+    : t.includes('new')            ? 'bg-purple-500/10 text-purple-300 border-purple-500/20'
+    :                                'bg-siege-border/40 text-siege-muted border-siege-border/40'
+  return (
+    <span className={`text-[10px] font-medium px-1.5 py-0.5 rounded border flex-shrink-0 ${cls}`}>
+      {text}
+    </span>
+  )
+}
+
+function TeachingFocusCard({ player }) {
+  const { teachingPriorities, teachingPattern } = player
+  if (!teachingPriorities?.length) return null
+
+  return (
+    <div className="card border border-indigo-500/20">
+      <h3 className="font-semibold text-xs uppercase tracking-wider mb-3 text-indigo-400">
+        Teaching Focus — Top Priorities
+      </h3>
+      <ol className="space-y-3">
+        {teachingPriorities.map(p => (
+          <li key={p.pri} className="flex items-start gap-3">
+            <span className="flex-shrink-0 w-5 h-5 rounded-full bg-indigo-500/15 text-indigo-400 text-xs font-bold flex items-center justify-center mt-0.5">
+              {p.pri}
+            </span>
+            <div className="flex-1 min-w-0">
+              <p className="text-gray-200 text-sm leading-snug">{p.teaching}</p>
+              {p.tipRefs?.length > 0 && (
+                <p className="text-gray-600 text-[10px] mt-0.5 font-mono">{p.tipRefs.join(' · ')}</p>
+              )}
+            </div>
+            <ConfidenceBadge text={p.confidence} />
+          </li>
+        ))}
+      </ol>
+      {teachingPattern && (
+        <p className="text-siege-muted text-xs mt-4 pt-3 border-t border-siege-border/30 leading-relaxed italic">
+          {teachingPattern}
+        </p>
+      )}
+    </div>
+  )
+}
+
 function CoachingTab({ player }) {
   const { coachingContent, coachingRole, coachingWorking, coachingAreas, coachingPrioritiesText } = player
 
@@ -294,6 +343,9 @@ function CoachingTab({ player }) {
         accentClass="text-siege-accent"
         borderClass="border-siege-accent/30"
       />
+
+      {/* Teaching Focus */}
+      <TeachingFocusCard player={player} />
     </div>
   )
 }
