@@ -478,7 +478,9 @@ function OperatorOverlap({ players }) {
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
-export default function Compare() {
+// ─── ComparePanel — embeddable content (no page header) ──────────────────────
+// Used by Players.jsx when Compare mode is active inside the Roster page.
+export function ComparePanel() {
   const [selected, setSelected] = useState([])
   const [activeView, setActiveView] = useState('stats') // 'stats' | 'maps' | 'ops'
 
@@ -489,17 +491,10 @@ export default function Compare() {
   }
 
   const selectedPlayers = ALL_PLAYERS.filter(p => selected.includes(p.name))
-
   const hasEnough = selectedPlayers.length >= 2
 
   return (
     <div className="space-y-5">
-      {/* Header */}
-      <div>
-        <h1 className="text-2xl font-bold text-white">Compare</h1>
-        <p className="text-siege-muted text-sm mt-1">Side-by-side stats, map performance, and operator overlap</p>
-      </div>
-
       {/* Player Selector */}
       <PlayerSelector selected={selected} onToggle={togglePlayer} />
 
@@ -541,6 +536,19 @@ export default function Compare() {
           {activeView === 'ops' && <OperatorOverlap players={selectedPlayers} />}
         </>
       )}
+    </div>
+  )
+}
+
+// ─── Standalone page (keeps /compare route working as a redirect target) ──────
+export default function Compare() {
+  return (
+    <div className="space-y-5">
+      <div>
+        <h1 className="text-2xl font-bold text-white">Compare</h1>
+        <p className="text-siege-muted text-sm mt-1">Side-by-side stats, map performance, and operator overlap</p>
+      </div>
+      <ComparePanel />
     </div>
   )
 }

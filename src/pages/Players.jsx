@@ -1,5 +1,8 @@
-import { useState } from 'react'
+import { useState, lazy, Suspense } from 'react'
 import { Link } from 'react-router-dom'
+const ComparePanel = lazy(() =>
+  import('./Compare.jsx').then(m => ({ default: m.ComparePanel }))
+)
 import playersData from '../data/players.json'
 import { RIS_MIN, RIS_MAX, RIS_BASELINE_PCT, risColor, risTextColor, wrColor } from '../utils/constants'
 import HelpTip from '../components/HelpTip'
@@ -163,6 +166,7 @@ function PlayerCard({ player }) {
 // ─── Page ─────────────────────────────────────────────────────────────────────
 export default function Players() {
   const { mainStack, bTeam, other = [] } = playersData
+  const [view, setView]     = useState('roster') // 'roster' | 'compare'
   const [search, setSearch] = useState('')
   const [sortBy, setSortBy] = useState('ris')
 
@@ -187,28 +191,23 @@ export default function Players() {
 
   return (
     <div className="space-y-5">
-      <div>
-        <h1 className="text-2xl font-bold text-white">Roster</h1>
-        <p className="text-siege-muted text-sm mt-1">Player profiles and season stats</p>
-      </div>
-
-      {/* Search + sort — unified filter bar */}
-      <div className="flex items-center gap-2 bg-siege-card border border-siege-border rounded-lg px-3 py-2 flex-wrap">
-        <input
-          type="text"
-          aria-label="Search players"
-          placeholder="Search by name or role..."
-          value={search}
-          onChange={e => setSearch(e.target.value)}
-          className="bg-transparent text-sm text-white placeholder:text-siege-muted focus:outline-none flex-1 min-w-[140px]"
-        />
-        <div className="w-px h-4 bg-siege-border flex-shrink-0 hidden sm:block" />
-        <div className="flex items-center gap-1 flex-shrink-0">
-          <span className="text-siege-muted text-xs mr-1">Sort:</span>
-          {[['ris', 'RIS'], ['kd', 'K/D'], ['wr', 'Win%'], ['name', 'A–Z']].map(([val, label]) => (
-            <button key={val} onClick={() => setSortBy(val)}
-              className={`px-2.5 py-2 sm:py-1 rounded text-xs font-medium transition-colors ${
-                sortBy === val
+      {/* Page header + view toggle */}
+      <div className="flex items-start justify-between gap-4 flex-wrap">
+        <div>
+          <h1 className="text-2xl font-bold text-white">
+            {view === 'roster' ? 'Roster' : 'Compare'}
+          </h1>
+          <p className="text-siege-muted text-sm mt-1">
+            {view === 'roster'
+              ? 'Player profiles and season stats'
+              : 'Side-by-side stats, map performance, and operator overlap'}
+          </p>
+        </div>
+        <div className="flex items-center gap-1 bg-siege-card border border-siege-border rounded-lg p-1 flex-shrink-0">
+          {[['roster', 'Roster'], ['compare', 'Compare']].map(([val, label]) => (
+            <button key={val} onClick={() => setView(val)}
+              className={`px-3 py-1.5 rounded text-sm font-medium transition-colors ${
+                view === val
                   ? 'bg-siege-accent text-siege-bg'
                   : 'text-siege-muted hover:text-white'
               }`}>
@@ -218,12 +217,46 @@ export default function Players() {
         </div>
       </div>
 
-      {filtered.length === 0 ? (
-        <p className="text-siege-muted text-sm text-center py-12">No players match "{search}"</p>
+      {view === 'roster' ? (
+        <>
+          {/* Search + sort — unified filter bar */}
+          <div className="flex items-center gap-2 bg-siege-card border border-siege-border rounded-lg px-3 py-2 flex-wrap">
+            <input
+              type="text"
+              aria-label="Search players"
+              placeholder="Search by name or role..."
+              value={search}
+              onChange={e => setSearch(e.target.value)}
+              className="bg-transparent text-sm text-white placeholder:text-siege-muted focus:outline-none flex-1 min-w-[140px]"
+            />
+            <div className="w-px h-4 bg-siege-border flex-shrink-0 hidden sm:block" />
+            <div className="flex items-center gap-1 flex-shrink-0">
+              <span className="text-siege-muted text-xs mr-1">Sort:</span>
+              {[['ris', 'RIS'], ['kd', 'K/D'], ['wr', 'Win%'], ['name', 'A–Z']].map(([val, label]) => (
+                <button key={val} onClick={() => setSortBy(val)}
+                  className={`px-2.5 py-2 sm:py-1 rounded text-xs font-medium transition-colors ${
+                    sortBy === val
+                      ? 'bg-siege-accent text-siege-bg'
+                      : 'text-siege-muted hover:text-white'
+                  }`}>
+                  {label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {filtered.length === 0 ? (
+            <p className="text-siege-muted text-sm text-center py-12">No players match "{search}"</p>
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+              {filtered.map(p => <PlayerCard key={p.name} player={p} />)}
+            </div>
+          )}
+        </>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-          {filtered.map(p => <PlayerCard key={p.name} player={p} />)}
-        </div>
+        <Suspense fallback={<div className="text-siege-muted text-sm text-center py-12">Loading...</div>}>
+          <ComparePanel />
+        </Suspense>
       )}
     </div>
   )

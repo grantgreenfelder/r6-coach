@@ -60,7 +60,6 @@ const navItems = [
   { to: '/maps', label: 'Maps', mobileLabel: 'Maps', icon: Icons.maps },
   { to: '/operators', label: 'Operators', mobileLabel: 'Ops', icon: Icons.operators },
   { to: '/session-prep', label: 'Session Prep', mobileLabel: 'Prep', icon: Icons.sessionPrep },
-  { to: '/compare', label: 'Compare', mobileLabel: 'Compare', icon: Icons.compare },
 ]
 
 // Map pathnames to short labels for the mobile header
@@ -73,7 +72,6 @@ function mobilePageTitle(pathname) {
   if (pathname.startsWith('/operators/')) return 'Operator'
   if (pathname === '/operators') return 'Operators'
   if (pathname === '/session-prep') return 'Session Prep'
-  if (pathname === '/compare') return 'Compare'
   return 'DOE · R6'
 }
 

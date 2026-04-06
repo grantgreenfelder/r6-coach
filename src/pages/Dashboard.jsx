@@ -251,6 +251,7 @@ function CoachingFocus({ items }) {
 
 export default function Dashboard() {
   const mainStack = playersData.mainStack || []
+  const bTeam     = playersData.bTeam     || []
   const rankedMaps = mapsData.filter(m => m.inRankedPool)
   const teamFocusItems = stackData.teamFocusItems || []
   const coachingItems = stackData.coachingItemsStructured || []
@@ -386,7 +387,7 @@ export default function Dashboard() {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
 
         {/* RIS Leaderboard — 1 col */}
-        <RisLeaderboard players={mainStack} />
+        <RisLeaderboard players={[...mainStack, ...bTeam]} />
 
         {/* Spotlight — 1 col */}
         <div className="card lg:col-span-1">

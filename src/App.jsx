@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { Component, Suspense, lazy } from 'react'
 import Layout from './components/Layout.jsx'
 import PageSkeleton from './components/PageSkeleton.jsx'
@@ -69,7 +69,7 @@ export default function App() {
               <Route path="session-prep" element={<Suspense fallback={<PageSkeleton />}><SessionPrep /></Suspense>} />
               <Route path="operators" element={<Suspense fallback={<PageSkeleton />}><Operators /></Suspense>} />
               <Route path="operators/:name" element={<Suspense fallback={<PageSkeleton page="detail" />}><OperatorDetail /></Suspense>} />
-              <Route path="compare" element={<Suspense fallback={<PageSkeleton />}><Compare /></Suspense>} />
+              <Route path="compare" element={<Navigate to="/players" replace />} />
               <Route path="*" element={<Suspense fallback={null}><NotFound /></Suspense>} />
             </Route>
           </Routes>
