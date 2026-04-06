@@ -14,9 +14,13 @@
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
 
-# ── Player avatar images — long cache, not hashed but rarely change ───────────
-/players/*
-  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+# ── Player avatar images — short cache so updates show within minutes ────────
+# Not content-hashed so we can't use immutable; no-cache forces revalidation
+# on every visit (304 if unchanged, fresh fetch if updated).
+/players/*.png
+  Cache-Control: public, no-cache
+/players/*.jpg
+  Cache-Control: public, no-cache
 
 # ── Favicon and icons — medium cache ─────────────────────────────────────────
 /favicon.svg
