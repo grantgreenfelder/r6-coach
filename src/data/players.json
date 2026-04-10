@@ -11,18 +11,18 @@
       "season": "Y11S1",
       "stats": {
         "rank": "Emerald I",
-        "rp": "3900",
-        "kd": "1.22",
-        "kda": "1.60",
-        "kills": "785",
-        "deaths": "645",
-        "winRate": "46.9%",
-        "matches": "145",
-        "hs": "41.9",
-        "esr": "0.55",
-        "clutches": "20",
-        "clutchWR": "19.2",
-        "ris": "57.4"
+        "rp": "3921",
+        "kd": "1.19",
+        "kda": "1.55",
+        "kills": "899",
+        "deaths": "758",
+        "winRate": "45.9%",
+        "matches": "170",
+        "hs": "42.2",
+        "esr": "0.52",
+        "clutches": "24",
+        "clutchWR": "19.7",
+        "ris": "55.6"
       },
       "coachingPriorities": [
         "Think about tightening the ATK pool",
@@ -84,55 +84,63 @@
         }
       ],
       "teachingPattern": "Grant's strongest area is likely game-sense/decision-making; crosshair placement (HS% 46.1%) and post-kill space-taking are the mechanical gaps. Peeking mechanics tips are a ceiling upgrade once crosshair placement is habitual.",
-      "seasonContent": "# Grant — Y11S1 (Operation Silent Hunt)\n\n_Season status: 🔲 Active — repull 2026-04-03 (145 ranked matches)_\n_Pull date: 2026-04-03 | Source: r6.tracker.network_\n\n---\n\n## Core Stats\n\n| Stat | Value |\n|------|-------|\n| Rank | Emerald I |\n| RP | 3,900 |\n| Matches | 145 |\n| Win Rate | 46.9% |\n| K/D | 1.22 |\n| KDA | 1.60 |\n| Kills | 785 |\n| Deaths | 645 |\n| HS% | 41.9% |\n| ESR | 0.55 |\n| RIS | 57.4 |\n| Clutches Won | 20 |\n| Clutch Win% | 19.2% |\n\n> 145M sample — moderate confidence. Stats are meaningful.\n\n---\n\n## Operators\n\n_Format: Operator — Rounds | Win% | K/D (sorted by rounds played, ranked only)_\n_Season filter: season=41_\n\n**Attack**\n1. Thatcher — 71r | 45.1% | 1.27\n2. Sledge — 52r | 36.5% | 1.05 ⚠️\n3. Lion — 41r | 36.6% | 0.82 ⚠️\n4. Hibana — 41r | 46.3% | 1.28\n5. Amaru — 33r | 45.5% | 1.21\n6. Capitao — 24r | 45.8% | 1.11\n7. Flores — 22r | 31.8% | 0.95 ⚠️\n8. Gridlock — 21r | 23.8% | 1.29 ⚠️\n9. Thermite — 20r | 40.0% | 1.07 ⚠️\n10. Dokkaebi — 12r | 50.0% | 0.78\n11. Deimos — 12r | 33.3% | 0.40 ⚠️\n12. Twitch — 11r | 45.5% | 1.14\n13. Glaz — 10r | 70.0% | 1.50 ⭐\n14. Ash — 8r | 62.5% | 0.83 ⭐\n15. Solid Snake — 8r | 12.5% | 0.50 ⚠️\n\n**Defense**\n1. Mute — 166r | 53.6% | 1.23 ✅\n2. Kapkan — 60r | 56.7% | 1.90 ✅\n3. Thorn — 53r | 60.4% | 1.91 ⭐\n4. Castle — 48r | 64.6% | 1.39 ⭐\n5. Bandit — 17r | 29.4% | 0.47 ⚠️\n6. Kaid — 16r | 50.0% | 1.00\n7. Maestro — 13r | 76.9% | 2.14 ⭐\n8. Azami — 13r | 38.5% | 1.00 ⚠️\n9. Smoke — 8r | 62.5% | 0.50 ⭐\n\n**ATK identity:** Thatcher is the primary ATK pick (71r / 45.1% / 1.27 K/D). Secondary: Sledge (52r / 36.5%).\n**DEF identity:** Mute is the primary DEF anchor (166r / 53.6% / 1.23 K/D). Secondary: Kapkan (60r / 56.7%).\n\n---\n\n## Map Performance\n\n| Map | Matches | Win% | K/D | Atk% | Def% |\n|-----|---------|------|-----|------|------|\n| Border | 19 | 63.2% | 1.28 | 47.5% | 61.4% |\n| Oregon | 17 | 47.1% | 1.11 | 43.4% | 50.0% |\n| Coastline | 15 | 40.0% | 1.00 | 50.0% | 45.0% |\n| Nighthaven Labs | 14 | 42.9% | 1.02 | 39.6% | 55.6% |\n| Bank | 13 | 46.2% | 1.39 | 33.3% | 64.7% |\n| Villa | 13 | 53.8% | 1.70 | 40.0% | 61.0% |\n| Clubhouse | 12 | 66.7% | 1.24 | 46.2% | 61.0% |\n| Chalet | 10 | 60.0% | 1.28 | 51.5% | 64.5% |\n| Kafe Dostoyevsky | 9 | 44.4% | 1.37 | 36.7% | 56.3% |\n| Consulate | 8 | 25.0% | 1.20 | 35.7% | 48.0% |\n| Emerald Plains | 5 | 0.0% | 0.88 | 7.7% | 42.9% |\n| Fortress | 5 | 40.0% | 1.38 | 37.5% | 42.9% |\n| Lair | 5 | 20.0% | 0.78 | 23.1% | 42.9% |\n\n_Pulled 2026-04-03 — 145 ranked matches._\n---\n\n## Season Coaching Notes\n\n- **⚠️ ATK: Sledge (52r / 36.5%) and Lion (41r / 36.6%) are trending low at high volume.** Worth exploring whether shifting some of those rounds to Hibana or Amaru changes the result. Glaz (10r / 70.0% ⭐) and Ash (8r / 62.5% ⭐) are both showing strong signals in smaller samples.\n- **⚠️ ATK: Gridlock (21r / 23.8%), Flores (22r / 31.8%), and Deimos (12r / 33.3%) are all trending well below the rest of the pool.** Consider pulling back on these and redirecting rounds.\n- **⚠️ DEF: Bandit (17r / 29.4%) — trending poorly alongside Mute which is covering the same role at 53.6%.** Worth reconsidering how often it's in the rotation.\n- **✅ DEF side is strong.** Mute/Kapkan/Thorn/Castle all at 53%+ WR across 327 combined rounds.\n- **🗺️ Coastline (15M / 40.0%) — below even.** DEF side at 45.0% is where the loss is happening. Worth having a plan for the sites you draw here, or flagging it in the ban discussion.\n- **🗺️ Border / Clubhouse / Chalet — team strengths worth protecting in ban phase.** All above 60% WR at 10M+.\n\n---\n\n## Data Flags\n\n- 🔲 Active — 145 ranked matches as of 2026-04-03\n- ⭐ Glaz ATK (10r / 70.0%) — strong signal\n- ⭐ Ash ATK (8r / 62.5%) — strong signal\n- ⭐ Thorn DEF (53r / 60.4%) — strong signal\n- ⭐ Castle DEF (48r / 64.6%) — strong signal\n- ⭐ Maestro DEF (13r / 76.9%) — strong signal\n- ⭐ Smoke DEF (8r / 62.5%) — strong signal\n- 📍 Map data threshold reached — pull maps next session\n\n---\n\n## Y11S1 Opening Context\n\n### Map Pool — Y11S1 Launch\nBank, Border, Chalet, Clubhouse, Coastline, Consulate, Fortress, Kafe Dostoyevsky, Lair, Nighthaven Labs, Oregon, Villa, Emerald Plains\n\n### Balance Notes — Grant Specific\n_No major balance changes to primary operators this season. Review GAME_06_CURRENT_SEASON.md for full patch notes._\n",
+      "seasonContent": "# Grant — Y11S1 (Operation Silent Hunt)\n\n_Season status: 🔲 Active — repull 2026-04-10 (170 ranked matches)_\n_Pull date: 2026-04-10 | Source: r6.tracker.network_\n\n---\n\n## Core Stats\n\n| Stat | Value |\n|------|-------|\n| Rank | Emerald I |\n| RP | 3,921 |\n| Matches | 170 |\n| Win Rate | 45.9% |\n| K/D | 1.19 |\n| KDA | 1.55 |\n| Kills | 899 |\n| Deaths | 758 |\n| HS% | 42.2% |\n| ESR | 0.52 |\n| RIS | 55.6 |\n| Clutches Won | 24 |\n| Clutch Win% | 19.7% |\n\n> 170M sample — moderate confidence. Stats are meaningful.\n\n---\n\n## Operators\n\n_Format: Operator — Rounds | Win% | K/D (sorted by rounds played, ranked only)_\n_Season filter: season=41_\n\n**Attack**\n1. Thatcher — 78r | 43.6% | 1.26\n2. Sledge — 60r | 38.3% | 1.06 ⚠️\n3. Hibana — 49r | 46.9% | 1.17\n4. Lion — 48r | 39.6% | 0.84 ⚠️\n5. Amaru — 40r | 42.5% | 1.38\n6. Capitão — 24r | 45.8% | 1.11\n7. Gridlock — 22r | 27.3% | 1.35 ⚠️\n8. Flores — 22r | 31.8% | 0.95 ⚠️\n9. Thermite — 21r | 38.1% | 1.00 ⚠️\n10. Solid Snake — 17r | 35.3% | 0.62 ⚠️\n11. Glaz — 12r | 66.7% | 1.25 ⭐\n\n**Defense**\n1. Mute — 185r | 53.5% | 1.22 ✅\n2. Kapkan — 63r | 55.6% | 1.93 ✅\n3. Thorn — 61r | 60.7% | 1.74 ⭐\n4. Castle — 56r | 62.5% | 1.24 ⭐\n5. Bandit — 22r | 31.8% | 0.47 ⚠️\n6. Azami — 22r | 40.9% | 1.18 ⚠️\n7. Kaid — 17r | 52.9% | 1.11 ✅\n8. Maestro — 16r | 68.8% | 1.89 ⭐\n\n**ATK identity:** Thatcher is the primary ATK pick (78r / 43.6% / 1.26 K/D). Secondary: Sledge (60r / 38.3%).\n**DEF identity:** Mute is the primary DEF anchor (185r / 53.5% / 1.22 K/D). Secondary: Kapkan (63r / 55.6%).\n\n---\n\n## Map Performance\n\n| Map | Matches | Win% | K/D | Atk% | Def% |\n|-----|---------|------|-----|------|------|\n| Border | 21 | 66.7% | 1.24 | 47.7% | 65.1% |\n| Coastline | 19 | 36.8% | 0.94 | 50.0% | 43.1% |\n| Oregon | 18 | 44.4% | 1.08 | 41.8% | 49.1% |\n| Bank | 17 | 41.2% | 1.29 | 35.4% | 55.8% |\n| Nighthaven Labs | 16 | 37.5% | 1.01 | 38.5% | 51.0% |\n| Chalet | 15 | 60.0% | 1.40 | 55.3% | 60.0% |\n| Clubhouse | 14 | 57.1% | 1.15 | 45.5% | 56.5% |\n| Villa | 14 | 50.0% | 1.67 | 39.0% | 56.8% |\n| Consulate | 11 | 36.4% | 1.12 | 35.0% | 56.8% |\n| Kafe Dostoyevsky | 10 | 50.0% | 1.36 | 38.2% | 58.3% |\n| Emerald Plains | 5 | 0.0% | 0.88 | 7.7% | 42.9% |\n| Fortress | 5 | 40.0% | 1.38 | 37.5% | 42.9% |\n| Lair | 5 | 20.0% | 0.78 | 23.1% | 42.9% |\n\n_Pulled 2026-04-10 — 170 ranked matches._\n\n---\n\n## Season Coaching Notes\n\n- **⚠️ Gridlock ATK (22r / 27.3%)** — significant round volume on a very low-WR op. Reduce or eliminate.\n- **Map data threshold reached** (170M ≥ 30) — pull map data next session.\n\n---\n\n## Data Flags\n\n- 🔲 Active — 170 ranked matches as of 2026-04-10\n- ⭐ Glaz ATK (12r / 66.7%) — strong signal\n- ⭐ Thorn DEF (61r / 60.7%) — strong signal\n- ⭐ Castle DEF (56r / 62.5%) — strong signal\n- ⭐ Maestro DEF (16r / 68.8%) — strong signal\n- 📍 Map data threshold reached — pull maps next session\n\n---\n\n## Y11S1 Opening Context\n\n### Map Pool — Y11S1 Launch\nBank, Border, Chalet, Clubhouse, Coastline, Consulate, Fortress, Kafe Dostoyevsky, Lair, Nighthaven Labs, Oregon, Villa, Emerald Plains\n\n### Balance Notes — Grant Specific\n_No major balance changes to primary operators this season. Review GAME_06_CURRENT_SEASON.md for full patch notes._\n",
       "operators": {
         "atk": [
           {
             "name": "Thatcher",
-            "rounds": 71,
-            "winRate": 45.1,
-            "kd": 1.27,
+            "rounds": 78,
+            "winRate": 43.6,
+            "kd": 1.26,
             "flag": "",
             "smallSample": false
           },
           {
             "name": "Sledge",
-            "rounds": 52,
-            "winRate": 36.5,
-            "kd": 1.05,
-            "flag": "⚠️",
-            "smallSample": false
-          },
-          {
-            "name": "Lion",
-            "rounds": 41,
-            "winRate": 36.6,
-            "kd": 0.82,
+            "rounds": 60,
+            "winRate": 38.3,
+            "kd": 1.06,
             "flag": "⚠️",
             "smallSample": false
           },
           {
             "name": "Hibana",
-            "rounds": 41,
-            "winRate": 46.3,
-            "kd": 1.28,
+            "rounds": 49,
+            "winRate": 46.9,
+            "kd": 1.17,
             "flag": "",
+            "smallSample": false
+          },
+          {
+            "name": "Lion",
+            "rounds": 48,
+            "winRate": 39.6,
+            "kd": 0.84,
+            "flag": "⚠️",
             "smallSample": false
           },
           {
             "name": "Amaru",
-            "rounds": 33,
-            "winRate": 45.5,
-            "kd": 1.21,
+            "rounds": 40,
+            "winRate": 42.5,
+            "kd": 1.38,
             "flag": "",
             "smallSample": false
           },
           {
-            "name": "Capitao",
+            "name": "Capitão",
             "rounds": 24,
             "winRate": 45.8,
             "kd": 1.11,
             "flag": "",
+            "smallSample": false
+          },
+          {
+            "name": "Gridlock",
+            "rounds": 22,
+            "winRate": 27.3,
+            "kd": 1.35,
+            "flag": "⚠️",
             "smallSample": false
           },
           {
@@ -144,225 +152,177 @@
             "smallSample": false
           },
           {
-            "name": "Gridlock",
-            "rounds": 21,
-            "winRate": 23.8,
-            "kd": 1.29,
-            "flag": "⚠️",
-            "smallSample": false
-          },
-          {
             "name": "Thermite",
-            "rounds": 20,
-            "winRate": 40,
-            "kd": 1.07,
+            "rounds": 21,
+            "winRate": 38.1,
+            "kd": 1,
             "flag": "⚠️",
             "smallSample": false
           },
           {
-            "name": "Dokkaebi",
-            "rounds": 12,
-            "winRate": 50,
-            "kd": 0.78,
-            "flag": "",
-            "smallSample": false
-          },
-          {
-            "name": "Deimos",
-            "rounds": 12,
-            "winRate": 33.3,
-            "kd": 0.4,
+            "name": "Solid Snake",
+            "rounds": 17,
+            "winRate": 35.3,
+            "kd": 0.62,
             "flag": "⚠️",
-            "smallSample": false
-          },
-          {
-            "name": "Twitch",
-            "rounds": 11,
-            "winRate": 45.5,
-            "kd": 1.14,
-            "flag": "",
             "smallSample": false
           },
           {
             "name": "Glaz",
-            "rounds": 10,
-            "winRate": 70,
-            "kd": 1.5,
+            "rounds": 12,
+            "winRate": 66.7,
+            "kd": 1.25,
             "flag": "⭐",
             "smallSample": false
-          },
-          {
-            "name": "Ash",
-            "rounds": 8,
-            "winRate": 62.5,
-            "kd": 0.83,
-            "flag": "⭐",
-            "smallSample": true
-          },
-          {
-            "name": "Solid Snake",
-            "rounds": 8,
-            "winRate": 12.5,
-            "kd": 0.5,
-            "flag": "⚠️",
-            "smallSample": true
           }
         ],
         "def": [
           {
             "name": "Mute",
-            "rounds": 166,
-            "winRate": 53.6,
-            "kd": 1.23,
+            "rounds": 185,
+            "winRate": 53.5,
+            "kd": 1.22,
             "flag": "✅",
             "smallSample": false
           },
           {
             "name": "Kapkan",
-            "rounds": 60,
-            "winRate": 56.7,
-            "kd": 1.9,
+            "rounds": 63,
+            "winRate": 55.6,
+            "kd": 1.93,
             "flag": "✅",
             "smallSample": false
           },
           {
             "name": "Thorn",
-            "rounds": 53,
-            "winRate": 60.4,
-            "kd": 1.91,
+            "rounds": 61,
+            "winRate": 60.7,
+            "kd": 1.74,
             "flag": "⭐",
             "smallSample": false
           },
           {
             "name": "Castle",
-            "rounds": 48,
-            "winRate": 64.6,
-            "kd": 1.39,
+            "rounds": 56,
+            "winRate": 62.5,
+            "kd": 1.24,
             "flag": "⭐",
             "smallSample": false
           },
           {
             "name": "Bandit",
-            "rounds": 17,
-            "winRate": 29.4,
+            "rounds": 22,
+            "winRate": 31.8,
             "kd": 0.47,
             "flag": "⚠️",
             "smallSample": false
           },
           {
-            "name": "Kaid",
-            "rounds": 16,
-            "winRate": 50,
-            "kd": 1,
-            "flag": "",
-            "smallSample": false
-          },
-          {
-            "name": "Maestro",
-            "rounds": 13,
-            "winRate": 76.9,
-            "kd": 2.14,
-            "flag": "⭐",
-            "smallSample": false
-          },
-          {
             "name": "Azami",
-            "rounds": 13,
-            "winRate": 38.5,
-            "kd": 1,
+            "rounds": 22,
+            "winRate": 40.9,
+            "kd": 1.18,
             "flag": "⚠️",
             "smallSample": false
           },
           {
-            "name": "Smoke",
-            "rounds": 8,
-            "winRate": 62.5,
-            "kd": 0.5,
+            "name": "Kaid",
+            "rounds": 17,
+            "winRate": 52.9,
+            "kd": 1.11,
+            "flag": "✅",
+            "smallSample": false
+          },
+          {
+            "name": "Maestro",
+            "rounds": 16,
+            "winRate": 68.8,
+            "kd": 1.89,
             "flag": "⭐",
-            "smallSample": true
+            "smallSample": false
           }
         ]
       },
       "mapPerformance": [
         {
           "map": "Border",
-          "matches": 19,
-          "winRate": 63.2,
-          "kd": 1.28,
-          "atkWr": 47.5,
-          "defWr": 61.4
-        },
-        {
-          "map": "Oregon",
-          "matches": 17,
-          "winRate": 47.1,
-          "kd": 1.11,
-          "atkWr": 43.4,
-          "defWr": 50
+          "matches": 21,
+          "winRate": 66.7,
+          "kd": 1.24,
+          "atkWr": 47.7,
+          "defWr": 65.1
         },
         {
           "map": "Coastline",
-          "matches": 15,
-          "winRate": 40,
-          "kd": 1,
+          "matches": 19,
+          "winRate": 36.8,
+          "kd": 0.94,
           "atkWr": 50,
-          "defWr": 45
+          "defWr": 43.1
         },
         {
-          "map": "Nighthaven Labs",
-          "matches": 14,
-          "winRate": 42.9,
-          "kd": 1.02,
-          "atkWr": 39.6,
-          "defWr": 55.6
+          "map": "Oregon",
+          "matches": 18,
+          "winRate": 44.4,
+          "kd": 1.08,
+          "atkWr": 41.8,
+          "defWr": 49.1
         },
         {
           "map": "Bank",
-          "matches": 13,
-          "winRate": 46.2,
-          "kd": 1.39,
-          "atkWr": 33.3,
-          "defWr": 64.7
+          "matches": 17,
+          "winRate": 41.2,
+          "kd": 1.29,
+          "atkWr": 35.4,
+          "defWr": 55.8
         },
         {
-          "map": "Villa",
-          "matches": 13,
-          "winRate": 53.8,
-          "kd": 1.7,
-          "atkWr": 40,
-          "defWr": 61
-        },
-        {
-          "map": "Clubhouse",
-          "matches": 12,
-          "winRate": 66.7,
-          "kd": 1.24,
-          "atkWr": 46.2,
-          "defWr": 61
+          "map": "Nighthaven Labs",
+          "matches": 16,
+          "winRate": 37.5,
+          "kd": 1.01,
+          "atkWr": 38.5,
+          "defWr": 51
         },
         {
           "map": "Chalet",
-          "matches": 10,
+          "matches": 15,
           "winRate": 60,
-          "kd": 1.28,
-          "atkWr": 51.5,
-          "defWr": 64.5
+          "kd": 1.4,
+          "atkWr": 55.3,
+          "defWr": 60
         },
         {
-          "map": "Kafe Dostoyevsky",
-          "matches": 9,
-          "winRate": 44.4,
-          "kd": 1.37,
-          "atkWr": 36.7,
-          "defWr": 56.3
+          "map": "Clubhouse",
+          "matches": 14,
+          "winRate": 57.1,
+          "kd": 1.15,
+          "atkWr": 45.5,
+          "defWr": 56.5
+        },
+        {
+          "map": "Villa",
+          "matches": 14,
+          "winRate": 50,
+          "kd": 1.67,
+          "atkWr": 39,
+          "defWr": 56.8
         },
         {
           "map": "Consulate",
-          "matches": 8,
-          "winRate": 25,
-          "kd": 1.2,
-          "atkWr": 35.7,
-          "defWr": 48
+          "matches": 11,
+          "winRate": 36.4,
+          "kd": 1.12,
+          "atkWr": 35,
+          "defWr": 56.8
+        },
+        {
+          "map": "Kafe Dostoyevsky",
+          "matches": 10,
+          "winRate": 50,
+          "kd": 1.36,
+          "atkWr": 38.2,
+          "defWr": 58.3
         },
         {
           "map": "Emerald Plains",
@@ -617,22 +577,22 @@
       "role": "Entry Fragger",
       "bio": "A career entry fragger with over 1,200 rounds on Ash — the stack's primary point of attack. Equally reliable on defense, where Maestro and Caveira give him a genuine anchor identity.",
       "atkOps": "Ash / Twitch",
-      "defOps": "Caveira / Maestro",
+      "defOps": "Caveira / Valkyrie",
       "season": "Y11S1",
       "stats": {
-        "rank": "Emerald V",
-        "rp": "3514",
-        "kd": "1.23",
-        "kda": "1.61",
-        "kills": "442",
-        "deaths": "358",
-        "winRate": "51.9%",
-        "matches": "81",
-        "hs": "37.3",
-        "esr": "0.54",
+        "rank": "Emerald IV",
+        "rp": "3610",
+        "kd": "1.19",
+        "kda": "1.57",
+        "kills": "498",
+        "deaths": "418",
+        "winRate": "50.5%",
+        "matches": "95",
+        "hs": "36.7",
+        "esr": "0.52",
         "clutches": "16",
-        "clutchWR": "25.0",
-        "ris": "63.5"
+        "clutchWR": "23.5",
+        "ris": "60.3"
       },
       "coachingPriorities": [
         "Try Brava as your ATK default for a stretch",
@@ -695,55 +655,47 @@
         }
       ],
       "teachingPattern": "Peej's profile is similar to Grant — HS% is below average, crosshair placement is the highest-leverage fix. Far-swing mechanic and drone discipline are quick wins. Now main stack as dedicated entry fragger — Ash/Brava volume should increase with stack games replacing solo queue reps.",
-      "seasonContent": "# Peej — Y11S1 (Operation Silent Hunt)\n\n_Season status: 🔲 Active — repull 2026-04-03 (81 ranked matches)_\n_Pull date: 2026-04-03 | Source: r6.tracker.network_\n\n---\n\n## Core Stats\n\n| Stat | Value |\n|------|-------|\n| Rank | Emerald V |\n| RP | 3,514 |\n| Matches | 81 |\n| Win Rate | 51.9% |\n| K/D | 1.23 |\n| KDA | 1.61 |\n| Kills | 442 |\n| Deaths | 358 |\n| HS% | 37.3% |\n| ESR | 0.54 |\n| RIS | 63.5 |\n| Clutches Won | 16 |\n| Clutch Win% | 25.0% |\n\n> 81M sample — moderate confidence. Stats are meaningful.\n\n---\n\n## Operators\n\n_Format: Operator — Rounds | Win% | K/D (sorted by rounds played, ranked only)_\n_Season filter: season=41_\n\n**Attack**\n1. Ash — 65r | 38.5% | 1.11 ⚠️\n2. Twitch — 55r | 43.6% | 1.14\n3. Brava — 33r | 54.5% | 1.55 ✅\n4. Dokkaebi — 20r | 40.0% | 1.62 ⚠️\n5. Hibana — 13r | 46.2% | 1.33\n6. Nomad — 12r | 41.7% | 0.91 ⚠️\n7. Ram — 11r | 54.5% | 0.56 ✅\n8. Kali — 9r | 66.7% | 1.20 ⭐\n9. Ying — 8r | 50.0% | 0.57\n10. Thermite — 8r | 50.0% | 1.40\n\n**Defense**\n1. Caveira — 90r | 64.4% | 1.77 ⭐\n2. Maestro — 46r | 47.8% | 0.81\n3. Valkyrie — 43r | 58.1% | 1.40 ✅\n4. Thorn — 18r | 72.2% | 2.55 ⭐\n5. Kaid — 15r | 46.7% | 1.67\n6. Azami — 12r | 58.3% | 1.10 ✅\n7. Fenrir — 6r | 16.7% | 0.40\n\n**ATK identity:** Ash is the primary ATK pick (65r / 38.5% / 1.11 K/D). Secondary: Twitch (55r / 43.6%).\n**DEF identity:** Caveira is the primary DEF anchor (90r / 64.4% / 1.77 K/D). Secondary: Maestro (46r / 47.8%).\n\n---\n\n## Map Performance\n\n| Map | Matches | Win% | K/D | Atk% | Def% |\n|-----|---------|------|-----|------|------|\n| Nighthaven Labs | 10 | 50.0% | 1.36 | 40.0% | 64.5% |\n| Bank | 9 | 66.7% | 1.49 | 41.4% | 68.0% |\n| Border | 9 | 77.8% | 1.53 | 64.3% | 59.3% |\n| Chalet | 9 | 55.6% | 1.20 | 42.4% | 63.3% |\n| Clubhouse | 8 | 62.5% | 1.29 | 43.5% | 63.0% |\n| Oregon | 8 | 37.5% | 1.03 | 37.5% | 57.1% |\n| Coastline | 7 | 28.6% | 1.11 | 43.5% | 45.5% |\n| Villa | 6 | 83.3% | 1.54 | 58.8% | 70.0% |\n| Consulate | 5 | 20.0% | 0.70 | 31.3% | 50.0% |\n| Kafe Dostoyevsky | 5 | 40.0% | 1.00 | 43.8% | 43.8% |\n| Emerald Plains | 3 | 0.0% | 0.67 | 14.3% | 25.0% |\n| Fortress | 2 | 50.0% | 1.62 | 50.0% | 20.0% |\n\n_Pulled 2026-04-03 — 81 ranked matches._\n---\n\n## Season Coaching Notes\n\n- **⚠️ ATK: Ash (65r / 38.5%) is trending 16 WR points below Brava (33r / 54.5%).** Worth experimenting with Brava as the default ATK pick and see if results shift — Ash stays in the pool for specific site/speed situations.\n- **⚠️ Maestro DEF (46r / 47.8% / 0.81 K/D)** — worth checking whether it's being played for active post-plant Evil Eye denial. If it's mostly a passive camera op, Valkyrie (43r / 58.1%) may be a better fit.\n- **✅ Caveira DEF (90r / 64.4% / 1.77) — elite anchor, keep building.** In post-plant, hold the interrogation before the kill if teammates are alive — position reveal is often more valuable than the quick down.\n- **✅ Thorn DEF (18r / 72.2% / 2.55) — strong signal, worth giving more rounds.**\n- **🗺️ Villa (83.3%) and Border (77.8%) — personal map strengths, worth protecting in ban phase.**\n- **🗺️ Consulate (5M / 20.0%) and Coastline (7M / 28.6%) — worth flagging as personal avoids in ban discussion.**\n\n---\n\n## Data Flags\n\n- 🔲 Active — 81 ranked matches as of 2026-04-03\n- ⭐ Kali ATK (9r / 66.7%) — strong signal\n- ⭐ Caveira DEF (90r / 64.4%) — strong signal\n- ⭐ Thorn DEF (18r / 72.2%) — strong signal\n- 📍 Map data threshold reached — pull maps next session\n\n---\n\n## Y11S1 Opening Context\n\n### Map Pool — Y11S1 Launch\nBank, Border, Chalet, Clubhouse, Coastline, Consulate, Fortress, Kafe Dostoyevsky, Lair, Nighthaven Labs, Oregon, Villa, Emerald Plains\n\n### Balance Notes — Peej Specific\n_No major balance changes to primary operators this season. Review GAME_06_CURRENT_SEASON.md for full patch notes._\n",
+      "seasonContent": "# Peej — Y11S1 (Operation Silent Hunt)\n\n_Season status: 🔲 Active — repull 2026-04-10 (95 ranked matches)_\n_Pull date: 2026-04-10 | Source: r6.tracker.network_\n\n---\n\n## Core Stats\n\n| Stat | Value |\n|------|-------|\n| Rank | Emerald IV |\n| RP | 3,610 |\n| Matches | 95 |\n| Win Rate | 50.5% |\n| K/D | 1.19 |\n| KDA | 1.57 |\n| Kills | 498 |\n| Deaths | 418 |\n| HS% | 36.7% |\n| ESR | 0.52 |\n| RIS | 60.3 |\n| Clutches Won | 16 |\n| Clutch Win% | 23.5% |\n\n> 95M sample — moderate confidence. Stats are meaningful.\n\n---\n\n## Operators\n\n_Format: Operator — Rounds | Win% | K/D (sorted by rounds played, ranked only)_\n_Season filter: season=41_\n\n**Attack**\n1. Ash — 73r | 39.7% | 0.98 ⚠️\n2. Twitch — 66r | 40.9% | 1.08 ⚠️\n3. Brava — 34r | 55.9% | 1.55 ✅\n4. Dokkaebi — 25r | 48.0% | 1.75\n5. Hibana — 14r | 42.9% | 1.20\n6. Ram — 11r | 54.5% | 0.56 ✅\n7. Kali — 10r | 70.0% | 1.60 ⭐\n8. Solid Snake — 8r | 12.5% | 0.57 ⚠️\n9. Thermite — 8r | 50.0% | 1.40\n10. Ying — 8r | 50.0% | 0.57\n\n**Defense**\n1. Caveira — 109r | 59.6% | 1.60 ✅\n2. Valkyrie — 53r | 58.5% | 1.42 ✅\n3. Maestro — 46r | 47.8% | 0.81\n4. Thorn — 27r | 66.7% | 1.78 ⭐\n5. Nomad — 19r | 47.4% | 0.80\n6. Kaid — 16r | 43.8% | 1.50\n7. Azami — 15r | 66.7% | 1.36 ⭐\n\n**ATK identity:** Ash is the primary ATK pick (73r / 39.7% / 0.98 K/D). Secondary: Twitch (66r / 40.9%).\n**DEF identity:** Caveira is the primary DEF anchor (109r / 59.6% / 1.60 K/D). Secondary: Valkyrie (53r / 58.5%).\n\n---\n\n## Map Performance\n\n| Map | Matches | Win% | K/D | Atk% | Def% |\n|-----|---------|------|-----|------|------|\n| Bank | 11 | 63.6% | 1.27 | 42.9% | 63.3% |\n| Border | 11 | 81.8% | 1.49 | 62.5% | 66.7% |\n| Chalet | 11 | 54.5% | 1.16 | 42.5% | 62.2% |\n| Coastline | 10 | 30.0% | 1.16 | 47.1% | 45.2% |\n| Nighthaven Labs | 10 | 50.0% | 1.36 | 40.0% | 64.5% |\n| Clubhouse | 9 | 55.6% | 1.15 | 44.0% | 56.7% |\n| Oregon | 9 | 33.3% | 1.03 | 34.6% | 54.2% |\n| Villa | 7 | 71.4% | 1.39 | 55.6% | 60.9% |\n| Consulate | 6 | 16.7% | 0.96 | 28.6% | 55.0% |\n| Kafe Dostoyevsky | 6 | 50.0% | 0.91 | 45.0% | 50.0% |\n| Emerald Plains | 3 | 0.0% | 0.67 | 14.3% | 25.0% |\n| Fortress | 2 | 50.0% | 1.62 | 50.0% | 20.0% |\n\n_Pulled 2026-04-10 — 95 ranked matches._\n\n---\n\n## Season Coaching Notes\n\n- **⚠️ Ash ATK (73r / 39.7% / 0.98 K/D)** — primary ATK pick is underperforming at this volume. Consider reducing rounds here until WR recovers.\n- **Map data threshold reached** (95M ≥ 30) — pull map data next session.\n\n---\n\n## Data Flags\n\n- 🔲 Active — 95 ranked matches as of 2026-04-10\n- ⭐ Kali ATK (10r / 70.0%) — strong signal\n- ⭐ Thorn DEF (27r / 66.7%) — strong signal\n- ⭐ Azami DEF (15r / 66.7%) — strong signal\n- 📍 Map data threshold reached — pull maps next session\n\n---\n\n## Y11S1 Opening Context\n\n### Map Pool — Y11S1 Launch\nBank, Border, Chalet, Clubhouse, Coastline, Consulate, Fortress, Kafe Dostoyevsky, Lair, Nighthaven Labs, Oregon, Villa, Emerald Plains\n\n### Balance Notes — Peej Specific\n_No major balance changes to primary operators this season. Review GAME_06_CURRENT_SEASON.md for full patch notes._\n",
       "operators": {
         "atk": [
           {
             "name": "Ash",
-            "rounds": 65,
-            "winRate": 38.5,
-            "kd": 1.11,
+            "rounds": 73,
+            "winRate": 39.7,
+            "kd": 0.98,
             "flag": "⚠️",
             "smallSample": false
           },
           {
             "name": "Twitch",
-            "rounds": 55,
-            "winRate": 43.6,
-            "kd": 1.14,
-            "flag": "",
+            "rounds": 66,
+            "winRate": 40.9,
+            "kd": 1.08,
+            "flag": "⚠️",
             "smallSample": false
           },
           {
             "name": "Brava",
-            "rounds": 33,
-            "winRate": 54.5,
+            "rounds": 34,
+            "winRate": 55.9,
             "kd": 1.55,
             "flag": "✅",
             "smallSample": false
           },
           {
             "name": "Dokkaebi",
-            "rounds": 20,
-            "winRate": 40,
-            "kd": 1.62,
-            "flag": "⚠️",
-            "smallSample": false
-          },
-          {
-            "name": "Hibana",
-            "rounds": 13,
-            "winRate": 46.2,
-            "kd": 1.33,
+            "rounds": 25,
+            "winRate": 48,
+            "kd": 1.75,
             "flag": "",
             "smallSample": false
           },
           {
-            "name": "Nomad",
-            "rounds": 12,
-            "winRate": 41.7,
-            "kd": 0.91,
-            "flag": "⚠️",
+            "name": "Hibana",
+            "rounds": 14,
+            "winRate": 42.9,
+            "kd": 1.2,
+            "flag": "",
             "smallSample": false
           },
           {
@@ -756,18 +708,18 @@
           },
           {
             "name": "Kali",
-            "rounds": 9,
-            "winRate": 66.7,
-            "kd": 1.2,
+            "rounds": 10,
+            "winRate": 70,
+            "kd": 1.6,
             "flag": "⭐",
-            "smallSample": true
+            "smallSample": false
           },
           {
-            "name": "Ying",
+            "name": "Solid Snake",
             "rounds": 8,
-            "winRate": 50,
+            "winRate": 12.5,
             "kd": 0.57,
-            "flag": "",
+            "flag": "⚠️",
             "smallSample": true
           },
           {
@@ -777,15 +729,31 @@
             "kd": 1.4,
             "flag": "",
             "smallSample": true
+          },
+          {
+            "name": "Ying",
+            "rounds": 8,
+            "winRate": 50,
+            "kd": 0.57,
+            "flag": "",
+            "smallSample": true
           }
         ],
         "def": [
           {
             "name": "Caveira",
-            "rounds": 90,
-            "winRate": 64.4,
-            "kd": 1.77,
-            "flag": "⭐",
+            "rounds": 109,
+            "winRate": 59.6,
+            "kd": 1.6,
+            "flag": "✅",
+            "smallSample": false
+          },
+          {
+            "name": "Valkyrie",
+            "rounds": 53,
+            "winRate": 58.5,
+            "kd": 1.42,
+            "flag": "✅",
             "smallSample": false
           },
           {
@@ -797,48 +765,72 @@
             "smallSample": false
           },
           {
-            "name": "Valkyrie",
-            "rounds": 43,
-            "winRate": 58.1,
-            "kd": 1.4,
-            "flag": "✅",
-            "smallSample": false
-          },
-          {
             "name": "Thorn",
-            "rounds": 18,
-            "winRate": 72.2,
-            "kd": 2.55,
+            "rounds": 27,
+            "winRate": 66.7,
+            "kd": 1.78,
             "flag": "⭐",
             "smallSample": false
           },
           {
+            "name": "Nomad",
+            "rounds": 19,
+            "winRate": 47.4,
+            "kd": 0.8,
+            "flag": "",
+            "smallSample": false
+          },
+          {
             "name": "Kaid",
-            "rounds": 15,
-            "winRate": 46.7,
-            "kd": 1.67,
+            "rounds": 16,
+            "winRate": 43.8,
+            "kd": 1.5,
             "flag": "",
             "smallSample": false
           },
           {
             "name": "Azami",
-            "rounds": 12,
-            "winRate": 58.3,
-            "kd": 1.1,
-            "flag": "✅",
+            "rounds": 15,
+            "winRate": 66.7,
+            "kd": 1.36,
+            "flag": "⭐",
             "smallSample": false
-          },
-          {
-            "name": "Fenrir",
-            "rounds": 6,
-            "winRate": 16.7,
-            "kd": 0.4,
-            "flag": "",
-            "smallSample": true
           }
         ]
       },
       "mapPerformance": [
+        {
+          "map": "Bank",
+          "matches": 11,
+          "winRate": 63.6,
+          "kd": 1.27,
+          "atkWr": 42.9,
+          "defWr": 63.3
+        },
+        {
+          "map": "Border",
+          "matches": 11,
+          "winRate": 81.8,
+          "kd": 1.49,
+          "atkWr": 62.5,
+          "defWr": 66.7
+        },
+        {
+          "map": "Chalet",
+          "matches": 11,
+          "winRate": 54.5,
+          "kd": 1.16,
+          "atkWr": 42.5,
+          "defWr": 62.2
+        },
+        {
+          "map": "Coastline",
+          "matches": 10,
+          "winRate": 30,
+          "kd": 1.16,
+          "atkWr": 47.1,
+          "defWr": 45.2
+        },
         {
           "map": "Nighthaven Labs",
           "matches": 10,
@@ -848,76 +840,44 @@
           "defWr": 64.5
         },
         {
-          "map": "Bank",
-          "matches": 9,
-          "winRate": 66.7,
-          "kd": 1.49,
-          "atkWr": 41.4,
-          "defWr": 68
-        },
-        {
-          "map": "Border",
-          "matches": 9,
-          "winRate": 77.8,
-          "kd": 1.53,
-          "atkWr": 64.3,
-          "defWr": 59.3
-        },
-        {
-          "map": "Chalet",
+          "map": "Clubhouse",
           "matches": 9,
           "winRate": 55.6,
-          "kd": 1.2,
-          "atkWr": 42.4,
-          "defWr": 63.3
-        },
-        {
-          "map": "Clubhouse",
-          "matches": 8,
-          "winRate": 62.5,
-          "kd": 1.29,
-          "atkWr": 43.5,
-          "defWr": 63
+          "kd": 1.15,
+          "atkWr": 44,
+          "defWr": 56.7
         },
         {
           "map": "Oregon",
-          "matches": 8,
-          "winRate": 37.5,
+          "matches": 9,
+          "winRate": 33.3,
           "kd": 1.03,
-          "atkWr": 37.5,
-          "defWr": 57.1
-        },
-        {
-          "map": "Coastline",
-          "matches": 7,
-          "winRate": 28.6,
-          "kd": 1.11,
-          "atkWr": 43.5,
-          "defWr": 45.5
+          "atkWr": 34.6,
+          "defWr": 54.2
         },
         {
           "map": "Villa",
-          "matches": 6,
-          "winRate": 83.3,
-          "kd": 1.54,
-          "atkWr": 58.8,
-          "defWr": 70
+          "matches": 7,
+          "winRate": 71.4,
+          "kd": 1.39,
+          "atkWr": 55.6,
+          "defWr": 60.9
         },
         {
           "map": "Consulate",
-          "matches": 5,
-          "winRate": 20,
-          "kd": 0.7,
-          "atkWr": 31.3,
-          "defWr": 50
+          "matches": 6,
+          "winRate": 16.7,
+          "kd": 0.96,
+          "atkWr": 28.6,
+          "defWr": 55
         },
         {
           "map": "Kafe Dostoyevsky",
-          "matches": 5,
-          "winRate": 40,
-          "kd": 1,
-          "atkWr": 43.8,
-          "defWr": 43.8
+          "matches": 6,
+          "winRate": 50,
+          "kd": 0.91,
+          "atkWr": 45,
+          "defWr": 50
         },
         {
           "map": "Emerald Plains",
@@ -1123,23 +1083,23 @@
       "team": "Main",
       "role": "Support Anchor",
       "bio": "The backbone of the stack's coordinated pushes. Hound wins rounds through utility, callouts, and enabling the team's fraggers — one of the most consistently active players on the roster.",
-      "atkOps": "Thermite / Osa",
+      "atkOps": "Thermite / Grim",
       "defOps": "Castle / Bandit",
       "season": "Y11S1",
       "stats": {
         "rank": "Emerald IV",
-        "rp": "3619",
-        "kd": "0.88",
-        "kda": "1.16",
-        "kills": "362",
-        "deaths": "412",
-        "winRate": "44.0%",
-        "matches": "91",
-        "hs": "51.1",
-        "esr": "0.48",
-        "clutches": "7",
-        "clutchWR": "11.7",
-        "ris": "44"
+        "rp": "3616",
+        "kd": "0.85",
+        "kda": "1.13",
+        "kills": "395",
+        "deaths": "467",
+        "winRate": "42.6%",
+        "matches": "101",
+        "hs": "50.6",
+        "esr": "0.49",
+        "clutches": "8",
+        "clutchWR": "11.8",
+        "ris": "43.2"
       },
       "coachingPriorities": [
         "Try giving Rauora more ATK volume",
@@ -1202,63 +1162,55 @@
         }
       ],
       "teachingPattern": "Hound's stats are solid. Primary leverage: cold-start warmup (FFA), DEF clock discipline (zone assignments), and crouch walk habit audit. These are quick wins, not mechanical overhauls.",
-      "seasonContent": "# Hound — Y11S1 (Operation Silent Hunt)\n\n_Season status: 🔲 Active — repull 2026-04-03 (91 ranked matches)_\n_Pull date: 2026-04-03 | Source: r6.tracker.network_\n\n---\n\n## Core Stats\n\n| Stat | Value |\n|------|-------|\n| Rank | Emerald IV |\n| RP | 3,619 |\n| Matches | 91 |\n| Win Rate | 44.0% |\n| K/D | 0.88 |\n| KDA | 1.16 |\n| Kills | 362 |\n| Deaths | 412 |\n| HS% | 51.1% |\n| ESR | 0.48 |\n| RIS | 44 |\n| Clutches Won | 7 |\n| Clutch Win% | 11.7% |\n\n> 91M sample — moderate confidence. Stats are meaningful.\n\n---\n\n## Operators\n\n_Format: Operator — Rounds | Win% | K/D (sorted by rounds played, ranked only)_\n_Season filter: season=41_\n\n**Attack**\n1. Thermite — 40r | 35.0% | 0.85 ⚠️\n2. Osa — 38r | 36.8% | 0.47 ⚠️\n3. Grim — 30r | 43.3% | 0.95\n4. Thatcher — 29r | 41.4% | 0.95 ⚠️\n5. Nomad — 28r | 32.1% | 0.65 ⚠️\n6. Fuze — 23r | 39.1% | 1.11 ⚠️\n7. Rauora — 15r | 53.3% | 0.73 ✅\n8. Montagne — 13r | 30.8% | 0.27 ⚠️\n9. Gridlock — 11r | 72.7% | 4.00 ⭐\n10. Flores — 10r | 30.0% | 1.12 ⚠️\n11. Dokkaebi — 10r | 40.0% | 0.20 ⚠️\n12. Buck — 7r | 57.1% | 1.40\n13. Ying — 7r | 42.9% | 1.00\n14. IQ — 6r | 50.0% | 3.67\n15. Blackbeard — 5r | 40.0% | 1.00\n\n**Defense**\n1. Castle — 53r | 49.1% | 0.79\n2. Bandit — 39r | 53.8% | 0.97 ✅\n3. Azami — 29r | 62.1% | 1.15 ⭐\n4. Frost — 26r | 57.7% | 1.06 ✅\n5. Kaid — 24r | 45.8% | 1.18\n6. Mute — 19r | 42.1% | 0.24\n7. Mozzie — 18r | 44.4% | 0.67\n8. Maestro — 12r | 66.7% | 1.25 ⭐\n9. Aruni — 9r | 44.4% | 0.57\n10. Echo — 9r | 88.9% | 0.50 ⭐\n11. Thorn — 8r | 62.5% | 1.67 ⭐\n12. Warden — 5r | 80.0% | 0.50\n13. Thunderbird — 5r | 60.0% | 1.33\n14. Valkyrie — 5r | 60.0% | 0.50\n\n**ATK identity:** Thermite is the primary ATK pick (40r / 35.0% / 0.85 K/D). Secondary: Osa (38r / 36.8%).\n**DEF identity:** Castle is the primary DEF anchor (53r / 49.1% / 0.79 K/D). Secondary: Bandit (39r / 53.8%).\n\n---\n\n## Map Performance\n\n| Map | Matches | Win% | K/D | Atk% | Def% |\n|-----|---------|------|-----|------|------|\n| Border | 14 | 57.1% | 1.22 | 41.3% | 64.1% |\n| Coastline | 11 | 54.5% | 0.76 | 54.8% | 48.4% |\n| Oregon | 10 | 30.0% | 0.78 | 35.7% | 53.8% |\n| Clubhouse | 8 | 62.5% | 1.11 | 46.2% | 59.3% |\n| Nighthaven Labs | 7 | 14.3% | 0.72 | 32.0% | 45.8% |\n| Villa | 7 | 42.9% | 0.78 | 37.5% | 57.1% |\n| Bank | 6 | 66.7% | 0.83 | 56.3% | 58.8% |\n| Kafe Dostoyevsky | 6 | 66.7% | 0.93 | 40.0% | 63.6% |\n| Chalet | 5 | 60.0% | 0.74 | 52.6% | 58.8% |\n| Consulate | 5 | 20.0% | 0.62 | 27.8% | 60.0% |\n| Lair | 5 | 20.0% | 0.91 | 23.1% | 42.9% |\n| Fortress | 4 | 25.0% | 1.32 | 35.7% | 41.7% |\n| Emerald Plains | 3 | 0.0% | 0.33 | 0.0% | 44.4% |\n\n_Pulled 2026-04-03 — 91 ranked matches._\n\n---\n\n## Season Coaching Notes\n\n- **⚠️ ATK: Most high-volume ops are trending below 40% WR.** Thermite (40r/35.0%), Osa (38r/36.8%), Nomad (28r/32.1%), Fuze (23r/39.1%), Thatcher (29r/41.4%) are all flagged. Could be site difficulty, matchup clusters, or op fit — worth exploring whether shifting volume toward Rauora (15r/53.3%) changes the result.\n- **⚠️ ATK: Osa (38r / 36.8%) — consider whether Rauora better fits the support role on most sites.** Rauora is outperforming it by 17 WR points in a meaningful sample.\n- **⚠️ DEF: Azami (29r / 62.1%) and Frost (26r / 57.7%) are both outperforming Castle (53r / 49.1%).** Worth considering whether Castle is the right default pick or whether Azami/Frost would be a better fit on most sites.\n- **✅ Rauora (15r / 53.3%) is your best ATK signal.** Worth giving it more rounds and seeing if the WR holds.\n- **🗺️ Nighthaven Labs (7M / 14.3%) and Oregon (10M / 30.0%) — worth flagging in the team's ban discussion.**\n\n---\n\n## Data Flags\n\n- 🔲 Active — 91 ranked matches as of 2026-04-03\n- ⭐ Gridlock ATK (11r / 72.7%) — strong signal\n- ⭐ Azami DEF (29r / 62.1%) — strong signal\n- ⭐ Maestro DEF (12r / 66.7%) — strong signal\n- ⭐ Echo DEF (9r / 88.9%) — strong signal\n- ⭐ Thorn DEF (8r / 62.5%) — strong signal\n- 📍 Map data threshold reached — pull maps next session\n\n---\n\n## Y11S1 Opening Context\n\n### Map Pool — Y11S1 Launch\nBank, Border, Chalet, Clubhouse, Coastline, Consulate, Fortress, Kafe Dostoyevsky, Lair, Nighthaven Labs, Oregon, Villa, Emerald Plains\n\n### Balance Notes — Hound Specific\n_No major balance changes to primary operators this season. Review GAME_06_CURRENT_SEASON.md for full patch notes._\n",
+      "seasonContent": "# Hound — Y11S1 (Operation Silent Hunt)\n\n_Season status: 🔲 Active — repull 2026-04-10 (101 ranked matches)_\n_Pull date: 2026-04-10 | Source: r6.tracker.network_\n\n---\n\n## Core Stats\n\n| Stat | Value |\n|------|-------|\n| Rank | Emerald IV |\n| RP | 3,616 |\n| Matches | 101 |\n| Win Rate | 42.6% |\n| K/D | 0.85 |\n| KDA | 1.13 |\n| Kills | 395 |\n| Deaths | 467 |\n| HS% | 50.6% |\n| ESR | 0.49 |\n| RIS | 43.2 |\n| Clutches Won | 8 |\n| Clutch Win% | 11.8% |\n\n> 101M sample — moderate confidence. Stats are meaningful.\n\n---\n\n## Operators\n\n_Format: Operator — Rounds | Win% | K/D (sorted by rounds played, ranked only)_\n_Season filter: season=41_\n\n**Attack**\n1. Thermite — 42r | 35.7% | 0.83 ⚠️\n2. Grim — 38r | 42.1% | 0.86\n3. Osa — 38r | 39.5% | 0.39 ⚠️\n4. Fuze — 29r | 37.9% | 1.17 ⚠️\n5. Thatcher — 28r | 42.9% | 0.71\n6. Gridlock — 13r | 69.2% | 3.00 ⭐\n7. Montagne — 13r | 30.8% | 0.27 ⚠️\n8. Dokkaebi — 13r | 38.5% | 0.31 ⚠️\n9. Flores — 10r | 30.0% | 1.12 ⚠️\n10. Rauora — 14r | 57.1% | 0.80 ✅\n11. Buck — 9r | 55.6% | 1.14 ✅\n\n**Defense**\n1. Castle — 53r | 45.3% | 0.79\n2. Bandit — 40r | 57.5% | 0.93 ✅\n3. Azami — 34r | 52.9% | 1.17 ✅\n4. Kaid — 28r | 46.4% | 1.05\n5. Nomad — 28r | 32.1% | 0.65 ⚠️\n6. Frost — 26r | 61.5% | 1.00 ⭐\n7. Mute — 21r | 38.1% | 0.21 ⚠️\n8. Mozzie — 17r | 41.2% | 0.50 ⚠️\n9. Maestro — 12r | 66.7% | 1.25 ⭐\n10. Echo — 10r | 90.0% | 0.50 ⭐\n11. Aruni — 10r | 40.0% | 0.50 ⚠️\n12. Thorn — 9r | 55.6% | 1.57 ✅\n\n**ATK identity:** Thermite is the primary ATK pick (42r / 35.7% / 0.83 K/D). Secondary: Grim (38r / 42.1%).\n**DEF identity:** Castle is the primary DEF anchor (53r / 45.3% / 0.79 K/D). Secondary: Bandit (40r / 57.5%).\n\n---\n\n## Map Performance\n\n| Map | Matches | Win% | K/D | Atk% | Def% |\n|-----|---------|------|-----|------|------|\n| Border | 15 | 60.0% | 1.13 | 40.8% | 66.7% |\n| Coastline | 14 | 42.9% | 0.72 | 52.4% | 42.5% |\n| Oregon | 10 | 30.0% | 0.78 | 35.7% | 53.8% |\n| Clubhouse | 9 | 55.6% | 1.02 | 44.8% | 56.7% |\n| Nighthaven Labs | 8 | 12.5% | 0.70 | 29.6% | 44.4% |\n| Villa | 8 | 37.5% | 0.75 | 36.0% | 50.0% |\n| Bank | 7 | 71.4% | 0.92 | 57.9% | 60.0% |\n| Chalet | 6 | 66.7% | 0.67 | 52.2% | 61.9% |\n| Consulate | 6 | 16.7% | 0.65 | 26.1% | 63.2% |\n| Kafe Dostoyevsky | 6 | 66.7% | 0.93 | 40.0% | 63.6% |\n| Lair | 5 | 20.0% | 0.91 | 23.1% | 42.9% |\n| Fortress | 4 | 25.0% | 1.32 | 35.7% | 41.7% |\n| Emerald Plains | 3 | 0.0% | 0.33 | 0.0% | 44.4% |\n\n_Pulled 2026-04-10 — 101 ranked matches._\n\n---\n\n## Season Coaching Notes\n\n- **⚠️ Thermite ATK (42r / 35.7% / 0.83 K/D)** — primary ATK pick is underperforming at this volume. Consider reducing rounds here until WR recovers.\n- **Map data threshold reached** (101M ≥ 30) — pull map data next session.\n\n---\n\n## Data Flags\n\n- 🔲 Active — 101 ranked matches as of 2026-04-10\n- ⭐ Gridlock ATK (13r / 69.2%) — strong signal\n- ⭐ Frost DEF (26r / 61.5%) — strong signal\n- ⭐ Maestro DEF (12r / 66.7%) — strong signal\n- ⭐ Echo DEF (10r / 90.0%) — strong signal\n- 📍 Map data threshold reached — pull maps next session\n\n---\n\n## Y11S1 Opening Context\n\n### Map Pool — Y11S1 Launch\nBank, Border, Chalet, Clubhouse, Coastline, Consulate, Fortress, Kafe Dostoyevsky, Lair, Nighthaven Labs, Oregon, Villa, Emerald Plains\n\n### Balance Notes — Hound Specific\n_No major balance changes to primary operators this season. Review GAME_06_CURRENT_SEASON.md for full patch notes._\n",
       "operators": {
         "atk": [
           {
             "name": "Thermite",
-            "rounds": 40,
-            "winRate": 35,
-            "kd": 0.85,
-            "flag": "⚠️",
-            "smallSample": false
-          },
-          {
-            "name": "Osa",
-            "rounds": 38,
-            "winRate": 36.8,
-            "kd": 0.47,
+            "rounds": 42,
+            "winRate": 35.7,
+            "kd": 0.83,
             "flag": "⚠️",
             "smallSample": false
           },
           {
             "name": "Grim",
-            "rounds": 30,
-            "winRate": 43.3,
-            "kd": 0.95,
+            "rounds": 38,
+            "winRate": 42.1,
+            "kd": 0.86,
             "flag": "",
             "smallSample": false
           },
           {
-            "name": "Thatcher",
-            "rounds": 29,
-            "winRate": 41.4,
-            "kd": 0.95,
-            "flag": "⚠️",
-            "smallSample": false
-          },
-          {
-            "name": "Nomad",
-            "rounds": 28,
-            "winRate": 32.1,
-            "kd": 0.65,
+            "name": "Osa",
+            "rounds": 38,
+            "winRate": 39.5,
+            "kd": 0.39,
             "flag": "⚠️",
             "smallSample": false
           },
           {
             "name": "Fuze",
-            "rounds": 23,
-            "winRate": 39.1,
-            "kd": 1.11,
+            "rounds": 29,
+            "winRate": 37.9,
+            "kd": 1.17,
             "flag": "⚠️",
             "smallSample": false
           },
           {
-            "name": "Rauora",
-            "rounds": 15,
-            "winRate": 53.3,
-            "kd": 0.73,
-            "flag": "✅",
+            "name": "Thatcher",
+            "rounds": 28,
+            "winRate": 42.9,
+            "kd": 0.71,
+            "flag": "",
+            "smallSample": false
+          },
+          {
+            "name": "Gridlock",
+            "rounds": 13,
+            "winRate": 69.2,
+            "kd": 3,
+            "flag": "⭐",
             "smallSample": false
           },
           {
@@ -1270,11 +1222,11 @@
             "smallSample": false
           },
           {
-            "name": "Gridlock",
-            "rounds": 11,
-            "winRate": 72.7,
-            "kd": 4,
-            "flag": "⭐",
+            "name": "Dokkaebi",
+            "rounds": 13,
+            "winRate": 38.5,
+            "kd": 0.31,
+            "flag": "⚠️",
             "smallSample": false
           },
           {
@@ -1286,43 +1238,19 @@
             "smallSample": false
           },
           {
-            "name": "Dokkaebi",
-            "rounds": 10,
-            "winRate": 40,
-            "kd": 0.2,
-            "flag": "⚠️",
+            "name": "Rauora",
+            "rounds": 14,
+            "winRate": 57.1,
+            "kd": 0.8,
+            "flag": "✅",
             "smallSample": false
           },
           {
             "name": "Buck",
-            "rounds": 7,
-            "winRate": 57.1,
-            "kd": 1.4,
-            "flag": "",
-            "smallSample": true
-          },
-          {
-            "name": "Ying",
-            "rounds": 7,
-            "winRate": 42.9,
-            "kd": 1,
-            "flag": "",
-            "smallSample": true
-          },
-          {
-            "name": "IQ",
-            "rounds": 6,
-            "winRate": 50,
-            "kd": 3.67,
-            "flag": "",
-            "smallSample": true
-          },
-          {
-            "name": "Blackbeard",
-            "rounds": 5,
-            "winRate": 40,
-            "kd": 1,
-            "flag": "",
+            "rounds": 9,
+            "winRate": 55.6,
+            "kd": 1.14,
+            "flag": "✅",
             "smallSample": true
           }
         ],
@@ -1330,57 +1258,65 @@
           {
             "name": "Castle",
             "rounds": 53,
-            "winRate": 49.1,
+            "winRate": 45.3,
             "kd": 0.79,
             "flag": "",
             "smallSample": false
           },
           {
             "name": "Bandit",
-            "rounds": 39,
-            "winRate": 53.8,
-            "kd": 0.97,
+            "rounds": 40,
+            "winRate": 57.5,
+            "kd": 0.93,
             "flag": "✅",
             "smallSample": false
           },
           {
             "name": "Azami",
-            "rounds": 29,
-            "winRate": 62.1,
-            "kd": 1.15,
-            "flag": "⭐",
-            "smallSample": false
-          },
-          {
-            "name": "Frost",
-            "rounds": 26,
-            "winRate": 57.7,
-            "kd": 1.06,
+            "rounds": 34,
+            "winRate": 52.9,
+            "kd": 1.17,
             "flag": "✅",
             "smallSample": false
           },
           {
             "name": "Kaid",
-            "rounds": 24,
-            "winRate": 45.8,
-            "kd": 1.18,
+            "rounds": 28,
+            "winRate": 46.4,
+            "kd": 1.05,
             "flag": "",
+            "smallSample": false
+          },
+          {
+            "name": "Nomad",
+            "rounds": 28,
+            "winRate": 32.1,
+            "kd": 0.65,
+            "flag": "⚠️",
+            "smallSample": false
+          },
+          {
+            "name": "Frost",
+            "rounds": 26,
+            "winRate": 61.5,
+            "kd": 1,
+            "flag": "⭐",
             "smallSample": false
           },
           {
             "name": "Mute",
-            "rounds": 19,
-            "winRate": 42.1,
-            "kd": 0.24,
-            "flag": "",
+            "rounds": 21,
+            "winRate": 38.1,
+            "kd": 0.21,
+            "flag": "⚠️",
             "smallSample": false
           },
           {
             "name": "Mozzie",
-            "rounds": 18,
-            "winRate": 44.4,
-            "kd": 0.67,
-            "flag": "",
+            "rounds": 17,
+            "winRate": 41.2,
+            "kd": 0.5,
+            "flag": "⚠️",
             "smallSample": false
           },
           {
@@ -1392,51 +1328,27 @@
             "smallSample": false
           },
           {
-            "name": "Aruni",
-            "rounds": 9,
-            "winRate": 44.4,
-            "kd": 0.57,
-            "flag": "",
-            "smallSample": true
-          },
-          {
             "name": "Echo",
-            "rounds": 9,
-            "winRate": 88.9,
+            "rounds": 10,
+            "winRate": 90,
             "kd": 0.5,
             "flag": "⭐",
-            "smallSample": true
+            "smallSample": false
+          },
+          {
+            "name": "Aruni",
+            "rounds": 10,
+            "winRate": 40,
+            "kd": 0.5,
+            "flag": "⚠️",
+            "smallSample": false
           },
           {
             "name": "Thorn",
-            "rounds": 8,
-            "winRate": 62.5,
-            "kd": 1.67,
-            "flag": "⭐",
-            "smallSample": true
-          },
-          {
-            "name": "Warden",
-            "rounds": 5,
-            "winRate": 80,
-            "kd": 0.5,
-            "flag": "",
-            "smallSample": true
-          },
-          {
-            "name": "Thunderbird",
-            "rounds": 5,
-            "winRate": 60,
-            "kd": 1.33,
-            "flag": "",
-            "smallSample": true
-          },
-          {
-            "name": "Valkyrie",
-            "rounds": 5,
-            "winRate": 60,
-            "kd": 0.5,
-            "flag": "",
+            "rounds": 9,
+            "winRate": 55.6,
+            "kd": 1.57,
+            "flag": "✅",
             "smallSample": true
           }
         ]
@@ -1444,19 +1356,19 @@
       "mapPerformance": [
         {
           "map": "Border",
-          "matches": 14,
-          "winRate": 57.1,
-          "kd": 1.22,
-          "atkWr": 41.3,
-          "defWr": 64.1
+          "matches": 15,
+          "winRate": 60,
+          "kd": 1.13,
+          "atkWr": 40.8,
+          "defWr": 66.7
         },
         {
           "map": "Coastline",
-          "matches": 11,
-          "winRate": 54.5,
-          "kd": 0.76,
-          "atkWr": 54.8,
-          "defWr": 48.4
+          "matches": 14,
+          "winRate": 42.9,
+          "kd": 0.72,
+          "atkWr": 52.4,
+          "defWr": 42.5
         },
         {
           "map": "Oregon",
@@ -1468,35 +1380,51 @@
         },
         {
           "map": "Clubhouse",
-          "matches": 8,
-          "winRate": 62.5,
-          "kd": 1.11,
-          "atkWr": 46.2,
-          "defWr": 59.3
+          "matches": 9,
+          "winRate": 55.6,
+          "kd": 1.02,
+          "atkWr": 44.8,
+          "defWr": 56.7
         },
         {
           "map": "Nighthaven Labs",
-          "matches": 7,
-          "winRate": 14.3,
-          "kd": 0.72,
-          "atkWr": 32,
-          "defWr": 45.8
+          "matches": 8,
+          "winRate": 12.5,
+          "kd": 0.7,
+          "atkWr": 29.6,
+          "defWr": 44.4
         },
         {
           "map": "Villa",
-          "matches": 7,
-          "winRate": 42.9,
-          "kd": 0.78,
-          "atkWr": 37.5,
-          "defWr": 57.1
+          "matches": 8,
+          "winRate": 37.5,
+          "kd": 0.75,
+          "atkWr": 36,
+          "defWr": 50
         },
         {
           "map": "Bank",
+          "matches": 7,
+          "winRate": 71.4,
+          "kd": 0.92,
+          "atkWr": 57.9,
+          "defWr": 60
+        },
+        {
+          "map": "Chalet",
           "matches": 6,
           "winRate": 66.7,
-          "kd": 0.83,
-          "atkWr": 56.3,
-          "defWr": 58.8
+          "kd": 0.67,
+          "atkWr": 52.2,
+          "defWr": 61.9
+        },
+        {
+          "map": "Consulate",
+          "matches": 6,
+          "winRate": 16.7,
+          "kd": 0.65,
+          "atkWr": 26.1,
+          "defWr": 63.2
         },
         {
           "map": "Kafe Dostoyevsky",
@@ -1505,22 +1433,6 @@
           "kd": 0.93,
           "atkWr": 40,
           "defWr": 63.6
-        },
-        {
-          "map": "Chalet",
-          "matches": 5,
-          "winRate": 60,
-          "kd": 0.74,
-          "atkWr": 52.6,
-          "defWr": 58.8
-        },
-        {
-          "map": "Consulate",
-          "matches": 5,
-          "winRate": 20,
-          "kd": 0.62,
-          "atkWr": 27.8,
-          "defWr": 60
         },
         {
           "map": "Lair",
@@ -1775,22 +1687,22 @@
       "role": "Utility / Hard Breach",
       "bio": "The most reliable support player on the roster. Smigs brings a team-first mentality to every round — utility clearing, hard breach, and group entry without needing the frag lead.",
       "atkOps": "Thermite / Hibana",
-      "defOps": "Aruni / Kaid",
+      "defOps": "Kaid / Aruni",
       "season": "Y11S1",
       "stats": {
-        "rank": "Gold III",
-        "rp": "2755",
-        "kd": "1.14",
-        "kda": "1.46",
-        "kills": "199",
-        "deaths": "175",
-        "winRate": "46.2%",
-        "matches": "39",
-        "hs": "55.8",
-        "esr": "0.63",
-        "clutches": "8",
-        "clutchWR": "17.8",
-        "ris": "59.2"
+        "rank": "Gold I",
+        "rp": "2981",
+        "kd": "1.15",
+        "kda": "1.47",
+        "kills": "232",
+        "deaths": "202",
+        "winRate": "45.7%",
+        "matches": "46",
+        "hs": "54.7",
+        "esr": "0.62",
+        "clutches": "9",
+        "clutchWR": "17.0",
+        "ris": "58.9"
       },
       "coachingPriorities": [
         "Think about DEF op selection before each round",
@@ -1850,89 +1762,65 @@
         }
       ],
       "teachingPattern": "Smigs is the IGL — most tips are team-level calls rather than individual mechanical fixes. Focus: RPS read calls, zone assignment pre-round structure, and timing exploit coordination.",
-      "seasonContent": "# Smigs — Y11S1 (Operation Silent Hunt)\n\n_Season status: 🔲 Active — repull 2026-04-03 (39 ranked matches)_\n_Pull date: 2026-04-03 | Source: r6.tracker.network_\n\n---\n\n## Core Stats\n\n| Stat | Value |\n|------|-------|\n| Rank | Gold III |\n| RP | 2,755 |\n| Matches | 39 |\n| Win Rate | 46.2% |\n| K/D | 1.14 |\n| KDA | 1.46 |\n| Kills | 199 |\n| Deaths | 175 |\n| HS% | 55.8% |\n| ESR | 0.63 |\n| RIS | 59.2 |\n| Clutches Won | 8 |\n| Clutch Win% | 17.8% |\n\n> 39M sample — moderate confidence. Stats are meaningful.\n\n---\n\n## Operators\n\n_Format: Operator — Rounds | Win% | K/D (sorted by rounds played, ranked only)_\n_Season filter: season=41_\n\n**Attack**\n1. Thermite — 65r | 47.7% | 1.34\n2. Hibana — 13r | 15.4% | 1.18 ⚠️\n3. Nomad — 12r | 66.7% | 1.14 ⭐\n4. Ace — 11r | 54.5% | 1.43 ✅\n5. Striker — 11r | 27.3% | 0.60 ⚠️\n6. Osa — 6r | 50.0% | 2.67\n7. Capitao — 5r | 20.0% | 0.60\n\n**Defense**\n1. Aruni — 30r | 46.7% | 1.13\n2. Kaid — 24r | 58.3% | 1.92 ✅\n3. Bandit — 15r | 73.3% | 1.22 ⭐\n4. Thorn — 15r | 60.0% | 0.80 ⭐\n5. Mute — 10r | 70.0% | 1.33 ⭐\n6. Lesion — 9r | 44.4% | 1.14\n7. Castle — 8r | 62.5% | 0.80 ⭐\n8. Melusi — 5r | 20.0% | 0.60\n\n**ATK identity:** Thermite is the primary ATK pick (65r / 47.7% / 1.34 K/D). Secondary: Hibana (13r / 15.4%).\n**DEF identity:** Aruni is the primary DEF anchor (30r / 46.7% / 1.13 K/D). Secondary: Kaid (24r / 58.3%).\n\n---\n\n## Map Performance\n\n| Map | Matches | Win% | K/D | Atk% | Def% |\n|-----|---------|------|-----|------|------|\n| Border | 6 | 50.0% | 0.89 | 42.1% | 47.4% |\n| Clubhouse | 5 | 80.0% | 1.08 | 44.4% | 68.4% |\n| Consulate | 5 | 20.0% | 1.25 | 42.1% | 43.8% |\n| Nighthaven Labs | 5 | 60.0% | 1.14 | 47.1% | 60.0% |\n| Villa | 5 | 40.0% | 1.62 | 42.9% | 53.8% |\n| Coastline | 4 | 50.0% | 1.19 | 41.7% | 54.5% |\n| Bank | 3 | 33.3% | 1.21 | 33.3% | 55.6% |\n| Oregon | 3 | 66.7% | 0.87 | 44.4% | 60.0% |\n| Emerald Plains | 2 | 0.0% | 1.10 | 0.0% | 66.7% |\n| Kafe Dostoyevsky | 1 | 0.0% | 1.17 | 25.0% | 50.0% |\n\n_Pulled 2026-04-03 — 39 ranked matches._\n\n---\n\n## Season Coaching Notes\n\n- **⚠️ ATK: Hibana (13r / 15.4%) is trending significantly below the rest of the pool.** Worth comparing against Ace (11r / 54.5%) which is producing much better in similar volume — Ace may be a stronger secondary hard-breach option right now.\n- **⚠️ DEF: Aruni (30r / 46.7%) is your most-played op, but Bandit (73.3%), Mute (70.0%), Thorn (60.0%), and Kaid (58.3%) are all outperforming it.** Worth thinking about whether Aruni is the right fit for most sites, or whether it's becoming the default on rounds where another op would convert better.\n- **✅ Thermite ATK (65r / 47.7%) — solid primary, keep building.**\n- **✅ Nomad ATK (12r / 66.7%) — strong early signal, worth letting it grow.**\n- **🗺️ Clubhouse (5M / 80.0%) — personal strength, worth protecting in ban phase.**\n- **🗺️ Consulate (5M / 20.0%) — worth flagging in the team's ban discussion.**\n\n---\n\n## Data Flags\n\n- 🔲 Active — 39 ranked matches as of 2026-04-03\n- ⭐ Nomad ATK (12r / 66.7%) — strong signal\n- ⭐ Bandit DEF (15r / 73.3%) — strong signal\n- ⭐ Thorn DEF (15r / 60.0%) — strong signal\n- ⭐ Mute DEF (10r / 70.0%) — strong signal\n- ⭐ Castle DEF (8r / 62.5%) — strong signal\n- 📍 Map data threshold reached — pull maps next session\n\n---\n\n## Y11S1 Opening Context\n\n### Map Pool — Y11S1 Launch\nBank, Border, Chalet, Clubhouse, Coastline, Consulate, Fortress, Kafe Dostoyevsky, Lair, Nighthaven Labs, Oregon, Villa, Emerald Plains\n\n### Balance Notes — Smigs Specific\n_No major balance changes to primary operators this season. Review GAME_06_CURRENT_SEASON.md for full patch notes._\n",
+      "seasonContent": "# Smigs — Y11S1 (Operation Silent Hunt)\n\n_Season status: 🔲 Active — repull 2026-04-10 (46 ranked matches)_\n_Pull date: 2026-04-10 | Source: r6.tracker.network_\n\n---\n\n## Core Stats\n\n| Stat | Value |\n|------|-------|\n| Rank | Gold I |\n| RP | 2,981 |\n| Matches | 46 |\n| Win Rate | 45.7% |\n| K/D | 1.15 |\n| KDA | 1.47 |\n| Kills | 232 |\n| Deaths | 202 |\n| HS% | 54.7% |\n| ESR | 0.62 |\n| RIS | 58.9 |\n| Clutches Won | 9 |\n| Clutch Win% | 17.0% |\n\n> 46M sample — moderate confidence. Stats are meaningful.\n\n---\n\n## Operators\n\n_Format: Operator — Rounds | Win% | K/D (sorted by rounds played, ranked only)_\n_Season filter: season=41_\n\n**Attack**\n1. Thermite — 70r | 45.7% | 1.39\n2. Hibana — 17r | 41.2% | 1.33 ⚠️\n3. Striker — 12r | 33.3% | 0.73 ⚠️\n4. Ace — 11r | 45.5% | 1.12\n\n**Defense**\n1. Kaid — 34r | 50.0% | 1.45\n2. Aruni — 27r | 48.1% | 1.00\n3. Bandit — 19r | 57.9% | 0.92 ✅\n4. Thorn — 15r | 60.0% | 0.80 ⭐\n5. Mute — 11r | 63.6% | 1.29 ⭐\n6. Nomad — 11r | 72.7% | 1.33 ⭐\n7. Lesion — 9r | 44.4% | 1.14\n8. Castle — 8r | 62.5% | 0.80 ⭐\n\n**ATK identity:** Thermite is the primary ATK pick (70r / 45.7% / 1.39 K/D). Secondary: Hibana (17r / 41.2%).\n**DEF identity:** Kaid is the primary DEF anchor (34r / 50.0% / 1.45 K/D). Secondary: Aruni (27r / 48.1%).\n\n---\n\n## Map Performance\n\n| Map | Matches | Win% | K/D | Atk% | Def% |\n|-----|---------|------|-----|------|------|\n| Border | 6 | 50.0% | 0.89 | 42.1% | 47.4% |\n| Consulate | 6 | 33.3% | 1.29 | 50.0% | 42.1% |\n| Nighthaven Labs | 6 | 50.0% | 1.00 | 47.4% | 50.0% |\n| Bank | 5 | 20.0% | 1.32 | 33.3% | 38.5% |\n| Clubhouse | 5 | 80.0% | 1.08 | 44.4% | 68.4% |\n| Villa | 5 | 40.0% | 1.62 | 42.9% | 53.8% |\n| Coastline | 4 | 50.0% | 1.19 | 41.7% | 54.5% |\n| Chalet | 3 | 66.7% | 1.30 | 85.7% | 42.9% |\n| Oregon | 3 | 66.7% | 0.87 | 44.4% | 60.0% |\n| Emerald Plains | 2 | 0.0% | 1.10 | 0.0% | 66.7% |\n| Kafe Dostoyevsky | 1 | 0.0% | 1.17 | 25.0% | 50.0% |\n\n_Pulled 2026-04-10 — 46 ranked matches._\n\n---\n\n## Season Coaching Notes\n\n- **Map data threshold reached** (46M ≥ 30) — pull map data next session.\n\n---\n\n## Data Flags\n\n- 🔲 Active — 46 ranked matches as of 2026-04-10\n- ⭐ Thorn DEF (15r / 60.0%) — strong signal\n- ⭐ Mute DEF (11r / 63.6%) — strong signal\n- ⭐ Nomad DEF (11r / 72.7%) — strong signal\n- ⭐ Castle DEF (8r / 62.5%) — strong signal\n- 📍 Map data threshold reached — pull maps next session\n\n---\n\n## Y11S1 Opening Context\n\n### Map Pool — Y11S1 Launch\nBank, Border, Chalet, Clubhouse, Coastline, Consulate, Fortress, Kafe Dostoyevsky, Lair, Nighthaven Labs, Oregon, Villa, Emerald Plains\n\n### Balance Notes — Smigs Specific\n_No major balance changes to primary operators this season. Review GAME_06_CURRENT_SEASON.md for full patch notes._\n",
       "operators": {
         "atk": [
           {
             "name": "Thermite",
-            "rounds": 65,
-            "winRate": 47.7,
-            "kd": 1.34,
+            "rounds": 70,
+            "winRate": 45.7,
+            "kd": 1.39,
             "flag": "",
             "smallSample": false
           },
           {
             "name": "Hibana",
-            "rounds": 13,
-            "winRate": 15.4,
-            "kd": 1.18,
+            "rounds": 17,
+            "winRate": 41.2,
+            "kd": 1.33,
             "flag": "⚠️",
             "smallSample": false
           },
           {
-            "name": "Nomad",
+            "name": "Striker",
             "rounds": 12,
-            "winRate": 66.7,
-            "kd": 1.14,
-            "flag": "⭐",
+            "winRate": 33.3,
+            "kd": 0.73,
+            "flag": "⚠️",
             "smallSample": false
           },
           {
             "name": "Ace",
             "rounds": 11,
-            "winRate": 54.5,
-            "kd": 1.43,
-            "flag": "✅",
-            "smallSample": false
-          },
-          {
-            "name": "Striker",
-            "rounds": 11,
-            "winRate": 27.3,
-            "kd": 0.6,
-            "flag": "⚠️",
-            "smallSample": false
-          },
-          {
-            "name": "Osa",
-            "rounds": 6,
-            "winRate": 50,
-            "kd": 2.67,
+            "winRate": 45.5,
+            "kd": 1.12,
             "flag": "",
-            "smallSample": true
-          },
-          {
-            "name": "Capitao",
-            "rounds": 5,
-            "winRate": 20,
-            "kd": 0.6,
-            "flag": "",
-            "smallSample": true
+            "smallSample": false
           }
         ],
         "def": [
           {
-            "name": "Aruni",
-            "rounds": 30,
-            "winRate": 46.7,
-            "kd": 1.13,
+            "name": "Kaid",
+            "rounds": 34,
+            "winRate": 50,
+            "kd": 1.45,
             "flag": "",
             "smallSample": false
           },
           {
-            "name": "Kaid",
-            "rounds": 24,
-            "winRate": 58.3,
-            "kd": 1.92,
-            "flag": "✅",
+            "name": "Aruni",
+            "rounds": 27,
+            "winRate": 48.1,
+            "kd": 1,
+            "flag": "",
             "smallSample": false
           },
           {
             "name": "Bandit",
-            "rounds": 15,
-            "winRate": 73.3,
-            "kd": 1.22,
-            "flag": "⭐",
+            "rounds": 19,
+            "winRate": 57.9,
+            "kd": 0.92,
+            "flag": "✅",
             "smallSample": false
           },
           {
@@ -1945,8 +1833,16 @@
           },
           {
             "name": "Mute",
-            "rounds": 10,
-            "winRate": 70,
+            "rounds": 11,
+            "winRate": 63.6,
+            "kd": 1.29,
+            "flag": "⭐",
+            "smallSample": false
+          },
+          {
+            "name": "Nomad",
+            "rounds": 11,
+            "winRate": 72.7,
             "kd": 1.33,
             "flag": "⭐",
             "smallSample": false
@@ -1966,14 +1862,6 @@
             "kd": 0.8,
             "flag": "⭐",
             "smallSample": true
-          },
-          {
-            "name": "Melusi",
-            "rounds": 5,
-            "winRate": 20,
-            "kd": 0.6,
-            "flag": "",
-            "smallSample": true
           }
         ]
       },
@@ -1987,28 +1875,36 @@
           "defWr": 47.4
         },
         {
+          "map": "Consulate",
+          "matches": 6,
+          "winRate": 33.3,
+          "kd": 1.29,
+          "atkWr": 50,
+          "defWr": 42.1
+        },
+        {
+          "map": "Nighthaven Labs",
+          "matches": 6,
+          "winRate": 50,
+          "kd": 1,
+          "atkWr": 47.4,
+          "defWr": 50
+        },
+        {
+          "map": "Bank",
+          "matches": 5,
+          "winRate": 20,
+          "kd": 1.32,
+          "atkWr": 33.3,
+          "defWr": 38.5
+        },
+        {
           "map": "Clubhouse",
           "matches": 5,
           "winRate": 80,
           "kd": 1.08,
           "atkWr": 44.4,
           "defWr": 68.4
-        },
-        {
-          "map": "Consulate",
-          "matches": 5,
-          "winRate": 20,
-          "kd": 1.25,
-          "atkWr": 42.1,
-          "defWr": 43.8
-        },
-        {
-          "map": "Nighthaven Labs",
-          "matches": 5,
-          "winRate": 60,
-          "kd": 1.14,
-          "atkWr": 47.1,
-          "defWr": 60
         },
         {
           "map": "Villa",
@@ -2027,12 +1923,12 @@
           "defWr": 54.5
         },
         {
-          "map": "Bank",
+          "map": "Chalet",
           "matches": 3,
-          "winRate": 33.3,
-          "kd": 1.21,
-          "atkWr": 33.3,
-          "defWr": 55.6
+          "winRate": 66.7,
+          "kd": 1.3,
+          "atkWr": 85.7,
+          "defWr": 42.9
         },
         {
           "map": "Oregon",
@@ -2262,15 +2158,15 @@
         "rp": "3100",
         "kd": "1.08",
         "kda": "1.45",
-        "kills": "575",
-        "deaths": "532",
-        "winRate": "46.2%",
-        "matches": "117",
-        "hs": "50.3",
+        "kills": "631",
+        "deaths": "584",
+        "winRate": "45.0%",
+        "matches": "131",
+        "hs": "49.9",
         "esr": "0.60",
-        "clutches": "15",
-        "clutchWR": "14.2",
-        "ris": "55.2"
+        "clutches": "16",
+        "clutchWR": "13.6",
+        "ris": "54.3"
       },
       "coachingPriorities": [
         "Experiment with pulling Jackal back",
@@ -2331,31 +2227,39 @@
         }
       ],
       "teachingPattern": "Sarge's HS% is good (49.4%). Primary leverage: FFA warmup habit, role identity resolution (entry vs. utility), lean discipline, DEF setup habits. Mechanics-ceiling tips (donk slide, tracking aim training) are the growth path.",
-      "seasonContent": "# Sarge — Y11S1 (Operation Silent Hunt)\n\n_Season status: 🔲 Active — repull 2026-04-03 (117 ranked matches)_\n_Pull date: 2026-04-03 | Source: r6.tracker.network_\n\n---\n\n## Core Stats\n\n| Stat | Value |\n|------|-------|\n| Rank | Platinum IV |\n| RP | 3,100 |\n| Matches | 117 |\n| Win Rate | 46.2% |\n| K/D | 1.08 |\n| KDA | 1.45 |\n| Kills | 575 |\n| Deaths | 532 |\n| HS% | 50.3% |\n| ESR | 0.60 |\n| RIS | 55.2 |\n| Clutches Won | 15 |\n| Clutch Win% | 14.2% |\n\n> 117M sample — moderate confidence. Stats are meaningful.\n\n---\n\n## Operators\n\n_Format: Operator — Rounds | Win% | K/D (sorted by rounds played, ranked only)_\n_Season filter: season=41_\n\n**Attack**\n1. Zofia — 163r | 43.6% | 1.20\n2. Jackal — 62r | 32.3% | 1.18 ⚠️\n3. Capitao — 24r | 50.0% | 1.47\n4. Thatcher — 16r | 56.2% | 2.00 ✅\n5. Iana — 13r | 61.5% | 1.38 ⭐\n6. Sledge — 12r | 41.7% | 0.55 ⚠️\n7. Ying — 10r | 30.0% | 1.11 ⚠️\n8. Twitch — 9r | 22.2% | 0.25 ⚠️\n9. Amaru — 9r | 55.6% | 0.67 ✅\n10. Ash — 9r | 11.1% | 0.33 ⚠️\n11. Nomad — 8r | 50.0% | 0.71\n12. Buck — 7r | 28.6% | 0.43\n13. Thermite — 6r | 16.7% | 0.60\n14. Ace — 6r | 16.7% | 1.00\n15. Hibana — 5r | 40.0% | 0.60\n\n**Defense**\n1. Vigil — 105r | 56.2% | 1.39 ✅\n2. Azami — 62r | 59.7% | 1.24 ✅\n3. Mute — 33r | 48.5% | 0.73\n4. Smoke — 24r | 50.0% | 0.65\n5. Doc — 15r | 46.7% | 1.00\n6. Thunderbird — 15r | 53.3% | 1.40 ✅\n7. Melusi — 15r | 60.0% | 0.78 ⭐\n8. Thorn — 14r | 42.9% | 1.00\n9. Rook — 13r | 46.2% | 0.50\n10. Jager — 13r | 46.2% | 0.80\n11. Aruni — 12r | 58.3% | 1.12 ✅\n12. Goyo — 7r | 28.6% | 0.67\n13. Echo — 6r | 66.7% | 1.00\n14. Warden — 6r | 66.7% | 0.25\n\n**ATK identity:** Zofia is the primary ATK pick (163r / 43.6% / 1.20 K/D). Secondary: Jackal (62r / 32.3%).\n**DEF identity:** Vigil is the primary DEF anchor (105r / 56.2% / 1.39 K/D). Secondary: Azami (62r / 59.7%).\n\n---\n\n## Map Performance\n\n| Map | Matches | Win% | K/D | Atk% | Def% |\n|-----|---------|------|-----|------|------|\n| Border | 14 | 64.3% | 1.21 | 47.7% | 64.3% |\n| Oregon | 14 | 28.6% | 0.97 | 35.0% | 42.9% |\n| Clubhouse | 11 | 72.7% | 1.29 | 48.6% | 63.9% |\n| Consulate | 11 | 27.3% | 1.30 | 40.0% | 50.0% |\n| Nighthaven Labs | 11 | 36.4% | 1.00 | 37.8% | 50.0% |\n| Chalet | 10 | 60.0% | 1.27 | 51.5% | 64.5% |\n| Bank | 9 | 55.6% | 1.00 | 33.3% | 62.5% |\n| Coastline | 9 | 66.7% | 0.93 | 57.7% | 55.6% |\n| Villa | 8 | 37.5% | 1.12 | 39.3% | 50.0% |\n| Kafe Dostoyevsky | 6 | 50.0% | 1.17 | 38.1% | 61.9% |\n| Emerald Plains | 5 | 0.0% | 0.52 | 8.3% | 42.9% |\n| Fortress | 5 | 40.0% | 0.76 | 42.1% | 43.8% |\n| Lair | 4 | 25.0% | 1.12 | 20.0% | 50.0% |\n\n_Pulled 2026-04-03 — 117 ranked matches._\n---\n\n## Season Coaching Notes\n\n- **⚠️ ATK: Jackal (62r / 32.3%) is trending significantly below the rest of the pool.** Worth examining whether to pull back on it — the intel value may not be translating to round wins in team play. Consider giving those rounds to Zofia or Thatcher for a stretch and see if results shift.\n- **⚠️ ATK: Zofia at 43.6% WR over 163r is solid but slightly below 45%.** The Jackal rounds dragging the average is one possible factor — worth watching as Zofia continues to build volume.\n- **🗺️ Oregon (14M / 28.6%) — both ATK (35.0%) and DEF (42.9%) are trending poorly.** Worth flagging in the ban discussion — 14 matches is a real sample.\n- **🗺️ Consulate (11M / 27.3%) — ATK side at 40.0% is where the loss is concentrated.** Consider raising this with the group.\n- **✅ Clubhouse (72.7%), Coastline (66.7%), Border (64.3%), Chalet (60.0%) — personal map strengths worth protecting in ban phase.**\n- **✅ DEF identity is strong.** Vigil (105r / 56.2%) + Azami (62r / 59.7%) are both producing well — keep building.\n\n---\n\n## Data Flags\n\n- 🔲 Active — 117 ranked matches as of 2026-04-03\n- ⭐ Iana ATK (13r / 61.5%) — strong signal\n- ⭐ Melusi DEF (15r / 60.0%) — strong signal\n- 📍 Map data threshold reached — pull maps next session\n\n---\n\n## Y11S1 Opening Context\n\n### Map Pool — Y11S1 Launch\nBank, Border, Chalet, Clubhouse, Coastline, Consulate, Fortress, Kafe Dostoyevsky, Lair, Nighthaven Labs, Oregon, Villa, Emerald Plains\n\n### Balance Notes — Sarge Specific\n_No major balance changes to primary operators this season. Review GAME_06_CURRENT_SEASON.md for full patch notes._\n",
+      "seasonContent": "# Sarge — Y11S1 (Operation Silent Hunt)\n\n_Season status: 🔲 Active — repull 2026-04-10 (131 ranked matches)_\n_Pull date: 2026-04-10 | Source: r6.tracker.network_\n\n---\n\n## Core Stats\n\n| Stat | Value |\n|------|-------|\n| Rank | Platinum IV |\n| RP | 3,100 |\n| Matches | 131 |\n| Win Rate | 45.0% |\n| K/D | 1.08 |\n| KDA | 1.45 |\n| Kills | 631 |\n| Deaths | 584 |\n| HS% | 49.9% |\n| ESR | 0.60 |\n| RIS | 54.3 |\n| Clutches Won | 16 |\n| Clutch Win% | 13.6% |\n\n> 131M sample — moderate confidence. Stats are meaningful.\n\n---\n\n## Operators\n\n_Format: Operator — Rounds | Win% | K/D (sorted by rounds played, ranked only)_\n_Season filter: season=41_\n\n**Attack**\n1. Zofia — 167r | 44.3% | 1.23\n2. Jackal — 63r | 33.3% | 1.23 ⚠️\n3. Capitão — 26r | 50.0% | 1.56\n4. Ash — 18r | 22.2% | 0.62 ⚠️\n5. Thatcher — 16r | 56.2% | 2.00 ✅\n6. Iana — 14r | 57.1% | 1.44 ✅\n7. Sledge — 12r | 41.7% | 0.55 ⚠️\n8. Amaru — 11r | 63.6% | 0.73 ⭐\n9. Ram — 10r | 70.0% | 2.00 ⭐\n10. Ying — 10r | 30.0% | 1.11 ⚠️\n11. Twitch — 9r | 22.2% | 0.25 ⚠️\n\n**Defense**\n1. Vigil — 108r | 55.6% | 1.40 ✅\n2. Azami — 64r | 57.8% | 1.18 ✅\n3. Mute — 34r | 47.1% | 0.70\n4. Smoke — 24r | 50.0% | 0.65\n5. Aruni — 19r | 52.6% | 1.23 ✅\n6. Doc — 19r | 47.4% | 0.93\n7. Melusi — 18r | 66.7% | 1.10 ⭐\n8. Thunderbird — 15r | 53.3% | 1.40 ✅\n9. Thorn — 15r | 40.0% | 1.00 ⚠️\n10. Jäger — 13r | 46.2% | 0.80\n11. Rook — 13r | 46.2% | 0.50\n12. Nomad — 10r | 50.0% | 0.56\n13. Goyo — 8r | 37.5% | 0.83 ⚠️\n14. Mira — 8r | 62.5% | 0.67 ⭐\n\n**ATK identity:** Zofia is the primary ATK pick (167r / 44.3% / 1.23 K/D). Secondary: Jackal (63r / 33.3%).\n**DEF identity:** Vigil is the primary DEF anchor (108r / 55.6% / 1.40 K/D). Secondary: Azami (64r / 57.8%).\n\n---\n\n## Map Performance\n\n| Map | Matches | Win% | K/D | Atk% | Def% |\n|-----|---------|------|-----|------|------|\n| Border | 15 | 66.7% | 1.27 | 48.9% | 66.7% |\n| Oregon | 15 | 26.7% | 0.99 | 33.3% | 42.2% |\n| Chalet | 13 | 61.5% | 1.37 | 57.5% | 60.5% |\n| Consulate | 13 | 30.8% | 1.25 | 41.7% | 51.2% |\n| Bank | 12 | 41.7% | 0.91 | 33.3% | 50.0% |\n| Clubhouse | 12 | 66.7% | 1.22 | 48.7% | 59.0% |\n| Nighthaven Labs | 12 | 33.3% | 1.00 | 38.5% | 46.2% |\n| Coastline | 10 | 70.0% | 0.93 | 58.6% | 58.6% |\n| Villa | 9 | 33.3% | 1.09 | 37.9% | 44.8% |\n| Kafe Dostoyevsky | 6 | 50.0% | 1.17 | 38.1% | 61.9% |\n| Emerald Plains | 5 | 0.0% | 0.52 | 8.3% | 42.9% |\n| Fortress | 5 | 40.0% | 0.76 | 42.1% | 43.8% |\n| Lair | 4 | 25.0% | 1.12 | 20.0% | 50.0% |\n\n_Pulled 2026-04-10 — 131 ranked matches._\n\n---\n\n## Season Coaching Notes\n\n- **⚠️ Ash ATK (18r / 22.2%)** — significant round volume on a very low-WR op. Reduce or eliminate.\n- **Map data threshold reached** (131M ≥ 30) — pull map data next session.\n\n---\n\n## Data Flags\n\n- 🔲 Active — 131 ranked matches as of 2026-04-10\n- ⭐ Amaru ATK (11r / 63.6%) — strong signal\n- ⭐ Ram ATK (10r / 70.0%) — strong signal\n- ⭐ Melusi DEF (18r / 66.7%) — strong signal\n- ⭐ Mira DEF (8r / 62.5%) — strong signal\n- 📍 Map data threshold reached — pull maps next session\n\n---\n\n## Y11S1 Opening Context\n\n### Map Pool — Y11S1 Launch\nBank, Border, Chalet, Clubhouse, Coastline, Consulate, Fortress, Kafe Dostoyevsky, Lair, Nighthaven Labs, Oregon, Villa, Emerald Plains\n\n### Balance Notes — Sarge Specific\n_No major balance changes to primary operators this season. Review GAME_06_CURRENT_SEASON.md for full patch notes._\n",
       "operators": {
         "atk": [
           {
             "name": "Zofia",
-            "rounds": 163,
-            "winRate": 43.6,
-            "kd": 1.2,
+            "rounds": 167,
+            "winRate": 44.3,
+            "kd": 1.23,
             "flag": "",
             "smallSample": false
           },
           {
             "name": "Jackal",
-            "rounds": 62,
-            "winRate": 32.3,
-            "kd": 1.18,
+            "rounds": 63,
+            "winRate": 33.3,
+            "kd": 1.23,
             "flag": "⚠️",
             "smallSample": false
           },
           {
-            "name": "Capitao",
-            "rounds": 24,
+            "name": "Capitão",
+            "rounds": 26,
             "winRate": 50,
-            "kd": 1.47,
+            "kd": 1.56,
             "flag": "",
+            "smallSample": false
+          },
+          {
+            "name": "Ash",
+            "rounds": 18,
+            "winRate": 22.2,
+            "kd": 0.62,
+            "flag": "⚠️",
             "smallSample": false
           },
           {
@@ -2368,10 +2272,10 @@
           },
           {
             "name": "Iana",
-            "rounds": 13,
-            "winRate": 61.5,
-            "kd": 1.38,
-            "flag": "⭐",
+            "rounds": 14,
+            "winRate": 57.1,
+            "kd": 1.44,
+            "flag": "✅",
             "smallSample": false
           },
           {
@@ -2380,6 +2284,22 @@
             "winRate": 41.7,
             "kd": 0.55,
             "flag": "⚠️",
+            "smallSample": false
+          },
+          {
+            "name": "Amaru",
+            "rounds": 11,
+            "winRate": 63.6,
+            "kd": 0.73,
+            "flag": "⭐",
+            "smallSample": false
+          },
+          {
+            "name": "Ram",
+            "rounds": 10,
+            "winRate": 70,
+            "kd": 2,
+            "flag": "⭐",
             "smallSample": false
           },
           {
@@ -2397,86 +2317,30 @@
             "kd": 0.25,
             "flag": "⚠️",
             "smallSample": true
-          },
-          {
-            "name": "Amaru",
-            "rounds": 9,
-            "winRate": 55.6,
-            "kd": 0.67,
-            "flag": "✅",
-            "smallSample": true
-          },
-          {
-            "name": "Ash",
-            "rounds": 9,
-            "winRate": 11.1,
-            "kd": 0.33,
-            "flag": "⚠️",
-            "smallSample": true
-          },
-          {
-            "name": "Nomad",
-            "rounds": 8,
-            "winRate": 50,
-            "kd": 0.71,
-            "flag": "",
-            "smallSample": true
-          },
-          {
-            "name": "Buck",
-            "rounds": 7,
-            "winRate": 28.6,
-            "kd": 0.43,
-            "flag": "",
-            "smallSample": true
-          },
-          {
-            "name": "Thermite",
-            "rounds": 6,
-            "winRate": 16.7,
-            "kd": 0.6,
-            "flag": "",
-            "smallSample": true
-          },
-          {
-            "name": "Ace",
-            "rounds": 6,
-            "winRate": 16.7,
-            "kd": 1,
-            "flag": "",
-            "smallSample": true
-          },
-          {
-            "name": "Hibana",
-            "rounds": 5,
-            "winRate": 40,
-            "kd": 0.6,
-            "flag": "",
-            "smallSample": true
           }
         ],
         "def": [
           {
             "name": "Vigil",
-            "rounds": 105,
-            "winRate": 56.2,
-            "kd": 1.39,
+            "rounds": 108,
+            "winRate": 55.6,
+            "kd": 1.4,
             "flag": "✅",
             "smallSample": false
           },
           {
             "name": "Azami",
-            "rounds": 62,
-            "winRate": 59.7,
-            "kd": 1.24,
+            "rounds": 64,
+            "winRate": 57.8,
+            "kd": 1.18,
             "flag": "✅",
             "smallSample": false
           },
           {
             "name": "Mute",
-            "rounds": 33,
-            "winRate": 48.5,
-            "kd": 0.73,
+            "rounds": 34,
+            "winRate": 47.1,
+            "kd": 0.7,
             "flag": "",
             "smallSample": false
           },
@@ -2489,11 +2353,27 @@
             "smallSample": false
           },
           {
+            "name": "Aruni",
+            "rounds": 19,
+            "winRate": 52.6,
+            "kd": 1.23,
+            "flag": "✅",
+            "smallSample": false
+          },
+          {
             "name": "Doc",
-            "rounds": 15,
-            "winRate": 46.7,
-            "kd": 1,
+            "rounds": 19,
+            "winRate": 47.4,
+            "kd": 0.93,
             "flag": "",
+            "smallSample": false
+          },
+          {
+            "name": "Melusi",
+            "rounds": 18,
+            "winRate": 66.7,
+            "kd": 1.1,
+            "flag": "⭐",
             "smallSample": false
           },
           {
@@ -2505,18 +2385,18 @@
             "smallSample": false
           },
           {
-            "name": "Melusi",
+            "name": "Thorn",
             "rounds": 15,
-            "winRate": 60,
-            "kd": 0.78,
-            "flag": "⭐",
+            "winRate": 40,
+            "kd": 1,
+            "flag": "⚠️",
             "smallSample": false
           },
           {
-            "name": "Thorn",
-            "rounds": 14,
-            "winRate": 42.9,
-            "kd": 1,
+            "name": "Jäger",
+            "rounds": 13,
+            "winRate": 46.2,
+            "kd": 0.8,
             "flag": "",
             "smallSample": false
           },
@@ -2529,43 +2409,27 @@
             "smallSample": false
           },
           {
-            "name": "Jager",
-            "rounds": 13,
-            "winRate": 46.2,
-            "kd": 0.8,
+            "name": "Nomad",
+            "rounds": 10,
+            "winRate": 50,
+            "kd": 0.56,
             "flag": "",
-            "smallSample": false
-          },
-          {
-            "name": "Aruni",
-            "rounds": 12,
-            "winRate": 58.3,
-            "kd": 1.12,
-            "flag": "✅",
             "smallSample": false
           },
           {
             "name": "Goyo",
-            "rounds": 7,
-            "winRate": 28.6,
+            "rounds": 8,
+            "winRate": 37.5,
+            "kd": 0.83,
+            "flag": "⚠️",
+            "smallSample": true
+          },
+          {
+            "name": "Mira",
+            "rounds": 8,
+            "winRate": 62.5,
             "kd": 0.67,
-            "flag": "",
-            "smallSample": true
-          },
-          {
-            "name": "Echo",
-            "rounds": 6,
-            "winRate": 66.7,
-            "kd": 1,
-            "flag": "",
-            "smallSample": true
-          },
-          {
-            "name": "Warden",
-            "rounds": 6,
-            "winRate": 66.7,
-            "kd": 0.25,
-            "flag": "",
+            "flag": "⭐",
             "smallSample": true
           }
         ]
@@ -2573,75 +2437,75 @@
       "mapPerformance": [
         {
           "map": "Border",
-          "matches": 14,
-          "winRate": 64.3,
-          "kd": 1.21,
-          "atkWr": 47.7,
-          "defWr": 64.3
+          "matches": 15,
+          "winRate": 66.7,
+          "kd": 1.27,
+          "atkWr": 48.9,
+          "defWr": 66.7
         },
         {
           "map": "Oregon",
-          "matches": 14,
-          "winRate": 28.6,
-          "kd": 0.97,
-          "atkWr": 35,
-          "defWr": 42.9
-        },
-        {
-          "map": "Clubhouse",
-          "matches": 11,
-          "winRate": 72.7,
-          "kd": 1.29,
-          "atkWr": 48.6,
-          "defWr": 63.9
-        },
-        {
-          "map": "Consulate",
-          "matches": 11,
-          "winRate": 27.3,
-          "kd": 1.3,
-          "atkWr": 40,
-          "defWr": 50
-        },
-        {
-          "map": "Nighthaven Labs",
-          "matches": 11,
-          "winRate": 36.4,
-          "kd": 1,
-          "atkWr": 37.8,
-          "defWr": 50
+          "matches": 15,
+          "winRate": 26.7,
+          "kd": 0.99,
+          "atkWr": 33.3,
+          "defWr": 42.2
         },
         {
           "map": "Chalet",
-          "matches": 10,
-          "winRate": 60,
-          "kd": 1.27,
-          "atkWr": 51.5,
-          "defWr": 64.5
+          "matches": 13,
+          "winRate": 61.5,
+          "kd": 1.37,
+          "atkWr": 57.5,
+          "defWr": 60.5
+        },
+        {
+          "map": "Consulate",
+          "matches": 13,
+          "winRate": 30.8,
+          "kd": 1.25,
+          "atkWr": 41.7,
+          "defWr": 51.2
         },
         {
           "map": "Bank",
-          "matches": 9,
-          "winRate": 55.6,
-          "kd": 1,
+          "matches": 12,
+          "winRate": 41.7,
+          "kd": 0.91,
           "atkWr": 33.3,
-          "defWr": 62.5
+          "defWr": 50
+        },
+        {
+          "map": "Clubhouse",
+          "matches": 12,
+          "winRate": 66.7,
+          "kd": 1.22,
+          "atkWr": 48.7,
+          "defWr": 59
+        },
+        {
+          "map": "Nighthaven Labs",
+          "matches": 12,
+          "winRate": 33.3,
+          "kd": 1,
+          "atkWr": 38.5,
+          "defWr": 46.2
         },
         {
           "map": "Coastline",
-          "matches": 9,
-          "winRate": 66.7,
+          "matches": 10,
+          "winRate": 70,
           "kd": 0.93,
-          "atkWr": 57.7,
-          "defWr": 55.6
+          "atkWr": 58.6,
+          "defWr": 58.6
         },
         {
           "map": "Villa",
-          "matches": 8,
-          "winRate": 37.5,
-          "kd": 1.12,
-          "atkWr": 39.3,
-          "defWr": 50
+          "matches": 9,
+          "winRate": 33.3,
+          "kd": 1.09,
+          "atkWr": 37.9,
+          "defWr": 44.8
         },
         {
           "map": "Kafe Dostoyevsky",
@@ -2905,23 +2769,23 @@
       "team": "B Team",
       "role": "Flex / Solo",
       "bio": "An adaptable solo queue veteran who thrives in isolated duels and 1v1 situations. One of the most active players by match count — comfortable running whatever role the team needs.",
-      "atkOps": "Buck / Thermite",
+      "atkOps": "Buck / Jackal",
       "defOps": "Valkyrie / Solis",
       "season": "Y11S1",
       "stats": {
-        "rank": "Platinum IV",
-        "rp": "3100",
-        "kd": "1.02",
-        "kda": "1.37",
-        "kills": "307",
-        "deaths": "300",
-        "winRate": "40.3%",
-        "matches": "62",
-        "hs": "50.8",
-        "esr": "0.40",
-        "clutches": "5",
-        "clutchWR": "15.2",
-        "ris": "44"
+        "rank": "Platinum I",
+        "rp": "3411",
+        "kd": "1.07",
+        "kda": "1.42",
+        "kills": "377",
+        "deaths": "351",
+        "winRate": "45.2%",
+        "matches": "73",
+        "hs": "51.2",
+        "esr": "0.41",
+        "clutches": "7",
+        "clutchWR": "17.5",
+        "ris": "46.5"
       },
       "coachingPriorities": [
         "Consider giving Zero and Capitao more ATK volume",
@@ -2985,63 +2849,95 @@
         }
       ],
       "teachingPattern": "Strong on winning the right fights. Primary coaching leverage: FFA warmup habit (data suggests cold-start performance dip), roaming discipline (time over kills), and cover-mechanics refinement. B Team context: ATK op restructure (drop Buck/Solid Snake, build Zero/Jackal/Thermite) is the priority work this period.",
-      "seasonContent": "# Slug — Y11S1 (Operation Silent Hunt)\n\n_Season status: 🔲 Active — repull 2026-04-03 (62 ranked matches)_\n_Pull date: 2026-04-03 | Source: r6.tracker.network_\n\n---\n\n## Core Stats\n\n| Stat | Value |\n|------|-------|\n| Rank | Platinum IV |\n| RP | 3,100 |\n| Matches | 62 |\n| Win Rate | 40.3% |\n| K/D | 1.02 |\n| KDA | 1.37 |\n| Kills | 307 |\n| Deaths | 300 |\n| HS% | 50.8% |\n| ESR | 0.40 |\n| RIS | 44 |\n| Clutches Won | 5 |\n| Clutch Win% | 15.2% |\n\n> 62M sample — moderate confidence. Stats are meaningful.\n\n---\n\n## Operators\n\n_Format: Operator — Rounds | Win% | K/D (sorted by rounds played, ranked only)_\n_Season filter: season=41_\n\n**Attack**\n1. Solid Snake — 26r | 30.8% | 0.76 ⚠️\n2. Buck — 23r | 21.7% | 1.15 ⚠️\n3. Thermite — 20r | 55.0% | 0.81 ✅\n4. Jackal — 20r | 45.0% | 1.77\n5. Hibana — 17r | 41.2% | 1.38 ⚠️\n6. Zero — 10r | 70.0% | 2.00 ⭐\n7. Capitao — 9r | 66.7% | 0.40 ⭐\n8. Maverick — 8r | 25.0% | 0.50 ⚠️\n9. Deimos — 8r | 50.0% | 1.00\n10. Ash — 8r | 50.0% | 0.57\n11. Sens — 6r | 33.3% | 1.50\n12. Ace — 5r | 40.0% | 1.50\n13. Flores — 5r | 40.0% | 2.00\n14. Montagne — 5r | 20.0% | 0.20\n\n**Defense**\n1. Valkyrie — 58r | 67.2% | 1.21 ⭐\n2. Solis — 25r | 60.0% | 2.00 ⭐\n3. Smoke — 23r | 43.5% | 0.65\n4. Kaid — 11r | 45.5% | 1.11\n5. Castle — 10r | 60.0% | 0.89 ⭐\n6. Mute — 9r | 33.3% | 0.71 ⚠️\n7. Frost — 6r | 83.3% | 1.33\n8. Echo — 6r | 50.0% | 0.20\n9. Warden — 5r | 40.0% | 0.50\n10. Caveira — 5r | 40.0% | 0.00\n11. Pulse — 5r | 40.0% | 0.75\n\n**ATK identity:** Solid Snake is the primary ATK pick (26r / 30.8% / 0.76 K/D). Secondary: Buck (23r / 21.7%).\n**DEF identity:** Valkyrie is the primary DEF anchor (58r / 67.2% / 1.21 K/D). Secondary: Solis (25r / 60.0%).\n\n---\n\n## Map Performance\n\n| Map | Matches | Win% | K/D | Atk% | Def% |\n|-----|---------|------|-----|------|------|\n| Oregon | 10 | 50.0% | 1.20 | 43.3% | 53.3% |\n| Border | 8 | 50.0% | 0.95 | 42.9% | 62.5% |\n| Villa | 7 | 28.6% | 1.06 | 45.8% | 45.5% |\n| Coastline | 6 | 50.0% | 1.10 | 60.0% | 40.0% |\n| Nighthaven Labs | 6 | 16.7% | 0.75 | 35.0% | 47.1% |\n| Consulate | 5 | 40.0% | 1.00 | 47.4% | 55.6% |\n| Fortress | 4 | 25.0% | 1.26 | 40.0% | 46.7% |\n| Kafe Dostoyevsky | 4 | 50.0% | 1.12 | 33.3% | 62.5% |\n| Bank | 3 | 66.7% | 1.00 | 42.9% | 66.7% |\n| Lair | 3 | 0.0% | 0.50 | 14.3% | 37.5% |\n| Chalet | 2 | 100.0% | 3.25 | 100.0% | 100.0% |\n| Clubhouse | 2 | 50.0% | 0.58 | 57.1% | 50.0% |\n| Emerald Plains | 2 | 0.0% | 0.78 | 0.0% | 50.0% |\n\n_Pulled 2026-04-03 — 62 ranked matches._\n\n---\n\n## Season Coaching Notes\n\n- **⚠️ ATK: Solid Snake (26r / 30.8%) and Buck (23r / 21.7%) are trending low as your top two picks.** Worth exploring whether Zero (10r / 70.0% ⭐) or Capitao (9r / 66.7% ⭐) should be getting more of those rounds — both are producing significantly better in smaller samples.\n- **✅ DEF: Valkyrie (58r / 67.2%) is elite — anchor is locked in.** Solis (25r / 60.0% ⭐) is a strong second. Keep building both.\n- **🗺️ Nighthaven Labs (6M / 16.7%) — worth flagging in any ban discussion.**\n- **🗺️ Oregon (10M / 50.0%) and Border (8M / 50.0%) — steadiest maps, positive K/D on both.**\n\n---\n\n## Data Flags\n\n- 🔲 Active — 62 ranked matches as of 2026-04-03\n- ⭐ Zero ATK (10r / 70.0%) — strong signal\n- ⭐ Capitao ATK (9r / 66.7%) — strong signal\n- ⭐ Valkyrie DEF (58r / 67.2%) — strong signal\n- ⭐ Solis DEF (25r / 60.0%) — strong signal\n- ⭐ Castle DEF (10r / 60.0%) — strong signal\n- 📍 Map data threshold reached — pull maps next session\n\n---\n\n## Y11S1 Opening Context\n\n### Map Pool — Y11S1 Launch\nBank, Border, Chalet, Clubhouse, Coastline, Consulate, Fortress, Kafe Dostoyevsky, Lair, Nighthaven Labs, Oregon, Villa, Emerald Plains\n\n### Balance Notes — Slug Specific\n_No major balance changes to primary operators this season. Review GAME_06_CURRENT_SEASON.md for full patch notes._\n",
+      "seasonContent": "# Slug — Y11S1 (Operation Silent Hunt)\n\n_Season status: 🔲 Active — repull 2026-04-10 (73 ranked matches)_\n_Pull date: 2026-04-10 | Source: r6.tracker.network_\n\n---\n\n## Core Stats\n\n| Stat | Value |\n|------|-------|\n| Rank | Platinum I |\n| RP | 3,411 |\n| Matches | 73 |\n| Win Rate | 45.2% |\n| K/D | 1.07 |\n| KDA | 1.42 |\n| Kills | 377 |\n| Deaths | 351 |\n| HS% | 51.2% |\n| ESR | 0.41 |\n| RIS | 46.5 |\n| Clutches Won | 7 |\n| Clutch Win% | 17.5% |\n\n> 73M sample — moderate confidence. Stats are meaningful.\n\n---\n\n## Operators\n\n_Format: Operator — Rounds | Win% | K/D (sorted by rounds played, ranked only)_\n_Season filter: season=41_\n\n**Attack**\n1. Solid Snake — 25r | 32.0% | 0.75 ⚠️\n2. Buck — 24r | 20.8% | 1.14 ⚠️\n3. Jackal — 23r | 43.5% | 1.73\n4. Thermite — 21r | 52.4% | 0.88 ✅\n5. Hibana — 19r | 42.1% | 1.36\n6. Zero — 14r | 64.3% | 2.00 ⭐\n7. Capitão — 12r | 58.3% | 0.25 ✅\n8. Ash — 9r | 55.6% | 0.86 ✅\n9. Sens — 9r | 44.4% | 1.50\n10. Blackbeard — 9r | 66.7% | 2.00 ⭐\n11. Flores — 9r | 55.6% | 1.33 ✅\n12. Maverick — 8r | 25.0% | 0.50 ⚠️\n13. Deimos — 8r | 50.0% | 1.00\n\n**Defense**\n1. Valkyrie — 64r | 65.6% | 1.26 ⭐\n2. Solis — 33r | 63.6% | 1.91 ⭐\n3. Smoke — 26r | 50.0% | 0.68\n4. Kaid — 13r | 46.2% | 1.18\n5. Castle — 12r | 66.7% | 0.91 ⭐\n6. Mute — 9r | 33.3% | 0.71 ⚠️\n7. Echo — 8r | 37.5% | 0.29 ⚠️\n8. Frost — 8r | 75.0% | 1.25 ⭐\n\n**ATK identity:** Solid Snake is the primary ATK pick (25r / 32.0% / 0.75 K/D). Secondary: Buck (24r / 20.8%).\n**DEF identity:** Valkyrie is the primary DEF anchor (64r / 65.6% / 1.26 K/D). Secondary: Solis (33r / 63.6%).\n\n---\n\n## Map Performance\n\n| Map | Matches | Win% | K/D | Atk% | Def% |\n|-----|---------|------|-----|------|------|\n| Oregon | 10 | 50.0% | 1.20 | 43.3% | 53.3% |\n| Border | 9 | 55.6% | 1.07 | 41.9% | 66.7% |\n| Coastline | 9 | 44.4% | 1.21 | 57.7% | 39.1% |\n| Villa | 8 | 37.5% | 1.12 | 46.4% | 48.1% |\n| Nighthaven Labs | 7 | 28.6% | 0.81 | 39.1% | 50.0% |\n| Consulate | 6 | 50.0% | 1.22 | 50.0% | 61.9% |\n| Bank | 5 | 60.0% | 1.15 | 46.2% | 57.1% |\n| Fortress | 5 | 40.0% | 1.18 | 44.4% | 52.9% |\n| Kafe Dostoyevsky | 4 | 50.0% | 1.12 | 33.3% | 62.5% |\n| Chalet | 3 | 100.0% | 1.45 | 75.0% | 87.5% |\n| Lair | 3 | 0.0% | 0.50 | 14.3% | 37.5% |\n| Clubhouse | 2 | 50.0% | 0.58 | 57.1% | 50.0% |\n| Emerald Plains | 2 | 0.0% | 0.78 | 0.0% | 50.0% |\n\n_Pulled 2026-04-10 — 73 ranked matches._\n\n---\n\n## Season Coaching Notes\n\n- **⚠️ Solid Snake ATK (25r / 32.0% / 0.75 K/D)** — primary ATK pick is underperforming at this volume. Consider reducing rounds here until WR recovers.\n- **⭐ Valkyrie DEF (64r / 65.6%)** — primary DEF pick is a strong anchor. Keep building here.\n- **⚠️ Buck ATK (24r / 20.8%)** — significant round volume on a very low-WR op. Reduce or eliminate.\n- **Map data threshold reached** (73M ≥ 30) — pull map data next session.\n\n---\n\n## Data Flags\n\n- 🔲 Active — 73 ranked matches as of 2026-04-10\n- ⭐ Zero ATK (14r / 64.3%) — strong signal\n- ⭐ Blackbeard ATK (9r / 66.7%) — strong signal\n- ⭐ Valkyrie DEF (64r / 65.6%) — strong signal\n- ⭐ Solis DEF (33r / 63.6%) — strong signal\n- ⭐ Castle DEF (12r / 66.7%) — strong signal\n- ⭐ Frost DEF (8r / 75.0%) — strong signal\n- 📍 Map data threshold reached — pull maps next session\n\n---\n\n## Y11S1 Opening Context\n\n### Map Pool — Y11S1 Launch\nBank, Border, Chalet, Clubhouse, Coastline, Consulate, Fortress, Kafe Dostoyevsky, Lair, Nighthaven Labs, Oregon, Villa, Emerald Plains\n\n### Balance Notes — Slug Specific\n_No major balance changes to primary operators this season. Review GAME_06_CURRENT_SEASON.md for full patch notes._\n",
       "operators": {
         "atk": [
           {
             "name": "Solid Snake",
-            "rounds": 26,
-            "winRate": 30.8,
-            "kd": 0.76,
+            "rounds": 25,
+            "winRate": 32,
+            "kd": 0.75,
             "flag": "⚠️",
             "smallSample": false
           },
           {
             "name": "Buck",
-            "rounds": 23,
-            "winRate": 21.7,
-            "kd": 1.15,
+            "rounds": 24,
+            "winRate": 20.8,
+            "kd": 1.14,
             "flag": "⚠️",
-            "smallSample": false
-          },
-          {
-            "name": "Thermite",
-            "rounds": 20,
-            "winRate": 55,
-            "kd": 0.81,
-            "flag": "✅",
             "smallSample": false
           },
           {
             "name": "Jackal",
-            "rounds": 20,
-            "winRate": 45,
-            "kd": 1.77,
+            "rounds": 23,
+            "winRate": 43.5,
+            "kd": 1.73,
             "flag": "",
             "smallSample": false
           },
           {
+            "name": "Thermite",
+            "rounds": 21,
+            "winRate": 52.4,
+            "kd": 0.88,
+            "flag": "✅",
+            "smallSample": false
+          },
+          {
             "name": "Hibana",
-            "rounds": 17,
-            "winRate": 41.2,
-            "kd": 1.38,
-            "flag": "⚠️",
+            "rounds": 19,
+            "winRate": 42.1,
+            "kd": 1.36,
+            "flag": "",
             "smallSample": false
           },
           {
             "name": "Zero",
-            "rounds": 10,
-            "winRate": 70,
+            "rounds": 14,
+            "winRate": 64.3,
             "kd": 2,
             "flag": "⭐",
             "smallSample": false
           },
           {
-            "name": "Capitao",
+            "name": "Capitão",
+            "rounds": 12,
+            "winRate": 58.3,
+            "kd": 0.25,
+            "flag": "✅",
+            "smallSample": false
+          },
+          {
+            "name": "Ash",
+            "rounds": 9,
+            "winRate": 55.6,
+            "kd": 0.86,
+            "flag": "✅",
+            "smallSample": true
+          },
+          {
+            "name": "Sens",
+            "rounds": 9,
+            "winRate": 44.4,
+            "kd": 1.5,
+            "flag": "",
+            "smallSample": true
+          },
+          {
+            "name": "Blackbeard",
             "rounds": 9,
             "winRate": 66.7,
-            "kd": 0.4,
+            "kd": 2,
             "flag": "⭐",
+            "smallSample": true
+          },
+          {
+            "name": "Flores",
+            "rounds": 9,
+            "winRate": 55.6,
+            "kd": 1.33,
+            "flag": "✅",
             "smallSample": true
           },
           {
@@ -3059,86 +2955,46 @@
             "kd": 1,
             "flag": "",
             "smallSample": true
-          },
-          {
-            "name": "Ash",
-            "rounds": 8,
-            "winRate": 50,
-            "kd": 0.57,
-            "flag": "",
-            "smallSample": true
-          },
-          {
-            "name": "Sens",
-            "rounds": 6,
-            "winRate": 33.3,
-            "kd": 1.5,
-            "flag": "",
-            "smallSample": true
-          },
-          {
-            "name": "Ace",
-            "rounds": 5,
-            "winRate": 40,
-            "kd": 1.5,
-            "flag": "",
-            "smallSample": true
-          },
-          {
-            "name": "Flores",
-            "rounds": 5,
-            "winRate": 40,
-            "kd": 2,
-            "flag": "",
-            "smallSample": true
-          },
-          {
-            "name": "Montagne",
-            "rounds": 5,
-            "winRate": 20,
-            "kd": 0.2,
-            "flag": "",
-            "smallSample": true
           }
         ],
         "def": [
           {
             "name": "Valkyrie",
-            "rounds": 58,
-            "winRate": 67.2,
-            "kd": 1.21,
+            "rounds": 64,
+            "winRate": 65.6,
+            "kd": 1.26,
             "flag": "⭐",
             "smallSample": false
           },
           {
             "name": "Solis",
-            "rounds": 25,
-            "winRate": 60,
-            "kd": 2,
+            "rounds": 33,
+            "winRate": 63.6,
+            "kd": 1.91,
             "flag": "⭐",
             "smallSample": false
           },
           {
             "name": "Smoke",
-            "rounds": 23,
-            "winRate": 43.5,
-            "kd": 0.65,
+            "rounds": 26,
+            "winRate": 50,
+            "kd": 0.68,
             "flag": "",
             "smallSample": false
           },
           {
             "name": "Kaid",
-            "rounds": 11,
-            "winRate": 45.5,
-            "kd": 1.11,
+            "rounds": 13,
+            "winRate": 46.2,
+            "kd": 1.18,
             "flag": "",
             "smallSample": false
           },
           {
             "name": "Castle",
-            "rounds": 10,
-            "winRate": 60,
-            "kd": 0.89,
+            "rounds": 12,
+            "winRate": 66.7,
+            "kd": 0.91,
             "flag": "⭐",
             "smallSample": false
           },
@@ -3151,43 +3007,19 @@
             "smallSample": true
           },
           {
-            "name": "Frost",
-            "rounds": 6,
-            "winRate": 83.3,
-            "kd": 1.33,
-            "flag": "",
-            "smallSample": true
-          },
-          {
             "name": "Echo",
-            "rounds": 6,
-            "winRate": 50,
-            "kd": 0.2,
-            "flag": "",
+            "rounds": 8,
+            "winRate": 37.5,
+            "kd": 0.29,
+            "flag": "⚠️",
             "smallSample": true
           },
           {
-            "name": "Warden",
-            "rounds": 5,
-            "winRate": 40,
-            "kd": 0.5,
-            "flag": "",
-            "smallSample": true
-          },
-          {
-            "name": "Caveira",
-            "rounds": 5,
-            "winRate": 40,
-            "kd": 0,
-            "flag": "",
-            "smallSample": true
-          },
-          {
-            "name": "Pulse",
-            "rounds": 5,
-            "winRate": 40,
-            "kd": 0.75,
-            "flag": "",
+            "name": "Frost",
+            "rounds": 8,
+            "winRate": 75,
+            "kd": 1.25,
+            "flag": "⭐",
             "smallSample": true
           }
         ]
@@ -3203,51 +3035,59 @@
         },
         {
           "map": "Border",
-          "matches": 8,
-          "winRate": 50,
-          "kd": 0.95,
-          "atkWr": 42.9,
-          "defWr": 62.5
-        },
-        {
-          "map": "Villa",
-          "matches": 7,
-          "winRate": 28.6,
-          "kd": 1.06,
-          "atkWr": 45.8,
-          "defWr": 45.5
+          "matches": 9,
+          "winRate": 55.6,
+          "kd": 1.07,
+          "atkWr": 41.9,
+          "defWr": 66.7
         },
         {
           "map": "Coastline",
-          "matches": 6,
-          "winRate": 50,
-          "kd": 1.1,
-          "atkWr": 60,
-          "defWr": 40
+          "matches": 9,
+          "winRate": 44.4,
+          "kd": 1.21,
+          "atkWr": 57.7,
+          "defWr": 39.1
+        },
+        {
+          "map": "Villa",
+          "matches": 8,
+          "winRate": 37.5,
+          "kd": 1.12,
+          "atkWr": 46.4,
+          "defWr": 48.1
         },
         {
           "map": "Nighthaven Labs",
-          "matches": 6,
-          "winRate": 16.7,
-          "kd": 0.75,
-          "atkWr": 35,
-          "defWr": 47.1
+          "matches": 7,
+          "winRate": 28.6,
+          "kd": 0.81,
+          "atkWr": 39.1,
+          "defWr": 50
         },
         {
           "map": "Consulate",
+          "matches": 6,
+          "winRate": 50,
+          "kd": 1.22,
+          "atkWr": 50,
+          "defWr": 61.9
+        },
+        {
+          "map": "Bank",
           "matches": 5,
-          "winRate": 40,
-          "kd": 1,
-          "atkWr": 47.4,
-          "defWr": 55.6
+          "winRate": 60,
+          "kd": 1.15,
+          "atkWr": 46.2,
+          "defWr": 57.1
         },
         {
           "map": "Fortress",
-          "matches": 4,
-          "winRate": 25,
-          "kd": 1.26,
-          "atkWr": 40,
-          "defWr": 46.7
+          "matches": 5,
+          "winRate": 40,
+          "kd": 1.18,
+          "atkWr": 44.4,
+          "defWr": 52.9
         },
         {
           "map": "Kafe Dostoyevsky",
@@ -3258,12 +3098,12 @@
           "defWr": 62.5
         },
         {
-          "map": "Bank",
+          "map": "Chalet",
           "matches": 3,
-          "winRate": 66.7,
-          "kd": 1,
-          "atkWr": 42.9,
-          "defWr": 66.7
+          "winRate": 100,
+          "kd": 1.45,
+          "atkWr": 75,
+          "defWr": 87.5
         },
         {
           "map": "Lair",
@@ -3514,18 +3354,18 @@
       "season": "Y11S1",
       "stats": {
         "rank": "Silver V",
-        "rp": "2017",
-        "kd": "0.35",
-        "kda": "0.55",
-        "kills": "165",
-        "deaths": "476",
-        "winRate": "49.5%",
-        "matches": "99",
+        "rp": "2008",
+        "kd": "0.34",
+        "kda": "0.54",
+        "kills": "174",
+        "deaths": "518",
+        "winRate": "47.3%",
+        "matches": "110",
         "hs": "33.9",
         "esr": "0.21",
         "clutches": "7",
-        "clutchWR": "12.5",
-        "ris": "24.2"
+        "clutchWR": "10.8",
+        "ris": "23"
       },
       "coachingPriorities": [
         "Trust the shield identity — Blackbeard and Montagne are working",
@@ -3584,22 +3424,22 @@
         }
       ],
       "teachingPattern": "Krafty's win rate (47.5%) suggests the issue is decision-making and utility usage rather than raw aim. The mindset reframes (K/D irrelevance, utility over aim, Flores fallback, anti-passivity) are the highest-priority coaching points.",
-      "seasonContent": "# Krafty — Y11S1 (Operation Silent Hunt)\n\n_Season status: 🔲 Active — repull 2026-04-03 (99 ranked matches)_\n_Pull date: 2026-04-03 | Source: r6.tracker.network_\n\n---\n\n## Core Stats\n\n| Stat | Value |\n|------|-------|\n| Rank | Silver V |\n| RP | 2,017 |\n| Matches | 99 |\n| Win Rate | 49.5% |\n| K/D | 0.35 |\n| KDA | 0.55 |\n| Kills | 165 |\n| Deaths | 476 |\n| HS% | 33.9% |\n| ESR | 0.21 |\n| RIS | 24.2 |\n| Clutches Won | 7 |\n| Clutch Win% | 12.5% |\n\n> 99M sample — moderate confidence. Stats are meaningful.\n\n---\n\n## Operators\n\n_Format: Operator — Rounds | Win% | K/D (sorted by rounds played, ranked only)_\n_Season filter: season=41_\n\n**Attack**\n1. Blackbeard — 111r | 47.7% | 0.31\n2. Montagne — 50r | 58.0% | 0.24 ✅\n3. Iana — 43r | 34.9% | 0.18 ⚠️\n4. Capitao — 25r | 52.0% | 0.37 ✅\n5. Maverick — 17r | 41.2% | 0.54 ⚠️\n6. Thermite — 13r | 46.2% | 0.22\n7. Blitz — 11r | 36.4% | 0.20 ⚠️\n8. Thatcher — 10r | 50.0% | 0.57\n9. Sens — 10r | 30.0% | 0.22 ⚠️\n10. Rauora — 5r | 0.0% | 0.40\n\n**Defense**\n1. Castle — 106r | 56.6% | 0.49 ✅\n2. Thorn — 75r | 57.3% | 0.53 ✅\n3. Clash — 38r | 36.8% | 0.13 ⚠️\n4. Lesion — 20r | 65.0% | 0.31 ⭐\n5. Mozzie — 17r | 47.1% | 0.50\n6. Frost — 16r | 37.5% | 0.54 ⚠️\n7. Fenrir — 9r | 44.4% | 1.00\n8. Goyo — 6r | 66.7% | 0.25\n9. Azami — 5r | 40.0% | 0.00\n\n**ATK identity:** Blackbeard is the primary ATK pick (111r / 47.7% / 0.31 K/D). Secondary: Montagne (50r / 58.0%).\n**DEF identity:** Castle is the primary DEF anchor (106r / 56.6% / 0.49 K/D). Secondary: Thorn (75r / 57.3%).\n\n---\n\n## Map Performance\n\n| Map | Matches | Win% | K/D | Atk% | Def% |\n|-----|---------|------|-----|------|------|\n| Bank | 12 | 58.3% | 0.33 | 41.2% | 59.4% |\n| Border | 11 | 72.7% | 0.44 | 57.1% | 62.9% |\n| Coastline | 11 | 45.5% | 0.35 | 48.3% | 43.8% |\n| Chalet | 10 | 60.0% | 0.40 | 50.0% | 63.3% |\n| Clubhouse | 10 | 60.0% | 0.42 | 35.5% | 62.5% |\n| Consulate | 9 | 22.2% | 0.22 | 39.4% | 44.8% |\n| Nighthaven Labs | 9 | 55.6% | 0.50 | 39.3% | 60.0% |\n| Oregon | 8 | 25.0% | 0.36 | 36.0% | 40.0% |\n| Villa | 8 | 50.0% | 0.38 | 48.1% | 50.0% |\n| Kafe Dostoyevsky | 5 | 60.0% | 0.18 | 43.8% | 58.8% |\n| Fortress | 4 | 25.0% | 0.16 | 43.8% | 30.8% |\n| Emerald Plains | 1 | 0.0% | 0.17 | 0.0% | 66.7% |\n| Lair | 1 | 0.0% | 0.00 | 0.0% | 33.3% |\n\n_Pulled 2026-04-03 — 99 ranked matches._\n---\n\n## Season Coaching Notes\n\n- **⚠️ K/D (0.35) is low, but WR (49.5%) is close to even** — the wins are coming, the frags aren't. Positioning and fight selection are worth focusing on rather than mechanics.\n- **✅ DEF is solid** — Castle (106r / 56.6% ✅) and Thorn (75r / 57.3% ✅) are your two anchors and both are producing. Lesion (20r / 65.0% ⭐) is your highest WR DEF op and worth more rounds.\n- **⚠️ ATK: Iana (43r / 34.9%) is trending low as your 3rd most-played ATK pick.** Montagne (50r / 58.0% ✅) is outperforming it significantly — worth exploring whether Montagne + Blackbeard is a better ATK pairing than Blackbeard + Iana.\n- **⚠️ DEF: Clash (38r / 36.8%) is your 3rd most-played DEF op but well below your anchors.** May be worth reducing those rounds in favour of Lesion.\n- **🗺️ Border (11M / 72.7%), Bank (12M / 58.3%), Chalet (10M / 60.0%), Clubhouse (10M / 60.0%) — four strong maps with real sample sizes.** These are worth protecting if you ever have a say in ban phase.**\n\n---\n\n## Data Flags\n\n- 🔲 Active — 99 ranked matches as of 2026-04-03\n- ⚠️ K/D (0.35) very low — coaching focus on positioning/decisions\n- ⭐ Lesion DEF (20r / 65.0%) — strong signal\n- 📍 Map data threshold reached — pull maps next session\n\n---\n\n## Y11S1 Opening Context\n\n### Map Pool — Y11S1 Launch\nBank, Border, Chalet, Clubhouse, Coastline, Consulate, Fortress, Kafe Dostoyevsky, Lair, Nighthaven Labs, Oregon, Villa, Emerald Plains\n\n### Balance Notes — Krafty Specific\n_No major balance changes to primary operators this season. Review GAME_06_CURRENT_SEASON.md for full patch notes._\n",
+      "seasonContent": "# Krafty — Y11S1 (Operation Silent Hunt)\n\n_Season status: 🔲 Active — repull 2026-04-10 (110 ranked matches)_\n_Pull date: 2026-04-10 | Source: r6.tracker.network_\n\n---\n\n## Core Stats\n\n| Stat | Value |\n|------|-------|\n| Rank | Silver V |\n| RP | 2,008 |\n| Matches | 110 |\n| Win Rate | 47.3% |\n| K/D | 0.34 |\n| KDA | 0.54 |\n| Kills | 174 |\n| Deaths | 518 |\n| HS% | 33.9% |\n| ESR | 0.21 |\n| RIS | 23 |\n| Clutches Won | 7 |\n| Clutch Win% | 10.8% |\n\n> 110M sample — moderate confidence. Stats are meaningful.\n\n---\n\n## Operators\n\n_Format: Operator — Rounds | Win% | K/D (sorted by rounds played, ranked only)_\n_Season filter: season=41_\n\n**Attack**\n1. Blackbeard — 120r | 45.0% | 0.27\n2. Montagne — 52r | 57.7% | 0.26 ✅\n3. Iana — 43r | 34.9% | 0.18 ⚠️\n4. Capitão — 24r | 45.8% | 0.20\n5. Maverick — 21r | 42.9% | 0.47\n6. Thermite — 13r | 46.2% | 0.22\n7. Thatcher — 13r | 61.5% | 0.50 ⭐\n8. Blitz — 10r | 40.0% | 0.22 ⚠️\n9. Sens — 10r | 30.0% | 0.22 ⚠️\n\n**Defense**\n1. Castle — 114r | 52.6% | 0.42 ✅\n2. Thorn — 80r | 56.2% | 0.52 ✅\n3. Clash — 39r | 38.5% | 0.13 ⚠️\n4. Lesion — 22r | 59.1% | 0.28 ✅\n5. Frost — 16r | 37.5% | 0.54 ⚠️\n6. Mozzie — 15r | 46.7% | 0.45\n7. Fenrir — 10r | 40.0% | 0.62 ⚠️\n\n**ATK identity:** Blackbeard is the primary ATK pick (120r / 45.0% / 0.27 K/D). Secondary: Montagne (52r / 57.7%).\n**DEF identity:** Castle is the primary DEF anchor (114r / 52.6% / 0.42 K/D). Secondary: Thorn (80r / 56.2%).\n\n---\n\n## Map Performance\n\n| Map | Matches | Win% | K/D | Atk% | Def% |\n|-----|---------|------|-----|------|------|\n| Bank | 14 | 50.0% | 0.32 | 40.0% | 52.8% |\n| Chalet | 13 | 61.5% | 0.35 | 56.8% | 59.5% |\n| Coastline | 13 | 38.5% | 0.31 | 45.7% | 40.5% |\n| Border | 12 | 75.0% | 0.43 | 58.3% | 65.8% |\n| Clubhouse | 11 | 54.5% | 0.39 | 36.4% | 57.1% |\n| Nighthaven Labs | 10 | 50.0% | 0.50 | 40.0% | 53.6% |\n| Consulate | 9 | 22.2% | 0.22 | 39.4% | 44.8% |\n| Oregon | 9 | 22.2% | 0.38 | 33.3% | 39.3% |\n| Villa | 8 | 50.0% | 0.38 | 48.1% | 50.0% |\n| Kafe Dostoyevsky | 5 | 60.0% | 0.18 | 43.8% | 58.8% |\n| Fortress | 4 | 25.0% | 0.16 | 43.8% | 30.8% |\n| Emerald Plains | 1 | 0.0% | 0.17 | 0.0% | 66.7% |\n| Lair | 1 | 0.0% | 0.00 | 0.0% | 33.3% |\n\n_Pulled 2026-04-10 — 110 ranked matches._\n\n---\n\n## Season Coaching Notes\n\n- **⚠️ K/D (0.34) is very low** — positioning and decision-making are the primary coaching priority, not mechanics.\n- **Map data threshold reached** (110M ≥ 30) — pull map data next session.\n\n---\n\n## Data Flags\n\n- 🔲 Active — 110 ranked matches as of 2026-04-10\n- ⚠️ K/D (0.34) very low — coaching focus on positioning/decisions\n- ⭐ Thatcher ATK (13r / 61.5%) — strong signal\n- 📍 Map data threshold reached — pull maps next session\n\n---\n\n## Y11S1 Opening Context\n\n### Map Pool — Y11S1 Launch\nBank, Border, Chalet, Clubhouse, Coastline, Consulate, Fortress, Kafe Dostoyevsky, Lair, Nighthaven Labs, Oregon, Villa, Emerald Plains\n\n### Balance Notes — Krafty Specific\n_No major balance changes to primary operators this season. Review GAME_06_CURRENT_SEASON.md for full patch notes._\n",
       "operators": {
         "atk": [
           {
             "name": "Blackbeard",
-            "rounds": 111,
-            "winRate": 47.7,
-            "kd": 0.31,
+            "rounds": 120,
+            "winRate": 45,
+            "kd": 0.27,
             "flag": "",
             "smallSample": false
           },
           {
             "name": "Montagne",
-            "rounds": 50,
-            "winRate": 58,
-            "kd": 0.24,
+            "rounds": 52,
+            "winRate": 57.7,
+            "kd": 0.26,
             "flag": "✅",
             "smallSample": false
           },
@@ -3612,19 +3452,19 @@
             "smallSample": false
           },
           {
-            "name": "Capitao",
-            "rounds": 25,
-            "winRate": 52,
-            "kd": 0.37,
-            "flag": "✅",
+            "name": "Capitão",
+            "rounds": 24,
+            "winRate": 45.8,
+            "kd": 0.2,
+            "flag": "",
             "smallSample": false
           },
           {
             "name": "Maverick",
-            "rounds": 17,
-            "winRate": 41.2,
-            "kd": 0.54,
-            "flag": "⚠️",
+            "rounds": 21,
+            "winRate": 42.9,
+            "kd": 0.47,
+            "flag": "",
             "smallSample": false
           },
           {
@@ -3636,19 +3476,19 @@
             "smallSample": false
           },
           {
-            "name": "Blitz",
-            "rounds": 11,
-            "winRate": 36.4,
-            "kd": 0.2,
-            "flag": "⚠️",
+            "name": "Thatcher",
+            "rounds": 13,
+            "winRate": 61.5,
+            "kd": 0.5,
+            "flag": "⭐",
             "smallSample": false
           },
           {
-            "name": "Thatcher",
+            "name": "Blitz",
             "rounds": 10,
-            "winRate": 50,
-            "kd": 0.57,
-            "flag": "",
+            "winRate": 40,
+            "kd": 0.22,
+            "flag": "⚠️",
             "smallSample": false
           },
           {
@@ -3658,55 +3498,39 @@
             "kd": 0.22,
             "flag": "⚠️",
             "smallSample": false
-          },
-          {
-            "name": "Rauora",
-            "rounds": 5,
-            "winRate": 0,
-            "kd": 0.4,
-            "flag": "",
-            "smallSample": true
           }
         ],
         "def": [
           {
             "name": "Castle",
-            "rounds": 106,
-            "winRate": 56.6,
-            "kd": 0.49,
+            "rounds": 114,
+            "winRate": 52.6,
+            "kd": 0.42,
             "flag": "✅",
             "smallSample": false
           },
           {
             "name": "Thorn",
-            "rounds": 75,
-            "winRate": 57.3,
-            "kd": 0.53,
+            "rounds": 80,
+            "winRate": 56.2,
+            "kd": 0.52,
             "flag": "✅",
             "smallSample": false
           },
           {
             "name": "Clash",
-            "rounds": 38,
-            "winRate": 36.8,
+            "rounds": 39,
+            "winRate": 38.5,
             "kd": 0.13,
             "flag": "⚠️",
             "smallSample": false
           },
           {
             "name": "Lesion",
-            "rounds": 20,
-            "winRate": 65,
-            "kd": 0.31,
-            "flag": "⭐",
-            "smallSample": false
-          },
-          {
-            "name": "Mozzie",
-            "rounds": 17,
-            "winRate": 47.1,
-            "kd": 0.5,
-            "flag": "",
+            "rounds": 22,
+            "winRate": 59.1,
+            "kd": 0.28,
+            "flag": "✅",
             "smallSample": false
           },
           {
@@ -3718,71 +3542,71 @@
             "smallSample": false
           },
           {
+            "name": "Mozzie",
+            "rounds": 15,
+            "winRate": 46.7,
+            "kd": 0.45,
+            "flag": "",
+            "smallSample": false
+          },
+          {
             "name": "Fenrir",
-            "rounds": 9,
-            "winRate": 44.4,
-            "kd": 1,
-            "flag": "",
-            "smallSample": true
-          },
-          {
-            "name": "Goyo",
-            "rounds": 6,
-            "winRate": 66.7,
-            "kd": 0.25,
-            "flag": "",
-            "smallSample": true
-          },
-          {
-            "name": "Azami",
-            "rounds": 5,
+            "rounds": 10,
             "winRate": 40,
-            "kd": 0,
-            "flag": "",
-            "smallSample": true
+            "kd": 0.62,
+            "flag": "⚠️",
+            "smallSample": false
           }
         ]
       },
       "mapPerformance": [
         {
           "map": "Bank",
-          "matches": 12,
-          "winRate": 58.3,
-          "kd": 0.33,
-          "atkWr": 41.2,
-          "defWr": 59.4
-        },
-        {
-          "map": "Border",
-          "matches": 11,
-          "winRate": 72.7,
-          "kd": 0.44,
-          "atkWr": 57.1,
-          "defWr": 62.9
-        },
-        {
-          "map": "Coastline",
-          "matches": 11,
-          "winRate": 45.5,
-          "kd": 0.35,
-          "atkWr": 48.3,
-          "defWr": 43.8
+          "matches": 14,
+          "winRate": 50,
+          "kd": 0.32,
+          "atkWr": 40,
+          "defWr": 52.8
         },
         {
           "map": "Chalet",
-          "matches": 10,
-          "winRate": 60,
-          "kd": 0.4,
-          "atkWr": 50,
-          "defWr": 63.3
+          "matches": 13,
+          "winRate": 61.5,
+          "kd": 0.35,
+          "atkWr": 56.8,
+          "defWr": 59.5
+        },
+        {
+          "map": "Coastline",
+          "matches": 13,
+          "winRate": 38.5,
+          "kd": 0.31,
+          "atkWr": 45.7,
+          "defWr": 40.5
+        },
+        {
+          "map": "Border",
+          "matches": 12,
+          "winRate": 75,
+          "kd": 0.43,
+          "atkWr": 58.3,
+          "defWr": 65.8
         },
         {
           "map": "Clubhouse",
+          "matches": 11,
+          "winRate": 54.5,
+          "kd": 0.39,
+          "atkWr": 36.4,
+          "defWr": 57.1
+        },
+        {
+          "map": "Nighthaven Labs",
           "matches": 10,
-          "winRate": 60,
-          "kd": 0.42,
-          "atkWr": 35.5,
-          "defWr": 62.5
+          "winRate": 50,
+          "kd": 0.5,
+          "atkWr": 40,
+          "defWr": 53.6
         },
         {
           "map": "Consulate",
@@ -3793,20 +3617,12 @@
           "defWr": 44.8
         },
         {
-          "map": "Nighthaven Labs",
-          "matches": 9,
-          "winRate": 55.6,
-          "kd": 0.5,
-          "atkWr": 39.3,
-          "defWr": 60
-        },
-        {
           "map": "Oregon",
-          "matches": 8,
-          "winRate": 25,
-          "kd": 0.36,
-          "atkWr": 36,
-          "defWr": 40
+          "matches": 9,
+          "winRate": 22.2,
+          "kd": 0.38,
+          "atkWr": 33.3,
+          "defWr": 39.3
         },
         {
           "map": "Villa",
@@ -4028,23 +3844,23 @@
       "team": "B Team",
       "role": "DEF Anchor",
       "bio": "A consistent DEF anchor with a career-long trap identity built around Kapkan. Solid K/D and multiple operator reinventions across his career history.",
-      "atkOps": "Nomad / Brava",
-      "defOps": "Kapkan / Denari",
+      "atkOps": "Brava / Thermite",
+      "defOps": "Kapkan / Nomad",
       "season": "Y11S1",
       "stats": {
         "rank": "Silver II",
-        "rp": "2354",
-        "kd": "0.69",
-        "kda": "1.00",
-        "kills": "191",
-        "deaths": "277",
-        "winRate": "35.7%",
-        "matches": "56",
-        "hs": "39.8",
-        "esr": "0.37",
+        "rp": "2363",
+        "kd": "0.65",
+        "kda": "0.95",
+        "kills": "204",
+        "deaths": "313",
+        "winRate": "33.3%",
+        "matches": "63",
+        "hs": "37.7",
+        "esr": "0.35",
         "clutches": "4",
-        "clutchWR": "8.7",
-        "ris": "34.4"
+        "clutchWR": "7.3",
+        "ris": "33"
       },
       "coachingPriorities": [
         "Explore giving Maestro and Kaid more DEF rounds where possible",
@@ -4104,30 +3920,22 @@
         }
       ],
       "teachingPattern": "Bob's HS% is solid. Primary coaching angle: lean discipline and movement-during-gunfights. Game-sense ceiling (peeker's advantage math, RPS reads) is the growth path.",
-      "seasonContent": "# Bob — Y11S1 (Operation Silent Hunt)\n\n_Season status: 🔲 Active — repull 2026-04-03 (56 ranked matches)_\n_Pull date: 2026-04-03 | Source: r6.tracker.network_\n\n---\n\n## Core Stats\n\n| Stat | Value |\n|------|-------|\n| Rank | Silver II |\n| RP | 2,354 |\n| Matches | 56 |\n| Win Rate | 35.7% |\n| K/D | 0.69 |\n| KDA | 1.00 |\n| Kills | 191 |\n| Deaths | 277 |\n| HS% | 39.8% |\n| ESR | 0.37 |\n| RIS | 34.4 |\n| Clutches Won | 4 |\n| Clutch Win% | 8.7% |\n\n> 56M sample — moderate confidence. Stats are meaningful.\n\n---\n\n## Operators\n\n_Format: Operator — Rounds | Win% | K/D (sorted by rounds played, ranked only)_\n_Season filter: season=41_\n\n**Attack**\n1. Nomad — 31r | 32.3% | 0.61 ⚠️\n2. Brava — 29r | 37.9% | 0.65 ⚠️\n3. Thermite — 26r | 38.5% | 0.48 ⚠️\n4. Thatcher — 24r | 16.7% | 0.41 ⚠️\n5. Gridlock — 10r | 50.0% | 0.50\n6. Amaru — 9r | 44.4% | 1.14\n7. Ace — 6r | 33.3% | 0.75\n8. Blackbeard — 6r | 33.3% | 0.20\n9. Hibana — 5r | 60.0% | 0.50\n10. Striker — 5r | 20.0% | 0.40\n\n**Defense**\n1. Kapkan — 51r | 49.0% | 0.84\n2. Denari — 31r | 48.4% | 0.60\n3. Thorn — 29r | 55.2% | 1.11 ✅\n4. Maestro — 12r | 75.0% | 1.40 ⭐\n5. Vigil — 11r | 27.3% | 0.40 ⚠️\n6. Kaid — 9r | 66.7% | 1.00 ⭐\n7. Aruni — 8r | 37.5% | 1.00 ⚠️\n8. Valkyrie — 8r | 37.5% | 0.17 ⚠️\n9. Frost — 5r | 80.0% | 2.50\n\n**ATK identity:** Nomad is the primary ATK pick (31r / 32.3% / 0.61 K/D). Secondary: Brava (29r / 37.9%).\n**DEF identity:** Kapkan is the primary DEF anchor (51r / 49.0% / 0.84 K/D). Secondary: Denari (31r / 48.4%).\n\n---\n\n## Map Performance\n\n| Map | Matches | Win% | K/D | Atk% | Def% |\n|-----|---------|------|-----|------|------|\n| Border | 7 | 42.9% | 0.91 | 43.5% | 42.9% |\n| Nighthaven Labs | 7 | 42.9% | 0.73 | 34.8% | 60.0% |\n| Villa | 7 | 57.1% | 0.59 | 38.1% | 65.2% |\n| Chalet | 6 | 33.3% | 1.16 | 36.4% | 57.1% |\n| Coastline | 6 | 33.3% | 0.77 | 52.9% | 28.6% |\n| Clubhouse | 5 | 60.0% | 0.50 | 35.7% | 55.6% |\n| Bank | 4 | 25.0% | 0.55 | 21.4% | 55.6% |\n| Oregon | 4 | 25.0% | 0.76 | 40.0% | 27.3% |\n| Consulate | 2 | 0.0% | 0.43 | 33.3% | 50.0% |\n| Emerald Plains | 2 | 0.0% | 0.64 | 16.7% | 40.0% |\n| Fortress | 2 | 50.0% | 0.36 | 42.9% | 57.1% |\n| Kafe Dostoyevsky | 2 | 0.0% | 0.44 | 20.0% | 33.3% |\n| Lair | 2 | 0.0% | 0.18 | 0.0% | 50.0% |\n\n_Pulled 2026-04-03 — 56 ranked matches._\n---\n\n## Season Coaching Notes\n\n- **⚠️ ATK: Top four ops by rounds are all trending below 40% WR.** Nomad (31r / 32.3%), Brava (29r / 37.9%), Thermite (26r / 38.5%), Thatcher (24r / 16.7%). Thatcher in particular is very low at meaningful volume. Maestro (12r / 75.0% ⭐) and Kaid (9r / 66.7% ⭐) are the bright DEF spots — worth seeing if that read can carry over to a more stable ATK identity too.\n- **⚠️ Overall WR (35.7%) is below baseline** — the ATK-side drag is the likely main factor. Small adjustments to which ATK ops get rounds may help more than a full reset.\n- **✅ DEF has clear strengths** — Thorn (29r / 55.2% ✅), Maestro (12r / 75.0% ⭐), Kaid (9r / 66.7% ⭐), Frost (5r / 80.0%). DEF is the side to lean on.\n- **🗺️ Villa (7M / 57.1%) and Clubhouse (5M / 60.0%) are your best map results this season.**\n- **🗺️ Lair (2M / 0.0%), Consulate (2M / 0.0%), Kafe (2M / 0.0%) — small samples but worth tracking.**\n\n---\n\n## Data Flags\n\n- 🔲 Active — 56 ranked matches as of 2026-04-03\n- ⚠️ WR (35.7%) — very low overall win rate\n- ⭐ Maestro DEF (12r / 75.0%) — strong signal\n- ⭐ Kaid DEF (9r / 66.7%) — strong signal\n- 📍 Map data threshold reached — pull maps next session\n\n---\n\n## Y11S1 Opening Context\n\n### Map Pool — Y11S1 Launch\nBank, Border, Chalet, Clubhouse, Coastline, Consulate, Fortress, Kafe Dostoyevsky, Lair, Nighthaven Labs, Oregon, Villa, Emerald Plains\n\n### Balance Notes — Bob Specific\n_No major balance changes to primary operators this season. Review GAME_06_CURRENT_SEASON.md for full patch notes._\n",
+      "seasonContent": "# Bob — Y11S1 (Operation Silent Hunt)\n\n_Season status: 🔲 Active — repull 2026-04-10 (63 ranked matches)_\n_Pull date: 2026-04-10 | Source: r6.tracker.network_\n\n---\n\n## Core Stats\n\n| Stat | Value |\n|------|-------|\n| Rank | Silver II |\n| RP | 2,363 |\n| Matches | 63 |\n| Win Rate | 33.3% |\n| K/D | 0.65 |\n| KDA | 0.95 |\n| Kills | 204 |\n| Deaths | 313 |\n| HS% | 37.7% |\n| ESR | 0.35 |\n| RIS | 33 |\n| Clutches Won | 4 |\n| Clutch Win% | 7.3% |\n\n> 63M sample — moderate confidence. Stats are meaningful.\n\n---\n\n## Operators\n\n_Format: Operator — Rounds | Win% | K/D (sorted by rounds played, ranked only)_\n_Season filter: season=41_\n\n**Attack**\n1. Brava — 31r | 35.5% | 0.64 ⚠️\n2. Thermite — 27r | 37.0% | 0.57 ⚠️\n3. Thatcher — 24r | 16.7% | 0.41 ⚠️\n4. Gridlock — 11r | 45.5% | 0.44\n5. Amaru — 9r | 44.4% | 1.14\n6. Blackbeard — 6r | 33.3% | 0.20\n7. Finka — 6r | 50.0% | 0.17\n8. Lion — 6r | 33.3% | 0.17\n\n**Defense**\n1. Kapkan — 51r | 49.0% | 0.89\n2. Nomad — 34r | 32.4% | 0.60 ⚠️\n3. Thorn — 30r | 53.3% | 1.05 ✅\n4. Maestro — 18r | 66.7% | 0.89 ⭐\n5. Vigil — 11r | 27.3% | 0.40 ⚠️\n6. Kaid — 10r | 60.0% | 0.88 ⭐\n7. Aruni — 9r | 33.3% | 0.86 ⚠️\n8. Valkyrie — 8r | 37.5% | 0.33 ⚠️\n9. Frost — 6r | 66.7% | 1.67\n\n**ATK identity:** Brava is the primary ATK pick (31r / 35.5% / 0.64 K/D). Secondary: Thermite (27r / 37.0%).\n**DEF identity:** Kapkan is the primary DEF anchor (51r / 49.0% / 0.89 K/D). Secondary: Nomad (34r / 32.4%).\n\n---\n\n## Map Performance\n\n| Map | Matches | Win% | K/D | Atk% | Def% |\n|-----|---------|------|-----|------|------|\n| Villa | 8 | 50.0% | 0.53 | 36.4% | 57.7% |\n| Border | 7 | 42.9% | 0.91 | 43.5% | 42.9% |\n| Chalet | 7 | 28.6% | 1.11 | 36.0% | 54.2% |\n| Coastline | 7 | 28.6% | 0.66 | 50.0% | 29.4% |\n| Nighthaven Labs | 7 | 42.9% | 0.73 | 34.8% | 60.0% |\n| Clubhouse | 6 | 50.0% | 0.46 | 37.5% | 47.6% |\n| Oregon | 5 | 20.0% | 0.67 | 33.3% | 28.6% |\n| Bank | 4 | 25.0% | 0.55 | 21.4% | 55.6% |\n| Consulate | 3 | 0.0% | 0.38 | 28.6% | 58.3% |\n| Kafe Dostoyevsky | 3 | 33.3% | 0.56 | 33.3% | 50.0% |\n| Emerald Plains | 2 | 0.0% | 0.64 | 16.7% | 40.0% |\n| Fortress | 2 | 50.0% | 0.36 | 42.9% | 57.1% |\n| Lair | 2 | 0.0% | 0.18 | 0.0% | 50.0% |\n\n_Pulled 2026-04-10 — 63 ranked matches._\n\n---\n\n## Season Coaching Notes\n\n- **⚠️ WR (33.3%) is concerning** — well below 50% baseline. Investigate match patterns at next pull.\n- **⚠️ Brava ATK (31r / 35.5% / 0.64 K/D)** — primary ATK pick is underperforming at this volume. Consider reducing rounds here until WR recovers.\n- **⚠️ Thatcher ATK (24r / 16.7%)** — significant round volume on a very low-WR op. Reduce or eliminate.\n- **Map data threshold reached** (63M ≥ 30) — pull map data next session.\n\n---\n\n## Data Flags\n\n- 🔲 Active — 63 ranked matches as of 2026-04-10\n- ⚠️ WR (33.3%) — very low overall win rate\n- ⭐ Maestro DEF (18r / 66.7%) — strong signal\n- ⭐ Kaid DEF (10r / 60.0%) — strong signal\n- 📍 Map data threshold reached — pull maps next session\n\n---\n\n## Y11S1 Opening Context\n\n### Map Pool — Y11S1 Launch\nBank, Border, Chalet, Clubhouse, Coastline, Consulate, Fortress, Kafe Dostoyevsky, Lair, Nighthaven Labs, Oregon, Villa, Emerald Plains\n\n### Balance Notes — Bob Specific\n_No major balance changes to primary operators this season. Review GAME_06_CURRENT_SEASON.md for full patch notes._\n",
       "operators": {
         "atk": [
           {
-            "name": "Nomad",
-            "rounds": 31,
-            "winRate": 32.3,
-            "kd": 0.61,
-            "flag": "⚠️",
-            "smallSample": false
-          },
-          {
             "name": "Brava",
-            "rounds": 29,
-            "winRate": 37.9,
-            "kd": 0.65,
+            "rounds": 31,
+            "winRate": 35.5,
+            "kd": 0.64,
             "flag": "⚠️",
             "smallSample": false
           },
           {
             "name": "Thermite",
-            "rounds": 26,
-            "winRate": 38.5,
-            "kd": 0.48,
+            "rounds": 27,
+            "winRate": 37,
+            "kd": 0.57,
             "flag": "⚠️",
             "smallSample": false
           },
@@ -4141,9 +3949,9 @@
           },
           {
             "name": "Gridlock",
-            "rounds": 10,
-            "winRate": 50,
-            "kd": 0.5,
+            "rounds": 11,
+            "winRate": 45.5,
+            "kd": 0.44,
             "flag": "",
             "smallSample": false
           },
@@ -4156,14 +3964,6 @@
             "smallSample": true
           },
           {
-            "name": "Ace",
-            "rounds": 6,
-            "winRate": 33.3,
-            "kd": 0.75,
-            "flag": "",
-            "smallSample": true
-          },
-          {
             "name": "Blackbeard",
             "rounds": 6,
             "winRate": 33.3,
@@ -4172,18 +3972,18 @@
             "smallSample": true
           },
           {
-            "name": "Hibana",
-            "rounds": 5,
-            "winRate": 60,
-            "kd": 0.5,
+            "name": "Finka",
+            "rounds": 6,
+            "winRate": 50,
+            "kd": 0.17,
             "flag": "",
             "smallSample": true
           },
           {
-            "name": "Striker",
-            "rounds": 5,
-            "winRate": 20,
-            "kd": 0.4,
+            "name": "Lion",
+            "rounds": 6,
+            "winRate": 33.3,
+            "kd": 0.17,
             "flag": "",
             "smallSample": true
           }
@@ -4193,31 +3993,31 @@
             "name": "Kapkan",
             "rounds": 51,
             "winRate": 49,
-            "kd": 0.84,
+            "kd": 0.89,
             "flag": "",
             "smallSample": false
           },
           {
-            "name": "Denari",
-            "rounds": 31,
-            "winRate": 48.4,
+            "name": "Nomad",
+            "rounds": 34,
+            "winRate": 32.4,
             "kd": 0.6,
-            "flag": "",
+            "flag": "⚠️",
             "smallSample": false
           },
           {
             "name": "Thorn",
-            "rounds": 29,
-            "winRate": 55.2,
-            "kd": 1.11,
+            "rounds": 30,
+            "winRate": 53.3,
+            "kd": 1.05,
             "flag": "✅",
             "smallSample": false
           },
           {
             "name": "Maestro",
-            "rounds": 12,
-            "winRate": 75,
-            "kd": 1.4,
+            "rounds": 18,
+            "winRate": 66.7,
+            "kd": 0.89,
             "flag": "⭐",
             "smallSample": false
           },
@@ -4231,17 +4031,17 @@
           },
           {
             "name": "Kaid",
-            "rounds": 9,
-            "winRate": 66.7,
-            "kd": 1,
+            "rounds": 10,
+            "winRate": 60,
+            "kd": 0.88,
             "flag": "⭐",
-            "smallSample": true
+            "smallSample": false
           },
           {
             "name": "Aruni",
-            "rounds": 8,
-            "winRate": 37.5,
-            "kd": 1,
+            "rounds": 9,
+            "winRate": 33.3,
+            "kd": 0.86,
             "flag": "⚠️",
             "smallSample": true
           },
@@ -4249,15 +4049,15 @@
             "name": "Valkyrie",
             "rounds": 8,
             "winRate": 37.5,
-            "kd": 0.17,
+            "kd": 0.33,
             "flag": "⚠️",
             "smallSample": true
           },
           {
             "name": "Frost",
-            "rounds": 5,
-            "winRate": 80,
-            "kd": 2.5,
+            "rounds": 6,
+            "winRate": 66.7,
+            "kd": 1.67,
             "flag": "",
             "smallSample": true
           }
@@ -4265,12 +4065,36 @@
       },
       "mapPerformance": [
         {
+          "map": "Villa",
+          "matches": 8,
+          "winRate": 50,
+          "kd": 0.53,
+          "atkWr": 36.4,
+          "defWr": 57.7
+        },
+        {
           "map": "Border",
           "matches": 7,
           "winRate": 42.9,
           "kd": 0.91,
           "atkWr": 43.5,
           "defWr": 42.9
+        },
+        {
+          "map": "Chalet",
+          "matches": 7,
+          "winRate": 28.6,
+          "kd": 1.11,
+          "atkWr": 36,
+          "defWr": 54.2
+        },
+        {
+          "map": "Coastline",
+          "matches": 7,
+          "winRate": 28.6,
+          "kd": 0.66,
+          "atkWr": 50,
+          "defWr": 29.4
         },
         {
           "map": "Nighthaven Labs",
@@ -4281,36 +4105,20 @@
           "defWr": 60
         },
         {
-          "map": "Villa",
-          "matches": 7,
-          "winRate": 57.1,
-          "kd": 0.59,
-          "atkWr": 38.1,
-          "defWr": 65.2
-        },
-        {
-          "map": "Chalet",
-          "matches": 6,
-          "winRate": 33.3,
-          "kd": 1.16,
-          "atkWr": 36.4,
-          "defWr": 57.1
-        },
-        {
-          "map": "Coastline",
-          "matches": 6,
-          "winRate": 33.3,
-          "kd": 0.77,
-          "atkWr": 52.9,
-          "defWr": 28.6
-        },
-        {
           "map": "Clubhouse",
+          "matches": 6,
+          "winRate": 50,
+          "kd": 0.46,
+          "atkWr": 37.5,
+          "defWr": 47.6
+        },
+        {
+          "map": "Oregon",
           "matches": 5,
-          "winRate": 60,
-          "kd": 0.5,
-          "atkWr": 35.7,
-          "defWr": 55.6
+          "winRate": 20,
+          "kd": 0.67,
+          "atkWr": 33.3,
+          "defWr": 28.6
         },
         {
           "map": "Bank",
@@ -4321,12 +4129,20 @@
           "defWr": 55.6
         },
         {
-          "map": "Oregon",
-          "matches": 4,
-          "winRate": 25,
-          "kd": 0.76,
-          "atkWr": 40,
-          "defWr": 27.3
+          "map": "Consulate",
+          "matches": 3,
+          "winRate": 0,
+          "kd": 0.38,
+          "atkWr": 28.6,
+          "defWr": 58.3
+        },
+        {
+          "map": "Kafe Dostoyevsky",
+          "matches": 3,
+          "winRate": 33.3,
+          "kd": 0.56,
+          "atkWr": 33.3,
+          "defWr": 50
         }
       ],
       "prevSeason": "Y10S4",
@@ -4476,23 +4292,23 @@
       "team": "B Team",
       "role": "DEF Specialist",
       "bio": "One of the deepest DEF pools in the group — Aruni, Caveira, Valkyrie, and Thorn all above 56% WR with substantial rounds. A reliable hard-anchor identity when active.",
-      "atkOps": "Ash / Striker",
+      "atkOps": "Ash / Dokkaebi",
       "defOps": "Aruni / Castle",
       "season": "Y11S1",
       "stats": {
-        "rank": "Bronze III",
-        "rp": "1709",
-        "kd": "0.64",
-        "kda": "0.97",
-        "kills": "61",
-        "deaths": "95",
-        "winRate": "36.8%",
-        "matches": "19",
-        "hs": "44.3",
-        "esr": "0.32",
-        "clutches": "1",
-        "clutchWR": "9.1",
-        "ris": "31.8"
+        "rank": "Silver I",
+        "rp": "2477",
+        "kd": "0.70",
+        "kda": "1.04",
+        "kills": "130",
+        "deaths": "187",
+        "winRate": "42.1%",
+        "matches": "38",
+        "hs": "46.9",
+        "esr": "0.37",
+        "clutches": "3",
+        "clutchWR": "15.8",
+        "ris": "35.7"
       },
       "coachingPriorities": [
         "Re-pull at 30M — that's the real baseline",
@@ -4555,38 +4371,46 @@
         }
       ],
       "teachingPattern": "Hunter has exceptional trap-op performance (Thorn 60.6%, Fenrir 64.3%, Valk 60.5%). The lever is Oregon/Coastline map knowledge + crosshair placement. Operator-specific tips are upgrades on already-good mechanics, not fixes.",
-      "seasonContent": "# Hunter — Y11S1 (Operation Silent Hunt)\n\n_Season status: 🔲 Active — repull 2026-04-03 (19 ranked matches)_\n_Pull date: 2026-04-03 | Source: r6.tracker.network_\n\n---\n\n## Core Stats\n\n| Stat | Value |\n|------|-------|\n| Rank | Bronze III |\n| RP | 1,709 |\n| Matches | 19 |\n| Win Rate | 36.8% |\n| K/D | 0.64 |\n| KDA | 0.97 |\n| Kills | 61 |\n| Deaths | 95 |\n| HS% | 44.3% |\n| ESR | 0.32 |\n| RIS | 31.8 |\n| Clutches Won | 1 |\n| Clutch Win% | 9.1% |\n\n> 19M sample — growing. Stats are directional; re-pull at 30M for confidence.\n\n---\n\n## Operators\n\n_Format: Operator — Rounds | Win% | K/D (sorted by rounds played, ranked only)_\n_Season filter: season=41_\n\n**Attack**\n1. Ash — 18r | 50.0% | 0.88\n2. Striker — 9r | 33.3% | 0.38 ⚠️\n3. Ace — 8r | 37.5% | 1.00 ⚠️\n4. Brava — 7r | 28.6% | 0.75\n\n**Defense**\n1. Aruni — 17r | 52.9% | 0.71 ✅\n2. Castle — 15r | 53.3% | 0.64 ✅\n3. Thorn — 9r | 55.6% | 1.14 ✅\n4. Valkyrie — 5r | 20.0% | 0.20\n\n**ATK identity:** Ash is the primary ATK pick (18r / 50.0% / 0.88 K/D). Secondary: Striker (9r / 33.3%).\n**DEF identity:** Aruni is the primary DEF anchor (17r / 52.9% / 0.71 K/D). Secondary: Castle (15r / 53.3%).\n\n---\n\n## Map Performance\n\n| Map | Matches | Win% | K/D | Atk% | Def% |\n|-----|---------|------|-----|------|------|\n| — | — | — | — | — | — |\n\n_Map data not yet pulled — add at 30+ match milestone._\n\n---\n\n## Season Coaching Notes\n\n- **⚠️ Small sample (19M) — treat all signals as directional only.** Re-pull at 30M for meaningful coaching conclusions.\n- **✅ DEF is the early positive** — Aruni (17r / 52.9% ✅), Castle (15r / 53.3% ✅), Thorn (9r / 55.6% ✅) are all above 50% WR. DEF looks like a strength to build on.\n- **⚠️ ATK: Only Ash (18r / 50.0%) is breaking even.** Striker (9r / 33.3%) and Brava (7r / 28.6%) are both below 30% in small samples — directional signals only at this stage.\n- **Overall WR (36.8%) is low**, but with 19M the variance is high — not enough data to draw firm conclusions yet. Next pull at 30M will give a clearer picture.\n\n---\n\n## Data Flags\n\n- 🔲 Active — 19 ranked matches as of 2026-04-03\n- ⚠️ WR (36.8%) — very low overall win rate\n\n---\n\n## Y11S1 Opening Context\n\n### Map Pool — Y11S1 Launch\nBank, Border, Chalet, Clubhouse, Coastline, Consulate, Fortress, Kafe Dostoyevsky, Lair, Nighthaven Labs, Oregon, Villa, Emerald Plains\n\n### Balance Notes — Hunter Specific\n_No major balance changes to primary operators this season. Review GAME_06_CURRENT_SEASON.md for full patch notes._\n",
+      "seasonContent": "# Hunter — Y11S1 (Operation Silent Hunt)\n\n_Season status: 🔲 Active — repull 2026-04-10 (38 ranked matches)_\n_Pull date: 2026-04-10 | Source: r6.tracker.network_\n\n---\n\n## Core Stats\n\n| Stat | Value |\n|------|-------|\n| Rank | Silver I |\n| RP | 2,477 |\n| Matches | 38 |\n| Win Rate | 42.1% |\n| K/D | 0.70 |\n| KDA | 1.04 |\n| Kills | 130 |\n| Deaths | 187 |\n| HS% | 46.9% |\n| ESR | 0.37 |\n| RIS | 35.7 |\n| Clutches Won | 3 |\n| Clutch Win% | 15.8% |\n\n> 38M sample — moderate confidence. Stats are meaningful.\n\n---\n\n## Operators\n\n_Format: Operator — Rounds | Win% | K/D (sorted by rounds played, ranked only)_\n_Season filter: season=41_\n\n**Attack**\n1. Ash — 38r | 44.7% | 0.82\n2. Dokkaebi — 16r | 50.0% | 1.10\n3. Striker — 15r | 40.0% | 0.31 ⚠️\n4. Brava — 10r | 40.0% | 0.67 ⚠️\n5. Ace — 9r | 44.4% | 0.86\n\n**Defense**\n1. Aruni — 33r | 54.5% | 0.92 ✅\n2. Castle — 27r | 51.9% | 0.48\n3. Thorn — 16r | 62.5% | 0.79 ⭐\n4. Tubarão — 8r | 50.0% | 1.80\n5. Caveira — 8r | 37.5% | 0.12 ⚠️\n6. Fenrir — 7r | 42.9% | 0.50\n\n**ATK identity:** Ash is the primary ATK pick (38r / 44.7% / 0.82 K/D). Secondary: Dokkaebi (16r / 50.0%).\n**DEF identity:** Aruni is the primary DEF anchor (33r / 54.5% / 0.92 K/D). Secondary: Castle (27r / 51.9%).\n\n---\n\n## Map Performance\n\n| Map | Matches | Win% | K/D | Atk% | Def% |\n|-----|---------|------|-----|------|------|\n| Chalet | 8 | 62.5% | 0.84 | 63.6% | 59.1% |\n| Border | 7 | 57.1% | 0.80 | 41.7% | 57.9% |\n| Bank | 5 | 20.0% | 0.25 | 35.7% | 25.0% |\n| Coastline | 3 | 33.3% | 0.41 | 54.5% | 44.4% |\n| Consulate | 3 | 66.7% | 0.78 | 27.3% | 83.3% |\n| Kafe Dostoyevsky | 3 | 66.7% | 1.24 | 54.5% | 54.5% |\n| Nighthaven Labs | 3 | 0.0% | 0.43 | 28.6% | 22.2% |\n| Oregon | 3 | 33.3% | 0.69 | 42.9% | 27.3% |\n| Clubhouse | 1 | 0.0% | 0.80 | 33.3% | 33.3% |\n| Emerald Plains | 1 | 0.0% | 1.00 | 0.0% | 50.0% |\n| Lair | 1 | 0.0% | 0.25 | 0.0% | 0.0% |\n\n_Pulled 2026-04-10 — 38 ranked matches._\n\n---\n\n## Season Coaching Notes\n\n- **Map data threshold reached** (38M ≥ 30) — pull map data next session.\n\n---\n\n## Data Flags\n\n- 🔲 Active — 38 ranked matches as of 2026-04-10\n- ⭐ Thorn DEF (16r / 62.5%) — strong signal\n- 📍 Map data threshold reached — pull maps next session\n\n---\n\n## Y11S1 Opening Context\n\n### Map Pool — Y11S1 Launch\nBank, Border, Chalet, Clubhouse, Coastline, Consulate, Fortress, Kafe Dostoyevsky, Lair, Nighthaven Labs, Oregon, Villa, Emerald Plains\n\n### Balance Notes — Hunter Specific\n_No major balance changes to primary operators this season. Review GAME_06_CURRENT_SEASON.md for full patch notes._\n",
       "operators": {
         "atk": [
           {
             "name": "Ash",
-            "rounds": 18,
+            "rounds": 38,
+            "winRate": 44.7,
+            "kd": 0.82,
+            "flag": "",
+            "smallSample": false
+          },
+          {
+            "name": "Dokkaebi",
+            "rounds": 16,
             "winRate": 50,
-            "kd": 0.88,
+            "kd": 1.1,
             "flag": "",
             "smallSample": false
           },
           {
             "name": "Striker",
-            "rounds": 9,
-            "winRate": 33.3,
-            "kd": 0.38,
+            "rounds": 15,
+            "winRate": 40,
+            "kd": 0.31,
             "flag": "⚠️",
-            "smallSample": true
-          },
-          {
-            "name": "Ace",
-            "rounds": 8,
-            "winRate": 37.5,
-            "kd": 1,
-            "flag": "⚠️",
-            "smallSample": true
+            "smallSample": false
           },
           {
             "name": "Brava",
-            "rounds": 7,
-            "winRate": 28.6,
-            "kd": 0.75,
+            "rounds": 10,
+            "winRate": 40,
+            "kd": 0.67,
+            "flag": "⚠️",
+            "smallSample": false
+          },
+          {
+            "name": "Ace",
+            "rounds": 9,
+            "winRate": 44.4,
+            "kd": 0.86,
             "flag": "",
             "smallSample": true
           }
@@ -4594,39 +4418,120 @@
         "def": [
           {
             "name": "Aruni",
-            "rounds": 17,
-            "winRate": 52.9,
-            "kd": 0.71,
+            "rounds": 33,
+            "winRate": 54.5,
+            "kd": 0.92,
             "flag": "✅",
             "smallSample": false
           },
           {
             "name": "Castle",
-            "rounds": 15,
-            "winRate": 53.3,
-            "kd": 0.64,
-            "flag": "✅",
+            "rounds": 27,
+            "winRate": 51.9,
+            "kd": 0.48,
+            "flag": "",
             "smallSample": false
           },
           {
             "name": "Thorn",
-            "rounds": 9,
-            "winRate": 55.6,
-            "kd": 1.14,
-            "flag": "✅",
+            "rounds": 16,
+            "winRate": 62.5,
+            "kd": 0.79,
+            "flag": "⭐",
+            "smallSample": false
+          },
+          {
+            "name": "Tubarão",
+            "rounds": 8,
+            "winRate": 50,
+            "kd": 1.8,
+            "flag": "",
             "smallSample": true
           },
           {
-            "name": "Valkyrie",
-            "rounds": 5,
-            "winRate": 20,
-            "kd": 0.2,
+            "name": "Caveira",
+            "rounds": 8,
+            "winRate": 37.5,
+            "kd": 0.12,
+            "flag": "⚠️",
+            "smallSample": true
+          },
+          {
+            "name": "Fenrir",
+            "rounds": 7,
+            "winRate": 42.9,
+            "kd": 0.5,
             "flag": "",
             "smallSample": true
           }
         ]
       },
-      "mapPerformance": [],
+      "mapPerformance": [
+        {
+          "map": "Chalet",
+          "matches": 8,
+          "winRate": 62.5,
+          "kd": 0.84,
+          "atkWr": 63.6,
+          "defWr": 59.1
+        },
+        {
+          "map": "Border",
+          "matches": 7,
+          "winRate": 57.1,
+          "kd": 0.8,
+          "atkWr": 41.7,
+          "defWr": 57.9
+        },
+        {
+          "map": "Bank",
+          "matches": 5,
+          "winRate": 20,
+          "kd": 0.25,
+          "atkWr": 35.7,
+          "defWr": 25
+        },
+        {
+          "map": "Coastline",
+          "matches": 3,
+          "winRate": 33.3,
+          "kd": 0.41,
+          "atkWr": 54.5,
+          "defWr": 44.4
+        },
+        {
+          "map": "Consulate",
+          "matches": 3,
+          "winRate": 66.7,
+          "kd": 0.78,
+          "atkWr": 27.3,
+          "defWr": 83.3
+        },
+        {
+          "map": "Kafe Dostoyevsky",
+          "matches": 3,
+          "winRate": 66.7,
+          "kd": 1.24,
+          "atkWr": 54.5,
+          "defWr": 54.5
+        },
+        {
+          "map": "Nighthaven Labs",
+          "matches": 3,
+          "winRate": 0,
+          "kd": 0.43,
+          "atkWr": 28.6,
+          "defWr": 22.2
+        },
+        {
+          "map": "Oregon",
+          "matches": 3,
+          "winRate": 33.3,
+          "kd": 0.69,
+          "atkWr": 42.9,
+          "defWr": 27.3
+        }
+      ],
       "prevSeason": "Y10S4",
       "prevSeasonStats": {
         "rank": "2,148 RP (Unranked — below placement threshold)",
@@ -4825,11 +4730,11 @@
       "role": "DEF anchor / support. Rook opener is ideal — sets up the team. Mute, Mozzie, Kapkan all show solid career WRs. Not a roamer; likely plays close and holds.",
       "bio": "DEF anchor. Rook (1,106r, 62.0% WR) is the dominant career identity — reliable anchor with consistent win rates across Mute, Mozzie, Kapkan, Kaid. DEF side is where TazRathmus earns rounds.",
       "atkOps": "Thatcher / Sledge",
-      "defOps": "Smoke / Lesion",
+      "defOps": "Lesion / Smoke",
       "season": "Y11S1",
       "stats": {
-        "rank": "Copper IV",
-        "rp": "1188",
+        "rank": "Copper III",
+        "rp": "1200",
         "kd": "0.46",
         "kda": "0.83",
         "kills": "11",
@@ -4840,7 +4745,7 @@
         "esr": "0.00",
         "clutches": "0",
         "clutchWR": "0.0",
-        "ris": "18.8"
+        "ris": "19.2"
       },
       "coachingPriorities": [],
       "profileContent": "# TazRathmus — Player Profile\n\n**Callsign:** TazRathmus | **Tracker:** TazRathmus | **Team:** C Team\n\n_Added: 2026-03-14 | ALL_TIME + Y10S4 pulled: 2026-03-14 | Previous username: Eh_Tyrone (Jul 2023)_\n\n---\n\n## Identity\n\n**Strengths:** DEF anchor. Rook (1,106r, 62.0% WR) is the dominant career identity — reliable anchor with consistent win rates across Mute, Mozzie, Kapkan, Kaid. DEF side is where TazRathmus earns rounds.\n\n**Tendencies:** Hard-utility breach on ATK (Thermite/Sledge/Gridlock all high-volume), but with losing WRs across the board. The ATK side is functional, not a strength. DEF is clearly the more natural role.\n\n**Role fit:** DEF anchor / support. Rook opener is ideal — sets up the team. Mute, Mozzie, Kapkan all show solid career WRs. Not a roamer; likely plays close and holds.\n\n**Solo vs. Group:** Insufficient recent data to assess. Career volume (1,238 ranked) suggests experience, but recent inactivity (3 ranked Y10S4, 0 Y11S1) means current form is unknown.\n\n---\n\n## Career Coaching Notes\n\n- **DEF anchor is the strongest contribution.** Rook/Mute/Mozzie/Kapkan/Kaid all above 54% WR with meaningful rounds — consistent, not a fluke.\n- **ATK side loses rounds.** Thermite (753r, 41.4% WR), Gridlock (717r, 41.6%), Sledge (667r, 41.8%) — huge volume, below 50% WR across all three. ATK needs work or op pool needs rethinking.\n- **Smoke (26r, 50.0% WR, 1.00 K/D)** is a potential upside op — better K/D than most DEF pool, has rounds. Could develop into a plant-denial closer.\n- **Very low recent activity.** Peak was Deadly Omen season (298 matches, 2,886 RP). Recent seasons are near-absent. Treat current skill level as unknown until meaningful Y11S1 data exists.\n- First useful pull target: 10+ Y11S1 ranked matches.\n\n---\n\n## Season Files\n\n| Season | File | Status |\n|--------|------|--------|\n| Y11S1 | Y11S1.md | 🔲 Not yet pulled — 0 ranked matches as of 2026-03-14 |\n| Y10S4 | Y10S4.md | ✅ Pulled 2026-03-14 — ⚠️ 3 matches only, limited data |\n| All-Time | ALL_TIME.md | ✅ Pulled 2026-03-14 |\n",
@@ -4899,7 +4804,7 @@
         }
       ],
       "teachingPattern": "TazRathmus has enormous volume in specialized roles. Crosshair placement and Gridlock elimination are the highest-leverage changes. Kapkan and Mozzie tips are already-good mechanics with specific upgrades that compound at 300-400 rounds of volume.",
-      "seasonContent": "# TazRathmus — Y11S1 (Operation Silent Hunt)\n\n_Season status: 🔲 Active — repull 2026-04-03 (4 ranked matches)_\n_Pull date: 2026-04-03 | Source: r6.tracker.network_\n\n---\n\n## Core Stats\n\n| Stat | Value |\n|------|-------|\n| Rank | Copper IV |\n| RP | 1,188 |\n| Matches | 4 |\n| Win Rate | 75.0% |\n| K/D | 0.46 |\n| KDA | 0.83 |\n| Kills | 11 |\n| Deaths | 24 |\n| HS% | 45.5% |\n| ESR | 0.00 |\n| RIS | 18.8 |\n| Clutches Won | 0 |\n| Clutch Win% | 0.0% |\n\n> ⚠️ Only 4 ranked matches — all stats are directional only. Re-pull at 30+ matches.\n\n---\n\n## Operators\n\n_Format: Operator — Rounds | Win% | K/D (sorted by rounds played, ranked only)_\n_Season filter: season=41_\n\n**Attack**\n1. Thatcher — 5r | 100.0% | 1.33\n2. Sledge — 3r | 66.7% | 0.00\n3. Thermite — 2r | 50.0% | 0.50\n4. Fuze — 2r | 50.0% | 0.00\n5. Gridlock — 2r | 0.0% | 0.00\n\n**Defense**\n1. Smoke — 4r | 75.0% | 0.33\n2. Lesion — 4r | 75.0% | 0.50\n3. Kapkan — 2r | 0.0% | 0.50\n4. Kaid — 2r | 50.0% | 2.00\n\n**ATK identity:** Insufficient rounds for analysis.\n**DEF identity:** Insufficient rounds for analysis.\n\n---\n\n## Map Performance\n\n| Map | Matches | Win% | K/D | Atk% | Def% |\n|-----|---------|------|-----|------|------|\n| — | — | — | — | — | — |\n\n_Map data not yet pulled — add at 30+ match milestone._\n\n---\n\n## Season Coaching Notes\n\n- **Too early for meaningful analysis** — 4 matches. All notes are directional only.\n- **WR (75.0%) is strong** — performing well above baseline.\n- **⚠️ K/D (0.46) is very low** — positioning and decision-making are the primary coaching priority, not mechanics.\n- **Re-pull at 30+ matches** for meaningful coaching analysis. (26 more matches needed for map data threshold.)\n\n---\n\n## Data Flags\n\n- 🔲 Active — 4 ranked matches as of 2026-04-03\n- ⚠️ SMALL SAMPLE — all data directional only. Re-pull at 30+ matches.\n- ⚠️ K/D (0.46) very low — coaching focus on positioning/decisions\n\n---\n\n## Y11S1 Opening Context\n\n### Map Pool — Y11S1 Launch\nBank, Border, Chalet, Clubhouse, Coastline, Consulate, Fortress, Kafe Dostoyevsky, Lair, Nighthaven Labs, Oregon, Villa, Emerald Plains\n\n### Balance Notes — TazRathmus Specific\n_No major balance changes to primary operators this season. Review GAME_06_CURRENT_SEASON.md for full patch notes._\n",
+      "seasonContent": "# TazRathmus — Y11S1 (Operation Silent Hunt)\n\n_Season status: 🔲 Active — repull 2026-04-10 (4 ranked matches)_\n_Pull date: 2026-04-10 | Source: r6.tracker.network_\n\n---\n\n## Core Stats\n\n| Stat | Value |\n|------|-------|\n| Rank | Copper III |\n| RP | 1,200 |\n| Matches | 4 |\n| Win Rate | 75.0% |\n| K/D | 0.46 |\n| KDA | 0.83 |\n| Kills | 11 |\n| Deaths | 24 |\n| HS% | 45.5% |\n| ESR | 0.00 |\n| RIS | 19.2 |\n| Clutches Won | 0 |\n| Clutch Win% | 0.0% |\n\n> ⚠️ Only 4 ranked matches — all stats are directional only. Re-pull at 30+ matches.\n\n---\n\n## Operators\n\n_Format: Operator — Rounds | Win% | K/D (sorted by rounds played, ranked only)_\n_Season filter: season=41_\n\n**Attack**\n1. Thatcher — 5r | 100.0% | 1.33\n2. Sledge — 3r | 66.7% | 0.00\n3. Thermite — 2r | 50.0% | 0.50\n4. Fuze — 2r | 50.0% | 0.00\n5. Gridlock — 2r | 0.0% | 0.00\n\n**Defense**\n1. Lesion — 4r | 75.0% | 0.50\n2. Smoke — 4r | 75.0% | 0.33\n3. Kapkan — 2r | 0.0% | 0.50\n4. Kaid — 2r | 50.0% | 2.00\n5. Rook — 1r | 100.0% | 0.00\n6. Mute — 1r | 0.0% | 0.00\n\n**ATK identity:** Insufficient rounds for analysis.\n**DEF identity:** Insufficient rounds for analysis.\n\n---\n\n## Map Performance\n\n| Map | Matches | Win% | K/D | Atk% | Def% |\n|-----|---------|------|-----|------|------|\n| — | — | — | — | — | — |\n\n_Map data not yet pulled — add at 30+ match milestone._\n\n---\n\n## Season Coaching Notes\n\n- **Too early for meaningful analysis** — 4 matches. All notes are directional only.\n- **WR (75.0%) is strong** — performing well above baseline.\n- **⚠️ K/D (0.46) is very low** — positioning and decision-making are the primary coaching priority, not mechanics.\n- **Re-pull at 30+ matches** for meaningful coaching analysis. (26 more matches needed for map data threshold.)\n\n---\n\n## Data Flags\n\n- 🔲 Active — 4 ranked matches as of 2026-04-10\n- ⚠️ SMALL SAMPLE — all data directional only. Re-pull at 30+ matches.\n- ⚠️ K/D (0.46) very low — coaching focus on positioning/decisions\n\n---\n\n## Y11S1 Opening Context\n\n### Map Pool — Y11S1 Launch\nBank, Border, Chalet, Clubhouse, Coastline, Consulate, Fortress, Kafe Dostoyevsky, Lair, Nighthaven Labs, Oregon, Villa, Emerald Plains\n\n### Balance Notes — TazRathmus Specific\n_No major balance changes to primary operators this season. Review GAME_06_CURRENT_SEASON.md for full patch notes._\n",
       "operators": {
         "atk": [
           {
@@ -4945,18 +4850,18 @@
         ],
         "def": [
           {
-            "name": "Smoke",
-            "rounds": 4,
-            "winRate": 75,
-            "kd": 0.33,
-            "flag": "",
-            "smallSample": true
-          },
-          {
             "name": "Lesion",
             "rounds": 4,
             "winRate": 75,
             "kd": 0.5,
+            "flag": "",
+            "smallSample": true
+          },
+          {
+            "name": "Smoke",
+            "rounds": 4,
+            "winRate": 75,
+            "kd": 0.33,
             "flag": "",
             "smallSample": true
           },
@@ -4973,6 +4878,22 @@
             "rounds": 2,
             "winRate": 50,
             "kd": 2,
+            "flag": "",
+            "smallSample": true
+          },
+          {
+            "name": "Rook",
+            "rounds": 1,
+            "winRate": 100,
+            "kd": 0,
+            "flag": "",
+            "smallSample": true
+          },
+          {
+            "name": "Mute",
+            "rounds": 1,
+            "winRate": 0,
+            "kd": 0,
             "flag": "",
             "smallSample": true
           }
