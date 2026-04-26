@@ -93,9 +93,15 @@
         "y11s1": [
           {
             "player": "Smigs",
-            "rounds": 11,
-            "winRate": 45.5,
-            "kd": 1.12
+            "rounds": 13,
+            "winRate": 53.8,
+            "kd": 1.11
+          },
+          {
+            "player": "Bob",
+            "rounds": 7,
+            "winRate": 28.6,
+            "kd": 0.6
           },
           {
             "player": "Hunter",
@@ -200,27 +206,33 @@
         "y11s1": [
           {
             "player": "Grant",
-            "rounds": 49,
-            "winRate": 46.9,
+            "rounds": 51,
+            "winRate": 49,
             "kd": 1.17
           },
           {
             "player": "Peej",
-            "rounds": 14,
-            "winRate": 42.9,
-            "kd": 1.2
+            "rounds": 16,
+            "winRate": 43.8,
+            "kd": 1.27
           },
           {
             "player": "Smigs",
-            "rounds": 17,
-            "winRate": 41.2,
-            "kd": 1.33
+            "rounds": 20,
+            "winRate": 35,
+            "kd": 1.07
           },
           {
             "player": "Slug",
-            "rounds": 19,
-            "winRate": 42.1,
-            "kd": 1.36
+            "rounds": 34,
+            "winRate": 38.2,
+            "kd": 1.08
+          },
+          {
+            "player": "Bob",
+            "rounds": 5,
+            "winRate": 60,
+            "kd": 0.5
           }
         ],
         "y10s4": [
@@ -338,15 +350,21 @@
         "y11s1": [
           {
             "player": "Slug",
-            "rounds": 8,
+            "rounds": 12,
             "winRate": 25,
-            "kd": 0.5
+            "kd": 0.55
           },
           {
             "player": "Krafty",
             "rounds": 21,
             "winRate": 42.9,
             "kd": 0.47
+          },
+          {
+            "player": "Bob",
+            "rounds": 5,
+            "winRate": 0,
+            "kd": 0.4
           }
         ],
         "y10s4": [
@@ -450,8 +468,8 @@
         "y11s1": [
           {
             "player": "Grant",
-            "rounds": 21,
-            "winRate": 38.1,
+            "rounds": 22,
+            "winRate": 36.4,
             "kd": 1
           },
           {
@@ -462,21 +480,21 @@
           },
           {
             "player": "Hound",
-            "rounds": 42,
-            "winRate": 35.7,
+            "rounds": 44,
+            "winRate": 38.6,
             "kd": 0.83
           },
           {
             "player": "Smigs",
-            "rounds": 70,
-            "winRate": 45.7,
-            "kd": 1.39
+            "rounds": 77,
+            "winRate": 46.8,
+            "kd": 1.35
           },
           {
             "player": "Slug",
-            "rounds": 21,
-            "winRate": 52.4,
-            "kd": 0.88
+            "rounds": 29,
+            "winRate": 44.8,
+            "kd": 0.83
           },
           {
             "player": "Krafty",
@@ -489,6 +507,12 @@
             "rounds": 27,
             "winRate": 37,
             "kd": 0.57
+          },
+          {
+            "player": "Hunter",
+            "rounds": 5,
+            "winRate": 20,
+            "kd": 0.5
           },
           {
             "player": "Tyrone",
@@ -635,9 +659,9 @@
           },
           {
             "player": "Slug",
-            "rounds": 24,
-            "winRate": 20.8,
-            "kd": 1.14
+            "rounds": 32,
+            "winRate": 28.1,
+            "kd": 1.19
           }
         ],
         "y10s4": [
@@ -760,9 +784,9 @@
         "y11s1": [
           {
             "player": "Grant",
-            "rounds": 22,
-            "winRate": 31.8,
-            "kd": 0.95
+            "rounds": 24,
+            "winRate": 37.5,
+            "kd": 1
           },
           {
             "player": "Hound",
@@ -772,9 +796,9 @@
           },
           {
             "player": "Slug",
-            "rounds": 9,
-            "winRate": 55.6,
-            "kd": 1.33
+            "rounds": 12,
+            "winRate": 50,
+            "kd": 1.11
           }
         ],
         "y10s4": []
@@ -884,9 +908,9 @@
         "y11s1": [
           {
             "player": "Hound",
-            "rounds": 29,
-            "winRate": 37.9,
-            "kd": 1.17
+            "rounds": 30,
+            "winRate": 40,
+            "kd": 1.3
           },
           {
             "player": "Tyrone",
@@ -1234,15 +1258,15 @@
           },
           {
             "player": "Bob",
-            "rounds": 31,
-            "winRate": 35.5,
-            "kd": 0.64
+            "rounds": 34,
+            "winRate": 32.4,
+            "kd": 0.59
           },
           {
             "player": "Hunter",
-            "rounds": 10,
-            "winRate": 40,
-            "kd": 0.67
+            "rounds": 16,
+            "winRate": 50,
+            "kd": 1.22
           }
         ],
         "y10s4": [
@@ -1461,8 +1485,8 @@
         "y11s1": [
           {
             "player": "Grant",
-            "rounds": 78,
-            "winRate": 43.6,
+            "rounds": 81,
+            "winRate": 44.4,
             "kd": 1.26
           },
           {
@@ -1479,15 +1503,21 @@
           },
           {
             "player": "Krafty",
-            "rounds": 13,
-            "winRate": 61.5,
-            "kd": 0.5
+            "rounds": 16,
+            "winRate": 56.2,
+            "kd": 0.6
           },
           {
             "player": "Bob",
             "rounds": 24,
             "winRate": 16.7,
             "kd": 0.41
+          },
+          {
+            "player": "Hunter",
+            "rounds": 6,
+            "winRate": 33.3,
+            "kd": 1.75
           },
           {
             "player": "Tyrone",
@@ -1586,16 +1616,22 @@
       "stats": {
         "y11s1": [
           {
+            "player": "Grant",
+            "rounds": 11,
+            "winRate": 45.5,
+            "kd": 1.14
+          },
+          {
             "player": "Peej",
-            "rounds": 66,
-            "winRate": 40.9,
-            "kd": 1.08
+            "rounds": 68,
+            "winRate": 39.7,
+            "kd": 1.06
           },
           {
             "player": "Sarge",
-            "rounds": 9,
-            "winRate": 22.2,
-            "kd": 0.25
+            "rounds": 10,
+            "winRate": 30,
+            "kd": 0.22
           }
         ],
         "y10s4": []
@@ -1671,9 +1707,9 @@
         "y11s1": [
           {
             "player": "Slug",
-            "rounds": 14,
-            "winRate": 64.3,
-            "kd": 2
+            "rounds": 30,
+            "winRate": 66.7,
+            "kd": 2.06
           }
         ],
         "y10s4": [
@@ -1796,22 +1832,28 @@
       "stats": {
         "y11s1": [
           {
+            "player": "Grant",
+            "rounds": 12,
+            "winRate": 50,
+            "kd": 0.78
+          },
+          {
             "player": "Peej",
-            "rounds": 25,
-            "winRate": 48,
-            "kd": 1.75
+            "rounds": 26,
+            "winRate": 50,
+            "kd": 1.65
           },
           {
             "player": "Hound",
-            "rounds": 13,
-            "winRate": 38.5,
-            "kd": 0.31
+            "rounds": 14,
+            "winRate": 35.7,
+            "kd": 0.29
           },
           {
             "player": "Hunter",
-            "rounds": 16,
-            "winRate": 50,
-            "kd": 1.1
+            "rounds": 28,
+            "winRate": 53.6,
+            "kd": 0.83
           }
         ],
         "y10s4": [
@@ -1929,8 +1971,8 @@
         "y11s1": [
           {
             "player": "Hound",
-            "rounds": 38,
-            "winRate": 42.1,
+            "rounds": 40,
+            "winRate": 45,
             "kd": 0.86
           }
         ],
@@ -2266,9 +2308,9 @@
           },
           {
             "player": "Slug",
-            "rounds": 23,
-            "winRate": 43.5,
-            "kd": 1.73
+            "rounds": 35,
+            "winRate": 45.7,
+            "kd": 1.54
           }
         ],
         "y10s4": []
@@ -2377,15 +2419,21 @@
         "y11s1": [
           {
             "player": "Grant",
-            "rounds": 48,
-            "winRate": 39.6,
-            "kd": 0.84
+            "rounds": 51,
+            "winRate": 39.2,
+            "kd": 0.97
           },
           {
             "player": "Bob",
             "rounds": 6,
             "winRate": 33.3,
             "kd": 0.17
+          },
+          {
+            "player": "Hunter",
+            "rounds": 6,
+            "winRate": 33.3,
+            "kd": 1.2
           }
         ],
         "y10s4": [
@@ -2514,9 +2562,9 @@
           },
           {
             "player": "Bob",
-            "rounds": 9,
-            "winRate": 44.4,
-            "kd": 1.14
+            "rounds": 11,
+            "winRate": 54.5,
+            "kd": 1.11
           }
         ],
         "y10s4": [
@@ -2639,15 +2687,15 @@
           },
           {
             "player": "Slug",
-            "rounds": 9,
-            "winRate": 55.6,
-            "kd": 0.86
+            "rounds": 13,
+            "winRate": 46.2,
+            "kd": 0.9
           },
           {
             "player": "Hunter",
-            "rounds": 38,
-            "winRate": 44.7,
-            "kd": 0.82
+            "rounds": 60,
+            "winRate": 38.3,
+            "kd": 0.74
           }
         ],
         "y10s4": [
@@ -2753,10 +2801,16 @@
       "stats": {
         "y11s1": [
           {
+            "player": "Grant",
+            "rounds": 20,
+            "winRate": 25,
+            "kd": 0.67
+          },
+          {
             "player": "Krafty",
-            "rounds": 10,
-            "winRate": 40,
-            "kd": 0.22
+            "rounds": 11,
+            "winRate": 36.4,
+            "kd": 0.2
           }
         ],
         "y10s4": []
@@ -2939,21 +2993,21 @@
         "y11s1": [
           {
             "player": "Slug",
-            "rounds": 9,
-            "winRate": 66.7,
-            "kd": 2
+            "rounds": 12,
+            "winRate": 50,
+            "kd": 1.56
           },
           {
             "player": "Krafty",
-            "rounds": 120,
-            "winRate": 45,
-            "kd": 0.27
+            "rounds": 129,
+            "winRate": 45.7,
+            "kd": 0.26
           },
           {
             "player": "Bob",
-            "rounds": 6,
-            "winRate": 33.3,
-            "kd": 0.2
+            "rounds": 7,
+            "winRate": 28.6,
+            "kd": 0.17
           }
         ],
         "y10s4": [
@@ -3070,6 +3124,12 @@
             "kd": 1.11
           },
           {
+            "player": "Smigs",
+            "rounds": 5,
+            "winRate": 20,
+            "kd": 0.6
+          },
+          {
             "player": "Sarge",
             "rounds": 26,
             "winRate": 50,
@@ -3077,15 +3137,15 @@
           },
           {
             "player": "Slug",
-            "rounds": 12,
-            "winRate": 58.3,
-            "kd": 0.25
+            "rounds": 15,
+            "winRate": 66.7,
+            "kd": 0.7
           },
           {
             "player": "Krafty",
-            "rounds": 24,
-            "winRate": 45.8,
-            "kd": 0.2
+            "rounds": 26,
+            "winRate": 46.2,
+            "kd": 0.23
           }
         ],
         "y10s4": [
@@ -3195,10 +3255,16 @@
       "stats": {
         "y11s1": [
           {
+            "player": "Grant",
+            "rounds": 12,
+            "winRate": 33.3,
+            "kd": 0.4
+          },
+          {
             "player": "Slug",
-            "rounds": 8,
+            "rounds": 10,
             "winRate": 50,
-            "kd": 1
+            "kd": 0.75
           }
         ],
         "y10s4": []
@@ -3493,9 +3559,9 @@
         "y11s1": [
           {
             "player": "Peej",
-            "rounds": 8,
-            "winRate": 50,
-            "kd": 0.57
+            "rounds": 9,
+            "winRate": 55.6,
+            "kd": 0.75
           },
           {
             "player": "Sarge",
@@ -4113,9 +4179,9 @@
           },
           {
             "player": "Smigs",
-            "rounds": 11,
-            "winRate": 72.7,
-            "kd": 1.33
+            "rounds": 12,
+            "winRate": 75,
+            "kd": 1.5
           },
           {
             "player": "Sarge",
@@ -4125,9 +4191,9 @@
           },
           {
             "player": "Bob",
-            "rounds": 34,
-            "winRate": 32.4,
-            "kd": 0.6
+            "rounds": 36,
+            "winRate": 33.3,
+            "kd": 0.68
           }
         ],
         "y10s4": [
@@ -4246,9 +4312,15 @@
         "y11s1": [
           {
             "player": "Hound",
-            "rounds": 38,
-            "winRate": 39.5,
-            "kd": 0.39
+            "rounds": 39,
+            "winRate": 38.5,
+            "kd": 0.38
+          },
+          {
+            "player": "Smigs",
+            "rounds": 7,
+            "winRate": 42.9,
+            "kd": 2
           }
         ],
         "y10s4": [
@@ -4358,10 +4430,16 @@
       "stats": {
         "y11s1": [
           {
+            "player": "Grant",
+            "rounds": 6,
+            "winRate": 83.3,
+            "kd": 3
+          },
+          {
             "player": "Slug",
-            "rounds": 9,
-            "winRate": 44.4,
-            "kd": 1.5
+            "rounds": 13,
+            "winRate": 30.8,
+            "kd": 1.2
           },
           {
             "player": "Krafty",
@@ -4426,15 +4504,15 @@
           },
           {
             "player": "Peej",
-            "rounds": 8,
-            "winRate": 12.5,
-            "kd": 0.57
+            "rounds": 14,
+            "winRate": 14.3,
+            "kd": 0.5
           },
           {
             "player": "Slug",
-            "rounds": 25,
-            "winRate": 32,
-            "kd": 0.75
+            "rounds": 30,
+            "winRate": 36.7,
+            "kd": 0.79
           }
         ],
         "y10s4": []
@@ -4543,15 +4621,21 @@
         "y11s1": [
           {
             "player": "Smigs",
-            "rounds": 12,
-            "winRate": 33.3,
+            "rounds": 13,
+            "winRate": 38.5,
             "kd": 0.73
           },
           {
+            "player": "Bob",
+            "rounds": 7,
+            "winRate": 14.3,
+            "kd": 0.29
+          },
+          {
             "player": "Hunter",
-            "rounds": 15,
-            "winRate": 40,
-            "kd": 0.31
+            "rounds": 18,
+            "winRate": 44.4,
+            "kd": 0.6
           }
         ],
         "y10s4": [
@@ -4663,9 +4747,9 @@
         "y11s1": [
           {
             "player": "Grant",
-            "rounds": 22,
-            "winRate": 31.8,
-            "kd": 0.47
+            "rounds": 24,
+            "winRate": 33.3,
+            "kd": 0.52
           },
           {
             "player": "Hound",
@@ -4678,6 +4762,12 @@
             "rounds": 19,
             "winRate": 57.9,
             "kd": 0.92
+          },
+          {
+            "player": "Hunter",
+            "rounds": 4,
+            "winRate": 25,
+            "kd": 0.25
           }
         ],
         "y10s4": [
@@ -4785,15 +4875,15 @@
         "y11s1": [
           {
             "player": "Grant",
-            "rounds": 56,
-            "winRate": 62.5,
-            "kd": 1.24
+            "rounds": 62,
+            "winRate": 59.7,
+            "kd": 1.28
           },
           {
             "player": "Hound",
-            "rounds": 53,
-            "winRate": 45.3,
-            "kd": 0.79
+            "rounds": 55,
+            "winRate": 45.5,
+            "kd": 0.78
           },
           {
             "player": "Smigs",
@@ -4803,21 +4893,21 @@
           },
           {
             "player": "Slug",
-            "rounds": 12,
-            "winRate": 66.7,
-            "kd": 0.91
+            "rounds": 13,
+            "winRate": 61.5,
+            "kd": 0.83
           },
           {
             "player": "Krafty",
-            "rounds": 114,
-            "winRate": 52.6,
+            "rounds": 120,
+            "winRate": 51.7,
             "kd": 0.42
           },
           {
             "player": "Hunter",
-            "rounds": 27,
-            "winRate": 51.9,
-            "kd": 0.48
+            "rounds": 31,
+            "winRate": 51.6,
+            "kd": 0.54
           }
         ],
         "y10s4": [
@@ -4956,21 +5046,21 @@
           },
           {
             "player": "Smigs",
-            "rounds": 34,
-            "winRate": 50,
-            "kd": 1.45
+            "rounds": 41,
+            "winRate": 43.9,
+            "kd": 1.19
           },
           {
             "player": "Slug",
-            "rounds": 13,
-            "winRate": 46.2,
-            "kd": 1.18
+            "rounds": 16,
+            "winRate": 43.8,
+            "kd": 1
           },
           {
             "player": "Bob",
-            "rounds": 10,
-            "winRate": 60,
-            "kd": 0.88
+            "rounds": 11,
+            "winRate": 54.5,
+            "kd": 0.78
           },
           {
             "player": "Tyrone",
@@ -5099,9 +5189,9 @@
         "y11s1": [
           {
             "player": "Grant",
-            "rounds": 185,
-            "winRate": 53.5,
-            "kd": 1.22
+            "rounds": 188,
+            "winRate": 53.7,
+            "kd": 1.21
           },
           {
             "player": "Hound",
@@ -5111,9 +5201,9 @@
           },
           {
             "player": "Smigs",
-            "rounds": 11,
-            "winRate": 63.6,
-            "kd": 1.29
+            "rounds": 12,
+            "winRate": 66.7,
+            "kd": 1.57
           },
           {
             "player": "Sarge",
@@ -5123,9 +5213,15 @@
           },
           {
             "player": "Slug",
-            "rounds": 9,
-            "winRate": 33.3,
-            "kd": 0.71
+            "rounds": 14,
+            "winRate": 42.9,
+            "kd": 0.73
+          },
+          {
+            "player": "Bob",
+            "rounds": 6,
+            "winRate": 16.7,
+            "kd": 0.4
           },
           {
             "player": "Tyrone",
@@ -5242,10 +5338,16 @@
       "stats": {
         "y11s1": [
           {
+            "player": "Grant",
+            "rounds": 9,
+            "winRate": 33.3,
+            "kd": 0.67
+          },
+          {
             "player": "Hunter",
-            "rounds": 8,
-            "winRate": 50,
-            "kd": 1.8
+            "rounds": 9,
+            "winRate": 44.4,
+            "kd": 1.5
           }
         ],
         "y10s4": []
@@ -5327,9 +5429,15 @@
         "y11s1": [
           {
             "player": "Peej",
-            "rounds": 109,
-            "winRate": 59.6,
-            "kd": 1.6
+            "rounds": 110,
+            "winRate": 59.1,
+            "kd": 1.59
+          },
+          {
+            "player": "Slug",
+            "rounds": 8,
+            "winRate": 50,
+            "kd": 0.12
           },
           {
             "player": "Hunter",
@@ -5439,9 +5547,9 @@
         "y11s1": [
           {
             "player": "Krafty",
-            "rounds": 39,
-            "winRate": 38.5,
-            "kd": 0.13
+            "rounds": 41,
+            "winRate": 36.6,
+            "kd": 0.12
           }
         ],
         "y10s4": []
@@ -5718,7 +5826,14 @@
       ],
       "stackNotes": "- No current stack player is a primary Skopós player — this is a complex operator with a steep learning curve - The two-shell mechanic requires strong game sense; not recommended for Sarge or Bob as primary pick - Grant or Hound would get the most value — game sense to manage split-position play (Slug B Team as of 2026-03-21; reassess fit for current main stack) - If added to the stack's DEF pool, pair her with Smoke for the classic gas-immunity hold: Smoke manages the timer, Skopós holds through the gas untouched - The Inactive Shell camera is a free intel asset every round — even in lower-level play this alone justifies picking her on intel-light sites",
       "stats": {
-        "y11s1": [],
+        "y11s1": [
+          {
+            "player": "Sarge",
+            "rounds": 3,
+            "winRate": 66.7,
+            "kd": 0.33
+          }
+        ],
         "y10s4": []
       }
     },
@@ -5818,6 +5933,12 @@
       "stackNotes": "Sarge is the stack's primary Vigil player — 78r / 59.0% / 1.28 K/D in Y11S1, his highest-volume DEF operator. His consistent Vigil picks confirm the stack values drone denial and aggressive roaming. Vigil is a core roaming operator for the stack's defensive strategy. For stack application: Vigil should be treated as a \"core roamer\" alongside Caveira, Kapkan, Lesion, and Ela. Sarge's Vigil plays indicate roaming coordination is important for the stack. Pair Vigil with other roamers to create overlapping drone denial and aggressive roaming pressure. For roaming composition: When Sarge plays Vigil, coordinate with other roamers (Caveira, Kapkan) to create multi-layered roaming unit with Vigil's drone denial enabling aggressive plays. For developing roaming players: Vigil is an excellent roamer to learn. His pure roaming focus and drone denial allow concentration on gunplay and positioning without complex gadget timing.",
       "stats": {
         "y11s1": [
+          {
+            "player": "Grant",
+            "rounds": 6,
+            "winRate": 83.3,
+            "kd": 5.5
+          },
           {
             "player": "Sarge",
             "rounds": 108,
@@ -5937,7 +6058,20 @@
       ],
       "stackNotes": "Warden is a niche pick best used against specific attacker lineups with heavy flashbang or smoke utility. Pick him only if you know attackers are running Ying, Blitz, or heavy smoke breach strats. Hold site anchor positions where flashbang/smoke denial is most valuable (plant site, main push corridors). Activate glasses when you expect incoming flashes or smoke—coordinate timing with callouts. Do not waste activations; plan reactivations around expected utility usage. Pairs well with static anchors (Rook, Tachanka, Doc). Avoid picking Warden into flash-light attack lineups.",
       "stats": {
-        "y11s1": [],
+        "y11s1": [
+          {
+            "player": "Grant",
+            "rounds": 7,
+            "winRate": 57.1,
+            "kd": 0.75
+          },
+          {
+            "player": "Slug",
+            "rounds": 7,
+            "winRate": 28.6,
+            "kd": 0.8
+          }
+        ],
         "y10s4": []
       }
     },
@@ -6024,9 +6158,9 @@
           },
           {
             "player": "Smigs",
-            "rounds": 27,
-            "winRate": 48.1,
-            "kd": 1
+            "rounds": 30,
+            "winRate": 50,
+            "kd": 1.18
           },
           {
             "player": "Sarge",
@@ -6042,9 +6176,9 @@
           },
           {
             "player": "Hunter",
-            "rounds": 33,
-            "winRate": 54.5,
-            "kd": 0.92
+            "rounds": 59,
+            "winRate": 55.9,
+            "kd": 1.02
           }
         ],
         "y10s4": [
@@ -6259,10 +6393,22 @@
       "stats": {
         "y11s1": [
           {
+            "player": "Grant",
+            "rounds": 9,
+            "winRate": 66.7,
+            "kd": 1
+          },
+          {
             "player": "Sarge",
-            "rounds": 8,
-            "winRate": 37.5,
-            "kd": 0.83
+            "rounds": 9,
+            "winRate": 44.4,
+            "kd": 0.71
+          },
+          {
+            "player": "Krafty",
+            "rounds": 6,
+            "winRate": 66.7,
+            "kd": 0.25
           }
         ],
         "y10s4": []
@@ -6564,6 +6710,12 @@
       "stats": {
         "y11s1": [
           {
+            "player": "Grant",
+            "rounds": 8,
+            "winRate": 62.5,
+            "kd": 0.5
+          },
+          {
             "player": "Sarge",
             "rounds": 24,
             "winRate": 50,
@@ -6571,9 +6723,9 @@
           },
           {
             "player": "Slug",
-            "rounds": 26,
-            "winRate": 50,
-            "kd": 0.68
+            "rounds": 46,
+            "winRate": 52.2,
+            "kd": 0.86
           },
           {
             "player": "Tyrone",
@@ -6696,26 +6848,32 @@
           },
           {
             "player": "Peej",
-            "rounds": 27,
-            "winRate": 66.7,
-            "kd": 1.78
+            "rounds": 33,
+            "winRate": 63.6,
+            "kd": 1.64
           },
           {
             "player": "Hound",
-            "rounds": 9,
-            "winRate": 55.6,
-            "kd": 1.57
+            "rounds": 10,
+            "winRate": 60,
+            "kd": 1.38
           },
           {
             "player": "Smigs",
-            "rounds": 15,
-            "winRate": 60,
-            "kd": 0.8
+            "rounds": 19,
+            "winRate": 57.9,
+            "kd": 1.08
           },
           {
             "player": "Sarge",
             "rounds": 15,
             "winRate": 40,
+            "kd": 1
+          },
+          {
+            "player": "Slug",
+            "rounds": 6,
+            "winRate": 33.3,
             "kd": 1
           },
           {
@@ -6732,9 +6890,9 @@
           },
           {
             "player": "Hunter",
-            "rounds": 16,
-            "winRate": 62.5,
-            "kd": 0.79
+            "rounds": 25,
+            "winRate": 64,
+            "kd": 1.21
           }
         ],
         "y10s4": [
@@ -6881,9 +7039,9 @@
         "y11s1": [
           {
             "player": "Grant",
-            "rounds": 16,
-            "winRate": 68.8,
-            "kd": 1.89
+            "rounds": 19,
+            "winRate": 68.4,
+            "kd": 2.1
           },
           {
             "player": "Peej",
@@ -6899,9 +7057,9 @@
           },
           {
             "player": "Bob",
-            "rounds": 18,
+            "rounds": 24,
             "winRate": 66.7,
-            "kd": 0.89
+            "kd": 0.75
           }
         ],
         "y10s4": [
@@ -7012,6 +7170,12 @@
             "kd": 0.5
           },
           {
+            "player": "Slug",
+            "rounds": 6,
+            "winRate": 66.7,
+            "kd": 1
+          },
+          {
             "player": "Krafty",
             "rounds": 15,
             "winRate": 46.7,
@@ -7116,7 +7280,14 @@
       ],
       "stackNotes": "Pulse is excellent for stacks that value coordinated roaming and communication-heavy gameplay. Use heartbeat sensor to identify attacker entry routes and positioning. Call out attacker counts, distances, and directions to coordinate team ambushes. Position roaming teammates near likely breach points before attackers arrive. Rotate aggressively but predictably—teammate communication is key to capitalizing on intel. Pair with other roamers (Vigil, Nokk) for multi-angle catches. Excels on vertical maps with hatch connectivity. Avoid solo roaming without nearby teammates to support ambushes.",
       "stats": {
-        "y11s1": [],
+        "y11s1": [
+          {
+            "player": "Slug",
+            "rounds": 10,
+            "winRate": 40,
+            "kd": 1
+          }
+        ],
         "y10s4": []
       }
     },
@@ -7213,9 +7384,9 @@
         "y11s1": [
           {
             "player": "Slug",
-            "rounds": 33,
-            "winRate": 63.6,
-            "kd": 1.91
+            "rounds": 49,
+            "winRate": 61.2,
+            "kd": 1.49
           }
         ],
         "y10s4": [
@@ -7321,21 +7492,27 @@
         "y11s1": [
           {
             "player": "Peej",
-            "rounds": 53,
-            "winRate": 58.5,
-            "kd": 1.42
+            "rounds": 56,
+            "winRate": 57.1,
+            "kd": 1.39
           },
           {
             "player": "Slug",
-            "rounds": 64,
-            "winRate": 65.6,
-            "kd": 1.26
+            "rounds": 91,
+            "winRate": 62.6,
+            "kd": 1.18
           },
           {
             "player": "Bob",
             "rounds": 8,
             "winRate": 37.5,
             "kd": 0.33
+          },
+          {
+            "player": "Hunter",
+            "rounds": 4,
+            "winRate": 25,
+            "kd": 0
           }
         ],
         "y10s4": [
@@ -7439,10 +7616,16 @@
       "stats": {
         "y11s1": [
           {
+            "player": "Peej",
+            "rounds": 6,
+            "winRate": 16.7,
+            "kd": 0.4
+          },
+          {
             "player": "Krafty",
-            "rounds": 10,
-            "winRate": 40,
-            "kd": 0.62
+            "rounds": 12,
+            "winRate": 50,
+            "kd": 0.6
           },
           {
             "player": "Hunter",
@@ -7558,9 +7741,9 @@
           },
           {
             "player": "Slug",
-            "rounds": 8,
-            "winRate": 75,
-            "kd": 1.25
+            "rounds": 10,
+            "winRate": 70,
+            "kd": 1.17
           },
           {
             "player": "Krafty",
@@ -7570,9 +7753,9 @@
           },
           {
             "player": "Bob",
-            "rounds": 6,
-            "winRate": 66.7,
-            "kd": 1.67
+            "rounds": 7,
+            "winRate": 71.4,
+            "kd": 2
           }
         ],
         "y10s4": [
@@ -7677,9 +7860,15 @@
         "y11s1": [
           {
             "player": "Grant",
-            "rounds": 63,
-            "winRate": 55.6,
+            "rounds": 64,
+            "winRate": 56.2,
             "kd": 1.93
+          },
+          {
+            "player": "Peej",
+            "rounds": 5,
+            "winRate": 80,
+            "kd": 1.5
           },
           {
             "player": "Bob",
@@ -7793,9 +7982,9 @@
         "y11s1": [
           {
             "player": "Smigs",
-            "rounds": 9,
-            "winRate": 44.4,
-            "kd": 1.14
+            "rounds": 11,
+            "winRate": 36.4,
+            "kd": 1
           },
           {
             "player": "Krafty",
@@ -7929,10 +8118,22 @@
       "stats": {
         "y11s1": [
           {
+            "player": "Smigs",
+            "rounds": 5,
+            "winRate": 20,
+            "kd": 0.6
+          },
+          {
             "player": "Sarge",
             "rounds": 18,
             "winRate": 66.7,
             "kd": 1.1
+          },
+          {
+            "player": "Slug",
+            "rounds": 7,
+            "winRate": 71.4,
+            "kd": 2.5
           }
         ],
         "y10s4": []
@@ -8115,27 +8316,33 @@
         "y11s1": [
           {
             "player": "Grant",
-            "rounds": 22,
-            "winRate": 40.9,
-            "kd": 1.18
+            "rounds": 24,
+            "winRate": 45.8,
+            "kd": 1.11
           },
           {
             "player": "Peej",
-            "rounds": 15,
+            "rounds": 18,
             "winRate": 66.7,
-            "kd": 1.36
+            "kd": 1.31
           },
           {
             "player": "Hound",
-            "rounds": 34,
-            "winRate": 52.9,
-            "kd": 1.17
+            "rounds": 35,
+            "winRate": 51.4,
+            "kd": 1.2
           },
           {
             "player": "Sarge",
-            "rounds": 64,
-            "winRate": 57.8,
+            "rounds": 65,
+            "winRate": 58.5,
             "kd": 1.18
+          },
+          {
+            "player": "Krafty",
+            "rounds": 13,
+            "winRate": 30.8,
+            "kd": 0.3
           }
         ],
         "y10s4": [
@@ -8247,7 +8454,20 @@
       ],
       "stackNotes": "- Denari is a specialized roaming area-denial pick for early-round laser network setup - Optimal placement: common attacker pathways and entry routes during setup phase - Use T.R.I.P preview system to identify high-value laser connections before deploying - Prioritize placing 2-3 connector pairs that overlap for magnified denial effect - During setup, place most devices; mid-round placement becomes reactive only - Communicate device locations to team so teammates understand denial zones - Against Thatcher-heavy comps, save device placement for after EMP window passes - Pair with Lesion/Frost for overlapping area denial networks - Roam with Scorpion EVO for aggressive early-round engagements after placement - Expect device destruction; don't over-invest in defending individual connectors - In post-plant, use remaining devices to block plant site and deny defuse approaches",
       "stats": {
-        "y11s1": [],
+        "y11s1": [
+          {
+            "player": "Grant",
+            "rounds": 7,
+            "winRate": 28.6,
+            "kd": 0.33
+          },
+          {
+            "player": "Bob",
+            "rounds": 36,
+            "winRate": 50,
+            "kd": 0.55
+          }
+        ],
         "y10s4": [
           {
             "player": "Bob",
@@ -8352,9 +8572,9 @@
         "y11s1": [
           {
             "player": "Sarge",
-            "rounds": 19,
-            "winRate": 47.4,
-            "kd": 0.93
+            "rounds": 20,
+            "winRate": 45,
+            "kd": 0.88
           }
         ],
         "y10s4": [
