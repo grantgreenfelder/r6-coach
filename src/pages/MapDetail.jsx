@@ -367,7 +367,6 @@ function WinRateBlock({ label, wr, matches, current, delta }) {
 
 function StratCard({ strat, mapName }) {
   const isAtk = strat.side === 'ATK'
-  const sideColor = isAtk ? 'text-siege-accent' : 'text-siege-blue'
   const encodedSite = encodeURIComponent(strat.site)
   const encodedSide = strat.side.toLowerCase()
 

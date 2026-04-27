@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import operatorsData from '../data/operators.json'
 import playersData from '../data/players.json'

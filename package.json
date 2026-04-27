@@ -8,7 +8,8 @@
     "build": "vite build",
     "build:local": "node scripts/parse-kb.mjs && vite build",
     "parse-kb": "node scripts/parse-kb.mjs",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint": "eslint src"
   },
   "dependencies": {
     "dompurify": "^3.3.3",

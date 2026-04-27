@@ -430,7 +430,7 @@ export default function StratViewer() {
   const players = useMemo(() => {
     if (!strat?.roles) return []
     return [...new Set(strat.roles.map(r => cleanPlayer(r.Player)).filter(Boolean))]
-  }, [strat?.roles])
+  }, [strat])
 
   const [activePlayer, setActivePlayer] = useState('all')
 

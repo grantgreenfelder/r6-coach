@@ -2,7 +2,7 @@ import { useState, useMemo } from 'react'
 import { Link } from 'react-router-dom'
 import playersData from '../data/players.json'
 import PlayerAvatar from '../components/PlayerAvatar.jsx'
-import { risTextColor, risColor, wrColor, kdColor, opWrColor, RIS_MIN, RIS_MAX, RIS_BASELINE_PCT } from '../utils/constants'
+import { risTextColor, risColor, wrColor, kdColor, RIS_MIN, RIS_MAX, RIS_BASELINE_PCT } from '../utils/constants'
 import HelpTip from '../components/HelpTip'
 import { GLOSSARY } from '../utils/glossary'
 
