@@ -132,6 +132,12 @@
             "rounds": 9,
             "winRate": 44.4,
             "kd": 0.86
+          },
+          {
+            "player": "fEHdelCastro",
+            "rounds": 1,
+            "winRate": 100,
+            "kd": 3
           }
         ],
         "y10s4": []
@@ -710,6 +716,12 @@
             "rounds": 32,
             "winRate": 28.1,
             "kd": 1.19
+          },
+          {
+            "player": "fEHdelCastro",
+            "rounds": 1,
+            "winRate": 0,
+            "kd": 0
           }
         ],
         "y10s4": [
@@ -1357,6 +1369,12 @@
             "rounds": 16,
             "winRate": 50,
             "kd": 1.22
+          },
+          {
+            "player": "fEHdelCastro",
+            "rounds": 1,
+            "winRate": 0,
+            "kd": 0
           }
         ],
         "y10s4": [
@@ -1634,6 +1652,12 @@
             "kd": 1.75
           },
           {
+            "player": "fEHdelCastro",
+            "rounds": 6,
+            "winRate": 66.7,
+            "kd": 2.33
+          },
+          {
             "player": "Tyrone",
             "rounds": 5,
             "winRate": 100,
@@ -1854,6 +1878,12 @@
             "rounds": 3,
             "winRate": 33.3,
             "kd": 0
+          },
+          {
+            "player": "fEHdelCastro",
+            "rounds": 2,
+            "winRate": 50,
+            "kd": 0
           }
         ],
         "y10s4": [
@@ -2016,6 +2046,12 @@
             "rounds": 28,
             "winRate": 53.6,
             "kd": 0.83
+          },
+          {
+            "player": "fEHdelCastro",
+            "rounds": 1,
+            "winRate": 100,
+            "kd": 0
           }
         ],
         "y10s4": [
@@ -2142,6 +2178,12 @@
             "rounds": 40,
             "winRate": 45,
             "kd": 0.86
+          },
+          {
+            "player": "fEHdelCastro",
+            "rounds": 1,
+            "winRate": 0,
+            "kd": 1
           }
         ],
         "y10s4": []
@@ -3988,6 +4030,12 @@
             "rounds": 7,
             "winRate": 42.9,
             "kd": 0.14
+          },
+          {
+            "player": "fEHdelCastro",
+            "rounds": 1,
+            "winRate": 100,
+            "kd": 1
           }
         ],
         "y10s4": []
@@ -4513,6 +4561,12 @@
             "rounds": 37,
             "winRate": 32.4,
             "kd": 0.66
+          },
+          {
+            "player": "fEHdelCastro",
+            "rounds": 5,
+            "winRate": 60,
+            "kd": 3
           }
         ],
         "y10s4": [
@@ -5147,6 +5201,12 @@
             "rounds": 4,
             "winRate": 25,
             "kd": 0.25
+          },
+          {
+            "player": "fEHdelCastro",
+            "rounds": 2,
+            "winRate": 0,
+            "kd": 0
           }
         ],
         "y10s4": [
@@ -5287,6 +5347,12 @@
             "rounds": 31,
             "winRate": 51.6,
             "kd": 0.54
+          },
+          {
+            "player": "fEHdelCastro",
+            "rounds": 2,
+            "winRate": 0,
+            "kd": 0.5
           }
         ],
         "y10s4": [
@@ -5630,6 +5696,12 @@
             "player": "Hunter",
             "rounds": 2,
             "winRate": 0,
+            "kd": 1
+          },
+          {
+            "player": "fEHdelCastro",
+            "rounds": 5,
+            "winRate": 80,
             "kd": 1
           },
           {
@@ -5983,6 +6055,12 @@
             "rounds": 42,
             "winRate": 38.1,
             "kd": 0.12
+          },
+          {
+            "player": "fEHdelCastro",
+            "rounds": 1,
+            "winRate": 0,
+            "kd": 0
           }
         ],
         "y10s4": []
@@ -7296,6 +7374,12 @@
             "kd": 1
           },
           {
+            "player": "fEHdelCastro",
+            "rounds": 2,
+            "winRate": 0,
+            "kd": 0
+          },
+          {
             "player": "Tyrone",
             "rounds": 4,
             "winRate": 75,
@@ -7461,6 +7545,12 @@
             "rounds": 25,
             "winRate": 64,
             "kd": 1.21
+          },
+          {
+            "player": "fEHdelCastro",
+            "rounds": 1,
+            "winRate": 100,
+            "kd": 2
           }
         ],
         "y10s4": [
@@ -7859,6 +7949,12 @@
             "player": "Slug",
             "rounds": 10,
             "winRate": 40,
+            "kd": 1
+          },
+          {
+            "player": "fEHdelCastro",
+            "rounds": 1,
+            "winRate": 100,
             "kd": 1
           }
         ],
@@ -8527,6 +8623,12 @@
             "rounds": 53,
             "winRate": 50.9,
             "kd": 0.95
+          },
+          {
+            "player": "fEHdelCastro",
+            "rounds": 3,
+            "winRate": 33.3,
+            "kd": 1
           },
           {
             "player": "Tyrone",
@@ -9275,6 +9377,12 @@
             "rounds": 21,
             "winRate": 47.6,
             "kd": 0.88
+          },
+          {
+            "player": "fEHdelCastro",
+            "rounds": 2,
+            "winRate": 50,
+            "kd": 0
           }
         ],
         "y10s4": [
@@ -9392,6 +9500,12 @@
             "rounds": 13,
             "winRate": 46.2,
             "kd": 0.8
+          },
+          {
+            "player": "fEHdelCastro",
+            "rounds": 1,
+            "winRate": 0,
+            "kd": 0
           }
         ],
         "y10s4": []
@@ -9512,6 +9626,12 @@
             "kd": 2
           },
           {
+            "player": "fEHdelCastro",
+            "rounds": 1,
+            "winRate": 100,
+            "kd": 0
+          },
+          {
             "player": "Tyrone",
             "rounds": 1,
             "winRate": 100,
@@ -9609,7 +9729,14 @@
       ],
       "stackNotes": "- No current stack player is listed as a primary Tachanka player - Worth considering for Grant or Hound in anchor roles given area denial utility (Slug B Team as of 2026-03-21) - The Smoke + Tachanka late-round deny combo is a legitimate strat to develop for Villa and Oregon bomb sites - His 3-armor playstyle fits an anchor-heavy defensive identity",
       "stats": {
-        "y11s1": [],
+        "y11s1": [
+          {
+            "player": "fEHdelCastro",
+            "rounds": 1,
+            "winRate": 0,
+            "kd": 1
+          }
+        ],
         "y10s4": []
       }
     },
