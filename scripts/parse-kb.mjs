@@ -251,7 +251,7 @@ function parsePlayer(name, playerIndexText = '') {
     .filter(l => l.length > 5)
 
   // Display name overrides — tracker/folder name → preferred callsign
-  const DISPLAY_NAMES = { TazRathmus: 'Tyrone' }
+  const DISPLAY_NAMES = { TazRathmus: 'Tyrone', fEHdelCastro: 'Cheese' }
   const displayName = DISPLAY_NAMES[name] || name
 
   return {
