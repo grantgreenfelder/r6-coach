@@ -593,6 +593,12 @@
             "rounds": 5,
             "winRate": 20,
             "kd": 0.75
+          },
+          {
+            "player": "Cheese",
+            "rounds": 1,
+            "winRate": 0,
+            "kd": 0
           }
         ]
       }
@@ -742,6 +748,12 @@
             "rounds": 61,
             "winRate": 50.8,
             "kd": 1.13
+          },
+          {
+            "player": "Cheese",
+            "rounds": 1,
+            "winRate": 0,
+            "kd": 0
           }
         ]
       }
@@ -1129,7 +1141,14 @@
             "kd": 1.71
           }
         ],
-        "y10s4": []
+        "y10s4": [
+          {
+            "player": "Cheese",
+            "rounds": 1,
+            "winRate": 0,
+            "kd": 0
+          }
+        ]
       }
     },
     {
@@ -1904,6 +1923,12 @@
             "rounds": 8,
             "winRate": 37.5,
             "kd": 1
+          },
+          {
+            "player": "Cheese",
+            "rounds": 2,
+            "winRate": 50,
+            "kd": 2
           }
         ]
       }
@@ -2066,6 +2091,12 @@
             "rounds": 10,
             "winRate": 50,
             "kd": 0.5
+          },
+          {
+            "player": "Cheese",
+            "rounds": 1,
+            "winRate": 0,
+            "kd": 3
           }
         ]
       }
@@ -3667,7 +3698,14 @@
       "stackNotes": "Nøkk is a solid pick for stack members who enjoy stealth and intel gathering gameplay. Her playstyle rewards strong game sense and map knowledge—players must understand camera placements, roamer positions, and defensive setups to use HEL effectively. Recommend Nøkk for players comfortable with SMG/shotgun weapons and preferring aggressive scouting over fragging. Works excellently in stacks with coordinated communication where intel callouts drive team decisions and hard breacher execution. Emphasize the importance of relaying specific camera positions, roamer locations, and objective defender compositions accurately to enable team coordination. Not ideal for first-contact hard breaching roles; support intel gatherer.",
       "stats": {
         "y11s1": [],
-        "y10s4": []
+        "y10s4": [
+          {
+            "player": "Cheese",
+            "rounds": 1,
+            "winRate": 0,
+            "kd": 0
+          }
+        ]
       }
     },
     {
@@ -5221,6 +5259,12 @@
             "rounds": 61,
             "winRate": 54.1,
             "kd": 0.74
+          },
+          {
+            "player": "Cheese",
+            "rounds": 1,
+            "winRate": 0,
+            "kd": 0
           }
         ]
       }
@@ -6525,6 +6569,12 @@
             "rounds": 90,
             "winRate": 63.3,
             "kd": 1.48
+          },
+          {
+            "player": "Cheese",
+            "rounds": 1,
+            "winRate": 100,
+            "kd": 0
           }
         ]
       }
@@ -7026,7 +7076,14 @@
             "kd": 0.25
           }
         ],
-        "y10s4": []
+        "y10s4": [
+          {
+            "player": "Cheese",
+            "rounds": 1,
+            "winRate": 100,
+            "kd": 0
+          }
+        ]
       }
     },
     {
@@ -7594,6 +7651,12 @@
             "player": "Hunter",
             "rounds": 17,
             "winRate": 35.3,
+            "kd": 1
+          },
+          {
+            "player": "Cheese",
+            "rounds": 1,
+            "winRate": 100,
             "kd": 1
           }
         ]
@@ -8340,6 +8403,12 @@
             "rounds": 39,
             "winRate": 56.4,
             "kd": 0.96
+          },
+          {
+            "player": "Cheese",
+            "rounds": 1,
+            "winRate": 100,
+            "kd": 1
           }
         ]
       }
@@ -8649,6 +8718,12 @@
             "rounds": 38,
             "winRate": 71.1,
             "kd": 1.11
+          },
+          {
+            "player": "Cheese",
+            "rounds": 1,
+            "winRate": 0,
+            "kd": 0
           }
         ]
       }
