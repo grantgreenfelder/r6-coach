@@ -5,30 +5,9 @@ import { opWrColor, opWrBgColor, wrColor, wrBgColor, kdColor, risTextColor } fro
 import { NotFound } from '../components/EmptyState'
 import HelpTip from '../components/HelpTip'
 import { GLOSSARY } from '../utils/glossary'
-import { getPortraitUrl } from '../utils/operatorPortraits'
 import PlayerAvatar from '../components/PlayerAvatar.jsx'
 import MarkdownContent from '../components/MarkdownContent.jsx'
-
-// ─── Portrait chip with fallback ──────────────────────────────────────────────
-
-function PortraitChip({ name }) {
-  const [err, setErr] = useState(false)
-  return (
-    <div className="w-6 h-6 rounded overflow-hidden bg-siege-border flex-shrink-0 ring-1 ring-siege-border/60 flex items-center justify-center">
-      {!err ? (
-        <img
-          src={getPortraitUrl(name)}
-          alt=""
-          loading="lazy"
-          className="w-full h-full object-cover object-top"
-          onError={() => setErr(true)}
-        />
-      ) : (
-        <span className="text-siege-accent text-[8px] font-bold leading-none select-none">{name[0]}</span>
-      )}
-    </div>
-  )
-}
+import PortraitChip from '../components/PortraitChip.jsx'
 
 // ─── Markdown helpers ──────────────────────────────────────────────────────────
 
@@ -88,7 +67,7 @@ function OpRow({ op, maxRounds }) {
     <div className="flex items-center gap-2 py-1.5 border-b border-siege-border/40 last:border-0">
       {/* Op portrait + name + flag */}
       <div className="flex items-center gap-1.5 w-32 flex-shrink-0 min-w-0">
-        <PortraitChip name={op.name} />
+        <PortraitChip name={op.name} size="w-6 h-6" />
 
         <span className="text-white text-sm font-medium truncate">{op.name}</span>
         {op.flag && (
@@ -493,7 +472,7 @@ export default function PlayerDetail() {
             <div className="flex gap-1">
               {[...(player.atkOps || '').split(/[,/]/), ...(player.defOps || '').split(/[,/]/)]
                 .map(s => s.trim()).filter(Boolean).slice(0, 4)
-                .map(name => <PortraitChip key={name} name={name} />)}
+                .map(name => <PortraitChip key={name} name={name} size="w-6 h-6" />)}
             </div>
           )}
         </div>

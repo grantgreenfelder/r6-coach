@@ -1,74 +1,15 @@
-import { useState, lazy, Suspense } from 'react'
+import { lazy, Suspense } from 'react'
 import { Link } from 'react-router-dom'
 const ComparePanel = lazy(() =>
   import('./Compare.jsx').then(m => ({ default: m.ComparePanel }))
 )
 import playersData from '../data/players.json'
-import { RIS_MIN, RIS_MAX, RIS_BASELINE_PCT, risColor, risTextColor, wrColor } from '../utils/constants'
+import { risTextColor, wrColor } from '../utils/constants'
 import HelpTip from '../components/HelpTip'
 import { GLOSSARY } from '../utils/glossary'
-import { getPortraitUrl } from '../utils/operatorPortraits'
 import PlayerAvatar from '../components/PlayerAvatar.jsx'
-
-// ─── RIS Bar ──────────────────────────────────────────────────────────────────
-// Always renders the track so the bar isn't just missing for low-data players.
-function RisBar({ ris }) {
-  const risNum = parseFloat(ris)
-  const hasData = !isNaN(risNum)
-  const fillPct = hasData
-    ? Math.max(0, Math.min(100, ((risNum - RIS_MIN) / (RIS_MAX - RIS_MIN)) * 100))
-    : 0
-  const color = hasData ? risColor(ris) : ''
-
-  return (
-    <div className="relative h-2 bg-siege-border rounded-full overflow-visible mb-1">
-      {hasData && (
-        <div
-          className={`absolute top-0 left-0 h-full rounded-full ${color}`}
-          style={{ width: `${fillPct}%` }}
-        />
-      )}
-      <div
-        className="absolute top-0 h-full w-px bg-white/30"
-        style={{ left: `${RIS_BASELINE_PCT}%` }}
-      />
-    </div>
-  )
-}
-
-// ─── Op Portrait Chips ────────────────────────────────────────────────────────
-function PortraitChip({ name, size = 'w-5 h-5' }) {
-  const [err, setErr] = useState(false)
-  return (
-    <div
-      className={`${size} rounded overflow-hidden bg-siege-border flex-shrink-0 ring-1 ring-siege-border flex items-center justify-center`}
-      title={name}
-    >
-      {!err ? (
-        <img
-          src={getPortraitUrl(name)}
-          alt={name}
-          loading="lazy"
-          className="w-full h-full object-cover object-top"
-          onError={() => setErr(true)}
-        />
-      ) : (
-        <span className="text-siege-accent text-[8px] font-bold leading-none select-none">{name[0]}</span>
-      )}
-    </div>
-  )
-}
-
-function OpChips({ label, opsString }) {
-  if (!opsString) return null
-  const ops = opsString.split(/[,/]/).map(s => s.trim()).filter(Boolean)
-  return (
-    <div className="flex items-center gap-1">
-      <span className="text-gray-500 text-[10px]">{label}</span>
-      {ops.map(name => <PortraitChip key={name} name={name} />)}
-    </div>
-  )
-}
+import RisBar from '../components/RisBar.jsx'
+import OpChips from '../components/OpChips.jsx'
 
 // Normalize long rank strings to something card-friendly
 function shortRank(rank) {

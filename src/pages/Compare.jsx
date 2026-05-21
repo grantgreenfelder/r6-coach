@@ -2,7 +2,8 @@ import { useState, useMemo } from 'react'
 import { Link } from 'react-router-dom'
 import playersData from '../data/players.json'
 import PlayerAvatar from '../components/PlayerAvatar.jsx'
-import { risTextColor, risColor, wrColor, kdColor, RIS_MIN, RIS_MAX, RIS_BASELINE_PCT } from '../utils/constants'
+import RisBar from '../components/RisBar.jsx'
+import { risTextColor, wrColor, kdColor } from '../utils/constants'
 import HelpTip from '../components/HelpTip'
 import { GLOSSARY } from '../utils/glossary'
 
@@ -34,24 +35,6 @@ function bestIndex(values, higherIsBetter = true) {
   // Only highlight if at least 2 valid values
   const validCount = values.filter(v => v !== null).length
   return validCount >= 2 ? idx : -1
-}
-
-// RIS mini-bar (same pattern as Players page)
-function RisBar({ ris }) {
-  const risNum = parseFloat(ris)
-  const hasData = !isNaN(risNum)
-  const fillPct = hasData
-    ? Math.max(0, Math.min(100, ((risNum - RIS_MIN) / (RIS_MAX - RIS_MIN)) * 100))
-    : 0
-  const color = hasData ? risColor(ris) : ''
-  return (
-    <div className="relative h-1.5 bg-siege-border rounded-full overflow-visible mt-1">
-      {hasData && (
-        <div className={`absolute top-0 left-0 h-full rounded-full ${color}`} style={{ width: `${fillPct}%` }} />
-      )}
-      <div className="absolute top-0 h-full w-px bg-white/30" style={{ left: `${RIS_BASELINE_PCT}%` }} />
-    </div>
-  )
 }
 
 // ─── Player Selector ──────────────────────────────────────────────────────────
@@ -227,7 +210,7 @@ function StatTable({ players }) {
                       <span className={`font-semibold relative ${colorCls}`}>{displayVal}</span>
                       {row.showBar && (
                         <div className="px-3">
-                          <RisBar ris={raw} />
+                          <RisBar ris={raw} className="h-1.5 mt-1" />
                         </div>
                       )}
                     </td>
