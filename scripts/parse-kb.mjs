@@ -363,14 +363,14 @@ function buildPlayersData() {
   )
 
   // Read PLAYER_INDEX once — passed into every parsePlayer call
-  const TEACHINGS_PATH = '/sessions/loving-inspiring-johnson/mnt/Claude/R6 Siege Coach/Teachings/PLAYER_INDEX.md'
+  const TEACHINGS_PATH = path.join(path.dirname(KB), 'Teachings', 'PLAYER_INDEX.md')
   const playerIndexText = readFile(TEACHINGS_PATH)
 
   // Preferred display order — update when roster changes.
   // Any player in the KB whose team matches but is NOT listed here will be appended
   // at the end of their group rather than silently dropped into "other".
   const mainStackOrder = ['Grant', 'Peej', 'Hound', 'Smigs', 'Sarge']
-  const bTeamOrder = ['Slug', 'Krafty', 'Bob', 'Hunter']
+  const bTeamOrder = ['Slug', 'Krafty', 'Bob', 'Hunter', 'Cheese']
 
   const all = names.map(n => parsePlayer(n, playerIndexText)).filter(Boolean)
 
@@ -489,13 +489,13 @@ function buildMapsData(playersData) {
   const prevSeasonLabel = playersData.mainStack?.[0]?.prevSeason || null
 
   // Build prev-season weighted team avg by map (main stack only) for the tile context
-  const winRateByMapY10S4 = {}
+  const winRateByMapPrev = {}
   for (const player of playersData.mainStack) {
     for (const row of (player.prevSeasonMapPerformance || [])) {
       const key = row.map.replace(/ /g, '_')
-      if (!winRateByMapY10S4[key]) winRateByMapY10S4[key] = { weightedSum: 0, totalMatches: 0 }
-      winRateByMapY10S4[key].weightedSum += row.winRate * row.matches
-      winRateByMapY10S4[key].totalMatches += row.matches
+      if (!winRateByMapPrev[key]) winRateByMapPrev[key] = { weightedSum: 0, totalMatches: 0 }
+      winRateByMapPrev[key].weightedSum += row.winRate * row.matches
+      winRateByMapPrev[key].totalMatches += row.matches
     }
   }
 
@@ -540,7 +540,7 @@ function buildMapsData(playersData) {
     const teamWinRateSeason  = activeSeason
 
     // Prev-season team win% (match-weighted across main stack prev season data)
-    const wrY10S4 = winRateByMapY10S4[mapKey]
+    const wrY10S4 = winRateByMapPrev[mapKey]
     const prevTeamWinRate = wrY10S4 && wrY10S4.totalMatches > 0
       ? Math.round((wrY10S4.weightedSum / wrY10S4.totalMatches) * 10) / 10
       : null
