@@ -1,6 +1,7 @@
+import { use } from 'react'
 import { Link } from 'react-router-dom'
-import playersData from '../data/players.json'
-import mapsData from '../data/maps.json'
+import { playersPromise } from '../data/playersResource'
+import { mapsPromise } from '../data/mapsResource'
 import stackData from '../data/stack.json'
 import metaData from '../data/meta.json'
 import { risTextColor, risColor, wrColor, wrTileClass, RIS_MIN, RIS_MAX, RIS_BASELINE_PCT } from '../utils/constants'
@@ -191,6 +192,8 @@ function CoachingFocus({ items }) {
 // ─── Dashboard ─────────────────────────────────────────────────────────────────
 
 export default function Dashboard() {
+  const playersData = use(playersPromise)
+  const mapsData = use(mapsPromise)
   const mainStack = playersData.mainStack || []
   const bTeam     = playersData.bTeam     || []
   const rankedMaps = mapsData.filter(m => m.inRankedPool)

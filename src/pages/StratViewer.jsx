@@ -1,6 +1,7 @@
+import { use } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { useState, useMemo } from 'react'
-import mapsData from '../data/maps.json'
+import { mapsPromise } from '../data/mapsResource'
 import { extractSection } from '../utils/markdown'
 import StatusDot from '../components/StatusDot'
 import MarkdownContent from '../components/MarkdownContent'
@@ -404,6 +405,7 @@ function PlayerFocusHeader({ player, roles, playerDescriptions, side }) {
 // ─── Main Component ───────────────────────────────────────────────────────────
 
 export default function StratViewer() {
+  const mapsData = use(mapsPromise)
   const { mapName, side, site } = useParams()
   const map = mapsData.find(m => m.name === mapName)
 

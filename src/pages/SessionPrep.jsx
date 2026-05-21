@@ -1,15 +1,16 @@
-import { useState, useMemo } from 'react'
-import playersData from '../data/players.json'
+import { useState, useMemo, use } from 'react'
+import { playersPromise } from '../data/playersResource'
+import { mapsPromise } from '../data/mapsResource'
 import stackData from '../data/stack.json'
 import { wrColor, wrBgColor } from '../utils/constants'
-import mapsData from '../data/maps.json'
 import { getPortraitUrl } from '../utils/operatorPortraits'
 
-const MAIN_STACK = (playersData.mainStack || []).map(p => p.name)
-const B_TEAM = (playersData.bTeam || []).map(p => p.name)
-const ALL_PLAYERS = [...MAIN_STACK, ...B_TEAM]
-
 export default function SessionPrep() {
+  const playersData = use(playersPromise)
+  const mapsData = use(mapsPromise)
+  const MAIN_STACK = (playersData.mainStack || []).map(p => p.name)
+  const B_TEAM = (playersData.bTeam || []).map(p => p.name)
+  const ALL_PLAYERS = [...MAIN_STACK, ...B_TEAM]
   const [roster, setRoster] = useState(
     Object.fromEntries(MAIN_STACK.map(p => [p, true]))
   )
@@ -80,7 +81,7 @@ export default function SessionPrep() {
 
       {/* Map veto tab */}
       {activeTab === 'map veto' && (
-        <MapVeto tonightPlayers={tonightPlayers} tonight={tonight} />
+        <MapVeto mapsData={mapsData} tonightPlayers={tonightPlayers} tonight={tonight} />
       )}
     </div>
   )
@@ -112,7 +113,7 @@ function TeamFocus() {
 
 // ─── Map Veto ─────────────────────────────────────────────────────────────────
 
-function MapVeto({ tonightPlayers, tonight }) {
+function MapVeto({ mapsData, tonightPlayers, tonight }) {
   // Compute per-map win% for tonight's roster
   const rosterMapStats = useMemo(() => {
     return mapsData.map(map => {
@@ -127,7 +128,7 @@ function MapVeto({ tonightPlayers, tonight }) {
 
       return { ...map, rosterWinRate, rosterMatches: totalMatches, playerRows }
     })
-  }, [tonightPlayers])
+  }, [mapsData, tonightPlayers])
 
   // Default sort: worst win% first (ban candidates at top), no-data maps at bottom
   const defaultOrder = useMemo(() =>

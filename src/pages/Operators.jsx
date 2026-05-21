@@ -1,7 +1,7 @@
-import { useState } from 'react'
+import { useState, use } from 'react'
 import { Link } from 'react-router-dom'
-import operatorsData from '../data/operators.json'
-import playersData from '../data/players.json'
+import { operatorsPromise } from '../data/operatorsResource'
+import { playersPromise } from '../data/playersResource'
 import { getPortraitUrl } from '../utils/operatorPortraits'
 import PlayerAvatar from '../components/PlayerAvatar.jsx'
 
@@ -11,7 +11,7 @@ const SIDE_COLORS = {
 }
 
 // Build a lookup: normalized op name → [full player names] who play it
-function buildMainsMap() {
+function buildMainsMap(playersData) {
   const allPlayers = [
     ...(playersData.mainStack || []),
     ...(playersData.bTeam || []),
@@ -30,13 +30,11 @@ function buildMainsMap() {
   return map
 }
 
-const MAINS_MAP = buildMainsMap()
-
-function OperatorTile({ op }) {
+function OperatorTile({ op, mainsMap }) {
   const [imgError, setImgError] = useState(false)
   const portraitSrc = getPortraitUrl(op.name)
   const normalizedKey = op.name.toLowerCase().replace(/\s+/g, '_').replace(/-/g, '').replace(/ü/g, 'u')
-  const mains = MAINS_MAP[normalizedKey] || []
+  const mains = mainsMap[normalizedKey] || []
 
   return (
     <Link
@@ -78,7 +76,7 @@ function OperatorTile({ op }) {
   )
 }
 
-function CategoryGroup({ category, operators, side }) {
+function CategoryGroup({ category, operators, side, mainsMap }) {
   const colors = SIDE_COLORS[side]
   return (
     <div>
@@ -90,13 +88,16 @@ function CategoryGroup({ category, operators, side }) {
         </span>
       </div>
       <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 gap-2">
-        {operators.map(op => <OperatorTile key={op.name} op={op} />)}
+        {operators.map(op => <OperatorTile key={op.name} op={op} mainsMap={mainsMap} />)}
       </div>
     </div>
   )
 }
 
 export default function Operators() {
+  const operatorsData = use(operatorsPromise)
+  const playersData = use(playersPromise)
+  const mainsMap = buildMainsMap(playersData)
   const [activeSide, setActiveSide] = useState('ATK')
   const [search, setSearch] = useState('')
   const ops = activeSide === 'ATK' ? operatorsData.atk : operatorsData.def
@@ -165,7 +166,7 @@ export default function Operators() {
           <div>
             <p className="text-siege-muted text-xs mb-3">{flatFiltered.length} result{flatFiltered.length !== 1 ? 's' : ''}</p>
             <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 gap-2">
-              {flatFiltered.map(op => <OperatorTile key={op.name} op={op} />)}
+              {flatFiltered.map(op => <OperatorTile key={op.name} op={op} mainsMap={mainsMap} />)}
             </div>
           </div>
         ) : (
@@ -176,7 +177,7 @@ export default function Operators() {
           {categories.map(cat => {
             const catOps = ops.filter(o => o.category === cat)
             if (catOps.length === 0) return null
-            return <CategoryGroup key={cat} category={cat} operators={catOps} side={activeSide} />
+            return <CategoryGroup key={cat} category={cat} operators={catOps} side={activeSide} mainsMap={mainsMap} />
           })}
         </div>
       )}

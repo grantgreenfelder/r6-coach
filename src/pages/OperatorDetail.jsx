@@ -1,7 +1,8 @@
+import { use } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { useState } from 'react'
-import operatorsData from '../data/operators.json'
-import playersData from '../data/players.json'
+import { operatorsPromise } from '../data/operatorsResource'
+import { playersPromise } from '../data/playersResource'
 import { opWrColor, opWrBgColor, kdColor } from '../utils/constants'
 import { getPortraitUrl } from '../utils/operatorPortraits'
 import { NotFound } from '../components/EmptyState'
@@ -173,18 +174,13 @@ function WikiTab({ op }) {
 
 // ─── Stats Tab ────────────────────────────────────────────────────────────────
 
-const _mainNames = (playersData.mainStack || []).map(p => p.name)
-const _bTeamNames = (playersData.bTeam || []).map(p => p.name)
-const PLAYER_ORDER = [..._mainNames, ..._bTeamNames]
-const MAIN_STACK = new Set(_mainNames)
-
-function PlayerStatRow({ entry, maxRounds }) {
+function PlayerStatRow({ entry, maxRounds, mainStack }) {
   const wr = entry.winRate
   const wrColor = opWrColor(wr)
   const barColor = opWrBgColor(wr)
   const kdCls = kdColor(entry.kd)
   const volumePct = maxRounds > 0 ? Math.min((entry.rounds / maxRounds) * 100, 100) : 0
-  const isMain = MAIN_STACK.has(entry.player)
+  const isMain = mainStack.has(entry.player)
 
   return (
     <div className="flex items-center gap-3 py-2 border-b border-siege-border/30 last:border-0">
@@ -225,7 +221,7 @@ function PlayerStatRow({ entry, maxRounds }) {
   )
 }
 
-function StatsTab({ op }) {
+function StatsTab({ op, playerOrder, mainStack }) {
   const seasons = Object.keys(op.stats || {})
     .filter(k => op.stats[k]?.length > 0)
     .sort().reverse()
@@ -248,9 +244,9 @@ function StatsTab({ op }) {
   const sorted = [...rawRows].sort((a, b) => {
     const roundsDiff = b.rounds - a.rounds
     if (roundsDiff !== 0) return roundsDiff
-    return (PLAYER_ORDER.indexOf(a.player) + 99) - (PLAYER_ORDER.indexOf(b.player) + 99)
+    return (playerOrder.indexOf(a.player) + 99) - (playerOrder.indexOf(b.player) + 99)
   })
-  const displayed = showAll ? sorted : sorted.filter(e => MAIN_STACK.has(e.player) || e.rounds >= 5)
+  const displayed = showAll ? sorted : sorted.filter(e => mainStack.has(e.player) || e.rounds >= 5)
   const maxRounds = sorted[0]?.rounds || 1
 
   // Aggregate totals
@@ -313,7 +309,7 @@ function StatsTab({ op }) {
           )}
         </div>
         {displayed.length > 0
-          ? displayed.map((e, i) => <PlayerStatRow key={i} entry={e} maxRounds={maxRounds} />)
+          ? displayed.map((e, i) => <PlayerStatRow key={i} entry={e} maxRounds={maxRounds} mainStack={mainStack} />)
           : <p className="text-siege-muted text-sm py-4 text-center">No data for this season</p>
         }
       </div>
@@ -324,6 +320,12 @@ function StatsTab({ op }) {
 // ─── Main ─────────────────────────────────────────────────────────────────────
 
 export default function OperatorDetail() {
+  const operatorsData = use(operatorsPromise)
+  const playersData = use(playersPromise)
+  const _mainNames = (playersData.mainStack || []).map(p => p.name)
+  const _bTeamNames = (playersData.bTeam || []).map(p => p.name)
+  const PLAYER_ORDER = [..._mainNames, ..._bTeamNames]
+  const MAIN_STACK = new Set(_mainNames)
   const { name } = useParams()
   const allOps = [...operatorsData.atk, ...operatorsData.def]
   const op = allOps.find(o => o.name.toLowerCase() === name?.toLowerCase())
@@ -418,7 +420,7 @@ export default function OperatorDetail() {
 
       {/* Tab content */}
       {activeTab === 'wiki'  && <WikiTab  op={op} />}
-      {activeTab === 'stats' && <StatsTab op={op} />}
+      {activeTab === 'stats' && <StatsTab op={op} playerOrder={PLAYER_ORDER} mainStack={MAIN_STACK} />}
     </div>
   )
 }

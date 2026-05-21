@@ -1,6 +1,7 @@
+import { use } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { useState } from 'react'
-import playersData from '../data/players.json'
+import { playersPromise } from '../data/playersResource'
 import { opWrColor, opWrBgColor, wrColor, wrBgColor, kdColor, risTextColor } from '../utils/constants'
 import { extractSection } from '../utils/markdown'
 import { NotFound } from '../components/EmptyState'
@@ -413,6 +414,7 @@ function SeasonTab({ stats, operators, mapPerformance, notes, priorities }) {
 // ─── Main ──────────────────────────────────────────────────────────────────────
 
 export default function PlayerDetail() {
+  const playersData = use(playersPromise)
   const { name } = useParams()
   const all = [...playersData.mainStack, ...playersData.bTeam, ...playersData.other]
   const player = all.find(p => p.name.toLowerCase() === name.toLowerCase())

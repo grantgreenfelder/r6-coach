@@ -1,6 +1,7 @@
+import { use } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { useState, useMemo } from 'react'
-import mapsData from '../data/maps.json'
+import { mapsPromise } from '../data/mapsResource'
 import RatingBadge from '../components/RatingBadge'
 import StatusDot from '../components/StatusDot'
 import { NotFound } from '../components/EmptyState'
@@ -35,6 +36,7 @@ function getPoolBanner(season) {
 }
 
 export default function MapDetail() {
+  const mapsData = use(mapsPromise)
   const { mapName } = useParams()
   const map = mapsData.find(m => m.name === mapName)
   const [activeTab, setActiveTab] = useState('overview')

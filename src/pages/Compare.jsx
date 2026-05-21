@@ -1,6 +1,6 @@
-import { useState, useMemo } from 'react'
+import { useState, useMemo, use } from 'react'
 import { Link } from 'react-router-dom'
-import playersData from '../data/players.json'
+import { playersPromise } from '../data/playersResource'
 import PlayerAvatar from '../components/PlayerAvatar.jsx'
 import RisBar from '../components/RisBar.jsx'
 import { risTextColor, wrColor, kdColor } from '../utils/constants'
@@ -8,11 +8,6 @@ import HelpTip from '../components/HelpTip'
 import { GLOSSARY } from '../utils/glossary'
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
-
-const ALL_PLAYERS = [
-  ...playersData.mainStack.map(p => ({ ...p, teamLabel: 'Main Stack' })),
-  ...playersData.bTeam.map(p => ({ ...p, teamLabel: 'B Team' })),
-]
 
 function statVal(val) {
   if (!val || val === '—') return null
@@ -39,9 +34,9 @@ function bestIndex(values, higherIsBetter = true) {
 
 // ─── Player Selector ──────────────────────────────────────────────────────────
 
-function PlayerSelector({ selected, onToggle }) {
-  const mainStack = ALL_PLAYERS.filter(p => p.teamLabel === 'Main Stack')
-  const bTeam = ALL_PLAYERS.filter(p => p.teamLabel === 'B Team')
+function PlayerSelector({ allPlayers, selected, onToggle }) {
+  const mainStack = allPlayers.filter(p => p.teamLabel === 'Main Stack')
+  const bTeam = allPlayers.filter(p => p.teamLabel === 'B Team')
 
   function renderGroup(players, label) {
     return (
@@ -464,6 +459,11 @@ function OperatorOverlap({ players }) {
 // ─── ComparePanel — embeddable content (no page header) ──────────────────────
 // Used by Players.jsx when Compare mode is active inside the Roster page.
 export function ComparePanel() {
+  const playersData = use(playersPromise)
+  const ALL_PLAYERS = [
+    ...playersData.mainStack.map(p => ({ ...p, teamLabel: 'Main Stack' })),
+    ...playersData.bTeam.map(p => ({ ...p, teamLabel: 'B Team' })),
+  ]
   const [selected, setSelected] = useState([])
   const [activeView, setActiveView] = useState('stats') // 'stats' | 'maps' | 'ops'
 
@@ -479,7 +479,7 @@ export function ComparePanel() {
   return (
     <div className="space-y-5">
       {/* Player Selector */}
-      <PlayerSelector selected={selected} onToggle={togglePlayer} />
+      <PlayerSelector allPlayers={ALL_PLAYERS} selected={selected} onToggle={togglePlayer} />
 
       {!hasEnough && (
         <div className="text-center py-12 text-siege-muted text-sm">

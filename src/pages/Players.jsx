@@ -1,9 +1,9 @@
-import { lazy, Suspense, useState } from 'react'
+import { lazy, Suspense, useState, use } from 'react'
 import { Link } from 'react-router-dom'
 const ComparePanel = lazy(() =>
   import('./Compare.jsx').then(m => ({ default: m.ComparePanel }))
 )
-import playersData from '../data/players.json'
+import { playersPromise } from '../data/playersResource'
 import { risTextColor, wrColor } from '../utils/constants'
 import HelpTip from '../components/HelpTip'
 import { GLOSSARY } from '../utils/glossary'
@@ -106,6 +106,7 @@ function PlayerCard({ player }) {
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
 export default function Players() {
+  const playersData = use(playersPromise)
   const { mainStack, bTeam, other = [] } = playersData
   const [view, setView]     = useState('roster') // 'roster' | 'compare'
   const [search, setSearch] = useState('')

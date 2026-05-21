@@ -1,13 +1,10 @@
+import { use } from 'react'
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
-import mapsData from '../data/maps.json'
+import { mapsPromise } from '../data/mapsResource'
 import RatingBadge from '../components/RatingBadge'
 import { wrColor, wrBgColor } from '../utils/constants'
 import { getMapThumbnailUrl } from '../utils/mapThumbnails'
-
-const currentSeason = mapsData.find(m => m.teamWinRateSeason)?.teamWinRateSeason || 'Y11S1'
-const prevSeason    = mapsData.find(m => m.prevTeamWinRateSeason)?.prevTeamWinRateSeason || null
-const SEASONS       = prevSeason ? [currentSeason, prevSeason] : [currentSeason]
 
 // Derive rating for a given win rate (used when viewing previous season to show contextual badge)
 function ratingFromWr(wr) {
@@ -20,6 +17,10 @@ function ratingFromWr(wr) {
 }
 
 export default function Maps() {
+  const mapsData = use(mapsPromise)
+  const currentSeason = mapsData.find(m => m.teamWinRateSeason)?.teamWinRateSeason || 'Y11S1'
+  const prevSeason    = mapsData.find(m => m.prevTeamWinRateSeason)?.prevTeamWinRateSeason || null
+  const SEASONS       = prevSeason ? [currentSeason, prevSeason] : [currentSeason]
   const [season, setSeason]   = useState(currentSeason)
   const [search, setSearch]   = useState('')
   const [sortBy, setSortBy]   = useState('winrate') // 'name' | 'winrate'
