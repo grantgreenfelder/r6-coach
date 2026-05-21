@@ -182,7 +182,7 @@ function parsePlayer(name, playerIndexText = '') {
   function extractOpsFromIdentity(content, side) {
     // Y11S1 format: "**ATK identity:** Ash is the primary ATK pick (29r / 44.8%). Secondary: Twitch (27r / 40.7%)."
     // Secondary group: match words/spaces up to the opening paren — handles "Solid Snake (21r...)"
-    const reWithSecondary = new RegExp(`\\*\\*${side} identity:\\*\\*\\s*(\\w+) is the primary[^S]*Secondary:\\s*([\\w][\\w ]*?)\\s*\\(`, 'i')
+    const reWithSecondary = new RegExp(`\\*\\*${side} identity:\\*\\*\\s*(\\w+) is the primary.*?Secondary:\\s*([\\w][\\w ]*?)\\s*\\(`, 'i')
     const m = content.match(reWithSecondary)
     if (m) return `${m[1]} / ${m[2].trim()}`
     const rePrimary = new RegExp(`\\*\\*${side} identity:\\*\\*\\s*(\\w+) is the primary`, 'i')
