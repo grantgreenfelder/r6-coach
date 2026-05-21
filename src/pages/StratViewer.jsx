@@ -259,6 +259,7 @@ function PostPlantCard({ postPlant, activePlayer }) {
   if (!postPlant || postPlant.length === 0) return null
 
   const headers = Object.keys(postPlant[0])
+  if (headers.length === 0) return null
 
   return (
     <div className="card">

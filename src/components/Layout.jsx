@@ -79,8 +79,9 @@ export default function Layout() {
   const location = useLocation()
   const parsedAt = new Date(metaData.parsedAt)
   const now = new Date()
-  const daysSince = Math.floor((now - parsedAt) / (1000 * 60 * 60 * 24))
-  const formatted = parsedAt.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
+  const validDate = !isNaN(parsedAt.getTime())
+  const daysSince = validDate ? Math.floor((now - parsedAt) / (1000 * 60 * 60 * 24)) : 0
+  const formatted = validDate ? parsedAt.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : '—'
   const dateColor = daysSince > 14 ? 'text-red-400' : daysSince > 7 ? 'text-yellow-400' : 'text-siege-muted'
   const datePrefix = daysSince > 7 ? '⚠ ' : ''
 

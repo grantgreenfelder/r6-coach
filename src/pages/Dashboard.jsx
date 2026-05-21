@@ -233,9 +233,8 @@ export default function Dashboard() {
   // Count how many main stack players are above 50% WR
   const positiveWRCount = mainStack.filter(p => parseFloat(p.stats?.winRate) >= 50).length
 
-  const parsedDate = new Date(metaData.parsedAt).toLocaleDateString('en-US', {
-    month: 'short', day: 'numeric'
-  })
+  const _d = new Date(metaData.parsedAt)
+  const parsedDate = isNaN(_d.getTime()) ? '—' : _d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
 
   return (
     <div className="max-w-6xl mx-auto space-y-5">
