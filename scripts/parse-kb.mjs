@@ -12,6 +12,9 @@ import path from 'path'
 const KB = '/sessions/loving-inspiring-johnson/mnt/Claude/R6 Siege Coach/Knowledge Base'
 const OUT = path.resolve('src/data')
 
+// KB folder name → preferred display name shown on the site
+const DISPLAY_NAMES = { TazRathmus: 'Tyrone', fEHdelCastro: 'Cheese' }
+
 if (!fs.existsSync(OUT)) fs.mkdirSync(OUT, { recursive: true })
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
@@ -22,7 +25,7 @@ function readFile(filePath) {
 
 function parseMarkdownTable(text) {
   const lines = text.split('\n')
-  const tableLines = lines.filter(l => l.trim().startsWith('|') && !l.includes('---'))
+  const tableLines = lines.filter(l => l.trim().startsWith('|') && !/^\|[\s|:-]+\|$/.test(l.trim()))
   if (tableLines.length < 2) return []
   const headers = tableLines[0].split('|').map(h => h.trim()).filter(Boolean)
   return tableLines.slice(1).map(row => {
@@ -250,8 +253,6 @@ function parsePlayer(name, playerIndexText = '') {
     })
     .filter(l => l.length > 5)
 
-  // Display name overrides — tracker/folder name → preferred callsign
-  const DISPLAY_NAMES = { TazRathmus: 'Tyrone', fEHdelCastro: 'Cheese' }
   const displayName = DISPLAY_NAMES[name] || name
 
   return {
@@ -837,11 +838,11 @@ function buildOperatorsData(playersData) {
 
     // Stats — collect from opStats, also check alias variants
     const lookupNames = [name, ...(reverseAliases[name] || [])]
-    const stats = { y11s1: [], y10s4: [] }
+    const stats = {}
     for (const n of lookupNames) {
       if (opStats[n]) {
-        for (const season of ['y11s1', 'y10s4']) {
-          if (opStats[n][season]?.length) stats[season] = opStats[n][season]
+        for (const [season, entries] of Object.entries(opStats[n])) {
+          if (entries?.length) stats[season] = entries
         }
         break
       }
@@ -896,14 +897,6 @@ function buildOperatorsData(playersData) {
   }
 }
 
-// ─── Session Handoff ─────────────────────────────────────────────────────────
-
-function buildHandoffData() {
-  const handoffPath = path.join(KB, '..', 'SESSION_HANDOFF.md')
-  const content = readFile(handoffPath)
-  return { content }
-}
-
 // ─── Main ─────────────────────────────────────────────────────────────────────
 
 console.log('📖 Parsing Knowledge Base...')
@@ -917,17 +910,8 @@ console.log(`  ✅ Maps: ${maps.length} maps, ${maps.reduce((a, m) => a + m.stra
 const stack = buildStackData()
 console.log(`  ✅ Stack/team data parsed`)
 
-const handoff = buildHandoffData()
-console.log(`  ✅ Session handoff parsed`)
-
 const operators = buildOperatorsData(players)
 console.log(`  ✅ Operators: ${operators.atk.length} ATK, ${operators.def.length} DEF`)
-
-fs.writeFileSync(path.join(OUT, 'players.json'), JSON.stringify(players, null, 2))
-fs.writeFileSync(path.join(OUT, 'maps.json'), JSON.stringify(maps, null, 2))
-fs.writeFileSync(path.join(OUT, 'stack.json'), JSON.stringify(stack, null, 2))
-fs.writeFileSync(path.join(OUT, 'handoff.json'), JSON.stringify(handoff, null, 2))
-fs.writeFileSync(path.join(OUT, 'operators.json'), JSON.stringify(operators, null, 2))
 
 // Build and write a lightweight search index — used by GlobalSearch instead of the
 // three fat JSON files, keeping them out of the main bundle chunk.
@@ -955,15 +939,22 @@ const searchIndex = [
     key: op.name.toLowerCase().replace(/_/g, ' '),
   })),
 ]
-fs.writeFileSync(path.join(OUT, 'search-index.json'), JSON.stringify(searchIndex))
 
-// Write a metadata file with last parse timestamp
-fs.writeFileSync(path.join(OUT, 'meta.json'), JSON.stringify({
-  parsedAt: new Date().toISOString(),
-  playerCount: players.mainStack.length + players.bTeam.length,
-  mapCount: maps.length,
-  stratCount: maps.reduce((a, m) => a + m.strats.length, 0),
-  operatorCount: operators.atk.length + operators.def.length,
-}, null, 2))
-
-console.log(`\n✅ Done — data written to src/data/`)
+try {
+  fs.writeFileSync(path.join(OUT, 'players.json'), JSON.stringify(players, null, 2))
+  fs.writeFileSync(path.join(OUT, 'maps.json'), JSON.stringify(maps, null, 2))
+  fs.writeFileSync(path.join(OUT, 'stack.json'), JSON.stringify(stack, null, 2))
+  fs.writeFileSync(path.join(OUT, 'operators.json'), JSON.stringify(operators, null, 2))
+  fs.writeFileSync(path.join(OUT, 'search-index.json'), JSON.stringify(searchIndex))
+  fs.writeFileSync(path.join(OUT, 'meta.json'), JSON.stringify({
+    parsedAt: new Date().toISOString(),
+    playerCount: players.mainStack.length + players.bTeam.length,
+    mapCount: maps.length,
+    stratCount: maps.reduce((a, m) => a + m.strats.length, 0),
+    operatorCount: operators.atk.length + operators.def.length,
+  }, null, 2))
+  console.log(`\n✅ Done — data written to src/data/`)
+} catch (err) {
+  console.error(`\n❌ Failed to write output files: ${err.message}`)
+  process.exit(1)
+}

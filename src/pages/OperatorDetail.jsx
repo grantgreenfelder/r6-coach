@@ -16,6 +16,7 @@ const SIDE_COLORS = {
 }
 
 const SEASON_LABELS = { y11s1: 'Y11S1', y10s4: 'Y10S4' }
+function seasonLabel(key) { return SEASON_LABELS[key] || key.replace(/^y(\d+)s(\d+)$/i, 'Y$1S$2') }
 
 // ─── Small shared components ──────────────────────────────────────────────────
 
@@ -225,9 +226,10 @@ function PlayerStatRow({ entry, maxRounds }) {
 }
 
 function StatsTab({ op }) {
-  const seasons = Object.entries(SEASON_LABELS)
-    .filter(([k]) => op.stats?.[k]?.length > 0)
-    .map(([k, v]) => ({ key: k, label: v }))
+  const seasons = Object.keys(op.stats || {})
+    .filter(k => op.stats[k]?.length > 0)
+    .sort().reverse()
+    .map(k => ({ key: k, label: seasonLabel(k) }))
 
   const [activeSeason, setActiveSeason] = useState(seasons[0]?.key || 'y11s1')
   const [showAll, setShowAll] = useState(false)

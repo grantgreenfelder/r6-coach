@@ -142,7 +142,7 @@ function MapVeto({ tonightPlayers, tonight }) {
   const [mapOrder, setMapOrder] = useState(defaultOrder)
 
   // Reset order when roster changes (derived from tonight key)
-  const tonightKey = tonight.sort().join(',')
+  const tonightKey = [...tonight].sort().join(',')
   const [lastTonightKey, setLastTonightKey] = useState(tonightKey)
   if (tonightKey !== lastTonightKey) {
     setLastTonightKey(tonightKey)

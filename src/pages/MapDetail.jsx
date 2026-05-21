@@ -8,23 +8,6 @@ import MarkdownContent from '../components/MarkdownContent'
 import { wrColor, wrBgColor, kdColor } from '../utils/constants'
 import { getMapThumbnailUrl } from '../utils/mapThumbnails'
 
-// Win rate bar + text colour helpers (mirrors Maps.jsx 5-tier logic)
-function wrBarColor(wr) {
-  if (wr === null) return ''
-  if (wr >= 60) return 'bg-siege-green'
-  if (wr >= 50) return 'bg-blue-500'
-  if (wr >= 40) return 'bg-yellow-500'
-  if (wr >= 30) return 'bg-orange-500'
-  return 'bg-red-600'
-}
-function wrTextCol(wr) {
-  if (wr === null) return 'text-siege-muted'
-  if (wr >= 60) return 'text-siege-green'
-  if (wr >= 50) return 'text-blue-400'
-  if (wr >= 40) return 'text-yellow-400'
-  if (wr >= 30) return 'text-orange-400'
-  return 'text-red-400'
-}
 
 const POOL_BANNER = {
   first: {
@@ -347,14 +330,14 @@ function WinRateBlock({ label, wr, matches, current, delta }) {
             <span className={`text-xs font-semibold ${deltaCls}`}>{deltaSign}{delta}%</span>
           )}
           {wr !== null
-            ? <span className={`text-sm font-bold ${wrTextCol(wr)}`}>{wr}%</span>
+            ? <span className={`text-sm font-bold ${wrColor(wr)}`}>{wr}%</span>
             : <span className="text-xs text-siege-muted">No data</span>
           }
         </div>
       </div>
       <div className="h-1.5 bg-siege-border rounded-full overflow-hidden">
         <div
-          className={`h-full rounded-full ${wrBarColor(wr)}`}
+          className={`h-full rounded-full ${wrBgColor(wr)}`}
           style={{ width: wr !== null ? `${Math.min(wr, 100)}%` : '0%' }}
         />
       </div>

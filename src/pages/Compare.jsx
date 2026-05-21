@@ -312,7 +312,7 @@ function MapComparison({ players }) {
             return (
               <tr key={mapName} className="border-b border-siege-border/40 last:border-0">
                 <td className="py-2 text-gray-400 text-xs font-medium">
-                  <Link to={`/maps/${mapName.toLowerCase().replace(/\s+/g, '-')}`}
+                  <Link to={`/maps/${mapName.replace(/\s+/g, '_')}`}
                     className="hover:text-siege-accent transition-colors">
                     {mapName}
                   </Link>
@@ -430,7 +430,7 @@ function OperatorOverlap({ players }) {
               <tr key={opName} className="border-b border-siege-border/40 last:border-0">
                 <td className="py-2">
                   <div className="flex items-center gap-2">
-                    <Link to={`/operators/${opName.toLowerCase().replace(/\s+/g, '-')}`}
+                    <Link to={`/operators/${opName.replace(/\s+/g, '_')}`}
                       className="text-gray-400 text-xs font-medium hover:text-siege-accent transition-colors">
                       {opName}
                     </Link>
