@@ -540,11 +540,11 @@ function buildMapsData(playersData) {
     const teamWinRateSeason  = activeSeason
 
     // Prev-season team win% (match-weighted across main stack prev season data)
-    const wrY10S4 = winRateByMapPrev[mapKey]
-    const prevTeamWinRate = wrY10S4 && wrY10S4.totalMatches > 0
-      ? Math.round((wrY10S4.weightedSum / wrY10S4.totalMatches) * 10) / 10
+    const wrPrev = winRateByMapPrev[mapKey]
+    const prevTeamWinRate = wrPrev && wrPrev.totalMatches > 0
+      ? Math.round((wrPrev.weightedSum / wrPrev.totalMatches) * 10) / 10
       : null
-    const prevTeamWinRateMatches = wrY10S4 ? wrY10S4.totalMatches : 0
+    const prevTeamWinRateMatches = wrPrev ? wrPrev.totalMatches : 0
     const prevTeamWinRateSeason = prevSeasonLabel
 
     // Rating badge driven by actual Y11S1 win% — 5 tiers

@@ -175,9 +175,6 @@ function MapCard({ map, season, getWr, getWrM, getRating }) {
               style={{ width: wr !== null ? `${Math.min(wr, 100)}%` : '0%' }}
             />
           </div>
-          <div className="text-xs text-siege-muted mt-1">
-            {devCount} strats ready · {partialCount} partial · {totalCount - devCount - partialCount} not started
-          </div>
         </div>
 
         {/* Strat readiness — segmented bar */}

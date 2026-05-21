@@ -43,15 +43,6 @@ const Icons = {
       <path d="M11 9.5l3 2-3 2z" fill="currentColor" stroke="none" />
     </svg>
   ),
-  compare: (
-    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
-      <rect x="1.5" y="3" width="4" height="10" rx="1" />
-      <rect x="10.5" y="3" width="4" height="10" rx="1" />
-      <line x1="6.5" y1="8" x2="9.5" y2="8" />
-      <line x1="7.8" y1="6.5" x2="9.5" y2="8" />
-      <line x1="7.8" y1="9.5" x2="9.5" y2="8" />
-    </svg>
-  ),
 }
 
 const navItems = [
