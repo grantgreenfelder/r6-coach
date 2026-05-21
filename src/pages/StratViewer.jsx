@@ -1,24 +1,11 @@
 import { useParams, Link } from 'react-router-dom'
 import { useState, useMemo } from 'react'
 import mapsData from '../data/maps.json'
+import { extractSection } from '../utils/markdown'
 import StatusDot from '../components/StatusDot'
 import MarkdownContent from '../components/MarkdownContent'
 import PlayerAvatar from '../components/PlayerAvatar.jsx'
 import { NotFound } from '../components/EmptyState'
-
-// ─── Content Parsers (run client-side from strat.content) ─────────────────────
-
-function extractSection(content, heading) {
-  if (!content) return ''
-  const lines = content.split('\n')
-  const re = new RegExp(`^#{1,3}\\s+${heading}`, 'i')
-  const start = lines.findIndex(l => re.test(l))
-  if (start === -1) return ''
-  const level = (lines[start].match(/^(#+)/) || ['', '#'])[1].length
-  const endRe = new RegExp(`^#{1,${level}}\\s`)
-  const end = lines.findIndex((l, i) => i > start && endRe.test(l))
-  return lines.slice(start + 1, end === -1 ? undefined : end).join('\n').trim()
-}
 
 function parseTable(text) {
   if (!text) return []

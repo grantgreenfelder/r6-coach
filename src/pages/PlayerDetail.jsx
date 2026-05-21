@@ -2,26 +2,13 @@ import { useParams, Link } from 'react-router-dom'
 import { useState } from 'react'
 import playersData from '../data/players.json'
 import { opWrColor, opWrBgColor, wrColor, wrBgColor, kdColor, risTextColor } from '../utils/constants'
+import { extractSection } from '../utils/markdown'
 import { NotFound } from '../components/EmptyState'
 import HelpTip from '../components/HelpTip'
 import { GLOSSARY } from '../utils/glossary'
 import PlayerAvatar from '../components/PlayerAvatar.jsx'
 import MarkdownContent from '../components/MarkdownContent.jsx'
 import PortraitChip from '../components/PortraitChip.jsx'
-
-// ─── Markdown helpers ──────────────────────────────────────────────────────────
-
-function extractSection(content, heading) {
-  if (!content) return ''
-  const lines = content.split('\n')
-  const re = new RegExp(`^#{1,3}\\s+${heading}`, 'i')
-  const start = lines.findIndex(l => re.test(l))
-  if (start === -1) return ''
-  const level = (lines[start].match(/^(#+)/) || ['', '#'])[1].length
-  const endRe = new RegExp(`^#{1,${level}}\\s`)
-  const end = lines.findIndex((l, i) => i > start && endRe.test(l))
-  return lines.slice(start + 1, end === -1 ? undefined : end).join('\n').trim()
-}
 
 function extractBullets(text) {
   return text.split('\n')
