@@ -2,7 +2,7 @@ import { use } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { useState } from 'react'
 import { playersPromise } from '../data/playersResource'
-import { opWrColor, opWrBgColor, wrColor, wrBgColor, kdColor, risTextColor } from '../utils/constants'
+import { opWrColor, opWrBgColor, wrColor, wrBgColor, kdColor, risTextColor, esrColor, hsColor, clutchWrColor } from '../utils/constants'
 import { extractSection } from '../utils/markdown'
 import { NotFound } from '../components/EmptyState'
 import HelpTip from '../components/HelpTip'
@@ -354,22 +354,32 @@ function AllTimeTab({ player }) {
 }
 
 function SeasonTab({ stats, operators, mapPerformance, notes, priorities }) {
-  const wrNum = parseFloat(stats?.winRate)
-  const wrAccent = wrNum >= 50 ? 'text-siege-green' : wrNum >= 40 ? 'text-yellow-400' : 'text-siege-red'
-  const risNum = parseFloat(stats?.ris)
-  const risAccent = risTextColor(risNum)
+  const hsVal      = stats?.hs      && stats.hs      !== '—' ? `${parseFloat(stats.hs).toFixed(1)}%`      : null
+  const clutchWrVal = stats?.clutchWR && stats.clutchWR !== '—' ? `${parseFloat(stats.clutchWR).toFixed(1)}%` : null
+  const hasSecondary = stats?.kda || stats?.hs || stats?.esr || stats?.clutches || stats?.clutchWR
 
   return (
     <div className="space-y-4">
 
-      {/* Stats row */}
+      {/* Primary stats */}
       <div className="grid grid-cols-5 gap-1 sm:gap-2">
         <StatBox label="Rank"    value={stats?.rank} />
-        <StatBox label="K/D"     value={stats?.kd}       tip={GLOSSARY.KD} />
-        <StatBox label="Win%"    value={stats?.winRate}  tip={GLOSSARY.WR}  accent={wrAccent} />
-        <StatBox label="Matches" value={stats?.matches}  tip={GLOSSARY.MATCHES} />
-        <StatBox label="RIS"     value={stats?.ris}      tip={GLOSSARY.RIS} accent={risAccent} />
+        <StatBox label="K/D"     value={stats?.kd}      tip={GLOSSARY.KD}      accent={kdColor(stats?.kd)} />
+        <StatBox label="Win%"    value={stats?.winRate} tip={GLOSSARY.WR}      accent={wrColor(parseFloat(stats?.winRate))} />
+        <StatBox label="Matches" value={stats?.matches} tip={GLOSSARY.MATCHES} />
+        <StatBox label="RIS"     value={stats?.ris}     tip={GLOSSARY.RIS}     accent={risTextColor(stats?.ris)} />
       </div>
+
+      {/* Secondary stats — shown only if data exists */}
+      {hasSecondary && (
+        <div className="grid grid-cols-5 gap-1 sm:gap-2">
+          <StatBox label="KDA"      value={stats?.kda}       accent={kdColor(stats?.kda)} />
+          <StatBox label="HS%"      value={hsVal}            accent={hsColor(stats?.hs)} />
+          <StatBox label="ESR"      value={stats?.esr}       accent={esrColor(stats?.esr)} tip={GLOSSARY.ESR} />
+          <StatBox label="Clutches" value={stats?.clutches} />
+          <StatBox label="Clutch W%" value={clutchWrVal}    accent={clutchWrColor(stats?.clutchWR)} />
+        </div>
+      )}
 
       {/* Operators — full width card */}
       <div className="card">

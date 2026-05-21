@@ -95,3 +95,35 @@ export function kdColor(kd) {
   if (v >= 0.9) return 'text-gray-300'
   return 'text-siege-red'
 }
+
+// ─── Secondary Stat Colors ────────────────────────────────────────────────────
+
+// ESR (Entry Success Rate): 0.55+ good, 0.45+ ok
+export function esrColor(v) {
+  const n = parseFloat(v)
+  if (isNaN(n)) return 'text-siege-muted'
+  if (n >= 0.55) return 'text-siege-green'
+  if (n >= 0.45) return 'text-blue-300'
+  if (n >= 0.38) return 'text-yellow-400'
+  return 'text-siege-red'
+}
+
+// HS% (Headshot %): R6 average ~40%, so 50%+ strong
+export function hsColor(v) {
+  const n = parseFloat(v)
+  if (isNaN(n)) return 'text-siege-muted'
+  if (n >= 50) return 'text-siege-green'
+  if (n >= 40) return 'text-blue-300'
+  if (n >= 30) return 'text-yellow-400'
+  return 'text-siege-red'
+}
+
+// Clutch WR: small-sample stat, 30%+ good
+export function clutchWrColor(v) {
+  const n = parseFloat(v)
+  if (isNaN(n)) return 'text-siege-muted'
+  if (n >= 30) return 'text-siege-green'
+  if (n >= 20) return 'text-blue-300'
+  if (n >= 12) return 'text-yellow-400'
+  return 'text-siege-red'
+}

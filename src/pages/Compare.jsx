@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { playersPromise } from '../data/playersResource'
 import PlayerAvatar from '../components/PlayerAvatar.jsx'
 import RisBar from '../components/RisBar.jsx'
-import { risTextColor, wrColor, kdColor } from '../utils/constants'
+import { risTextColor, wrColor, kdColor, esrColor, hsColor, clutchWrColor } from '../utils/constants'
 import HelpTip from '../components/HelpTip'
 import { GLOSSARY } from '../utils/glossary'
 
@@ -86,33 +86,6 @@ function PlayerSelector({ allPlayers, selected, onToggle }) {
 
 // ─── Stat Comparison Table ─────────────────────────────────────────────────────
 
-// ESR colour: 0.55+ good, 0.45+ ok, below bad
-function esrColor(v) {
-  const n = parseFloat(v)
-  if (isNaN(n)) return 'text-siege-muted'
-  if (n >= 0.55) return 'text-siege-green'
-  if (n >= 0.45) return 'text-blue-300'
-  if (n >= 0.38) return 'text-yellow-400'
-  return 'text-siege-red'
-}
-// Clutch WR colour (small numbers — 25%+ good)
-function clutchWrColor(v) {
-  const n = parseFloat(v)
-  if (isNaN(n)) return 'text-siege-muted'
-  if (n >= 30) return 'text-siege-green'
-  if (n >= 20) return 'text-blue-300'
-  if (n >= 12) return 'text-yellow-400'
-  return 'text-siege-red'
-}
-// HS% colour: R6 average is ~40%, so 50%+ is strong
-function hsColor(v) {
-  const n = parseFloat(v)
-  if (isNaN(n)) return 'text-siege-muted'
-  if (n >= 50) return 'text-siege-green'
-  if (n >= 40) return 'text-blue-300'
-  if (n >= 30) return 'text-yellow-400'
-  return 'text-siege-red'
-}
 
 // Section dividers — fake rows with no data, just a label
 const SECTION = (label) => ({ _section: true, label })
