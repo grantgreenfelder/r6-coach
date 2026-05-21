@@ -454,8 +454,8 @@ export default function PlayerDetail() {
     return <NotFound icon="👤" title={`Player not found`} message={`"${name}" doesn't exist in the roster.`} backTo="/players" backLabel="Back to Roster" />
   }
 
-  const y11s1Notes = extractBullets(extractSection(player.seasonContent, 'Season Coaching Notes'))
-  const y10s4Notes = extractBullets(extractSection(player.prevSeasonContent, 'Season Coaching Notes'))
+  const currentNotes = extractBullets(extractSection(player.seasonContent, 'Season Coaching Notes'))
+  const prevNotes    = extractBullets(extractSection(player.prevSeasonContent, 'Season Coaching Notes'))
 
   return (
     <div className="max-w-5xl mx-auto space-y-5">
@@ -472,7 +472,7 @@ export default function PlayerDetail() {
             <div className="flex gap-1">
               {[...(player.atkOps || '').split(/[,/]/), ...(player.defOps || '').split(/[,/]/)]
                 .map(s => s.trim()).filter(Boolean).slice(0, 4)
-                .map(name => <PortraitChip key={name} name={name} size="w-6 h-6" />)}
+                .map(opName => <PortraitChip key={opName} name={opName} size="w-6 h-6" />)}
             </div>
           )}
         </div>
@@ -527,7 +527,7 @@ export default function PlayerDetail() {
           stats={player.prevSeasonStats}
           operators={player.prevSeasonOperators}
           mapPerformance={player.prevSeasonMapPerformance}
-          notes={y10s4Notes}
+          notes={prevNotes}
           priorities={player.prevSeasonPriorities || []}
         />
       )}
@@ -543,7 +543,7 @@ export default function PlayerDetail() {
           stats={player.stats}
           operators={player.operators}
           mapPerformance={player.mapPerformance}
-          notes={y11s1Notes}
+          notes={currentNotes}
           priorities={player.coachingPriorities}
         />
       )}

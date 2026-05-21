@@ -31,4 +31,3 @@ export function getMapThumbnailUrl(name) {
   return THUMBNAILS[key] || null
 }
 
-export default THUMBNAILS

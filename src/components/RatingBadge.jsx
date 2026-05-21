@@ -5,9 +5,6 @@ const ratingMap = {
   avoid:   { label: '🟠 Avoid',   cls: 'badge-avoid' },
   ban:     { label: '❌ Ban',     cls: 'badge-ban' },
   unknown: { label: '? Unknown',  cls: 'badge-unknown' },
-  // legacy
-  moderate: { label: '⚠️ Moderate', cls: 'badge-moderate' },
-  weak:     { label: '⚠️ Weak',     cls: 'badge-weak' },
 }
 
 // size="sm" | "md" (default) | "lg"

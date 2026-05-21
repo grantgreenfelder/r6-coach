@@ -96,4 +96,3 @@ export function getPortraitUrl(name) {
   return PORTRAITS[normalized] || PORTRAITS[key] || `https://r6operators.marcopixel.eu/icons/png/${normalized}.png`
 }
 
-export default PORTRAITS

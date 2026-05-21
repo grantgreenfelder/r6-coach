@@ -154,7 +154,7 @@ export default function Operators() {
       {/* Mains legend */}
       <p className="text-siege-muted text-xs -mt-3">
         <span className="inline-flex items-center gap-1">
-          <PlayerAvatar name="Grant" size="xs" />
+          <PlayerAvatar name={playersData.mainStack?.[0]?.name || 'Grant'} size="xs" />
           {' '}= roster main — hover chip for player name
         </span>
       </p>
