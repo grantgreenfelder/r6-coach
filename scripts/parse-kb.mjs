@@ -277,7 +277,7 @@ function parsePlayer(name, playerIndexText = '') {
       esr:       statsLookup['esr']           || '—',
       clutches:  statsLookup['clutches won']  || statsLookup['clutches']  || '—',
       clutchWR:  (statsLookup['clutch win%'] || statsLookup['clutch wr'] || '—').replace('%',''),
-      ris:       statsLookup['ris']           || '—',
+      ris:       (statsLookup['ris']           || '—').replace(/\s*\(.*?\)/g, '').trim(),
     },
     coachingPriorities: coachingLines,
     profileContent: profile,
@@ -600,13 +600,6 @@ function buildMapsData(playersData) {
 
 function buildStackData(playersData) {
   const stack01 = readFile(path.join(KB, 'STACK', 'STACK_01_MAIN_STACK.md'))
-  const stack05 = readFile(path.join(KB, 'STACK', 'STACK_05_MAP_VETO.md'))
-  const meta04 = readFile(path.join(KB, 'META', 'META_04_RIS.md'))
-
-  // Extract RIS scores - look for table rows
-  const risTable = parseMarkdownTable(
-    meta04.split('\n').filter(l => l.includes('|')).join('\n')
-  )
 
   // Parse Team Focus section (team-wide items for session prep)
   const rawTeamFocusSection = extractSection(stack01, 'Team Focus')
@@ -650,20 +643,7 @@ function buildStackData(playersData) {
     })
     .filter(item => item.text.length > 3)
 
-  const coachingItems = rawCoachingSection
-    .split('\n')
-    .filter(l => !l.includes('~~'))
-    .filter(l => !l.trim().startsWith('_→') && !l.trim().startsWith('→'))
-    .join('\n')
-    .replace(/\n{3,}/g, '\n\n')
-    .trim()
-
   return {
-    stack01Content: stack01,
-    stack05Content: stack05,
-    meta04Content: meta04,
-    risScores: risTable,
-    coachingItems,
     coachingItemsStructured,
     teamFocusItems,
   }
