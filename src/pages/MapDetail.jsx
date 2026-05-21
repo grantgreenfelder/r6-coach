@@ -9,27 +9,29 @@ import { wrColor, wrBgColor, kdColor } from '../utils/constants'
 import { getMapThumbnailUrl } from '../utils/mapThumbnails'
 
 
-const POOL_BANNER = {
-  first: {
-    bg: 'bg-yellow-500/10 border-yellow-500/30 text-yellow-400',
-    icon: '⚠',
-    text: <>In ranked pool now — <strong>leaving at the Y11S1 mid-season split</strong>. Strat this map before it rotates out.</>,
-  },
-  both: {
-    bg: 'bg-siege-green/10 border-siege-green/30 text-siege-green',
-    icon: '✓',
-    text: <>In ranked pool for the <strong>full Y11S1 season</strong>.</>,
-  },
-  second: {
-    bg: 'bg-blue-500/10 border-blue-500/30 text-blue-300',
-    icon: '↩',
-    text: <>Not in the current pool — <strong>returns at the Y11S1 mid-season split</strong>. Good time to build strats now.</>,
-  },
-  none: {
-    bg: 'bg-siege-border/30 border-siege-border text-siege-muted',
-    icon: '—',
-    text: <>Not in the Y11S1 ranked pool.</>,
-  },
+function getPoolBanner(season) {
+  return {
+    first: {
+      bg: 'bg-yellow-500/10 border-yellow-500/30 text-yellow-400',
+      icon: '⚠',
+      text: <>In ranked pool now — <strong>leaving at the {season} mid-season split</strong>. Strat this map before it rotates out.</>,
+    },
+    both: {
+      bg: 'bg-siege-green/10 border-siege-green/30 text-siege-green',
+      icon: '✓',
+      text: <>In ranked pool for the <strong>full {season} season</strong>.</>,
+    },
+    second: {
+      bg: 'bg-blue-500/10 border-blue-500/30 text-blue-300',
+      icon: '↩',
+      text: <>Not in the current pool — <strong>returns at the {season} mid-season split</strong>. Good time to build strats now.</>,
+    },
+    none: {
+      bg: 'bg-siege-border/30 border-siege-border text-siege-muted',
+      icon: '—',
+      text: <>Not in the {season} ranked pool.</>,
+    },
+  }
 }
 
 export default function MapDetail() {
@@ -54,7 +56,7 @@ export default function MapDetail() {
   const defStrats = map.strats.filter(s => s.side === 'DEF')
 
   const poolKey = map.rankedPool || (!map.inRankedPool ? 'none' : null)
-  const banner = poolKey ? POOL_BANNER[poolKey] : null
+  const banner = poolKey ? getPoolBanner(map.teamWinRateSeason || 'current')[poolKey] : null
 
   const tabs = [
     { id: 'overview', label: 'Overview' },
@@ -108,25 +110,27 @@ export default function MapDetail() {
             </div>
           )}
 
-          {/* Win rate comparison — Y11S1 vs Y10S4 */}
+          {/* Win rate comparison — current vs prev season */}
           {(() => {
             const curr = map.teamWinRate
-            const prev = map.teamWinRateY10S4
+            const prev = map.prevTeamWinRate
             const delta = (curr !== null && prev !== null) ? Math.round((curr - prev) * 10) / 10 : null
             return (
               <div className="grid grid-cols-2 gap-3">
                 <WinRateBlock
-                  label="Y11S1"
+                  label={map.teamWinRateSeason || 'Current'}
                   wr={curr}
                   matches={map.teamWinRateMatches}
                   current
                   delta={delta}
                 />
-                <WinRateBlock
-                  label="Y10S4"
-                  wr={prev}
-                  matches={map.teamWinRateMatchesY10S4}
-                />
+                {map.prevTeamWinRateSeason && (
+                  <WinRateBlock
+                    label={map.prevTeamWinRateSeason}
+                    wr={prev}
+                    matches={map.prevTeamWinRateMatches}
+                  />
+                )}
               </div>
             )
           })()}

@@ -13,7 +13,6 @@ const StratViewer   = lazy(() => import('./pages/StratViewer.jsx'))
 const SessionPrep   = lazy(() => import('./pages/SessionPrep.jsx'))
 const Operators     = lazy(() => import('./pages/Operators.jsx'))
 const OperatorDetail = lazy(() => import('./pages/OperatorDetail.jsx'))
-const Compare       = lazy(() => import('./pages/Compare.jsx'))
 
 class ErrorBoundary extends Component {
   constructor(props) {

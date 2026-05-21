@@ -5,9 +5,11 @@ import RatingBadge from '../components/RatingBadge'
 import { wrColor, wrBgColor } from '../utils/constants'
 import { getMapThumbnailUrl } from '../utils/mapThumbnails'
 
-const SEASONS = ['Y11S1', 'Y10S4']
+const currentSeason = mapsData.find(m => m.teamWinRateSeason)?.teamWinRateSeason || 'Y11S1'
+const prevSeason    = mapsData.find(m => m.prevTeamWinRateSeason)?.prevTeamWinRateSeason || null
+const SEASONS       = prevSeason ? [currentSeason, prevSeason] : [currentSeason]
 
-// Derive rating for a given win rate (used when viewing Y10S4 to show contextual badge)
+// Derive rating for a given win rate (used when viewing previous season to show contextual badge)
 function ratingFromWr(wr) {
   if (wr === null) return 'unknown'
   if (wr >= 60) return 'strong'
@@ -18,14 +20,14 @@ function ratingFromWr(wr) {
 }
 
 export default function Maps() {
-  const [season, setSeason]   = useState('Y11S1')
+  const [season, setSeason]   = useState(currentSeason)
   const [search, setSearch]   = useState('')
   const [sortBy, setSortBy]   = useState('winrate') // 'name' | 'winrate'
 
   // Pick the right win rate field based on selected season
-  const getWr      = m => season === 'Y11S1' ? m.teamWinRate         : m.teamWinRateY10S4
-  const getWrM     = m => season === 'Y11S1' ? m.teamWinRateMatches  : m.teamWinRateMatchesY10S4
-  const getRating  = m => season === 'Y11S1' ? m.rating              : ratingFromWr(m.teamWinRateY10S4)
+  const getWr      = m => season === currentSeason ? m.teamWinRate         : m.prevTeamWinRate
+  const getWrM     = m => season === currentSeason ? m.teamWinRateMatches  : m.prevTeamWinRateMatches
+  const getRating  = m => season === currentSeason ? m.rating              : ratingFromWr(m.prevTeamWinRate)
 
   const applyFilters = (maps) => maps
     .filter(m => m.displayName.toLowerCase().includes(search.toLowerCase()))

@@ -14,8 +14,9 @@
     "teamWinRate": 45.5,
     "teamWinRateMatches": 55,
     "teamWinRateSeason": "Y11S1",
-    "teamWinRateY10S4": 58.8,
-    "teamWinRateMatchesY10S4": 34,
+    "prevTeamWinRate": 58.8,
+    "prevTeamWinRateMatches": 34,
+    "prevTeamWinRateSeason": "Y10S4",
     "playerStats": {
       "Y11S1": [
         {
@@ -374,8 +375,9 @@
     "teamWinRate": 67.2,
     "teamWinRateMatches": 70,
     "teamWinRateSeason": "Y11S1",
-    "teamWinRateY10S4": 67.9,
-    "teamWinRateMatchesY10S4": 56,
+    "prevTeamWinRate": 67.9,
+    "prevTeamWinRateMatches": 56,
+    "prevTeamWinRateSeason": "Y10S4",
     "playerStats": {
       "Y11S1": [
         {
@@ -744,8 +746,9 @@
     "teamWinRate": 61.2,
     "teamWinRateMatches": 49,
     "teamWinRateSeason": "Y11S1",
-    "teamWinRateY10S4": 15.4,
-    "teamWinRateMatchesY10S4": 26,
+    "prevTeamWinRate": 15.4,
+    "prevTeamWinRateMatches": 26,
+    "prevTeamWinRateSeason": "Y10S4",
     "playerStats": {
       "Y11S1": [
         {
@@ -1088,8 +1091,9 @@
     "teamWinRate": 57.2,
     "teamWinRateMatches": 63,
     "teamWinRateSeason": "Y11S1",
-    "teamWinRateY10S4": 58.1,
-    "teamWinRateMatchesY10S4": 31,
+    "prevTeamWinRate": 58.1,
+    "prevTeamWinRateMatches": 31,
+    "prevTeamWinRateSeason": "Y10S4",
     "playerStats": {
       "Y11S1": [
         {
@@ -1433,8 +1437,9 @@
     "teamWinRate": 45.8,
     "teamWinRateMatches": 59,
     "teamWinRateSeason": "Y11S1",
-    "teamWinRateY10S4": 52.4,
-    "teamWinRateMatchesY10S4": 21,
+    "prevTeamWinRate": 52.4,
+    "prevTeamWinRateMatches": 21,
+    "prevTeamWinRateSeason": "Y10S4",
     "playerStats": {
       "Y11S1": [
         {
@@ -1572,8 +1577,9 @@
     "teamWinRate": 28.9,
     "teamWinRateMatches": 45,
     "teamWinRateSeason": "Y11S1",
-    "teamWinRateY10S4": 46.9,
-    "teamWinRateMatchesY10S4": 32,
+    "prevTeamWinRate": 46.9,
+    "prevTeamWinRateMatches": 32,
+    "prevTeamWinRateSeason": "Y10S4",
     "playerStats": {
       "Y11S1": [
         {
@@ -1932,8 +1938,9 @@
     "teamWinRate": 0,
     "teamWinRateMatches": 16,
     "teamWinRateSeason": "Y11S1",
-    "teamWinRateY10S4": null,
-    "teamWinRateMatchesY10S4": 0,
+    "prevTeamWinRate": null,
+    "prevTeamWinRateMatches": 0,
+    "prevTeamWinRateSeason": "Y10S4",
     "playerStats": {
       "Y11S1": [
         {
@@ -1997,8 +2004,9 @@
     "teamWinRate": null,
     "teamWinRateMatches": 0,
     "teamWinRateSeason": "Y11S1",
-    "teamWinRateY10S4": null,
-    "teamWinRateMatchesY10S4": 0,
+    "prevTeamWinRate": null,
+    "prevTeamWinRateMatches": 0,
+    "prevTeamWinRateSeason": "Y10S4",
     "playerStats": {},
     "strats": [],
     "overviewContent": "",
@@ -2019,8 +2027,9 @@
     "teamWinRate": 33.3,
     "teamWinRateMatches": 18,
     "teamWinRateSeason": "Y11S1",
-    "teamWinRateY10S4": 63.4,
-    "teamWinRateMatchesY10S4": 41,
+    "prevTeamWinRate": 63.4,
+    "prevTeamWinRateMatches": 41,
+    "prevTeamWinRateSeason": "Y10S4",
     "playerStats": {
       "Y11S1": [
         {
@@ -2150,8 +2159,9 @@
     "teamWinRate": 51.6,
     "teamWinRateMatches": 31,
     "teamWinRateSeason": "Y11S1",
-    "teamWinRateY10S4": 62.2,
-    "teamWinRateMatchesY10S4": 45,
+    "prevTeamWinRate": 62.2,
+    "prevTeamWinRateMatches": 45,
+    "prevTeamWinRateSeason": "Y10S4",
     "playerStats": {
       "Y11S1": [
         {
@@ -2305,8 +2315,9 @@
     "teamWinRate": null,
     "teamWinRateMatches": 0,
     "teamWinRateSeason": "Y11S1",
-    "teamWinRateY10S4": 51.2,
-    "teamWinRateMatchesY10S4": 43,
+    "prevTeamWinRate": 51.2,
+    "prevTeamWinRateMatches": 43,
+    "prevTeamWinRateSeason": "Y10S4",
     "playerStats": {
       "Y10S4": [
         {
@@ -2386,8 +2397,9 @@
     "teamWinRate": 21.4,
     "teamWinRateMatches": 14,
     "teamWinRateSeason": "Y11S1",
-    "teamWinRateY10S4": 71.4,
-    "teamWinRateMatchesY10S4": 14,
+    "prevTeamWinRate": 71.4,
+    "prevTeamWinRateMatches": 14,
+    "prevTeamWinRateSeason": "Y10S4",
     "playerStats": {
       "Y11S1": [
         {
@@ -2485,8 +2497,9 @@
     "teamWinRate": 40,
     "teamWinRateMatches": 55,
     "teamWinRateSeason": "Y11S1",
-    "teamWinRateY10S4": 43.5,
-    "teamWinRateMatchesY10S4": 23,
+    "prevTeamWinRate": 43.5,
+    "prevTeamWinRateMatches": 23,
+    "prevTeamWinRateSeason": "Y10S4",
     "playerStats": {
       "Y11S1": [
         {
@@ -2640,8 +2653,9 @@
     "teamWinRate": 38.3,
     "teamWinRateMatches": 60,
     "teamWinRateSeason": "Y11S1",
-    "teamWinRateY10S4": 62.8,
-    "teamWinRateMatchesY10S4": 35,
+    "prevTeamWinRate": 62.8,
+    "prevTeamWinRateMatches": 35,
+    "prevTeamWinRateSeason": "Y10S4",
     "playerStats": {
       "Y11S1": [
         {
@@ -2969,8 +2983,9 @@
     "teamWinRate": null,
     "teamWinRateMatches": 0,
     "teamWinRateSeason": "Y11S1",
-    "teamWinRateY10S4": 66.7,
-    "teamWinRateMatchesY10S4": 27,
+    "prevTeamWinRate": 66.7,
+    "prevTeamWinRateMatches": 27,
+    "prevTeamWinRateSeason": "Y10S4",
     "playerStats": {
       "Y10S4": [
         {
@@ -3042,8 +3057,9 @@
     "teamWinRate": null,
     "teamWinRateMatches": 0,
     "teamWinRateSeason": "Y11S1",
-    "teamWinRateY10S4": 50,
-    "teamWinRateMatchesY10S4": 20,
+    "prevTeamWinRate": 50,
+    "prevTeamWinRateMatches": 20,
+    "prevTeamWinRateSeason": "Y10S4",
     "playerStats": {
       "Y10S4": [
         {
@@ -3312,8 +3328,9 @@
     "teamWinRate": null,
     "teamWinRateMatches": 0,
     "teamWinRateSeason": "Y11S1",
-    "teamWinRateY10S4": null,
-    "teamWinRateMatchesY10S4": 0,
+    "prevTeamWinRate": null,
+    "prevTeamWinRateMatches": 0,
+    "prevTeamWinRateSeason": "Y10S4",
     "playerStats": {},
     "strats": [],
     "overviewContent": "",
@@ -3334,8 +3351,9 @@
     "teamWinRate": null,
     "teamWinRateMatches": 0,
     "teamWinRateSeason": "Y11S1",
-    "teamWinRateY10S4": 66.7,
-    "teamWinRateMatchesY10S4": 3,
+    "prevTeamWinRate": 66.7,
+    "prevTeamWinRateMatches": 3,
+    "prevTeamWinRateSeason": "Y10S4",
     "playerStats": {
       "Y10S4": [
         {
@@ -3588,8 +3606,9 @@
     "teamWinRate": 50,
     "teamWinRateMatches": 50,
     "teamWinRateSeason": "Y11S1",
-    "teamWinRateY10S4": 90.9,
-    "teamWinRateMatchesY10S4": 22,
+    "prevTeamWinRate": 90.9,
+    "prevTeamWinRateMatches": 22,
+    "prevTeamWinRateSeason": "Y10S4",
     "playerStats": {
       "Y11S1": [
         {

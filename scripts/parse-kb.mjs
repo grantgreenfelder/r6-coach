@@ -486,8 +486,9 @@ function buildMapsData(playersData) {
 
   // Derive the active season label (first player's .season field, fallback Y11S1)
   const activeSeason = playersData.mainStack?.[0]?.season || 'Y11S1'
+  const prevSeasonLabel = playersData.mainStack?.[0]?.prevSeason || null
 
-  // Build Y10S4 weighted team avg by map (main stack only) for the tile context
+  // Build prev-season weighted team avg by map (main stack only) for the tile context
   const winRateByMapY10S4 = {}
   for (const player of playersData.mainStack) {
     for (const row of (player.prevSeasonMapPerformance || [])) {
@@ -538,12 +539,13 @@ function buildMapsData(playersData) {
     const teamWinRateMatches = wr ? wr.totalMatches : 0
     const teamWinRateSeason  = activeSeason
 
-    // Y10S4 team win% (match-weighted across main stack prev season data)
+    // Prev-season team win% (match-weighted across main stack prev season data)
     const wrY10S4 = winRateByMapY10S4[mapKey]
-    const teamWinRateY10S4 = wrY10S4 && wrY10S4.totalMatches > 0
+    const prevTeamWinRate = wrY10S4 && wrY10S4.totalMatches > 0
       ? Math.round((wrY10S4.weightedSum / wrY10S4.totalMatches) * 10) / 10
       : null
-    const teamWinRateMatchesY10S4 = wrY10S4 ? wrY10S4.totalMatches : 0
+    const prevTeamWinRateMatches = wrY10S4 ? wrY10S4.totalMatches : 0
+    const prevTeamWinRateSeason = prevSeasonLabel
 
     // Rating badge driven by actual Y11S1 win% — 5 tiers
     const rating = teamWinRate === null ? 'unknown'
@@ -576,8 +578,9 @@ function buildMapsData(playersData) {
       teamWinRate,
       teamWinRateMatches,
       teamWinRateSeason,
-      teamWinRateY10S4,
-      teamWinRateMatchesY10S4,
+      prevTeamWinRate,
+      prevTeamWinRateMatches,
+      prevTeamWinRateSeason,
       playerStats: statsForMap,
       strats,
       overviewContent: overview,
