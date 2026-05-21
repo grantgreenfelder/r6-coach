@@ -52,14 +52,16 @@ export default function GlobalSearch() {
     return () => window.removeEventListener('keydown', handler)
   }, [])
 
-  // Focus input when opened, reset state on close
+  // Focus input when opened (DOM side effect only — no setState here)
   useEffect(() => {
-    if (open) {
-      setQuery('')
-      setActive(0)
-      inputRef.current?.focus()
-    }
+    if (open) inputRef.current?.focus()
   }, [open])
+
+  function openSearch() {
+    setQuery('')
+    setActive(0)
+    setOpen(true)
+  }
 
   const go = useCallback((href) => {
     navigate(href)
@@ -82,7 +84,7 @@ export default function GlobalSearch() {
   if (!open) {
     return (
       <button
-        onClick={() => setOpen(true)}
+        onClick={openSearch}
         aria-label="Open search (⌘K)"
         className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-siege-card border border-siege-border text-siege-muted text-sm hover:border-siege-accent/50 hover:text-white transition-colors"
       >

@@ -1,4 +1,4 @@
-import { lazy, Suspense } from 'react'
+import { lazy, Suspense, useState } from 'react'
 import { Link } from 'react-router-dom'
 const ComparePanel = lazy(() =>
   import('./Compare.jsx').then(m => ({ default: m.ComparePanel }))
