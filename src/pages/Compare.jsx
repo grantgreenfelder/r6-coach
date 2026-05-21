@@ -522,16 +522,3 @@ export function ComparePanel() {
     </div>
   )
 }
-
-// ─── Standalone page (keeps /compare route working as a redirect target) ──────
-export default function Compare() {
-  return (
-    <div className="space-y-5">
-      <div>
-        <h1 className="text-2xl font-bold text-white">Compare</h1>
-        <p className="text-siege-muted text-sm mt-1">Side-by-side stats, map performance, and operator overlap</p>
-      </div>
-      <ComparePanel />
-    </div>
-  )
-}
