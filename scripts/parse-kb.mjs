@@ -588,7 +588,7 @@ function buildMapsData(playersData) {
 
 // ─── Stack / Team ─────────────────────────────────────────────────────────────
 
-function buildStackData() {
+function buildStackData(playersData) {
   const stack01 = readFile(path.join(KB, 'STACK', 'STACK_01_MAIN_STACK.md'))
   const stack05 = readFile(path.join(KB, 'STACK', 'STACK_05_MAP_VETO.md'))
   const meta04 = readFile(path.join(KB, 'META', 'META_04_RIS.md'))
@@ -616,8 +616,12 @@ function buildStackData() {
     })
     .filter(item => item.text.length > 3)
 
-  // Extract priority coaching items from STACK_01 (player-specific items for callouts)
-  const KNOWN_PLAYERS = ['Grant', 'Peej', 'Hound', 'Smigs', 'Sarge', 'Slug', 'Krafty', 'Bob', 'Hunter']
+  // Derive player names from the parsed roster so this list never goes stale
+  const KNOWN_PLAYERS = [
+    ...(playersData.mainStack || []),
+    ...(playersData.bTeam || []),
+    ...(playersData.other || []),
+  ].map(p => p.name)
   const rawCoachingSection = extractSection(stack01, 'Priority Coaching Items')
   const coachingItemsStructured = rawCoachingSection
     .split('\n')
@@ -907,7 +911,7 @@ console.log(`  ✅ Players: ${players.mainStack.length} main stack, ${players.bT
 const maps = buildMapsData(players)
 console.log(`  ✅ Maps: ${maps.length} maps, ${maps.reduce((a, m) => a + m.strats.length, 0)} strat files`)
 
-const stack = buildStackData()
+const stack = buildStackData(players)
 console.log(`  ✅ Stack/team data parsed`)
 
 const operators = buildOperatorsData(players)

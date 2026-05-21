@@ -7,6 +7,8 @@
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=()
+  Strict-Transport-Security: max-age=63072000; includeSubDomains
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://www.googletagmanager.com 'unsafe-inline'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; img-src 'self' https://staticctf.ubisoft.com https://r6operators.marcopixel.eu data:; connect-src 'self' https://*.google-analytics.com https://*.googletagmanager.com; frame-ancestors 'none'
 
 # ── Long-lived cache for hashed Vite assets ───────────────────────────────────
 # Vite appends a content hash to every asset filename (e.g. index-BbBkGX25.js)

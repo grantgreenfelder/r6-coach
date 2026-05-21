@@ -55,10 +55,9 @@ export default function GlobalSearch() {
   // Focus input when opened, reset state on close
   useEffect(() => {
     if (open) {
-      // eslint-disable-next-line react-hooks/set-state-in-effect
       setQuery('')
       setActive(0)
-      setTimeout(() => inputRef.current?.focus(), 30)
+      inputRef.current?.focus()
     }
   }, [open])
 

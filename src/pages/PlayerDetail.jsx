@@ -481,7 +481,7 @@ export default function PlayerDetail() {
             <h1 className="text-2xl font-bold text-white">{player.name}</h1>
             {player.tracker && (
               <a
-                href={`https://r6.tracker.network/r6siege/profile/ubi/${player.tracker}/overview`}
+                href={`https://r6.tracker.network/r6siege/profile/ubi/${encodeURIComponent(player.tracker)}/overview`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-xs text-siege-muted hover:text-siege-accent border border-siege-border hover:border-siege-accent rounded px-2 py-0.5 transition-colors"

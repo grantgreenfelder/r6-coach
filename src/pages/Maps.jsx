@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import mapsData from '../data/maps.json'
 import RatingBadge from '../components/RatingBadge'
+import { wrColor, wrBgColor } from '../utils/constants'
 import { getMapThumbnailUrl } from '../utils/mapThumbnails'
 
 const SEASONS = ['Y11S1', 'Y10S4']
@@ -123,22 +124,6 @@ function MapCard({ map, season, getWr, getWrM, getRating }) {
   const partialCount = map.stratCount.partial
   const totalCount   = map.stratCount.total
 
-  const barColor =
-    wr === null  ? '' :
-    wr >= 60     ? 'bg-siege-green' :
-    wr >= 50     ? 'bg-blue-500' :
-    wr >= 40     ? 'bg-yellow-500' :
-    wr >= 30     ? 'bg-orange-500' :
-                   'bg-red-600'
-
-  const wrTextColor =
-    wr === null  ? 'text-siege-muted' :
-    wr >= 60     ? 'text-siege-green font-semibold' :
-    wr >= 50     ? 'text-blue-400 font-semibold' :
-    wr >= 40     ? 'text-yellow-400 font-semibold' :
-    wr >= 30     ? 'text-orange-400 font-semibold' :
-                   'text-red-400 font-semibold'
-
   const thumbnailUrl = getMapThumbnailUrl(map.name)
 
   return (
@@ -172,7 +157,7 @@ function MapCard({ map, season, getWr, getWrM, getRating }) {
           <div className="flex justify-between text-xs mb-1">
             {wr !== null ? (
               <>
-                <span className={wrTextColor}>
+                <span className={`${wrColor(wr)} font-semibold`}>
                   {wr}% Win Rate
                   <span className="text-siege-muted font-normal ml-1">· {season}</span>
                 </span>
@@ -184,7 +169,7 @@ function MapCard({ map, season, getWr, getWrM, getRating }) {
           </div>
           <div className="h-1.5 bg-siege-border rounded-full overflow-hidden">
             <div
-              className={`h-full rounded-full transition-all ${barColor}`}
+              className={`h-full rounded-full transition-all ${wrBgColor(wr)}`}
               style={{ width: wr !== null ? `${Math.min(wr, 100)}%` : '0%' }}
             />
           </div>
