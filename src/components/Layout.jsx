@@ -139,12 +139,19 @@ export default function Layout() {
         <Outlet />
       </main>
 
+      {/* Mobile-only staleness warning — shown when data is stale */}
+      {daysSince > 7 && (
+        <div className="sm:hidden border-t border-siege-border py-1.5 px-4 text-center text-xs">
+          <span className={dateColor}>{datePrefix}KB data is {daysSince} days old · {formatted}</span>
+        </div>
+      )}
+
       {/* Footer — hidden on mobile */}
       <footer className="hidden sm:block border-t border-siege-border py-3 px-4 text-center text-xs">
         <span className="text-siege-muted">Department of Eh · Gaming Services · R6 Division</span>
         <span className="text-siege-border mx-2">·</span>
         <span className={dateColor}>{datePrefix}KB parsed: {formatted}</span>
-        <span className="text-siege-muted"> · {metaData.mapCount} maps · {metaData.stratCount} strats · {metaData.playerCount} players · {metaData.operatorCount || 77} operators</span>
+        <span className="text-siege-muted"> · {metaData.mapCount} maps · {metaData.stratCount} strats · {metaData.playerCount} players · {metaData.operatorCount || 0} operators</span>
       </footer>
 
       {/* Mobile bottom nav */}

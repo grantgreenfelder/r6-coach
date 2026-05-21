@@ -1,6 +1,5 @@
-import { use } from 'react'
+import { use, useState, useMemo } from 'react'
 import { useParams, Link } from 'react-router-dom'
-import { useState, useMemo } from 'react'
 import { mapsPromise } from '../data/mapsResource'
 import { extractSection } from '../utils/markdown'
 import StatusDot from '../components/StatusDot'
@@ -409,7 +408,7 @@ export default function StratViewer() {
   const { mapName, side, site } = useParams()
   const map = mapsData.find(m => m.name === mapName)
 
-  const decodedSite = decodeURIComponent(site)
+  const decodedSite = site
   const sideUpper = side.toUpperCase()
   const strat = map?.strats.find(s => s.side === sideUpper && s.site === decodedSite)
 

@@ -6,6 +6,8 @@ import searchIndexData from '../data/search-index.json'
 
 const INDEX = searchIndexData
 
+const isMac = /Mac/i.test(navigator.platform)
+
 const TYPE_ORDER = { player: 0, map: 1, operator: 2 }
 const TYPE_LABEL = { player: 'Players', map: 'Maps', operator: 'Operators' }
 const TYPE_ICON  = {
@@ -85,7 +87,7 @@ export default function GlobalSearch() {
     return (
       <button
         onClick={openSearch}
-        aria-label="Open search (⌘K)"
+        aria-label={`Open search (${isMac ? '⌘K' : 'Ctrl+K'})`}
         className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-siege-card border border-siege-border text-siege-muted text-sm hover:border-siege-accent/50 hover:text-white transition-colors"
       >
         <svg className="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -93,7 +95,7 @@ export default function GlobalSearch() {
         </svg>
         <span className="hidden sm:inline">Search</span>
         <kbd className="hidden sm:inline-flex items-center gap-0.5 px-1 py-0.5 rounded bg-siege-border text-siege-muted text-[10px] font-mono leading-none">
-          ⌘K
+          {isMac ? '⌘K' : 'Ctrl K'}
         </kbd>
       </button>
     )

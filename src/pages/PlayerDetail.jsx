@@ -1,6 +1,5 @@
-import { use } from 'react'
+import { use, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
-import { useState } from 'react'
 import { playersPromise } from '../data/playersResource'
 import { opWrColor, opWrBgColor, wrColor, wrBgColor, kdColor, risTextColor, esrColor, hsColor, clutchWrColor } from '../utils/constants'
 import { extractSection } from '../utils/markdown'

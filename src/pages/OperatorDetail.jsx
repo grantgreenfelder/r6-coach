@@ -1,6 +1,5 @@
-import { use } from 'react'
+import { use, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
-import { useState } from 'react'
 import { operatorsPromise } from '../data/operatorsResource'
 import { playersPromise } from '../data/playersResource'
 import { opWrColor, opWrBgColor, kdColor } from '../utils/constants'

@@ -1,5 +1,5 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
-import { Component, Suspense, lazy } from 'react'
+import { BrowserRouter, Routes, Route, Navigate, useParams } from 'react-router-dom'
+import { Component, Suspense, lazy, cloneElement } from 'react'
 import Layout from './components/Layout.jsx'
 import PageSkeleton from './components/PageSkeleton.jsx'
 
@@ -10,9 +10,20 @@ const PlayerDetail  = lazy(() => import('./pages/PlayerDetail.jsx'))
 const Maps          = lazy(() => import('./pages/Maps.jsx'))
 const MapDetail     = lazy(() => import('./pages/MapDetail.jsx'))
 const StratViewer   = lazy(() => import('./pages/StratViewer.jsx'))
-const SessionPrep   = lazy(() => import('./pages/SessionPrep.jsx'))
-const Operators     = lazy(() => import('./pages/Operators.jsx'))
+const SessionPrep    = lazy(() => import('./pages/SessionPrep.jsx'))
+const Operators      = lazy(() => import('./pages/Operators.jsx'))
 const OperatorDetail = lazy(() => import('./pages/OperatorDetail.jsx'))
+
+// Forces component remount when route params change, resetting all internal state.
+function KeyedByParams({ fallback, children }) {
+  const params = useParams()
+  const key = Object.values(params).join('/')
+  return (
+    <Suspense fallback={fallback}>
+      {cloneElement(children, { key })}
+    </Suspense>
+  )
+}
 
 class ErrorBoundary extends Component {
   constructor(props) {
@@ -61,13 +72,13 @@ export default function App() {
             <Route path="/" element={<Layout />}>
               <Route index element={<Suspense fallback={<PageSkeleton page="dashboard" />}><Dashboard /></Suspense>} />
               <Route path="players" element={<Suspense fallback={<PageSkeleton />}><Players /></Suspense>} />
-              <Route path="players/:name" element={<Suspense fallback={<PageSkeleton page="detail" />}><PlayerDetail /></Suspense>} />
+              <Route path="players/:name" element={<KeyedByParams fallback={<PageSkeleton page="detail" />}><PlayerDetail /></KeyedByParams>} />
               <Route path="maps" element={<Suspense fallback={<PageSkeleton />}><Maps /></Suspense>} />
-              <Route path="maps/:mapName" element={<Suspense fallback={<PageSkeleton page="detail" />}><MapDetail /></Suspense>} />
-              <Route path="maps/:mapName/:side/:site" element={<Suspense fallback={<PageSkeleton page="detail" />}><StratViewer /></Suspense>} />
+              <Route path="maps/:mapName" element={<KeyedByParams fallback={<PageSkeleton page="detail" />}><MapDetail /></KeyedByParams>} />
+              <Route path="maps/:mapName/:side/:site" element={<KeyedByParams fallback={<PageSkeleton page="detail" />}><StratViewer /></KeyedByParams>} />
               <Route path="session-prep" element={<Suspense fallback={<PageSkeleton />}><SessionPrep /></Suspense>} />
               <Route path="operators" element={<Suspense fallback={<PageSkeleton />}><Operators /></Suspense>} />
-              <Route path="operators/:name" element={<Suspense fallback={<PageSkeleton page="detail" />}><OperatorDetail /></Suspense>} />
+              <Route path="operators/:name" element={<KeyedByParams fallback={<PageSkeleton page="detail" />}><OperatorDetail /></KeyedByParams>} />
               <Route path="compare" element={<Navigate to="/players" replace />} />
               <Route path="*" element={<Suspense fallback={null}><NotFound /></Suspense>} />
             </Route>

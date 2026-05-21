@@ -1,6 +1,5 @@
-import { use } from 'react'
+import { use, useState, useMemo } from 'react'
 import { useParams, Link } from 'react-router-dom'
-import { useState, useMemo } from 'react'
 import { mapsPromise } from '../data/mapsResource'
 import RatingBadge from '../components/RatingBadge'
 import StatusDot from '../components/StatusDot'
