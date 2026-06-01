@@ -2,6 +2,7 @@ import { Outlet, NavLink, useLocation } from 'react-router-dom'
 import metaData from '../data/meta.json'
 import GlobalSearch from './GlobalSearch.jsx'
 
+
 // ─── SVG Nav Icons ────────────────────────────────────────────────────────────
 // Clean inline SVGs — consistent rendering across all platforms
 
@@ -37,12 +38,6 @@ const Icons = {
       <line x1="11" y1="8" x2="14" y2="8" />
     </svg>
   ),
-  sessionPrep: (
-    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
-      <path d="M3 3h10M3 7h6M3 11h8" />
-      <path d="M11 9.5l3 2-3 2z" fill="currentColor" stroke="none" />
-    </svg>
-  ),
 }
 
 const navItems = [
@@ -50,31 +45,20 @@ const navItems = [
   { to: '/players', label: 'Roster', mobileLabel: 'Roster', icon: Icons.roster },
   { to: '/maps', label: 'Maps', mobileLabel: 'Maps', icon: Icons.maps },
   { to: '/operators', label: 'Operators', mobileLabel: 'Ops', icon: Icons.operators },
-  { to: '/session-prep', label: 'Session Prep', mobileLabel: 'Prep', icon: Icons.sessionPrep },
 ]
 
-// Map pathnames to short labels for the mobile header
 function mobilePageTitle(pathname) {
   if (pathname === '/') return 'Dashboard'
   if (pathname.startsWith('/players/')) return 'Player'
   if (pathname === '/players') return 'Roster'
-  if (pathname.startsWith('/maps/') && pathname.split('/').length === 5) return 'Strat'
   if (pathname.startsWith('/maps/')) return 'Map'
   if (pathname.startsWith('/operators/')) return 'Operator'
   if (pathname === '/operators') return 'Operators'
-  if (pathname === '/session-prep') return 'Session Prep'
   return 'DOE · R6'
 }
 
 export default function Layout() {
   const location = useLocation()
-  const parsedAt = new Date(metaData.parsedAt)
-  const now = new Date()
-  const validDate = !isNaN(parsedAt.getTime())
-  const daysSince = validDate ? Math.floor((now - parsedAt) / (1000 * 60 * 60 * 24)) : 0
-  const formatted = validDate ? parsedAt.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : '—'
-  const dateColor = daysSince > 14 ? 'text-red-400' : daysSince > 7 ? 'text-yellow-400' : 'text-siege-muted'
-  const datePrefix = daysSince > 7 ? '⚠ ' : ''
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -139,19 +123,11 @@ export default function Layout() {
         <Outlet />
       </main>
 
-      {/* Mobile-only staleness warning — shown when data is stale */}
-      {daysSince > 7 && (
-        <div className="sm:hidden border-t border-siege-border py-1.5 px-4 text-center text-xs">
-          <span className={dateColor}>{datePrefix}KB data is {daysSince} days old · {formatted}</span>
-        </div>
-      )}
-
       {/* Footer — hidden on mobile */}
-      <footer className="hidden sm:block border-t border-siege-border py-3 px-4 text-center text-xs">
-        <span className="text-siege-muted">Department of Eh · Gaming Services · R6 Division</span>
-        <span className="text-siege-border mx-2">·</span>
-        <span className={dateColor}>{datePrefix}KB parsed: {formatted}</span>
-        <span className="text-siege-muted"> · {metaData.mapCount} maps · {metaData.stratCount} strats · {metaData.playerCount} players · {metaData.operatorCount || 0} operators</span>
+      <footer className="hidden sm:block border-t border-siege-border py-3 px-4 text-center text-xs text-siege-muted">
+        Department of Eh · Gaming Services · R6 Division
+        <span className="mx-2">·</span>
+        {metaData.mapCount} maps · {metaData.playerCount} players · {metaData.operatorCount || 0} operators
       </footer>
 
       {/* Mobile bottom nav */}
