@@ -30,7 +30,7 @@ function StatBox({ label, value, accent, tip, small }) {
 
 const FLAG_LABEL = { '⭐': 'standout', '✅': 'solid', '⚠️': 'concern' }
 
-function OpRow({ op, maxRounds, showExtra }) {
+function OpRow({ op, maxRounds, showExtra, dim }) {
   const wrCls      = opWrColor(op.winRate)
   const barColor   = opWrBgColor(op.winRate)
   const roundsPct  = maxRounds > 0 ? Math.min((op.rounds / maxRounds) * 100, 100) : 0
@@ -39,7 +39,7 @@ function OpRow({ op, maxRounds, showExtra }) {
   const esr        = fbFd > 0 ? ((op.firstBloods ?? 0) / fbFd).toFixed(2) : null
 
   return (
-    <div className="flex items-center gap-2 py-1.5 border-b border-siege-border/40 last:border-0">
+    <div className={`flex items-center gap-2 py-1.5 border-b border-siege-border/40 last:border-0 ${dim ? 'opacity-40' : ''}`}>
       <div className="flex items-center gap-1.5 w-28 flex-shrink-0 min-w-0">
         <PortraitChip name={op.name} size="w-6 h-6" />
         <span className="text-white text-sm font-medium truncate">{op.name}</span>
@@ -85,6 +85,35 @@ function OpRow({ op, maxRounds, showExtra }) {
   )
 }
 
+function OpSideList({ ops, maxRounds, showExtra }) {
+  const [showSmall, setShowSmall] = useState(false)
+  const significant = ops.filter(o => !o.smallSample)
+  const small       = ops.filter(o => o.smallSample)
+
+  return (
+    <>
+      {significant.map(op => (
+        <OpRow key={op.name} op={op} maxRounds={maxRounds} showExtra={showExtra} />
+      ))}
+      {small.length > 0 && (
+        <>
+          <button
+            onClick={() => setShowSmall(s => !s)}
+            className="w-full flex items-center gap-2 py-1.5 text-siege-muted hover:text-white transition-colors text-xs"
+          >
+            <div className="flex-1 h-px bg-siege-border/40" />
+            <span>{showSmall ? 'Hide' : `+${small.length} low-volume ops`}</span>
+            <div className="flex-1 h-px bg-siege-border/40" />
+          </button>
+          {showSmall && small.map(op => (
+            <OpRow key={op.name} op={op} maxRounds={maxRounds} showExtra={showExtra} dim />
+          ))}
+        </>
+      )}
+    </>
+  )
+}
+
 function OpsTable({ operators }) {
   const [showExtra, setShowExtra] = useState(false)
   const atk = operators?.atk || []
@@ -105,9 +134,9 @@ function OpsTable({ operators }) {
         </div>
         <button
           onClick={() => setShowExtra(x => !x)}
-          className={`text-xs px-2.5 py-1 rounded border transition-colors ${showExtra ? 'border-siege-accent text-siege-accent' : 'border-siege-border text-siege-muted hover:text-white'}`}
+          className={`text-xs px-2.5 py-1 rounded border transition-colors ${showExtra ? 'border-siege-border text-siege-muted hover:text-white' : 'border-siege-accent text-siege-accent'}`}
         >
-          {showExtra ? 'Show: HS% + ESR' : 'Show: K/D + Rounds'}
+          {showExtra ? 'View K/D + Rounds' : 'View HS% + ESR'}
         </button>
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 divide-y lg:divide-y-0 lg:divide-x divide-siege-border">
@@ -115,17 +144,17 @@ function OpsTable({ operators }) {
           <div className="flex items-center gap-2 mb-3">
             <span className="w-2 h-2 rounded-full bg-orange-400 flex-shrink-0" />
             <span className="text-orange-400 text-xs font-semibold uppercase tracking-wider">Attack</span>
-            <span className="text-siege-muted text-xs ml-auto">{atk.length} ops</span>
+            <span className="text-siege-muted text-xs ml-auto">{atk.filter(o=>!o.smallSample).length} ops</span>
           </div>
-          {atk.map(op => <OpRow key={op.name} op={op} maxRounds={maxAtk} showExtra={showExtra} />)}
+          <OpSideList ops={atk} maxRounds={maxAtk} showExtra={showExtra} />
         </div>
         <div className="pt-4 lg:pt-0 lg:pl-5">
           <div className="flex items-center gap-2 mb-3">
             <span className="w-2 h-2 rounded-full bg-blue-400 flex-shrink-0" />
             <span className="text-blue-400 text-xs font-semibold uppercase tracking-wider">Defense</span>
-            <span className="text-siege-muted text-xs ml-auto">{def.length} ops</span>
+            <span className="text-siege-muted text-xs ml-auto">{def.filter(o=>!o.smallSample).length} ops</span>
           </div>
-          {def.map(op => <OpRow key={op.name} op={op} maxRounds={maxDef} showExtra={showExtra} />)}
+          <OpSideList ops={def} maxRounds={maxDef} showExtra={showExtra} />
         </div>
       </div>
     </div>
@@ -133,6 +162,9 @@ function OpsTable({ operators }) {
 }
 
 // ─── Career History ────────────────────────────────────────────────────────────
+
+// Seasons with fewer than this many matches are filtered from the table
+const MIN_CAREER_MATCHES = 5
 
 function CareerRow({ entry, expanded, onToggle, seasonDetail, loading }) {
   const risVal = entry.ris ?? seasonDetail?.ris
@@ -152,7 +184,7 @@ function CareerRow({ entry, expanded, onToggle, seasonDetail, loading }) {
         <td className={`py-2 px-3 text-sm text-right tabular-nums ${entry.wr != null ? wrColor(entry.wr) : 'text-siege-muted'}`}>
           {entry.wr != null ? `${entry.wr}%` : '—'}
         </td>
-        <td className="py-2 px-3 text-xs text-right tabular-nums text-siege-muted">{entry.rp ?? '—'}</td>
+        <td className="py-2 px-3 text-xs text-right tabular-nums text-siege-muted">{entry.maxRp ?? entry.rp ?? '—'}</td>
         <td className={`py-2 px-3 text-xs text-right tabular-nums ${risVal ? risTextColor(risVal) : 'text-siege-muted'}`}>
           {risVal ?? '—'}
         </td>
@@ -169,15 +201,13 @@ function CareerRow({ entry, expanded, onToggle, seasonDetail, loading }) {
               <p className="text-siege-muted text-xs py-2">No ranked operator data available for {entry.season}.</p>
             ) : seasonDetail ? (
               <div className="space-y-3">
-                {/* Computed stats row */}
                 <div className="grid grid-cols-5 gap-2 pt-1">
-                  {kdaVal != null && <StatBox label="KDA" value={String(kdaVal)} accent={kdColor(kdaVal)} small />}
-                  {hsVal  != null && <StatBox label="HS%"  value={`${hsVal}%`}   accent={hsColor(hsVal)} small />}
-                  {esrVal != null && <StatBox label="ESR"  value={String(esrVal)} accent={esrColor(esrVal)} tip={GLOSSARY.ESR} small />}
-                  {seasonDetail.clutches > 0 && <StatBox label="Clutches" value={String(seasonDetail.clutches)} small />}
-                  {risVal != null && <StatBox label="RIS" value={String(risVal)} accent={risTextColor(risVal)} tip={GLOSSARY.RIS} small />}
+                  {kdaVal != null && <StatBox label="KDA"      value={String(kdaVal)}  accent={kdColor(kdaVal)} small />}
+                  {hsVal  != null && <StatBox label="HS%"      value={`${hsVal}%`}     accent={hsColor(hsVal)} small />}
+                  {esrVal != null && <StatBox label="ESR"      value={String(esrVal)}  accent={esrColor(esrVal)} tip={GLOSSARY.ESR} small />}
+                  {(seasonDetail.clutches > 0) && <StatBox label="Clutches" value={String(seasonDetail.clutches)} small />}
+                  {risVal != null && <StatBox label="RIS"      value={String(risVal)}  accent={risTextColor(risVal)} tip={GLOSSARY.RIS} small />}
                 </div>
-                {/* Operator tables */}
                 <OpsTable operators={seasonDetail.operators} />
               </div>
             ) : (
@@ -191,9 +221,9 @@ function CareerRow({ entry, expanded, onToggle, seasonDetail, loading }) {
 }
 
 function CareerHistory({ careerHistory, tracker }) {
-  const [expanded, setExpanded]     = useState(null)
-  const [cache, setCache]           = useState({})
-  const [loading, setLoading]       = useState(false)
+  const [expanded, setExpanded] = useState(null)
+  const [cache, setCache]       = useState({})
+  const [loading, setLoading]   = useState(false)
 
   const toggle = useCallback(async (season) => {
     if (expanded === season) { setExpanded(null); return }
@@ -211,7 +241,8 @@ function CareerHistory({ careerHistory, tracker }) {
     }
   }, [expanded, cache, tracker])
 
-  const ranked = careerHistory.filter(e => e.matches > 0)
+  // Filter out noise seasons (< 5 matches)
+  const ranked = careerHistory.filter(e => e.matches >= MIN_CAREER_MATCHES)
   if (ranked.length === 0) return <p className="text-siege-muted text-sm">No career history available.</p>
 
   return (
@@ -219,7 +250,7 @@ function CareerHistory({ careerHistory, tracker }) {
       <table className="w-full text-sm">
         <thead>
           <tr className="border-b border-siege-border text-left">
-            {['Season','M','K/D','Win%','Peak RP','RIS',''].map(h => (
+            {['Season', 'M', 'K/D', 'Win%', 'Pk RP', 'RIS', ''].map(h => (
               <th key={h} className="py-2 px-3 text-xs text-siege-muted font-medium uppercase tracking-wide text-right first:text-left last:w-6">
                 {h}
               </th>
@@ -255,7 +286,7 @@ export default function PlayerDetail() {
     return <NotFound icon="👤" title="Player not found" message={`"${name}" doesn't exist in the roster.`} backTo="/players" backLabel="Back to Roster" />
   }
 
-  const { stats = {}, operators, careerHistory = [], tracker, _updatedAt } = player
+  const { stats = {}, operators, tracker, _updatedAt } = player
 
   const updatedLabel = _updatedAt
     ? new Date(_updatedAt).toLocaleString('en-US', { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' })
@@ -263,6 +294,27 @@ export default function PlayerDetail() {
 
   const clutchWrVal = stats.clutchWR ? `${parseFloat(stats.clutchWR).toFixed(1)}%` : null
   const hsVal       = stats.hs       ? `${parseFloat(stats.hs).toFixed(1)}%`       : null
+
+  // Pre-populate current season's computed stats into the first career history entry
+  // so RIS/KDA/ESR show immediately without needing to expand
+  const rawHistory   = player.careerHistory ?? []
+  const careerHistory = rawHistory.map((entry, i) => {
+    if (i !== 0) return entry
+    return {
+      ...entry,
+      ...(stats.ris      && { ris:  parseFloat(stats.ris) }),
+      ...(stats.kda      && { kda:  parseFloat(stats.kda) }),
+      ...(stats.esr      && { esr:  parseFloat(stats.esr) }),
+      ...(stats.hs       && { hs:   parseFloat(stats.hs) }),
+    }
+  })
+
+  // Row 3: only include stats that exist
+  const row3 = [
+    stats.maxRp && stats.maxRp !== stats.rp ? { label: 'Peak RP', value: stats.maxRp } : null,
+    stats.level ? { label: 'Level',   value: stats.level } : null,
+    stats.aces  ? { label: 'Aces',    value: stats.aces  } : null,
+  ].filter(Boolean)
 
   return (
     <div className="max-w-5xl mx-auto space-y-5">
@@ -313,24 +365,24 @@ export default function PlayerDetail() {
       <div className="card space-y-2">
         <h3 className="text-siege-accent font-semibold text-xs uppercase tracking-wider">Current Season</h3>
         <div className="grid grid-cols-5 gap-1 sm:gap-2">
-          <StatBox label="K/D"     value={stats.kd}      accent={kdColor(stats.kd)}                tip={GLOSSARY.KD} />
+          <StatBox label="K/D"     value={stats.kd}      accent={kdColor(stats.kd)}                  tip={GLOSSARY.KD} />
           <StatBox label="Win%"    value={stats.winRate}  accent={wrColor(parseFloat(stats.winRate))} tip={GLOSSARY.WR} />
           <StatBox label="Matches" value={stats.matches}  tip={GLOSSARY.MATCHES} />
           <StatBox label="RP"      value={stats.rp} />
-          <StatBox label="RIS"     value={stats.ris}      accent={risTextColor(stats.ris)}           tip={GLOSSARY.RIS} />
+          <StatBox label="RIS"     value={stats.ris}      accent={risTextColor(stats.ris)}             tip={GLOSSARY.RIS} />
         </div>
         <div className="grid grid-cols-5 gap-1 sm:gap-2">
-          <StatBox label="KDA"      value={stats.kda}      accent={kdColor(stats.kda)} />
-          <StatBox label="HS%"      value={hsVal}          accent={hsColor(stats.hs)} />
-          <StatBox label="ESR"      value={stats.esr}      accent={esrColor(stats.esr)} tip={GLOSSARY.ESR} />
-          <StatBox label="Clutches" value={stats.clutches} />
-          <StatBox label="Clutch W%" value={clutchWrVal}   accent={clutchWrColor(stats.clutchWR)} />
+          <StatBox label="KDA"       value={stats.kda}      accent={kdColor(stats.kda)} />
+          <StatBox label="HS%"       value={hsVal}          accent={hsColor(stats.hs)} />
+          <StatBox label="ESR"       value={stats.esr}      accent={esrColor(stats.esr)} tip={GLOSSARY.ESR} />
+          <StatBox label="Clutches"  value={stats.clutches} />
+          <StatBox label="Clutch W%" value={clutchWrVal}    accent={clutchWrColor(stats.clutchWR)} />
         </div>
-        {(stats.maxRp || stats.level || stats.aces) && (
-          <div className="grid grid-cols-3 gap-1 sm:gap-2">
-            {stats.maxRp  && <StatBox label="Peak RP" value={stats.maxRp} small />}
-            {stats.level  && <StatBox label="Level"   value={stats.level} small />}
-            {stats.aces   && <StatBox label="Aces"    value={stats.aces}  small />}
+        {row3.length > 0 && (
+          <div className={`grid gap-1 sm:gap-2`} style={{ gridTemplateColumns: `repeat(${row3.length}, minmax(0, 1fr))` }}>
+            {row3.map(({ label, value }) => (
+              <StatBox key={label} label={label} value={value} small />
+            ))}
           </div>
         )}
       </div>
@@ -344,7 +396,6 @@ export default function PlayerDetail() {
       {/* Career history */}
       <div className="card">
         <h3 className="text-siege-accent font-semibold text-xs uppercase tracking-wider mb-4">Career History</h3>
-        <p className="text-siege-muted text-xs mb-3">Click any row to expand that season's full operator breakdown.</p>
         <CareerHistory careerHistory={careerHistory} tracker={tracker} />
       </div>
 
