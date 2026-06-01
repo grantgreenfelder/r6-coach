@@ -46,12 +46,28 @@ function LoadoutTable({ rows }) {
   if (!rows?.length) return <p className="text-siege-muted text-sm">—</p>
   return (
     <div className="space-y-1">
-      {rows.map((r, i) => (
-        <div key={i} className="flex gap-3 text-sm py-1 border-b border-siege-border/30 last:border-0">
-          <span className="text-white font-medium w-32 flex-shrink-0">{r.weapon}</span>
-          <span className="text-gray-400 text-xs mt-0.5 flex-1">{r.notes || r.type}</span>
-        </div>
-      ))}
+      {rows.map((r, i) => {
+        const hasStats = r.damage != null
+        return (
+          <div key={i} className="flex gap-3 text-sm py-1.5 border-b border-siege-border/30 last:border-0">
+            <div className="w-32 flex-shrink-0">
+              <span className="text-white font-medium block leading-tight">{r.weapon}</span>
+              <span className="text-siege-muted text-[10px]">{r.type}</span>
+            </div>
+            <div className="flex-1 min-w-0">
+              {hasStats ? (
+                <div className="flex gap-3 text-xs text-gray-400 tabular-nums">
+                  <span><span className="text-siege-muted">DMG</span> {r.damage}</span>
+                  <span><span className="text-siege-muted">RPM</span> {r.firerate || '—'}</span>
+                  <span><span className="text-siege-muted">Mag</span> {r.ammo ?? '—'}</span>
+                </div>
+              ) : (
+                <span className="text-gray-400 text-xs">{r.notes || r.type}</span>
+              )}
+            </div>
+          </div>
+        )
+      })}
     </div>
   )
 }

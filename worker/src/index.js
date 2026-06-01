@@ -263,6 +263,94 @@ function transformHistoricalSeason(seasonYear, rawOperators, careerEntry) {
   }
 }
 
+// ── Operator reference (roster, profiles, loadouts) ──────────────────────────
+// Pulled once per run from r6data.com. Same for all users, so stored under one
+// KV key. Profiles + loadouts auto-update; new operators appear automatically.
+
+// Weapon types that occupy the secondary slot. Everything else is treated as a
+// primary. (A handful of secondary shotguns share the "Shotgun" type and will
+// be bucketed as primary — the frontend keeps hand-curated KB slots for existing
+// ops, so this heuristic only affects brand-new ops not yet in the KB.)
+const SECONDARY_WEAPON_TYPES = new Set([
+  'Handgun', 'Revolver', 'Hand Cannon', 'Machine Pistol', 'Machine Pustol',
+])
+
+function normalizeOpName(name) {
+  return (name || '')
+    .normalize('NFD').replace(/[̀-ͯ]/g, '')
+    .toLowerCase()
+    .replace(/ø/g, 'o').replace(/ð/g, 'd')
+    .replace(/[^a-z0-9]/g, '')
+}
+
+async function fetchJson(url, apiKey) {
+  const r = await fetch(url, { headers: { 'api-key': apiKey } })
+  if (!r.ok) throw new Error(`${url} ${r.status}`)
+  return r.json()
+}
+
+function buildOperatorReference(rawOperators, rawWeapons) {
+  const operators = Array.isArray(rawOperators) ? rawOperators : (rawOperators?.operators ?? rawOperators?.data ?? [])
+  const weapons   = Array.isArray(rawWeapons)   ? rawWeapons   : (rawWeapons?.weapons ?? rawWeapons?.data ?? [])
+
+  // Weapon name → stats lookup (for enriching loadouts)
+  const weaponStats = {}
+  // Operator (normalized) → { primaries:[], secondaries:[] }
+  const operatorWeapons = {}
+
+  for (const w of weapons) {
+    weaponStats[w.name] = {
+      type:       w.type,
+      damage:     w.stats_damage,
+      firerate:   w.stats_firerate,
+      ammo:       w.stats_ammo,
+      maxammo:    w.stats_maxammo,
+      difficulty: w.stats_difficulty,
+    }
+    const slot = SECONDARY_WEAPON_TYPES.has(w.type) ? 'secondaries' : 'primaries'
+    const owners = (w.operators || '').split(';').map(s => s.trim()).filter(Boolean)
+    for (const owner of owners) {
+      const key = normalizeOpName(owner)
+      if (!operatorWeapons[key]) operatorWeapons[key] = { primaries: [], secondaries: [] }
+      operatorWeapons[key][slot].push({ weapon: w.name, type: w.type })
+    }
+  }
+
+  const opMap = {}
+  for (const o of operators) {
+    opMap[normalizeOpName(o.name)] = {
+      name:             o.name,
+      side:             o.side === 'defender' ? 'DEF' : 'ATK',
+      realName:         o.realname && o.realname !== '[Classified]' ? o.realname : null,
+      birthplace:       o.birthplace || null,
+      age:              o.age && o.age !== 'null' ? o.age : null,
+      seasonIntroduced: o.season_introduced || null,
+      health:           o.health ?? null,
+      speed:            o.speed ?? null,
+      unit:             o.unit || null,
+      roles:            Array.isArray(o.roles) ? o.roles : [],
+      iconUrl:          o.icon_url || null,
+      slug:             o.slug || null,
+    }
+  }
+
+  return { operators: opMap, weaponStats, operatorWeapons, updatedAt: new Date().toISOString() }
+}
+
+async function updateOperatorReference(env) {
+  try {
+    const [rawOperators, rawWeapons] = await Promise.all([
+      fetchJson('https://r6data.com/api/operators', env.R6DATA_API_KEY),
+      fetchJson('https://r6data.com/api/weapons', env.R6DATA_API_KEY),
+    ])
+    const ref = buildOperatorReference(rawOperators, rawWeapons)
+    await env.R6_STATS.put('reference:operators', JSON.stringify(ref))
+    console.log(`✓ Operator reference — ${Object.keys(ref.operators).length} ops, ${Object.keys(ref.weaponStats).length} weapons`)
+  } catch (err) {
+    console.error('✗ Operator reference failed:', err.message)
+  }
+}
+
 // ── Backfill past seasons for one player ─────────────────────────────────────
 // Capped at MAX_BACKFILL_PER_RUN seasons per player to stay under Cloudflare's
 // 50 subrequest limit on the free tier. All seasons fill in over several runs.
@@ -313,6 +401,9 @@ export default {
   async scheduled(_event, env) {
     console.log('Stats update started:', new Date().toISOString())
     const failed = []
+
+    // Operator reference (roster, profiles, loadouts) — once per run
+    await updateOperatorReference(env)
 
     for (const player of PLAYERS) {
       try {
