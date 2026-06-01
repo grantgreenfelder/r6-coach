@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
-    "build:local": "node scripts/parse-kb.mjs && vite build",
+    "build": "node scripts/gen-sitemap.mjs && vite build",
+    "build:local": "node scripts/parse-kb.mjs && node scripts/gen-sitemap.mjs && vite build",
     "parse-kb": "node scripts/parse-kb.mjs",
     "preview": "vite preview",
     "lint": "eslint src",
