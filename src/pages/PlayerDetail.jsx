@@ -135,7 +135,6 @@ function OpsTable({ operators }) {
 // ─── Career History ────────────────────────────────────────────────────────────
 
 function CareerRow({ entry, expanded, onToggle, seasonDetail, loading }) {
-  const hasFullData = entry.rp != null
   const risVal = entry.ris ?? seasonDetail?.ris
   const kdaVal = entry.kda ?? seasonDetail?.kda
   const esrVal = entry.esr ?? seasonDetail?.esr
@@ -155,7 +154,7 @@ function CareerRow({ entry, expanded, onToggle, seasonDetail, loading }) {
         </td>
         <td className="py-2 px-3 text-xs text-right tabular-nums text-siege-muted">{entry.rp ?? '—'}</td>
         <td className={`py-2 px-3 text-xs text-right tabular-nums ${risVal ? risTextColor(risVal) : 'text-siege-muted'}`}>
-          {risVal ?? (hasFullData ? <span className="italic text-siege-muted/50">click</span> : '—')}
+          {risVal ?? '—'}
         </td>
         <td className="py-2 px-3 text-right">
           <span className="text-siege-muted text-xs">{expanded ? '▲' : '▼'}</span>
