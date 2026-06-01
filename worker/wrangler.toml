@@ -1,0 +1,15 @@
+name = "r6-coach-stats-updater"
+main = "src/index.js"
+compatibility_date = "2025-01-01"
+account_id = "ac3e1d49193049e82d8429a8999cc81e"
+
+# After creating the KV namespace in the Cloudflare dashboard, paste the ID below.
+# Dashboard → Workers & Pages → KV → Create namespace "R6_STATS" → copy the ID.
+[[kv_namespaces]]
+binding = "R6_STATS"
+id = "1cb1612146b8456fa356f447245d0c50"
+
+# 6 AM and 6 PM EDT (UTC-4 in summer, UTC-5 in winter).
+# Cron uses UTC — shifts by 1 hour when daylight saving changes, which is fine.
+[triggers]
+crons = ["0 10,22 * * *"]
