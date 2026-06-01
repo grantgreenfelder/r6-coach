@@ -62,6 +62,7 @@ export default function Layout() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <a href="#main-content" className="skip-link">Skip to content</a>
       {/* Top nav */}
       <header className="bg-siege-surface border-b border-siege-border sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 flex items-center h-14">
@@ -119,7 +120,7 @@ export default function Layout() {
       </header>
 
       {/* Page content */}
-      <main className="flex-1 max-w-7xl mx-auto w-full px-3 sm:px-4 py-4 sm:py-6 pb-20 sm:pb-6">
+      <main id="main-content" tabIndex={-1} className="flex-1 max-w-7xl mx-auto w-full px-3 sm:px-4 py-4 sm:py-6 pb-20 sm:pb-6">
         <Outlet />
       </main>
 

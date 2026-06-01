@@ -40,6 +40,8 @@ export default function GlobalSearch() {
   const [active, setActive] = useState(0)
   const [index, setIndex]   = useState(STATIC_INDEX)
   const inputRef            = useRef(null)
+  const triggerRef          = useRef(null)
+  const wasOpenRef          = useRef(false)
   const navigate            = useNavigate()
 
   // Merge any live operators missing from the static index (e.g. newly released
@@ -78,9 +80,11 @@ export default function GlobalSearch() {
     return () => window.removeEventListener('keydown', handler)
   }, [])
 
-  // Focus input when opened (DOM side effect only — no setState here)
+  // Focus input when opened; restore focus to the trigger when closed
   useEffect(() => {
     if (open) inputRef.current?.focus()
+    else if (wasOpenRef.current) triggerRef.current?.focus()
+    wasOpenRef.current = open
   }, [open])
 
   function openSearch() {
@@ -110,6 +114,7 @@ export default function GlobalSearch() {
   if (!open) {
     return (
       <button
+        ref={triggerRef}
         onClick={openSearch}
         aria-label={`Open search (${isMac ? '⌘K' : 'Ctrl+K'})`}
         className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-siege-card border border-siege-border text-siege-muted text-sm hover:border-siege-accent/50 hover:text-white transition-colors"
@@ -130,7 +135,12 @@ export default function GlobalSearch() {
       className="fixed inset-0 z-50 flex items-start justify-center pt-[15vh] bg-black/60 backdrop-blur-sm"
       onClick={e => { if (e.target === e.currentTarget) setOpen(false) }}
     >
-      <div className="w-full max-w-lg mx-4 bg-siege-card border border-siege-border rounded-xl shadow-2xl overflow-hidden">
+      <div
+        role="dialog"
+        aria-modal="true"
+        aria-label="Search players, maps and operators"
+        className="w-full max-w-lg mx-4 bg-siege-card border border-siege-border rounded-xl shadow-2xl overflow-hidden"
+      >
         {/* Input */}
         <div className="flex items-center gap-3 px-4 py-3 border-b border-siege-border">
           <svg className="w-4 h-4 text-siege-muted flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
