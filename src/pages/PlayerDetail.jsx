@@ -355,9 +355,9 @@ export default function PlayerDetail() {
           </div>
           {player.role && <p className="text-siege-muted text-sm mt-1">{player.role}</p>}
           {player.bio  && <p className="text-gray-400 text-sm mt-2 leading-relaxed max-w-xl">{player.bio}</p>}
-          {updatedLabel && (
-            <p className="text-siege-muted text-xs mt-2">Live · updated {updatedLabel}</p>
-          )}
+          {updatedLabel
+            ? <p className="text-siege-muted text-xs mt-2">Live · updated {updatedLabel}</p>
+            : <p className="text-yellow-400/70 text-xs mt-2">Not in the live feed — stats are a manual snapshot.</p>}
         </div>
       </div>
 

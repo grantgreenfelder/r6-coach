@@ -1,4 +1,4 @@
-import { use } from 'react'
+import { use, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { playersPromise } from '../data/playersResource'
 import { mapsPromise } from '../data/mapsResource'
@@ -225,11 +225,14 @@ export default function Dashboard() {
   const bTeam       = playersData.bTeam     || []
   const rankedMaps  = mapsData.filter(m => m.inRankedPool)
 
-  // Live update timestamp from the first player's updatedAt
+  // Live update timestamp + staleness check (cron runs every 12h; >18h = a missed run)
   const updatedAt = playersData._updatedAt
   const updatedLabel = updatedAt
     ? new Date(updatedAt).toLocaleString('en-US', { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' })
     : null
+  const [nowMs] = useState(() => Date.now())
+  const hoursSince = updatedAt ? (nowMs - new Date(updatedAt).getTime()) / 3.6e6 : null
+  const stale = hoursSince != null && hoursSince > 18
 
   // Best / ban target maps
   const rankedWithWR = rankedMaps.filter(m => m.teamWinRate !== null)
@@ -262,8 +265,12 @@ export default function Dashboard() {
               <h1 className="text-2xl font-bold text-white leading-tight">R6 Division</h1>
               <span className="text-[10px] font-semibold tracking-widest uppercase text-siege-accent border border-siege-accent/30 px-1.5 py-0.5 rounded">DOE</span>
             </div>
-            <p className="text-siege-muted text-xs mt-0.5">
-              {updatedLabel ? `Player stats live · updated ${updatedLabel}` : 'Season Dashboard'}
+            <p className={`text-xs mt-0.5 ${stale ? 'text-yellow-400' : 'text-siege-muted'}`}>
+              {updatedLabel
+                ? (stale
+                    ? `⚠ Player stats may be stale · last updated ${updatedLabel}`
+                    : `Player stats live · updated ${updatedLabel}`)
+                : 'Season Dashboard'}
             </p>
           </div>
         </div>

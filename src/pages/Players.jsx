@@ -50,7 +50,12 @@ function PlayerCard({ player }) {
             {player.role && <span className="text-gray-500 text-xs block truncate">{shortRole(player.role)}</span>}
           </div>
         </div>
-        <span className="text-siege-muted text-xs flex-shrink-0 ml-2">{shortRank(rank)}</span>
+        <div className="flex flex-col items-end flex-shrink-0 ml-2">
+          <span className="text-siege-muted text-xs">{shortRank(rank)}</span>
+          {!player._updatedAt && (
+            <span title="Not in the live feed — stats are a manual snapshot" className="text-[9px] text-yellow-400/70 leading-none mt-0.5">snapshot</span>
+          )}
+        </div>
       </div>
 
       <div className="grid grid-cols-3 gap-2 mb-3">

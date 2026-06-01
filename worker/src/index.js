@@ -1,9 +1,16 @@
 const PLAYERS = [
+  // Main stack
   { name: 'Grant', tracker: 'Eh_Grant' },
   { name: 'Peej',  tracker: 'Eh_Peej' },
   { name: 'Hound', tracker: 'Eh_Hound' },
   { name: 'Smigs', tracker: 'Eh_tooten' },
   { name: 'Sarge', tracker: 'Eh_SiegeyBodeez' },
+  // B team
+  { name: 'Slug',   tracker: 'Eh_Slugwini' },
+  { name: 'Krafty', tracker: 'Eh_KraftySmokes' },
+  { name: 'Bob',    tracker: 'Eh_Nastybob' },
+  { name: 'Hunter', tracker: 'Meh_Hunter' },
+  { name: 'Cheese', tracker: 'fEHdelCastro' },
 ]
 
 // Y6S1 is season 21 — the earliest we track history from.
