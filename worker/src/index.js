@@ -9,7 +9,7 @@ const PLAYERS = [
   { name: 'Slug',   tracker: 'Eh_Slugwini' },
   { name: 'Krafty', tracker: 'Eh_KraftySmokes' },
   { name: 'Bob',    tracker: 'Eh_Nastybob' },
-  { name: 'Hunter', tracker: 'Meh_Hunter' },
+  { name: 'Hunter', tracker: 'Eh_Burttis' },
   { name: 'Cheese', tracker: 'fEHdelCastro' },
 ]
 
