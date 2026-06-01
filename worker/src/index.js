@@ -6,13 +6,17 @@ const PLAYERS = [
   { name: 'Sarge', tracker: 'Eh_SiegeyBodeez' },
 ]
 
-// Update at the start of each season (Y11S1 = 41)
-const CURRENT_SEASON = 41
+const API_BASE    = 'https://r6data.com/api/stats'
+const COMMON_Q    = 'platformType=uplay&platform_families=pc'
+const SMALL_SAMPLE = 10   // rounds threshold for smallSample flag
 
-const API_BASE = 'https://r6data.com/api/stats'
-const COMMON_PARAMS = 'platformType=uplay&platform_families=pc'
+// Convert season number (e.g. 41) → season string (e.g. "Y11S1").
+// Eliminates the hardcoded CURRENT_SEASON constant — auto-detected from API.
+function seasonNumToStr(n) {
+  return `Y${Math.ceil(n / 4)}S${((n - 1) % 4) + 1}`
+}
 
-// r6data.com returns digit suffixes ("Emerald 1") — normalize to roman numerals
+// r6data.com returns "Emerald 1" style — normalize to roman numerals
 function normalizeRank(rank) {
   if (!rank) return null
   return rank
@@ -21,61 +25,126 @@ function normalizeRank(rank) {
 }
 
 function computeFlag(rounds, winRate) {
-  if (rounds < 10) return ''
+  if (rounds < SMALL_SAMPLE) return ''
   if (winRate >= 60) return '⭐'
   if (winRate >= 50) return '✅'
   if (winRate < 38)  return '⚠️'
   return ''
 }
 
-async function fetchPlayerStats(tracker, apiKey) {
-  const headers = { 'api-key': apiKey }
-  const q = `nameOnPlatform=${encodeURIComponent(tracker)}&${COMMON_PARAMS}`
-
-  const [statsRes, seasonalRes, operatorRes] = await Promise.all([
-    fetch(`${API_BASE}?type=stats&${q}`,                                    { headers }),
-    fetch(`${API_BASE}?type=seasonalStats&${q}`,                            { headers }),
-    fetch(`${API_BASE}?type=operatorStats&${q}&seasonNumber=${CURRENT_SEASON}`, { headers }),
-  ])
-
-  if (!statsRes.ok)    throw new Error(`stats ${statsRes.status}`)
-  if (!seasonalRes.ok) throw new Error(`seasonal ${seasonalRes.status}`)
-  if (!operatorRes.ok) throw new Error(`operators ${operatorRes.status}`)
-
-  return Promise.all([statsRes.json(), seasonalRes.json(), operatorRes.json()])
+function pct(n, d) {
+  return d > 0 ? parseFloat((n / d * 100).toFixed(1)) : 0
 }
 
-function transformStats(rawStats, rawSeasonal, rawOperators) {
-  // ── Core stats (season-specific ranked data) ─────────────────────────────
-  const rankedBoard = rawStats?.platform_families_full_profiles?.[0]
-    ?.board_ids_full_profiles?.find(b => b.board_id === 'ranked')
-  const seasonProfile = rankedBoard?.full_profiles
-    ?.find(p => p.season_id === CURRENT_SEASON)?.profile
+// ── Fetch ────────────────────────────────────────────────────────────────────
 
-  const kills   = seasonProfile?.kills  ?? null
-  const deaths  = seasonProfile?.deaths ?? null
-  const wins    = seasonProfile?.wins   ?? null
-  const losses  = seasonProfile?.losses ?? null
-  const abandon = seasonProfile?.abandon ?? 0
-  const rp      = seasonProfile?.rank_points ?? null
+async function fetchSeasonsStats(tracker, apiKey) {
+  const r = await fetch(
+    `${API_BASE}?type=seasonsStats&nameOnPlatform=${encodeURIComponent(tracker)}&${COMMON_Q}`,
+    { headers: { 'api-key': apiKey } }
+  )
+  if (!r.ok) throw new Error(`seasonsStats ${r.status}`)
+  return r.json()
+}
 
-  const matches  = wins != null ? wins + losses + abandon : null
-  const kd       = kills != null && deaths > 0 ? (kills / deaths).toFixed(2) : null
-  const winRate  = matches > 0 ? ((wins / matches) * 100).toFixed(1) + '%' : null
+async function fetchSeasonalStats(tracker, apiKey) {
+  const r = await fetch(
+    `${API_BASE}?type=seasonalStats&nameOnPlatform=${encodeURIComponent(tracker)}&${COMMON_Q}`,
+    { headers: { 'api-key': apiKey } }
+  )
+  if (!r.ok) throw new Error(`seasonalStats ${r.status}`)
+  return r.json()
+}
 
-  // ── Rank name (from seasonal history, latest entry) ──────────────────────
+async function fetchOperatorStats(tracker, seasonYear, apiKey) {
+  const r = await fetch(
+    `${API_BASE}?type=operatorStats&nameOnPlatform=${encodeURIComponent(tracker)}&${COMMON_Q}&seasonYear=${seasonYear}&modes=ranked`,
+    { headers: { 'api-key': apiKey } }
+  )
+  if (!r.ok) throw new Error(`operatorStats ${r.status}`)
+  return r.json()
+}
+
+// ── Transform ────────────────────────────────────────────────────────────────
+
+function transformPlayer(rawSeasons, rawSeasonal, rawOperators) {
+  // ── Determine current season ──────────────────────────────────────────────
+  const meta          = rawSeasons?.data?.metadata ?? {}
+  const currentSeason = meta.currentSeason
+  const level         = meta.clearanceLevel ?? null
+
+  // ── Current season ranked segment ─────────────────────────────────────────
+  const segments = rawSeasons?.data?.segments ?? []
+  const currentSeg = segments.find(
+    s => s.attributes?.season === currentSeason && s.attributes?.gamemode === 'pvp_ranked'
+  )
+  const cs = currentSeg?.stats ?? {}
+
+  const kills   = cs.kills?.value        ?? null
+  const deaths  = cs.deaths?.value       ?? null
+  const wins    = cs.matchesWon?.value   ?? null
+  const losses  = cs.matchesLost?.value  ?? null
+  const matches = cs.matchesPlayed?.value ?? null
+  const rp      = cs.rankPoints?.value   ?? null
+  const maxRp   = cs.maxRankPoints?.value ?? null
+  const kd      = cs.kdRatio?.value != null
+    ? parseFloat(cs.kdRatio.value.toFixed(2)) : null
+
+  const winRate = matches > 0
+    ? parseFloat((wins / matches * 100).toFixed(1)) : null
+
+  // ── Rank name from seasonal history ───────────────────────────────────────
   const history = rawSeasonal?.data?.history?.data ?? []
-  const rankRaw = history.at(-1)?.[1]?.metadata?.rank ?? null
-  const rank    = normalizeRank(rankRaw)
+  const rank    = normalizeRank(history.at(-1)?.[1]?.metadata?.rank ?? null)
 
-  // ── Operator stats (all-time — API doesn't season-filter these) ──────────
+  // ── Operator stats + computed aggregates ──────────────────────────────────
   const ops = rawOperators?.operators ?? []
 
-  // Derive overall HS% from operator totals
-  const totalHeadshots = ops.reduce((s, o) => s + (o.headshots ?? 0), 0)
-  const totalKills     = ops.reduce((s, o) => s + (o.kills ?? 0), 0)
-  const hs = totalKills > 0 ? ((totalHeadshots / totalKills) * 100).toFixed(1) : null
+  let totalKills = 0, totalDeaths = 0, totalAssists = 0
+  let totalHeadshots = 0
+  let totalClutches = 0, totalClutchesLost = 0
+  let totalFB = 0, totalFD = 0
+  let totalAces = 0
 
+  ops.forEach(o => {
+    totalKills       += o.kills        ?? 0
+    totalDeaths      += o.deaths       ?? 0
+    totalAssists     += o.assists      ?? 0
+    totalHeadshots   += o.headshots    ?? 0
+    totalClutches    += o.clutches     ?? 0
+    totalClutchesLost += o.clutchesLost ?? 0
+    totalFB          += o.firstBloods  ?? 0
+    totalFD          += o.firstDeaths  ?? 0
+    totalAces        += o.aces         ?? 0
+  })
+
+  const hs       = totalKills > 0 ? parseFloat((totalHeadshots / totalKills * 100).toFixed(1)) : null
+  const kda      = totalDeaths > 0 ? parseFloat(((totalKills + totalAssists) / totalDeaths).toFixed(2)) : null
+  const esr      = (totalFB + totalFD) > 0 ? parseFloat((totalFB / (totalFB + totalFD)).toFixed(2)) : null
+  const clutches = totalClutches
+  const clutchWR = (totalClutches + totalClutchesLost) > 0
+    ? parseFloat((totalClutches / (totalClutches + totalClutchesLost) * 100).toFixed(1)) : null
+
+  // ── Career history (ranked seasons only, most recent first) ───────────────
+  const careerHistory = segments
+    .filter(s => s.attributes?.gamemode === 'pvp_ranked' && s.metadata?.shortName)
+    .map(s => {
+      const st = s.stats ?? {}
+      const m  = st.matchesPlayed?.value ?? 0
+      const w  = st.matchesWon?.value    ?? 0
+      return {
+        season:  s.metadata.shortName,
+        kd:      st.kdRatio?.value != null ? parseFloat(st.kdRatio.value.toFixed(2)) : null,
+        wr:      m > 0 ? parseFloat((w / m * 100).toFixed(1)) : null,
+        matches: m,
+        rp:      st.rankPoints?.value    ?? null,
+        maxRp:   st.maxRankPoints?.value ?? null,
+        kills:   st.kills?.value         ?? null,
+        deaths:  st.deaths?.value        ?? null,
+      }
+    })
+
+  // ── Per-operator breakdown ─────────────────────────────────────────────────
   const makeOpList = side =>
     ops
       .filter(o => o.side === side)
@@ -85,25 +154,42 @@ function transformStats(rawStats, rawSeasonal, rawOperators) {
         rounds:      o.roundsPlayed,
         winRate:     o.winPercent,
         kd:          o.kd,
+        hs:          o.headshotPercent ?? null,
+        clutches:    o.clutches ?? 0,
+        clutchWR:    (o.clutches + o.clutchesLost) > 0
+                       ? pct(o.clutches, o.clutches + o.clutchesLost) : 0,
+        firstBloods: o.firstBloods ?? 0,
+        firstDeaths: o.firstDeaths ?? 0,
+        assists:     o.assists ?? 0,
         flag:        computeFlag(o.roundsPlayed, o.winPercent),
-        smallSample: o.roundsPlayed < 10,
+        smallSample: o.roundsPlayed < SMALL_SAMPLE,
       }))
 
   return {
     stats: {
-      rank:    rank    != null ? rank           : undefined,
-      rp:      rp      != null ? String(rp)     : undefined,
-      kd:      kd      != null ? kd             : undefined,
-      kills:   kills   != null ? String(kills)  : undefined,
-      deaths:  deaths  != null ? String(deaths) : undefined,
-      winRate: winRate != null ? winRate        : undefined,
-      matches: matches != null ? String(matches): undefined,
-      hs:      hs      != null ? hs             : undefined,
+      ...(rank    != null && { rank }),
+      ...(rp      != null && { rp: String(rp) }),
+      ...(maxRp   != null && { maxRp: String(maxRp) }),
+      ...(kd      != null && { kd: String(kd) }),
+      ...(kda     != null && { kda: String(kda) }),
+      ...(kills   != null && { kills: String(kills) }),
+      ...(deaths  != null && { deaths: String(deaths) }),
+      ...(winRate != null && { winRate: winRate + '%' }),
+      ...(matches != null && { matches: String(matches) }),
+      ...(hs      != null && { hs: String(hs) }),
+      ...(esr     != null && { esr: String(esr) }),
+      ...(clutches > 0    && { clutches: String(clutches) }),
+      ...(clutchWR != null && { clutchWR: String(clutchWR) }),
+      ...(level   != null && { level: String(level) }),
+      ...(totalAces > 0  && { aces: String(totalAces) }),
     },
-    operators: { atk: makeOpList('Attacker'), def: makeOpList('Defender') },
-    updatedAt: new Date().toISOString(),
+    operators:      { atk: makeOpList('Attacker'), def: makeOpList('Defender') },
+    careerHistory,
+    updatedAt:      new Date().toISOString(),
   }
 }
+
+// ── Worker entry ─────────────────────────────────────────────────────────────
 
 export default {
   async scheduled(_event, env) {
@@ -112,10 +198,25 @@ export default {
 
     for (const player of PLAYERS) {
       try {
-        const [rawStats, rawSeasonal, rawOperators] = await fetchPlayerStats(player.tracker, env.R6DATA_API_KEY)
-        const data = transformStats(rawStats, rawSeasonal, rawOperators)
+        // First fetch seasonsStats to detect the current season, then fan out
+        const rawSeasons = await fetchSeasonsStats(player.tracker, env.R6DATA_API_KEY)
+        const currentSeason = rawSeasons?.data?.metadata?.currentSeason
+        if (!currentSeason) throw new Error('could not detect current season')
+
+        const seasonYear = seasonNumToStr(currentSeason)
+        const [rawSeasonal, rawOperators] = await Promise.all([
+          fetchSeasonalStats(player.tracker, env.R6DATA_API_KEY),
+          fetchOperatorStats(player.tracker, seasonYear, env.R6DATA_API_KEY),
+        ])
+
+        const data = transformPlayer(rawSeasons, rawSeasonal, rawOperators)
         await env.R6_STATS.put(`player:${player.tracker}`, JSON.stringify(data))
-        console.log(`✓ ${player.name} — rank: ${data.stats.rank}, kd: ${data.stats.kd}, wr: ${data.stats.winRate}`)
+        console.log(
+          `✓ ${player.name} — ${data.stats.rank ?? 'unranked'} | ` +
+          `KD ${data.stats.kd} | WR ${data.stats.winRate} | ` +
+          `KDA ${data.stats.kda} | ESR ${data.stats.esr} | ` +
+          `Clutches ${data.stats.clutches} (${data.stats.clutchWR}%)`
+        )
       } catch (err) {
         console.error(`✗ ${player.name} failed:`, err.message)
         failed.push(player.name)
