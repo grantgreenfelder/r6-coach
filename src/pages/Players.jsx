@@ -103,8 +103,6 @@ export default function Players() {
   const [view, setView]     = useState('roster') // 'roster' | 'compare'
   const [search, setSearch] = useState('')
   const [sortBy, setSortBy] = useState('ris')
-
-
   const allPlayers = [
     ...mainStack.map(p => ({ ...p, team: 'main' })),
     ...bTeam.map(p => ({ ...p, team: 'bteam' })),
