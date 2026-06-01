@@ -2,15 +2,13 @@ import { use } from 'react'
 import { Link } from 'react-router-dom'
 import { playersPromise } from '../data/playersResource'
 import { mapsPromise } from '../data/mapsResource'
-import stackData from '../data/stack.json'
-import metaData from '../data/meta.json'
-import { risTextColor, risColor, wrColor, wrTileClass, RIS_MIN, RIS_MAX, RIS_BASELINE_PCT } from '../utils/constants'
+import { risTextColor, risColor, wrColor, wrTileClass, kdColor, RIS_MIN, RIS_MAX, RIS_BASELINE_PCT } from '../utils/constants'
 import HelpTip from '../components/HelpTip'
 import { GLOSSARY } from '../utils/glossary'
 import { getMapThumbnailUrl } from '../utils/mapThumbnails'
 import PlayerAvatar from '../components/PlayerAvatar.jsx'
 import RisBar from '../components/RisBar.jsx'
-import OpChips from '../components/OpChips.jsx'
+import PortraitChip from '../components/PortraitChip.jsx'
 
 // ─── Insight Strip ─────────────────────────────────────────────────────────────
 
@@ -34,27 +32,27 @@ function InsightCard({ label, value, sub, color = 'text-siege-accent', to, thumb
 // ─── Player Card ───────────────────────────────────────────────────────────────
 
 function PlayerCard({ player }) {
-  const { kd, ris, winRate, rank } = player.stats
+  const { kd, ris, winRate, rank } = player.stats || {}
   const wrNum = parseFloat(winRate) || 0
+  const topAtk = player._topAtkOps ?? []
+  const topDef = player._topDefOps ?? []
 
   return (
     <Link
       to={`/players/${player.name}`}
       className="card hover:border-siege-accent transition-colors group"
     >
-      {/* Name + rank */}
       <div className="flex items-center justify-between mb-3">
         <div className="flex items-center gap-2">
           <PlayerAvatar name={player.name} size="sm" />
           <span className="text-white font-semibold group-hover:text-siege-accent transition-colors">{player.name}</span>
         </div>
-        <span className="text-siege-muted text-xs">{rank}</span>
+        <span className="text-siege-muted text-xs">{rank ?? '—'}</span>
       </div>
 
-      {/* Big stat numbers */}
       <div className="grid grid-cols-3 gap-2 mb-3">
         <div className="text-center">
-          <p className="text-white text-lg font-bold leading-none">{kd ?? '—'}</p>
+          <p className={`text-white text-lg font-bold leading-none ${kdColor(kd)}`}>{kd ?? '—'}</p>
           <p className="text-siege-muted text-xs mt-0.5 flex items-center justify-center gap-1">K/D <HelpTip text={GLOSSARY.KD} /></p>
         </div>
         <div className="text-center">
@@ -67,18 +65,26 @@ function PlayerCard({ player }) {
         </div>
       </div>
 
-      {/* RIS bar with baseline marker — tick already drawn inside RisBar */}
       <RisBar ris={ris} />
       <div className="flex justify-between text-xs text-siege-muted mb-2">
         <span className="flex items-center gap-1">RIS <HelpTip text={GLOSSARY.RIS_BAR} position="bottom" /></span>
         <span>baseline 50</span>
       </div>
 
-      {/* Ops */}
-      {(player.atkOps || player.defOps) && (
-        <div className="flex gap-3">
-          <OpChips label="Atk" opsString={player.atkOps} />
-          <OpChips label="Def" opsString={player.defOps} />
+      {(topAtk.length > 0 || topDef.length > 0) && (
+        <div className="flex gap-3 mt-1">
+          {topAtk.length > 0 && (
+            <div className="flex items-center gap-1">
+              <span className="text-orange-400 text-[10px] font-semibold uppercase">Atk</span>
+              {topAtk.map(n => <PortraitChip key={n} name={n} size="w-5 h-5" />)}
+            </div>
+          )}
+          {topDef.length > 0 && (
+            <div className="flex items-center gap-1">
+              <span className="text-blue-400 text-[10px] font-semibold uppercase">Def</span>
+              {topDef.map(n => <PortraitChip key={n} name={n} size="w-5 h-5" />)}
+            </div>
+          )}
         </div>
       )}
     </Link>
@@ -119,7 +125,7 @@ function RisLeaderboard({ players }) {
     .sort((a, b) => parseFloat(b.stats.ris) - parseFloat(a.stats.ris))
 
   return (
-    <div className="card lg:col-span-1">
+    <div className="card">
       <h2 className="text-white font-semibold text-sm uppercase tracking-wider mb-4 flex items-center gap-1.5">
         RIS Standings <HelpTip text={GLOSSARY.RIS} />
       </h2>
@@ -156,34 +162,54 @@ function RisLeaderboard({ players }) {
   )
 }
 
-// ─── Coaching Focus ────────────────────────────────────────────────────────────
+// ─── Spotlight ─────────────────────────────────────────────────────────────────
 
-function CoachingFocus({ items }) {
-  if (!items || items.length === 0) return null
+function Spotlight({ mainStack, spotlightMap }) {
+  const risPlayers = mainStack.filter(p => p.stats?.ris && p.stats.ris !== '—')
+  const mvp = risPlayers.length > 0
+    ? risPlayers.reduce((a, b) => parseFloat(a.stats.ris) > parseFloat(b.stats.ris) ? a : b)
+    : null
+
+  const esrPlayers = mainStack.filter(p => p.stats?.esr)
+  const topESR = esrPlayers.length > 0
+    ? esrPlayers.reduce((a, b) => parseFloat(a.stats.esr) > parseFloat(b.stats.esr) ? a : b)
+    : null
+
   return (
     <div className="card">
-      <h2 className="text-white font-semibold text-sm uppercase tracking-wider mb-4">Priority Coaching Items</h2>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
-        {items.map((item, i) => (
-          <div key={i} className="flex gap-3 p-3 rounded-lg bg-black/20 border border-siege-border/50">
-            <span className="text-siege-accent font-bold text-sm flex-shrink-0 w-5 tabular-nums">{i + 1}.</span>
-            <div className="min-w-0">
-              <div className="flex items-center gap-2 flex-wrap mb-1">
-                <p className="text-white text-sm font-semibold leading-snug">{item.text}</p>
-                {item.playerTag && (
-                  <Link
-                    to={`/players/${item.playerTag}`}
-                    className="text-[10px] px-1.5 py-0.5 rounded bg-siege-accent/20 text-siege-accent hover:bg-siege-accent/40 transition-colors font-medium flex-shrink-0"
-                    onClick={e => e.stopPropagation()}
-                  >
-                    {item.playerTag}
-                  </Link>
-                )}
-              </div>
-              {item.body && <p className="text-siege-muted text-xs leading-relaxed">{item.body}</p>}
+      <h2 className="text-white font-semibold text-sm uppercase tracking-wider mb-4">⭐ Spotlight</h2>
+      <div className="space-y-3">
+        {mvp && (
+          <Link to={`/players/${mvp.name}`} className="flex items-center gap-3 p-3 rounded-lg bg-siege-green/10 border border-siege-green/30 hover:opacity-80 transition-opacity">
+            <div className="w-9 h-9 rounded-full bg-siege-green/20 flex items-center justify-center text-siege-green font-bold flex-shrink-0">
+              {mvp.name[0]}
             </div>
-          </div>
-        ))}
+            <div>
+              <p className="text-siege-green font-semibold text-sm">{mvp.name} — Season Leader</p>
+              <p className="text-gray-400 text-xs mt-0.5">RIS {mvp.stats.ris} · K/D {mvp.stats.kd} · {mvp.stats.winRate} Win%</p>
+            </div>
+          </Link>
+        )}
+
+        {spotlightMap && (
+          <Link to={`/maps/${spotlightMap.name}`} className="flex items-center gap-3 p-3 rounded-lg bg-siege-accent/10 border border-siege-accent/20 hover:opacity-80 transition-opacity">
+            <div className="w-9 h-9 rounded-full bg-siege-accent/20 flex items-center justify-center text-siege-accent font-bold text-lg flex-shrink-0">🗺</div>
+            <div>
+              <p className="text-siege-accent font-semibold text-sm">{spotlightMap.displayName} — Confidence Map</p>
+              <p className="text-gray-400 text-xs mt-0.5">{spotlightMap.teamWinRate}% team WR · {spotlightMap.teamWinRateMatches}M tracked</p>
+            </div>
+          </Link>
+        )}
+
+        {topESR && (
+          <Link to={`/players/${topESR.name}`} className="flex items-center gap-3 p-3 rounded-lg bg-blue-500/10 border border-blue-500/20 hover:opacity-80 transition-opacity">
+            <div className="w-9 h-9 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-300 font-bold flex-shrink-0">⚡</div>
+            <div>
+              <p className="text-blue-300 font-semibold text-sm">{topESR.name} — Entry Leader</p>
+              <p className="text-gray-400 text-xs mt-0.5">ESR {topESR.stats.esr} · best entry success rate on the stack</p>
+            </div>
+          </Link>
+        )}
       </div>
     </div>
   )
@@ -193,51 +219,35 @@ function CoachingFocus({ items }) {
 
 export default function Dashboard() {
   const playersData = use(playersPromise)
-  const mapsData = use(mapsPromise)
-  const mainStack = playersData.mainStack || []
-  const bTeam     = playersData.bTeam     || []
-  const rankedMaps = mapsData.filter(m => m.inRankedPool)
-  const teamFocusItems = stackData.teamFocusItems || []
-  const coachingItems = stackData.coachingItemsStructured || []
+  const mapsData    = use(mapsPromise)
+  const mainStack   = playersData.mainStack || []
+  const bTeam       = playersData.bTeam     || []
+  const rankedMaps  = mapsData.filter(m => m.inRankedPool)
+
+  // Live update timestamp from the first player's updatedAt
+  const updatedAt = playersData._updatedAt
+  const updatedLabel = updatedAt
+    ? new Date(updatedAt).toLocaleString('en-US', { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' })
+    : null
 
   // Best / ban target maps
   const rankedWithWR = rankedMaps.filter(m => m.teamWinRate !== null)
-  const bestMap = rankedWithWR.length > 0
-    ? rankedWithWR.reduce((a, b) => a.teamWinRate > b.teamWinRate ? a : b)
-    : null
-  const banTarget = rankedWithWR.length > 0
-    ? rankedWithWR.reduce((a, b) => a.teamWinRate < b.teamWinRate ? a : b)
-    : null
+  const bestMap  = rankedWithWR.length > 0 ? rankedWithWR.reduce((a, b) => a.teamWinRate > b.teamWinRate ? a : b) : null
+  const banTarget = rankedWithWR.length > 0 ? rankedWithWR.reduce((a, b) => a.teamWinRate < b.teamWinRate ? a : b) : null
 
-  // Team avg Win%
-  const wrValues = mainStack.map(p => parseFloat(p.stats?.winRate)).filter(n => !isNaN(n))
-  const avgWR = wrValues.length > 0
-    ? (wrValues.reduce((a, b) => a + b, 0) / wrValues.length).toFixed(1) + '%'
-    : '—'
-  const topWR = wrValues.length > 0
-    ? mainStack.reduce((best, p) => {
-        const v = parseFloat(p.stats?.winRate)
-        return !isNaN(v) && (best === null || v > parseFloat(best.stats?.winRate)) ? p : best
-      }, null)
-    : null
+  // Team avg KD
+  const kdValues = mainStack.map(p => parseFloat(p.stats?.kd)).filter(n => !isNaN(n))
+  const avgKD = kdValues.length > 0 ? (kdValues.reduce((a, b) => a + b, 0) / kdValues.length).toFixed(2) : '—'
 
-  // Spotlight — auto-pick: highest RIS player as MVP, positive team DEF note
-  const risPlayers = mainStack.filter(p => p.stats?.ris && p.stats.ris !== '—')
-  const mvp = risPlayers.length > 0
-    ? risPlayers.reduce((a, b) => parseFloat(a.stats.ris) > parseFloat(b.stats.ris) ? a : b)
-    : null
+  // Team avg ESR
+  const esrValues = mainStack.map(p => parseFloat(p.stats?.esr)).filter(n => !isNaN(n))
+  const avgESR = esrValues.length > 0 ? (esrValues.reduce((a, b) => a + b, 0) / esrValues.length).toFixed(2) : '—'
 
-  // Top map by win% with enough data (best confidence map)
+  // Spotlight map — highest confidence (≥20M) with best WR
   const confidentMaps = rankedWithWR.filter(m => m.teamWinRateMatches >= 20)
-  const spotlightMap = confidentMaps.length > 0
+  const spotlightMap  = confidentMaps.length > 0
     ? confidentMaps.reduce((a, b) => a.teamWinRate > b.teamWinRate ? a : b)
     : bestMap
-
-  // Count how many main stack players are above 50% WR
-  const positiveWRCount = mainStack.filter(p => parseFloat(p.stats?.winRate) >= 50).length
-
-  const _d = new Date(metaData.parsedAt)
-  const parsedDate = isNaN(_d.getTime()) ? '—' : _d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
 
   return (
     <div className="max-w-6xl mx-auto space-y-5">
@@ -251,21 +261,20 @@ export default function Dashboard() {
               <h1 className="text-2xl font-bold text-white leading-tight">R6 Division</h1>
               <span className="text-[10px] font-semibold tracking-widest uppercase text-siege-accent border border-siege-accent/30 px-1.5 py-0.5 rounded">DOE</span>
             </div>
-            <p className="text-siege-muted text-xs mt-0.5">Season Dashboard · KB snapshot {parsedDate}</p>
+            <p className="text-siege-muted text-xs mt-0.5">
+              {updatedLabel ? `Live · updated ${updatedLabel}` : 'Season Dashboard'}
+            </p>
           </div>
         </div>
-        <Link
-          to="/session-prep"
-          className="text-siege-accent text-sm font-medium hover:underline transition-colors"
-        >
-          Session Prep →
+        <Link to="/players" className="text-siege-accent text-sm font-medium hover:underline transition-colors">
+          Roster →
         </Link>
       </div>
 
       {/* Insight strip */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
         <InsightCard
-          label="Best Map Right Now"
+          label="Best Map"
           value={bestMap ? bestMap.displayName : '—'}
           sub={bestMap ? `${bestMap.teamWinRate}% win rate` : 'no data'}
           color="text-siege-green"
@@ -280,12 +289,8 @@ export default function Dashboard() {
           to={banTarget ? `/maps/${banTarget.name}` : undefined}
           thumbnailUrl={banTarget ? getMapThumbnailUrl(banTarget.name) : undefined}
         />
-        <InsightCard
-          label="Team Avg Win%"
-          value={avgWR}
-          sub={topWR ? `Best: ${topWR.name} @ ${topWR.stats?.winRate}` : undefined}
-          color="text-siege-accent"
-        />
+        <InsightCard label="Team Avg K/D"  value={avgKD}  sub="main stack ranked" color="text-siege-accent" />
+        <InsightCard label="Team Avg ESR"  value={avgESR} sub="entry success rate" color="text-siege-accent" tip={GLOSSARY.ESR} />
       </div>
 
       {/* Player cards */}
@@ -295,117 +300,35 @@ export default function Dashboard() {
           <Link to="/players" className="text-xs text-siege-accent hover:underline">All players →</Link>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-3">
-          {mainStack.map(player => (
-            <PlayerCard key={player.name} player={player} />
-          ))}
+          {mainStack.map(player => <PlayerCard key={player.name} player={player} />)}
         </div>
       </div>
 
       {/* Map heatmap */}
       <div>
         <div className="flex flex-wrap items-start justify-between gap-2 mb-3">
-          <h2 className="text-white font-semibold text-sm uppercase tracking-wider">
-            Ranked Pool — Win% Heatmap
-          </h2>
-          {/* Legend — hidden on mobile to save space, colors are self-evident with the tiles */}
+          <h2 className="text-white font-semibold text-sm uppercase tracking-wider">Ranked Pool — Win% Heatmap</h2>
           <div className="hidden sm:flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-siege-muted">
-            <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-siege-green inline-block" />≥60% Strong</span>
-            <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-blue-400 inline-block" />50–59% Even</span>
-            <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-yellow-400 inline-block" />40–49% Shaky</span>
-            <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-orange-400 inline-block" />30–39% Avoid</span>
-            <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-red-400 inline-block" />&lt;30% Ban</span>
+            <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-siege-green inline-block" />≥60%</span>
+            <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-blue-400 inline-block" />50–59%</span>
+            <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-yellow-400 inline-block" />40–49%</span>
+            <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-orange-400 inline-block" />30–39%</span>
+            <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-red-400 inline-block" />&lt;30%</span>
           </div>
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 gap-1.5 sm:gap-2">
-          {rankedMaps.map(map => (
-            <MapTile key={map.name} map={map} />
-          ))}
+          {rankedMaps.map(map => <MapTile key={map.name} map={map} />)}
         </div>
         <Link to="/maps" className="block text-xs text-siege-muted hover:text-siege-accent mt-2 text-right transition-colors">
           View all maps →
         </Link>
       </div>
 
-      {/* Bottom row: RIS Leaderboard + Spotlight + Team Focus */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-
-        {/* RIS Leaderboard — 1 col */}
+      {/* Bottom row: RIS Leaderboard + Spotlight */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         <RisLeaderboard players={[...mainStack, ...bTeam]} />
-
-        {/* Spotlight — 1 col */}
-        <div className="card lg:col-span-1">
-          <h2 className="text-white font-semibold text-sm uppercase tracking-wider mb-4">⭐ Spotlight</h2>
-          <div className="space-y-3">
-
-            {/* MVP player */}
-            {mvp && (
-              <Link to={`/players/${mvp.name}`} className="flex items-center gap-3 p-3 rounded-lg bg-siege-green/10 border border-siege-green/30 hover:opacity-80 transition-opacity">
-                <div className="w-9 h-9 rounded-full bg-siege-green/20 flex items-center justify-center text-siege-green font-bold flex-shrink-0">
-                  {mvp.name[0]}
-                </div>
-                <div>
-                  <p className="text-siege-green font-semibold text-sm">{mvp.name} — Season Leader</p>
-                  <p className="text-gray-400 text-xs mt-0.5">
-                    RIS {mvp.stats.ris} · K/D {mvp.stats.kd} · {mvp.stats.winRate} Win%
-                  </p>
-                </div>
-              </Link>
-            )}
-
-            {/* Top map */}
-            {spotlightMap && (
-              <Link to={`/maps/${spotlightMap.name}`} className="flex items-center gap-3 p-3 rounded-lg bg-siege-accent/10 border border-siege-accent/20 hover:opacity-80 transition-opacity">
-                <div className="w-9 h-9 rounded-full bg-siege-accent/20 flex items-center justify-center text-siege-accent font-bold text-lg flex-shrink-0">
-                  🗺
-                </div>
-                <div>
-                  <p className="text-siege-accent font-semibold text-sm">{spotlightMap.displayName} — Confidence Map</p>
-                  <p className="text-gray-400 text-xs mt-0.5">
-                    {spotlightMap.teamWinRate}% team win rate · {spotlightMap.teamWinRateMatches} matches tracked
-                  </p>
-                </div>
-              </Link>
-            )}
-
-            {/* Positive team note */}
-            {positiveWRCount > 0 && (
-              <div className="flex items-center gap-3 p-3 rounded-lg bg-blue-500/10 border border-blue-500/20">
-                <div className="w-9 h-9 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-300 font-bold text-lg flex-shrink-0">
-                  🛡
-                </div>
-                <div>
-                  <p className="text-blue-300 font-semibold text-sm">Defense is the Stack's Identity</p>
-                  <p className="text-gray-400 text-xs mt-0.5">
-                    {positiveWRCount} of {mainStack.length} players above 50% win rate — anchor up.
-                  </p>
-                </div>
-              </div>
-            )}
-          </div>
-        </div>
-
-        {/* Team Focus — 1 col */}
-        {teamFocusItems.length > 0 && (
-          <div className="card lg:col-span-1">
-            <h2 className="text-white font-semibold text-sm uppercase tracking-wider mb-4">Team Focus</h2>
-            <div className="space-y-3">
-              {teamFocusItems.map((item, i) => (
-                <div key={i} className="flex gap-3">
-                  <span className="text-siege-accent font-bold text-sm flex-shrink-0 w-5">{i + 1}.</span>
-                  <div>
-                    <p className="text-white text-sm font-semibold leading-snug">{item.text}</p>
-                    {item.body && <p className="text-siege-muted text-xs mt-0.5 leading-relaxed">{item.body}</p>}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
-
+        <Spotlight mainStack={mainStack} spotlightMap={spotlightMap} />
       </div>
-
-      {/* Priority Coaching Items — full width */}
-      <CoachingFocus items={coachingItems} />
 
     </div>
   )

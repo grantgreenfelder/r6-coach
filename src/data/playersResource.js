@@ -2,8 +2,6 @@ import playersUrl from './players.json?url'
 
 const staticPromise = fetch(playersUrl).then(r => r.json())
 
-// Fetch live stats from the Pages Function. Falls back to static data silently
-// if the Worker hasn't run yet or the API is unavailable.
 const livePromise = fetch('/api/stats').then(r => r.json()).catch(() => null)
 
 function mergePlayer(player, live) {
@@ -11,25 +9,43 @@ function mergePlayer(player, live) {
   const liveData = live[player.tracker]
   if (!liveData) return player
 
-  // Only overwrite stat fields that the API actually returned (non-null).
-  // Preserves manual-only fields: ris, esr, kda, clutches, clutchWR.
   const mergedStats = { ...player.stats }
   for (const [k, v] of Object.entries(liveData.stats)) {
     if (v !== null) mergedStats[k] = v
   }
 
-  // Only overwrite operators if the API returned a non-empty breakdown.
   const hasLiveOps =
     liveData.operators?.atk?.length > 0 || liveData.operators?.def?.length > 0
   const mergedOperators = hasLiveOps ? liveData.operators : player.operators
 
-  return { ...player, stats: mergedStats, operators: mergedOperators }
+  // Derive primary ops from live data for display on cards
+  const _topAtkOps = mergedOperators?.atk?.slice(0, 2).map(o => o.name) ?? []
+  const _topDefOps = mergedOperators?.def?.slice(0, 2).map(o => o.name) ?? []
+
+  return {
+    ...player,
+    stats: mergedStats,
+    operators: mergedOperators,
+    careerHistory: liveData.careerHistory ?? player.careerHistory ?? [],
+    _topAtkOps,
+    _topDefOps,
+    _updatedAt: liveData.updatedAt ?? null,
+  }
 }
 
 export const playersPromise = Promise.all([staticPromise, livePromise]).then(
-  ([data, live]) => ({
-    ...data,
-    mainStack: data.mainStack.map(p => mergePlayer(p, live)),
-    ...(data.bTeam ? { bTeam: data.bTeam.map(p => mergePlayer(p, live)) } : {}),
-  })
+  ([data, live]) => {
+    const merge = p => mergePlayer(p, live)
+    const mainStack = data.mainStack.map(merge)
+    const bTeam     = (data.bTeam  || []).map(merge)
+
+    // Surface the most recent updatedAt across all players for the dashboard header
+    const allUpdatedAt = [...mainStack, ...bTeam]
+      .map(p => p._updatedAt)
+      .filter(Boolean)
+      .sort()
+    const _updatedAt = allUpdatedAt.at(-1) ?? null
+
+    return { ...data, mainStack, bTeam, _updatedAt }
+  }
 )

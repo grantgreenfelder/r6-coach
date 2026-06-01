@@ -2,7 +2,6 @@ import { use, useState, useMemo } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { mapsPromise } from '../data/mapsResource'
 import RatingBadge from '../components/RatingBadge'
-import StatusDot from '../components/StatusDot'
 import { NotFound } from '../components/EmptyState'
 import MarkdownContent from '../components/MarkdownContent'
 import { wrColor, wrBgColor, kdColor } from '../utils/constants'
@@ -39,7 +38,6 @@ export default function MapDetail() {
   const { mapName } = useParams()
   const map = mapsData.find(m => m.name === mapName)
   const [activeTab, setActiveTab] = useState('overview')
-  const [sideFilter, setSideFilter] = useState('all')
 
   const availableSeasons = map
     ? Object.keys(map.playerStats || {}).sort().reverse()
@@ -50,20 +48,12 @@ export default function MapDetail() {
     return <NotFound icon="🗺" title="Map not found" message={`"${mapName}" isn't in the map pool.`} backTo="/maps" backLabel="Back to Maps" />
   }
 
-  const filteredStrats = map.strats.filter(s =>
-    sideFilter === 'all' || s.side === sideFilter
-  )
-  const atkStrats = map.strats.filter(s => s.side === 'ATK')
-  const defStrats = map.strats.filter(s => s.side === 'DEF')
-
   const poolKey = map.rankedPool || (!map.inRankedPool ? 'none' : null)
   const banner = poolKey ? getPoolBanner(map.teamWinRateSeason || 'current')[poolKey] : null
 
   const tabs = [
     { id: 'overview', label: 'Overview' },
     { id: 'stats',    label: 'Stats' },
-    { id: 'strats',   label: 'Strats' },
-    { id: 'reference',label: 'Wiki' },
   ]
 
   return (
@@ -136,45 +126,6 @@ export default function MapDetail() {
             )
           })()}
 
-          {/* Strat progress */}
-          {(() => {
-            const { developed, partial, total } = map.stratCount
-            const notStarted = total - developed - partial
-            const tooltip = `${developed} ready · ${partial} partial · ${notStarted} not started`
-            return (
-              <div>
-                <div className="flex gap-6 text-sm mb-2">
-                  <StratStat label="Total Sites"  value={total} />
-                  <StratStat label="Ready"        value={developed}   color="text-siege-green" />
-                  <StratStat label="Partial"      value={partial}     color="text-yellow-500" />
-                  <StratStat label="Not Started"  value={notStarted}  color="text-siege-muted" />
-                </div>
-                {total > 0 && (
-                  <div
-                    className="h-1.5 bg-siege-border rounded-full overflow-hidden flex cursor-default"
-                    title={tooltip}
-                    aria-label={`Strat readiness: ${tooltip}`}
-                  >
-                    <div
-                      className="bg-siege-green h-full"
-                      style={{ width: `${(developed / total) * 100}%` }}
-                      title={`${developed} ready`}
-                    />
-                    <div
-                      className="bg-yellow-500 h-full"
-                      style={{ width: `${(partial / total) * 100}%` }}
-                      title={`${partial} in progress`}
-                    />
-                    <div
-                      className="bg-siege-border h-full"
-                      style={{ width: `${(notStarted / total) * 100}%` }}
-                      title={`${notStarted} not started`}
-                    />
-                  </div>
-                )}
-              </div>
-            )
-          })()}
         </div>
       </div>
 
@@ -233,88 +184,6 @@ export default function MapDetail() {
         </div>
       )}
 
-      {/* ── Strats ── */}
-      {activeTab === 'strats' && (
-        <div className="space-y-6">
-
-          {/* Legend + side filter */}
-          <div className="flex items-center justify-between flex-wrap gap-3">
-            <div className="flex items-center gap-4 text-xs text-siege-muted">
-              <span className="font-medium text-white">Status:</span>
-              {[
-                { status: 'developed',     label: 'Ready' },
-                { status: 'partial',       label: 'In progress' },
-                { status: 'not-developed', label: 'Not started' },
-              ].map(({ status, label }) => (
-                <span key={status} className="flex items-center gap-1.5">
-                  <StatusDot status={status} />
-                  {label}
-                </span>
-              ))}
-            </div>
-            <div className="flex gap-2">
-              {[
-                { value: 'all', label: 'All' },
-                { value: 'ATK', label: `Attack (${atkStrats.length})` },
-                { value: 'DEF', label: `Defense (${defStrats.length})` },
-              ].map(({ value, label }) => (
-                <button
-                  key={value}
-                  onClick={() => setSideFilter(value)}
-                  className={`px-3 py-1.5 text-sm rounded border transition-colors ${
-                    sideFilter === value
-                      ? 'bg-siege-accent border-siege-accent text-siege-bg font-semibold'
-                      : 'border-siege-border text-siege-muted hover:text-white'
-                  }`}
-                >
-                  {label}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {filteredStrats.length === 0 && (
-            <p className="text-siege-muted text-center py-8">No strats for this filter.</p>
-          )}
-
-          {/* Attack section */}
-          {(sideFilter === 'all' || sideFilter === 'ATK') && atkStrats.length > 0 && (
-            <div>
-              <div className="flex items-center gap-3 mb-3">
-                <span className="text-siege-accent text-xs font-bold uppercase tracking-wider">Attack</span>
-                <div className="flex-1 h-px bg-siege-border" />
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {atkStrats.map(s => <StratCard key={s.filename} strat={s} mapName={mapName} />)}
-              </div>
-            </div>
-          )}
-
-          {/* Defense section */}
-          {(sideFilter === 'all' || sideFilter === 'DEF') && defStrats.length > 0 && (
-            <div>
-              <div className="flex items-center gap-3 mb-3">
-                <span className="text-siege-blue text-xs font-bold uppercase tracking-wider">Defense</span>
-                <div className="flex-1 h-px bg-siege-border" />
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {defStrats.map(s => <StratCard key={s.filename} strat={s} mapName={mapName} />)}
-              </div>
-            </div>
-          )}
-        </div>
-      )}
-
-      {/* ── Reference ── */}
-      {activeTab === 'reference' && (
-        <div className="card">
-          {map.referenceContent ? (
-            <MarkdownContent content={map.referenceContent} />
-          ) : (
-            <p className="text-siege-muted">No reference file found for this map.</p>
-          )}
-        </div>
-      )}
     </div>
   )
 }
@@ -353,53 +222,6 @@ function WinRateBlock({ label, wr, matches, current, delta }) {
   )
 }
 
-function StratCard({ strat, mapName }) {
-  const isAtk = strat.side === 'ATK'
-  const encodedSite = encodeURIComponent(strat.site)
-  const encodedSide = strat.side.toLowerCase()
-
-  // Up to 3 role names, comma-separated
-  const roleNames = strat.roles
-    .slice(0, 3)
-    .map(r => r.Role)
-    .join(' · ')
-  const hasMoreRoles = strat.roles.length > 3
-
-  return (
-    <Link
-      to={`/maps/${mapName}/${encodedSide}/${encodedSite}`}
-      className="card hover:border-siege-accent transition-colors block group"
-    >
-      <div className="flex items-start justify-between gap-2 mb-1">
-        <div className="flex items-center gap-2">
-          <StatusDot status={strat.status} />
-          {strat.formation && (
-            <span className={`text-xs font-mono border rounded px-1 py-0.5 ${isAtk ? 'border-siege-accent/30 text-siege-accent/70' : 'border-blue-500/30 text-blue-400/70'}`}>
-              {strat.formation}
-            </span>
-          )}
-        </div>
-        <span className="text-siege-muted text-xs opacity-0 group-hover:opacity-100 transition-opacity">View →</span>
-      </div>
-
-      <h3 className="text-white font-semibold group-hover:text-siege-accent transition-colors leading-snug mb-1">
-        {strat.site}
-      </h3>
-
-      {strat.siteContext && (
-        <p className="text-siege-muted text-xs leading-relaxed line-clamp-2 mb-2">
-          {strat.siteContext}
-        </p>
-      )}
-
-      {roleNames && (
-        <p className="text-xs text-siege-muted/70 mt-auto">
-          {roleNames}{hasMoreRoles ? ` · +${strat.roles.length - 3} more` : ''}
-        </p>
-      )}
-    </Link>
-  )
-}
 
 // ── Overview accordion ────────────────────────────────────────────────────
 
@@ -511,15 +333,6 @@ function OverviewAccordion({ content }) {
           </div>
         )
       })}
-    </div>
-  )
-}
-
-function StratStat({ label, value, color = 'text-white' }) {
-  return (
-    <div>
-      <div className={`text-lg font-bold ${color}`}>{value}</div>
-      <div className="text-siege-muted text-xs">{label}</div>
     </div>
   )
 }

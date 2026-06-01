@@ -3,14 +3,12 @@ import { Component, Suspense, lazy, cloneElement } from 'react'
 import Layout from './components/Layout.jsx'
 import PageSkeleton from './components/PageSkeleton.jsx'
 
-const NotFound      = lazy(() => import('./pages/NotFound.jsx'))
-const Dashboard     = lazy(() => import('./pages/Dashboard.jsx'))
-const Players       = lazy(() => import('./pages/Players.jsx'))
-const PlayerDetail  = lazy(() => import('./pages/PlayerDetail.jsx'))
-const Maps          = lazy(() => import('./pages/Maps.jsx'))
-const MapDetail     = lazy(() => import('./pages/MapDetail.jsx'))
-const StratViewer   = lazy(() => import('./pages/StratViewer.jsx'))
-const SessionPrep    = lazy(() => import('./pages/SessionPrep.jsx'))
+const NotFound       = lazy(() => import('./pages/NotFound.jsx'))
+const Dashboard      = lazy(() => import('./pages/Dashboard.jsx'))
+const Players        = lazy(() => import('./pages/Players.jsx'))
+const PlayerDetail   = lazy(() => import('./pages/PlayerDetail.jsx'))
+const Maps           = lazy(() => import('./pages/Maps.jsx'))
+const MapDetail      = lazy(() => import('./pages/MapDetail.jsx'))
 const Operators      = lazy(() => import('./pages/Operators.jsx'))
 const OperatorDetail = lazy(() => import('./pages/OperatorDetail.jsx'))
 
@@ -75,8 +73,6 @@ export default function App() {
               <Route path="players/:name" element={<KeyedByParams fallback={<PageSkeleton page="detail" />}><PlayerDetail /></KeyedByParams>} />
               <Route path="maps" element={<Suspense fallback={<PageSkeleton />}><Maps /></Suspense>} />
               <Route path="maps/:mapName" element={<KeyedByParams fallback={<PageSkeleton page="detail" />}><MapDetail /></KeyedByParams>} />
-              <Route path="maps/:mapName/:side/:site" element={<KeyedByParams fallback={<PageSkeleton page="detail" />}><StratViewer /></KeyedByParams>} />
-              <Route path="session-prep" element={<Suspense fallback={<PageSkeleton />}><SessionPrep /></Suspense>} />
               <Route path="operators" element={<Suspense fallback={<PageSkeleton />}><Operators /></Suspense>} />
               <Route path="operators/:name" element={<KeyedByParams fallback={<PageSkeleton page="detail" />}><OperatorDetail /></KeyedByParams>} />
               <Route path="compare" element={<Navigate to="/players" replace />} />

@@ -4,12 +4,12 @@ const ComparePanel = lazy(() =>
   import('./Compare.jsx').then(m => ({ default: m.ComparePanel }))
 )
 import { playersPromise } from '../data/playersResource'
-import { risTextColor, wrColor } from '../utils/constants'
+import { risTextColor, wrColor, kdColor } from '../utils/constants'
 import HelpTip from '../components/HelpTip'
 import { GLOSSARY } from '../utils/glossary'
 import PlayerAvatar from '../components/PlayerAvatar.jsx'
 import RisBar from '../components/RisBar.jsx'
-import OpChips from '../components/OpChips.jsx'
+import PortraitChip from '../components/PortraitChip.jsx'
 
 // Normalize long rank strings to something card-friendly
 function shortRank(rank) {
@@ -29,76 +29,68 @@ function shortRole(role) {
 // ─── Player Card ──────────────────────────────────────────────────────────────
 function PlayerCard({ player }) {
   const { kd, ris, winRate, rank } = player.stats || {}
-
-  // Only show clean numeric values — long "N/A — ..." strings fall through to —
-  const displayKd  = parseFloat(kd)  ? kd  : '—'
-  const displayRis = parseFloat(ris) ? ris : '—'
+  const displayKd  = parseFloat(kd)      ? kd      : '—'
+  const displayRis = parseFloat(ris)     ? ris     : '—'
   const displayWr  = parseFloat(winRate) ? winRate : '—'
-  const wrNum = parseFloat(winRate) || 0
-
-  // Non-main players get a subtly dimmer card to signal secondary tier
-  const dimCls = player.team === 'main' ? '' : 'opacity-75'
+  const wrNum      = parseFloat(winRate) || 0
+  const dimCls     = player.team === 'main' ? '' : 'opacity-75'
+  const topAtk     = player._topAtkOps ?? []
+  const topDef     = player._topDefOps ?? []
 
   return (
     <Link
       to={`/players/${player.name}`}
       className={`card hover:border-siege-accent transition-all hover:opacity-100 group ${dimCls}`}
     >
-      {/* Name + rank */}
       <div className="flex items-center justify-between mb-3">
         <div className="flex items-center gap-2 min-w-0 flex-1">
           <PlayerAvatar name={player.name} size="sm" />
           <div className="min-w-0">
-            <span className="text-white font-semibold group-hover:text-siege-accent transition-colors block truncate">
-              {player.name}
-            </span>
-            {player.role && (
-              <span className="text-gray-500 text-xs block truncate">{shortRole(player.role)}</span>
-            )}
+            <span className="text-white font-semibold group-hover:text-siege-accent transition-colors block truncate">{player.name}</span>
+            {player.role && <span className="text-gray-500 text-xs block truncate">{shortRole(player.role)}</span>}
           </div>
         </div>
         <span className="text-siege-muted text-xs flex-shrink-0 ml-2">{shortRank(rank)}</span>
       </div>
 
-      {/* Stats */}
       <div className="grid grid-cols-3 gap-2 mb-3">
         <div className="text-center">
-          <p className="text-white text-lg font-bold leading-none">{displayKd}</p>
-          <p className="text-siege-muted text-xs mt-0.5 flex items-center justify-center gap-1">
-            K/D <HelpTip text={GLOSSARY.KD} />
-          </p>
+          <p className={`text-lg font-bold leading-none ${kdColor(kd)}`}>{displayKd}</p>
+          <p className="text-siege-muted text-xs mt-0.5 flex items-center justify-center gap-1">K/D <HelpTip text={GLOSSARY.KD} /></p>
         </div>
         <div className="text-center">
           <p className={`text-lg font-bold leading-none ${risTextColor(ris)}`}>{displayRis}</p>
-          <p className="text-siege-muted text-xs mt-0.5 flex items-center justify-center gap-1">
-            RIS <HelpTip text={GLOSSARY.RIS} />
-          </p>
+          <p className="text-siege-muted text-xs mt-0.5 flex items-center justify-center gap-1">RIS <HelpTip text={GLOSSARY.RIS} /></p>
         </div>
         <div className="text-center">
-          <p className={`text-lg font-bold leading-none ${wrNum ? wrColor(wrNum) : 'text-white'}`}>
-            {displayWr}
-          </p>
-          <p className="text-siege-muted text-xs mt-0.5 flex items-center justify-center gap-1">
-            Win% <HelpTip text={GLOSSARY.WR} />
-          </p>
+          <p className={`text-lg font-bold leading-none ${wrNum ? wrColor(wrNum) : 'text-white'}`}>{displayWr}</p>
+          <p className="text-siege-muted text-xs mt-0.5 flex items-center justify-center gap-1">Win% <HelpTip text={GLOSSARY.WR} /></p>
         </div>
       </div>
 
-      {/* RIS bar — always shown, empty if no data */}
       <RisBar ris={ris} />
       <div className="flex justify-between text-xs text-siege-muted mb-2">
         <span className="flex items-center gap-1">RIS <HelpTip text={GLOSSARY.RIS_BAR} position="bottom" /></span>
         {parseFloat(ris) ? <span>baseline 50</span> : <span className="italic">no data</span>}
       </div>
 
-      {/* Op portrait chips — or placeholder if none */}
-      {(player.atkOps || player.defOps) ? (
-        <div className="flex gap-3">
-          <OpChips label="Atk" opsString={player.atkOps} />
-          <OpChips label="Def" opsString={player.defOps} />
+      {(topAtk.length > 0 || topDef.length > 0) ? (
+        <div className="flex gap-3 mt-1">
+          {topAtk.length > 0 && (
+            <div className="flex items-center gap-1">
+              <span className="text-orange-400 text-[10px] font-semibold uppercase">Atk</span>
+              {topAtk.map(n => <PortraitChip key={n} name={n} size="w-5 h-5" />)}
+            </div>
+          )}
+          {topDef.length > 0 && (
+            <div className="flex items-center gap-1">
+              <span className="text-blue-400 text-[10px] font-semibold uppercase">Def</span>
+              {topDef.map(n => <PortraitChip key={n} name={n} size="w-5 h-5" />)}
+            </div>
+          )}
         </div>
       ) : (
-        <p className="text-siege-muted text-xs italic">Operators not tracked</p>
+        <p className="text-siege-muted text-xs italic">No operator data</p>
       )}
     </Link>
   )
@@ -112,6 +104,7 @@ export default function Players() {
   const [search, setSearch] = useState('')
   const [sortBy, setSortBy] = useState('ris')
 
+
   const allPlayers = [
     ...mainStack.map(p => ({ ...p, team: 'main' })),
     ...bTeam.map(p => ({ ...p, team: 'bteam' })),
@@ -124,9 +117,10 @@ export default function Players() {
       return !q || p.name.toLowerCase().includes(q) || (p.role || '').toLowerCase().includes(q)
     })
     .sort((a, b) => {
-      if (sortBy === 'ris')  return (parseFloat(b.stats?.ris)     || 0) - (parseFloat(a.stats?.ris)     || 0)
-      if (sortBy === 'kd')   return (parseFloat(b.stats?.kd)      || 0) - (parseFloat(a.stats?.kd)      || 0)
-      if (sortBy === 'wr')   return (parseFloat(b.stats?.winRate)  || 0) - (parseFloat(a.stats?.winRate)  || 0)
+      if (sortBy === 'ris')  return (parseFloat(b.stats?.ris)    || 0) - (parseFloat(a.stats?.ris)    || 0)
+      if (sortBy === 'kd')   return (parseFloat(b.stats?.kd)     || 0) - (parseFloat(a.stats?.kd)     || 0)
+      if (sortBy === 'wr')   return (parseFloat(b.stats?.winRate) || 0) - (parseFloat(a.stats?.winRate) || 0)
+      if (sortBy === 'esr')  return (parseFloat(b.stats?.esr)    || 0) - (parseFloat(a.stats?.esr)    || 0)
       if (sortBy === 'name') return a.name.localeCompare(b.name)
       return 0
     })
@@ -174,7 +168,7 @@ export default function Players() {
             <div className="w-px h-4 bg-siege-border flex-shrink-0 hidden sm:block" />
             <div className="flex items-center gap-1 flex-shrink-0">
               <span className="text-siege-muted text-xs mr-1">Sort:</span>
-              {[['ris', 'RIS'], ['kd', 'K/D'], ['wr', 'Win%'], ['name', 'A–Z']].map(([val, label]) => (
+              {[['ris', 'RIS'], ['kd', 'K/D'], ['wr', 'Win%'], ['esr', 'ESR'], ['name', 'A–Z']].map(([val, label]) => (
                 <button key={val} onClick={() => setSortBy(val)}
                   className={`px-2.5 py-2 sm:py-1 rounded text-xs font-medium transition-colors ${
                     sortBy === val

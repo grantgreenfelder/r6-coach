@@ -121,11 +121,6 @@ function MapCard({ map, season, getWr, getWrM, getRating }) {
   const wr      = getWr(map)
   const wrM     = getWrM(map)
   const rating  = getRating(map)
-
-  const devCount     = map.stratCount.developed
-  const partialCount = map.stratCount.partial
-  const totalCount   = map.stratCount.total
-
   const thumbnailUrl = getMapThumbnailUrl(map.name)
 
   return (
@@ -177,27 +172,6 @@ function MapCard({ map, season, getWr, getWrM, getRating }) {
           </div>
         </div>
 
-        {/* Strat readiness — segmented bar */}
-        {map.strats.length > 0 && (
-          <div className="mt-3">
-            <div className="flex h-1.5 rounded-full overflow-hidden gap-px bg-siege-border">
-              {map.strats.map(s => (
-                <div
-                  key={s.filename}
-                  title={`${s.side} ${s.site} — ${s.status}`}
-                  className={`flex-1 h-full ${
-                    s.status === 'developed'     ? 'bg-siege-green' :
-                    s.status === 'partial'       ? 'bg-yellow-500' :
-                                                   'bg-siege-border'
-                  }`}
-                />
-              ))}
-            </div>
-            <p className="text-[10px] text-siege-muted mt-1">
-              {devCount} ready · {partialCount} partial · {totalCount - devCount - partialCount} not started
-            </p>
-          </div>
-        )}
       </div>
     </Link>
   )

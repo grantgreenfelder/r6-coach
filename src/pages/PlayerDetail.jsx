@@ -1,38 +1,25 @@
-import { use, useState } from 'react'
+import { use, useState, useCallback } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { playersPromise } from '../data/playersResource'
-import { opWrColor, opWrBgColor, wrColor, wrBgColor, kdColor, risTextColor, esrColor, hsColor, clutchWrColor } from '../utils/constants'
-import { extractSection } from '../utils/markdown'
+import {
+  opWrColor, opWrBgColor, wrColor, kdColor,
+  risTextColor, esrColor, hsColor, clutchWrColor,
+} from '../utils/constants'
 import { NotFound } from '../components/EmptyState'
 import HelpTip from '../components/HelpTip'
 import { GLOSSARY } from '../utils/glossary'
 import PlayerAvatar from '../components/PlayerAvatar.jsx'
-import MarkdownContent from '../components/MarkdownContent.jsx'
 import PortraitChip from '../components/PortraitChip.jsx'
 
-function extractBullets(text) {
-  return text.split('\n')
-    .filter(l => /^\s*[-*]\s/.test(l))
-    .map(l => l.replace(/^\s*[-*]\s+/, '').replace(/\*\*/g, '').trim())
-    .filter(Boolean)
-}
+// ─── Stat Box ──────────────────────────────────────────────────────────────────
 
-function extractIdentityField(text, field) {
-  const re = new RegExp(`\\*\\*${field}[:\\s]+\\*\\*\\s*([^\\n]+)`, 'i')
-  const m = text.match(re)
-  if (m) return m[1].replace(/\*\*/g, '').trim()
-  const re2 = new RegExp(`\\*\\*${field}:\\*\\*\\s*([^\\n]+)`, 'i')
-  const m2 = text.match(re2)
-  return m2 ? m2[1].replace(/\*\*/g, '').trim() : ''
-}
-
-// ─── Stat Box ─────────────────────────────────────────────────────────────────
-
-function StatBox({ label, value, accent, tip }) {
+function StatBox({ label, value, accent, tip, small }) {
   return (
     <div className="bg-black/30 border border-siege-border rounded-lg p-1.5 sm:p-3 text-center">
-      <div className={`text-xs sm:text-xl font-bold leading-none truncate ${accent || 'text-white'}`}>{value || '—'}</div>
-      <div className="text-siege-muted text-[9px] sm:text-xs mt-1 sm:mt-1.5 uppercase tracking-wider flex items-center justify-center gap-0.5">
+      <div className={`font-bold leading-none truncate ${small ? 'text-xs sm:text-base' : 'text-xs sm:text-xl'} ${accent || 'text-white'}`}>
+        {value || '—'}
+      </div>
+      <div className="text-siege-muted text-[9px] sm:text-xs mt-1 uppercase tracking-wider flex items-center justify-center gap-0.5">
         {label}{tip && <HelpTip text={tip} />}
       </div>
     </div>
@@ -41,381 +28,218 @@ function StatBox({ label, value, accent, tip }) {
 
 // ─── Operator Table ────────────────────────────────────────────────────────────
 
-const FLAG_LABEL = { '⭐': 'standout', '✅': 'solid', '⚠️': 'low sample' }
+const FLAG_LABEL = { '⭐': 'standout', '✅': 'solid', '⚠️': 'concern' }
 
-function OpRow({ op, maxRounds }) {
-  const wr = op.winRate
-  const wrCls = opWrColor(wr)
-  const barColor = opWrBgColor(wr)
-  const roundsPct = maxRounds > 0 ? Math.min((op.rounds / maxRounds) * 100, 100) : 0
-  const kdCls = kdColor(op.kd)
+function OpRow({ op, maxRounds, showExtra }) {
+  const wrCls      = opWrColor(op.winRate)
+  const barColor   = opWrBgColor(op.winRate)
+  const roundsPct  = maxRounds > 0 ? Math.min((op.rounds / maxRounds) * 100, 100) : 0
+  const kdCls      = kdColor(op.kd)
+  const fbFd       = (op.firstBloods ?? 0) + (op.firstDeaths ?? 0)
+  const esr        = fbFd > 0 ? ((op.firstBloods ?? 0) / fbFd).toFixed(2) : null
 
   return (
     <div className="flex items-center gap-2 py-1.5 border-b border-siege-border/40 last:border-0">
-      {/* Op portrait + name + flag */}
-      <div className="flex items-center gap-1.5 w-32 flex-shrink-0 min-w-0">
+      <div className="flex items-center gap-1.5 w-28 flex-shrink-0 min-w-0">
         <PortraitChip name={op.name} size="w-6 h-6" />
-
         <span className="text-white text-sm font-medium truncate">{op.name}</span>
-        {op.flag && (
-          <span title={FLAG_LABEL[op.flag] || op.flag} className="text-xs leading-none flex-shrink-0">{op.flag}</span>
-        )}
+        {op.flag && <span title={FLAG_LABEL[op.flag] || op.flag} className="text-xs leading-none flex-shrink-0">{op.flag}</span>}
       </div>
 
-      {/* Rounds bar (volume indicator) */}
       <div className="flex-1 min-w-0 space-y-0.5">
         <div className="h-1 bg-siege-border rounded-full overflow-hidden">
           <div className="h-full bg-siege-muted/50 rounded-full" style={{ width: `${roundsPct}%` }} />
         </div>
-        {/* Win% bar */}
         <div className="h-1.5 bg-siege-border rounded-full overflow-hidden">
-          <div className={`h-full rounded-full ${barColor}`} style={{ width: `${Math.min(wr, 100)}%` }} />
+          <div className={`h-full rounded-full ${barColor}`} style={{ width: `${Math.min(op.winRate, 100)}%` }} />
         </div>
       </div>
 
-      {/* Stats */}
       <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
         <div className="text-right">
-          <span className={`text-sm font-semibold tabular-nums ${wrCls}`}>{wr}%</span>
+          <span className={`text-sm font-semibold tabular-nums ${wrCls}`}>{op.winRate}%</span>
           <span className="text-siege-muted text-xs ml-1 hidden sm:inline">WR</span>
         </div>
         <div className="text-right w-9 sm:w-10">
           <span className={`text-sm tabular-nums ${kdCls}`}>{op.kd}</span>
           <span className="text-siege-muted text-xs ml-0.5 hidden sm:inline">K/D</span>
         </div>
-        <div className="text-right w-7 sm:w-8 hidden sm:block">
-          <span className="text-siege-muted text-xs tabular-nums">{op.rounds}r</span>
-        </div>
+        {showExtra ? (
+          <>
+            <div className="text-right w-10 hidden sm:block">
+              <span className={`text-xs tabular-nums ${hsColor(op.hs)}`}>{op.hs != null ? `${op.hs}%` : '—'}</span>
+              <span className="text-siege-muted text-xs ml-0.5">HS</span>
+            </div>
+            <div className="text-right w-10 hidden sm:block">
+              <span className={`text-xs tabular-nums ${esr ? esrColor(esr) : 'text-siege-muted'}`}>{esr ?? '—'}</span>
+              <span className="text-siege-muted text-xs ml-0.5">ESR</span>
+            </div>
+          </>
+        ) : (
+          <div className="text-right w-7 sm:w-8 hidden sm:block">
+            <span className="text-siege-muted text-xs tabular-nums">{op.rounds}r</span>
+          </div>
+        )}
       </div>
     </div>
   )
 }
 
 function OpsTable({ operators }) {
+  const [showExtra, setShowExtra] = useState(false)
   const atk = operators?.atk || []
-  const def = operators?.def || []
-  const maxAtkRounds = Math.max(...atk.map(o => o.rounds), 1)
-  const maxDefRounds = Math.max(...def.map(o => o.rounds), 1)
+  const def  = operators?.def || []
+  const maxAtk = Math.max(...atk.map(o => o.rounds), 1)
+  const maxDef = Math.max(...def.map(o => o.rounds), 1)
 
   if (atk.length === 0 && def.length === 0) {
     return <p className="text-siege-muted text-sm">No operator data</p>
   }
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 divide-y lg:divide-y-0 lg:divide-x divide-siege-border">
-      {/* Attack */}
-      <div className="pb-4 lg:pb-0 lg:pr-5">
-        <div className="flex items-center gap-2 mb-3">
-          <span className="w-2 h-2 rounded-full bg-orange-400 flex-shrink-0" />
-          <span className="text-orange-400 text-xs font-semibold uppercase tracking-wider">Attack</span>
-          <span className="text-siege-muted text-xs ml-auto">{atk.length} operators</span>
+    <div>
+      <div className="flex items-center justify-between mb-3 flex-wrap gap-2">
+        <div className="flex items-center gap-3 text-[11px] text-siege-muted">
+          <span className="flex items-center gap-1.5"><span className="w-6 h-1 bg-siege-muted/40 rounded-full inline-block" />Rounds</span>
+          <span className="flex items-center gap-1.5"><span className="w-6 h-1.5 bg-siege-green rounded-full inline-block" />Win%</span>
         </div>
-        {atk.length > 0 ? atk.map(op => (
-          <OpRow key={op.name} op={op} maxRounds={maxAtkRounds} />
-        )) : <p className="text-siege-muted text-sm">No ATK data</p>}
+        <button
+          onClick={() => setShowExtra(x => !x)}
+          className={`text-xs px-2.5 py-1 rounded border transition-colors ${showExtra ? 'border-siege-accent text-siege-accent' : 'border-siege-border text-siege-muted hover:text-white'}`}
+        >
+          {showExtra ? 'Show: HS% + ESR' : 'Show: K/D + Rounds'}
+        </button>
       </div>
-
-      {/* Defense */}
-      <div className="pt-4 lg:pt-0 lg:pl-5">
-        <div className="flex items-center gap-2 mb-3">
-          <span className="w-2 h-2 rounded-full bg-blue-400 flex-shrink-0" />
-          <span className="text-blue-400 text-xs font-semibold uppercase tracking-wider">Defense</span>
-          <span className="text-siege-muted text-xs ml-auto">{def.length} operators</span>
-        </div>
-        {def.length > 0 ? def.map(op => (
-          <OpRow key={op.name} op={op} maxRounds={maxDefRounds} />
-        )) : <p className="text-siege-muted text-sm">No DEF data</p>}
-      </div>
-    </div>
-  )
-}
-
-// ─── Map Performance ───────────────────────────────────────────────────────────
-
-function MapMiniTable({ maps }) {
-  if (!maps || maps.length === 0) return <p className="text-siege-muted text-sm">No map data</p>
-
-  const sorted = [...maps].sort((a, b) => b.matches - a.matches)
-
-  return (
-    <div className="space-y-2">
-      {sorted.map(m => {
-        const wr = m.winRate
-        const color = wrColor(wr)
-        const barColor = wrBgColor(wr)
-        return (
-          <div key={m.map} className="flex items-center gap-2">
-            <span className="text-siege-muted text-xs w-32 truncate flex-shrink-0">{m.map}</span>
-            <div className="flex-1 h-1.5 bg-siege-border rounded-full overflow-hidden">
-              <div className={`h-full rounded-full ${barColor}`} style={{ width: `${Math.min(wr, 100)}%` }} />
-            </div>
-            <span className={`text-xs font-semibold w-10 text-right flex-shrink-0 tabular-nums ${color}`}>{wr}%</span>
-            <span className="text-siege-muted text-xs w-6 text-right flex-shrink-0 tabular-nums">{m.matches}M</span>
+      <div className="grid grid-cols-1 lg:grid-cols-2 divide-y lg:divide-y-0 lg:divide-x divide-siege-border">
+        <div className="pb-4 lg:pb-0 lg:pr-5">
+          <div className="flex items-center gap-2 mb-3">
+            <span className="w-2 h-2 rounded-full bg-orange-400 flex-shrink-0" />
+            <span className="text-orange-400 text-xs font-semibold uppercase tracking-wider">Attack</span>
+            <span className="text-siege-muted text-xs ml-auto">{atk.length} ops</span>
           </div>
-        )
-      })}
-    </div>
-  )
-}
-
-// ─── Misc list components ──────────────────────────────────────────────────────
-
-function BulletList({ items }) {
-  if (!items || items.length === 0) return <p className="text-siege-muted text-sm">No notes</p>
-  return (
-    <ul className="space-y-2.5">
-      {items.map((item, i) => (
-        <li key={i} className="flex gap-2 text-sm text-gray-300">
-          <span className="text-siege-accent flex-shrink-0 mt-0.5">•</span>
-          <span className="leading-snug">{item}</span>
-        </li>
-      ))}
-    </ul>
-  )
-}
-
-function PriorityList({ items }) {
-  if (!items || items.length === 0) return <p className="text-siege-muted text-sm">No priorities</p>
-  return (
-    <ol className="space-y-2.5">
-      {items.map((item, i) => (
-        <li key={i} className="flex gap-2 text-sm text-gray-300">
-          <span className="text-siege-accent font-bold flex-shrink-0 w-5 tabular-nums">{i + 1}.</span>
-          <span className="leading-snug">{item}</span>
-        </li>
-      ))}
-    </ol>
-  )
-}
-
-// ─── Tabs ──────────────────────────────────────────────────────────────────────
-
-function CoachingSection({ title, content, accentClass = 'text-siege-accent', borderClass = 'border-siege-border/50' }) {
-  if (!content) return null
-  return (
-    <div className={`card border ${borderClass}`}>
-      <h3 className={`font-semibold text-xs uppercase tracking-wider mb-3 ${accentClass}`}>{title}</h3>
-      <MarkdownContent content={content} />
-    </div>
-  )
-}
-
-// Colour-code confidence badges
-function ConfidenceBadge({ text }) {
-  if (!text) return null
-  const t = text.toLowerCase()
-  const cls = t.includes('tier 1') ? 'bg-siege-green/10 text-siege-green border-siege-green/20'
-    : t.includes('tier 2')         ? 'bg-blue-500/10 text-blue-300 border-blue-500/20'
-    : t.includes('new')            ? 'bg-purple-500/10 text-purple-300 border-purple-500/20'
-    :                                'bg-siege-border/40 text-siege-muted border-siege-border/40'
-  return (
-    <span className={`text-[10px] font-medium px-1.5 py-0.5 rounded border flex-shrink-0 ${cls}`}>
-      {text}
-    </span>
-  )
-}
-
-function TeachingFocusCard({ player }) {
-  const { teachingPriorities, teachingPattern } = player
-  if (!teachingPriorities?.length) return null
-
-  return (
-    <div className="card border border-indigo-500/20">
-      <h3 className="font-semibold text-xs uppercase tracking-wider mb-3 text-indigo-400">
-        Teaching Focus — Top Priorities
-      </h3>
-      <ol className="space-y-3">
-        {teachingPriorities.map(p => (
-          <li key={p.pri} className="flex items-start gap-3">
-            <span className="flex-shrink-0 w-5 h-5 rounded-full bg-indigo-500/15 text-indigo-400 text-xs font-bold flex items-center justify-center mt-0.5">
-              {p.pri}
-            </span>
-            <div className="flex-1 min-w-0">
-              <p className="text-gray-200 text-sm leading-snug">{p.teaching}</p>
-              {p.tipRefs?.length > 0 && (
-                <p className="text-gray-600 text-[10px] mt-0.5 font-mono">{p.tipRefs.join(' · ')}</p>
-              )}
-            </div>
-            <ConfidenceBadge text={p.confidence} />
-          </li>
-        ))}
-      </ol>
-      {teachingPattern && (
-        <p className="text-siege-muted text-xs mt-4 pt-3 border-t border-siege-border/30 leading-relaxed italic">
-          {teachingPattern}
-        </p>
-      )}
-    </div>
-  )
-}
-
-function CoachingTab({ player }) {
-  const { coachingContent, coachingRole, coachingWorking, coachingAreas, coachingPrioritiesText } = player
-
-  if (!coachingContent) {
-    return (
-      <div className="card text-siege-muted text-sm text-center py-8">
-        No coaching brief available yet.
-      </div>
-    )
-  }
-
-  // If structured sections were extracted, render as cards; fall back to raw markdown
-  const hasStructure = coachingRole || coachingWorking || coachingAreas || coachingPrioritiesText
-
-  if (!hasStructure) {
-    const stripped = coachingContent.replace(/^#\s+[^\n]+\n/, '').trimStart()
-    return <div className="card"><MarkdownContent content={stripped} /></div>
-  }
-
-  // Extract the meta line (e.g. "_Season: Y11S1 | Updated: 2026-04-03 (145M)_") for the header
-  const metaLine = coachingContent.match(/_Season:[^\n]+_/)?.[0] || ''
-
-  return (
-    <div className="space-y-3">
-      {/* Meta line */}
-      {metaLine && (
-        <p className="text-siege-muted text-xs px-1">{metaLine.replace(/_/g, '')}</p>
-      )}
-
-      {/* Your Role */}
-      <CoachingSection
-        title="Your Role"
-        content={coachingRole}
-        accentClass="text-gray-400"
-        borderClass="border-siege-border/40"
-      />
-
-      {/* Two-col: What's Working + Areas to Watch */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
-        <CoachingSection
-          title="What's Working"
-          content={coachingWorking}
-          accentClass="text-siege-green"
-          borderClass="border-siege-green/20"
-        />
-        <CoachingSection
-          title="Areas to Watch"
-          content={coachingAreas}
-          accentClass="text-yellow-400"
-          borderClass="border-yellow-400/20"
-        />
-      </div>
-
-      {/* Priorities */}
-      <CoachingSection
-        title="Priorities This Season"
-        content={coachingPrioritiesText}
-        accentClass="text-siege-accent"
-        borderClass="border-siege-accent/30"
-      />
-
-      {/* Teaching Focus */}
-      <TeachingFocusCard player={player} />
-    </div>
-  )
-}
-
-function AllTimeTab({ player }) {
-  const identitySection = extractSection(player.profileContent, 'Identity')
-  const careerSection = extractSection(player.profileContent, 'Career Coaching Notes')
-
-  const strengths  = extractIdentityField(identitySection, 'Strengths?')
-  const tendencies = extractIdentityField(identitySection, 'Tendencies')
-  const roleFit    = extractIdentityField(identitySection, 'Role fit')
-  const soloGroup  = extractIdentityField(identitySection, 'Solo vs\\. Group')
-
-  const careerNotes = extractBullets(careerSection)
-
-  return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-      <div className="card space-y-5">
-        <h3 className="text-siege-accent font-semibold text-xs uppercase tracking-wider">Identity</h3>
-        {[
-          { label: 'Strengths', value: strengths },
-          { label: 'Tendencies', value: tendencies },
-          { label: 'Role Fit', value: roleFit },
-          { label: 'Solo / Group', value: soloGroup },
-        ].filter(f => f.value).map(f => (
-          <div key={f.label}>
-            <p className="text-siege-muted text-xs uppercase tracking-wider mb-1">{f.label}</p>
-            <p className="text-gray-300 text-sm leading-relaxed">{f.value}</p>
+          {atk.map(op => <OpRow key={op.name} op={op} maxRounds={maxAtk} showExtra={showExtra} />)}
+        </div>
+        <div className="pt-4 lg:pt-0 lg:pl-5">
+          <div className="flex items-center gap-2 mb-3">
+            <span className="w-2 h-2 rounded-full bg-blue-400 flex-shrink-0" />
+            <span className="text-blue-400 text-xs font-semibold uppercase tracking-wider">Defense</span>
+            <span className="text-siege-muted text-xs ml-auto">{def.length} ops</span>
           </div>
-        ))}
-      </div>
-
-      <div className="card">
-        <h3 className="text-siege-accent font-semibold text-xs uppercase tracking-wider mb-4">Career Notes</h3>
-        <BulletList items={careerNotes} />
+          {def.map(op => <OpRow key={op.name} op={op} maxRounds={maxDef} showExtra={showExtra} />)}
+        </div>
       </div>
     </div>
   )
 }
 
-function SeasonTab({ stats, operators, mapPerformance, notes, priorities }) {
-  const hsVal      = stats?.hs      && stats.hs      !== '—' ? `${parseFloat(stats.hs).toFixed(1)}%`      : null
-  const clutchWrVal = stats?.clutchWR && stats.clutchWR !== '—' ? `${parseFloat(stats.clutchWR).toFixed(1)}%` : null
-  const hasSecondary = stats?.kda || stats?.hs || stats?.esr || stats?.clutches || stats?.clutchWR
+// ─── Career History ────────────────────────────────────────────────────────────
+
+function CareerRow({ entry, expanded, onToggle, seasonDetail, loading }) {
+  const hasFullData = entry.rp != null
+  const risVal = entry.ris ?? seasonDetail?.ris
+  const kdaVal = entry.kda ?? seasonDetail?.kda
+  const esrVal = entry.esr ?? seasonDetail?.esr
+  const hsVal  = entry.hs  ?? seasonDetail?.hs
 
   return (
-    <div className="space-y-4">
-
-      {/* Primary stats */}
-      <div className="grid grid-cols-5 gap-1 sm:gap-2">
-        <StatBox label="Rank"    value={stats?.rank} />
-        <StatBox label="K/D"     value={stats?.kd}      tip={GLOSSARY.KD}      accent={kdColor(stats?.kd)} />
-        <StatBox label="Win%"    value={stats?.winRate} tip={GLOSSARY.WR}      accent={wrColor(parseFloat(stats?.winRate))} />
-        <StatBox label="Matches" value={stats?.matches} tip={GLOSSARY.MATCHES} />
-        <StatBox label="RIS"     value={stats?.ris}     tip={GLOSSARY.RIS}     accent={risTextColor(stats?.ris)} />
-      </div>
-
-      {/* Secondary stats — shown only if data exists */}
-      {hasSecondary && (
-        <div className="grid grid-cols-5 gap-1 sm:gap-2">
-          <StatBox label="KDA"      value={stats?.kda}       accent={kdColor(stats?.kda)} />
-          <StatBox label="HS%"      value={hsVal}            accent={hsColor(stats?.hs)} />
-          <StatBox label="ESR"      value={stats?.esr}       accent={esrColor(stats?.esr)} tip={GLOSSARY.ESR} />
-          <StatBox label="Clutches" value={stats?.clutches} />
-          <StatBox label="Clutch W%" value={clutchWrVal}    accent={clutchWrColor(stats?.clutchWR)} />
-        </div>
+    <>
+      <tr
+        className={`border-b border-siege-border/40 cursor-pointer hover:bg-white/[0.03] transition-colors ${expanded ? 'bg-white/[0.03]' : ''}`}
+        onClick={onToggle}
+      >
+        <td className="py-2 px-3 text-sm font-medium text-white">{entry.season}</td>
+        <td className="py-2 px-3 text-xs text-siege-muted text-right">{entry.matches ?? '—'}</td>
+        <td className={`py-2 px-3 text-sm font-semibold tabular-nums text-right ${kdColor(entry.kd)}`}>{entry.kd ?? '—'}</td>
+        <td className={`py-2 px-3 text-sm text-right tabular-nums ${entry.wr != null ? wrColor(entry.wr) : 'text-siege-muted'}`}>
+          {entry.wr != null ? `${entry.wr}%` : '—'}
+        </td>
+        <td className="py-2 px-3 text-xs text-right tabular-nums text-siege-muted">{entry.rp ?? '—'}</td>
+        <td className={`py-2 px-3 text-xs text-right tabular-nums ${risVal ? risTextColor(risVal) : 'text-siege-muted'}`}>
+          {risVal ?? (hasFullData ? <span className="italic text-siege-muted/50">click</span> : '—')}
+        </td>
+        <td className="py-2 px-3 text-right">
+          <span className="text-siege-muted text-xs">{expanded ? '▲' : '▼'}</span>
+        </td>
+      </tr>
+      {expanded && (
+        <tr className="border-b border-siege-border/40 bg-black/20">
+          <td colSpan={7} className="px-3 pb-4 pt-2">
+            {loading ? (
+              <p className="text-siege-muted text-xs py-2">Loading season data…</p>
+            ) : seasonDetail?.empty ? (
+              <p className="text-siege-muted text-xs py-2">No ranked operator data available for {entry.season}.</p>
+            ) : seasonDetail ? (
+              <div className="space-y-3">
+                {/* Computed stats row */}
+                <div className="grid grid-cols-5 gap-2 pt-1">
+                  {kdaVal != null && <StatBox label="KDA" value={String(kdaVal)} accent={kdColor(kdaVal)} small />}
+                  {hsVal  != null && <StatBox label="HS%"  value={`${hsVal}%`}   accent={hsColor(hsVal)} small />}
+                  {esrVal != null && <StatBox label="ESR"  value={String(esrVal)} accent={esrColor(esrVal)} tip={GLOSSARY.ESR} small />}
+                  {seasonDetail.clutches > 0 && <StatBox label="Clutches" value={String(seasonDetail.clutches)} small />}
+                  {risVal != null && <StatBox label="RIS" value={String(risVal)} accent={risTextColor(risVal)} tip={GLOSSARY.RIS} small />}
+                </div>
+                {/* Operator tables */}
+                <OpsTable operators={seasonDetail.operators} />
+              </div>
+            ) : (
+              <p className="text-siege-muted text-xs py-2">Season data not yet available — check back after the next update.</p>
+            )}
+          </td>
+        </tr>
       )}
+    </>
+  )
+}
 
-      {/* Operators — full width card */}
-      <div className="card">
-        <div className="flex items-center justify-between flex-wrap gap-2 mb-4">
-          <h3 className="text-siege-accent font-semibold text-xs uppercase tracking-wider">Operators</h3>
-          <div className="flex items-center gap-3 text-[11px] text-siege-muted">
-            <span className="flex items-center gap-1.5"><span className="w-6 h-1 bg-siege-muted/40 rounded-full inline-block" />Rounds played</span>
-            <span className="flex items-center gap-1.5"><span className="w-6 h-1.5 bg-siege-green rounded-full inline-block" />Win% bar</span>
-            <span>K/D</span>
-          </div>
-        </div>
-        <OpsTable operators={operators} />
-      </div>
+function CareerHistory({ careerHistory, tracker }) {
+  const [expanded, setExpanded]     = useState(null)
+  const [cache, setCache]           = useState({})
+  const [loading, setLoading]       = useState(false)
 
-      {/* Map performance + Notes/Priorities */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-        <div className="card">
-          <h3 className="text-siege-accent font-semibold text-xs uppercase tracking-wider mb-3">Map Performance</h3>
-          <MapMiniTable maps={mapPerformance} />
-        </div>
+  const toggle = useCallback(async (season) => {
+    if (expanded === season) { setExpanded(null); return }
+    setExpanded(season)
+    if (cache[season] !== undefined) return
+    setLoading(true)
+    try {
+      const r    = await fetch(`/api/season?tracker=${encodeURIComponent(tracker)}&season=${season}`)
+      const data = r.ok ? await r.json() : null
+      setCache(c => ({ ...c, [season]: data }))
+    } catch {
+      setCache(c => ({ ...c, [season]: null }))
+    } finally {
+      setLoading(false)
+    }
+  }, [expanded, cache, tracker])
 
-        <div className="space-y-4">
-          {notes?.length > 0 && (
-            <div className="card">
-              <h3 className="text-siege-accent font-semibold text-xs uppercase tracking-wider mb-3">Season Notes</h3>
-              <BulletList items={notes} />
-            </div>
-          )}
-          {priorities?.length > 0 && (
-            <div className="card">
-              <h3 className="text-siege-accent font-semibold text-xs uppercase tracking-wider mb-3">Focus Areas</h3>
-              <PriorityList items={priorities} />
-            </div>
-          )}
-        </div>
-      </div>
+  const ranked = careerHistory.filter(e => e.matches > 0)
+  if (ranked.length === 0) return <p className="text-siege-muted text-sm">No career history available.</p>
 
+  return (
+    <div className="overflow-x-auto">
+      <table className="w-full text-sm">
+        <thead>
+          <tr className="border-b border-siege-border text-left">
+            {['Season','M','K/D','Win%','Peak RP','RIS',''].map(h => (
+              <th key={h} className="py-2 px-3 text-xs text-siege-muted font-medium uppercase tracking-wide text-right first:text-left last:w-6">
+                {h}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {ranked.map(entry => (
+            <CareerRow
+              key={entry.season}
+              entry={entry}
+              expanded={expanded === entry.season}
+              onToggle={() => toggle(entry.season)}
+              seasonDetail={cache[entry.season]}
+              loading={loading && expanded === entry.season && cache[entry.season] === undefined}
+            />
+          ))}
+        </tbody>
+      </table>
     </div>
   )
 }
@@ -424,36 +248,22 @@ function SeasonTab({ stats, operators, mapPerformance, notes, priorities }) {
 
 export default function PlayerDetail() {
   const playersData = use(playersPromise)
-  const { name } = useParams()
-  const all = [...playersData.mainStack, ...playersData.bTeam, ...playersData.other]
-  const player = all.find(p => p.name.toLowerCase() === name.toLowerCase())
-
-  const tabs = [
-    'alltime',
-    ...(player?.coachingContent ? ['coaching'] : []),
-    ...(player?.prevSeason ? [player.prevSeason] : []),
-    player?.season || 'Y11S1',
-  ]
-  const tabLabels = {
-    alltime: 'Profile',
-    coaching: 'Coaching',
-    [player?.prevSeason]: player?.prevSeason || 'Prev Season',
-    [player?.season]: player?.season || 'Current',
-  }
-  // Match counts for season tabs — shown as a subtle badge
-  const tabMatches = {
-    [player?.prevSeason]: player?.prevSeasonStats?.matches,
-    [player?.season]: player?.stats?.matches,
-  }
-
-  const [activeTab, setActiveTab] = useState(player?.season || 'Y11S1')
+  const { name }    = useParams()
+  const all         = [...playersData.mainStack, ...(playersData.bTeam || []), ...(playersData.other || [])]
+  const player      = all.find(p => p.name.toLowerCase() === name.toLowerCase())
 
   if (!player) {
-    return <NotFound icon="👤" title={`Player not found`} message={`"${name}" doesn't exist in the roster.`} backTo="/players" backLabel="Back to Roster" />
+    return <NotFound icon="👤" title="Player not found" message={`"${name}" doesn't exist in the roster.`} backTo="/players" backLabel="Back to Roster" />
   }
 
-  const currentNotes = extractBullets(extractSection(player.seasonContent, 'Season Coaching Notes'))
-  const prevNotes    = extractBullets(extractSection(player.prevSeasonContent, 'Season Coaching Notes'))
+  const { stats = {}, operators, careerHistory = [], tracker, _updatedAt } = player
+
+  const updatedLabel = _updatedAt
+    ? new Date(_updatedAt).toLocaleString('en-US', { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' })
+    : null
+
+  const clutchWrVal = stats.clutchWR ? `${parseFloat(stats.clutchWR).toFixed(1)}%` : null
+  const hsVal       = stats.hs       ? `${parseFloat(stats.hs).toFixed(1)}%`       : null
 
   return (
     <div className="max-w-5xl mx-auto space-y-5">
@@ -465,21 +275,25 @@ export default function PlayerDetail() {
       <div className="card flex items-start gap-5 flex-wrap">
         <div className="flex flex-col items-center gap-2 flex-shrink-0">
           <PlayerAvatar name={player.name} size="lg" />
-          {/* Top op portraits */}
-          {(player.atkOps || player.defOps) && (
+          {(player._topAtkOps?.length > 0 || player._topDefOps?.length > 0) && (
             <div className="flex gap-1">
-              {[...(player.atkOps || '').split(/[,/]/), ...(player.defOps || '').split(/[,/]/)]
-                .map(s => s.trim()).filter(Boolean).slice(0, 4)
-                .map(opName => <PortraitChip key={opName} name={opName} size="w-6 h-6" />)}
+              {[...(player._topAtkOps || []), ...(player._topDefOps || [])].map(n => (
+                <PortraitChip key={n} name={n} size="w-6 h-6" />
+              ))}
             </div>
           )}
         </div>
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-3 flex-wrap">
             <h1 className="text-2xl font-bold text-white">{player.name}</h1>
-            {player.tracker && (
+            {stats.rank && (
+              <span className="text-xs font-semibold text-siege-accent border border-siege-accent/30 px-2 py-0.5 rounded">
+                {stats.rank}
+              </span>
+            )}
+            {tracker && (
               <a
-                href={`https://r6.tracker.network/r6siege/profile/ubi/${encodeURIComponent(player.tracker)}/overview`}
+                href={`https://r6.tracker.network/r6siege/profile/ubi/${encodeURIComponent(tracker)}/overview`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-xs text-siege-muted hover:text-siege-accent border border-siege-border hover:border-siege-accent rounded px-2 py-0.5 transition-colors"
@@ -489,62 +303,51 @@ export default function PlayerDetail() {
             )}
           </div>
           {player.role && <p className="text-siege-muted text-sm mt-1">{player.role}</p>}
-          {player.bio && <p className="text-gray-400 text-sm mt-2 leading-relaxed max-w-xl">{player.bio}</p>}
+          {player.bio  && <p className="text-gray-400 text-sm mt-2 leading-relaxed max-w-xl">{player.bio}</p>}
+          {updatedLabel && (
+            <p className="text-siege-muted text-xs mt-2">Live · updated {updatedLabel}</p>
+          )}
         </div>
       </div>
 
-      {/* Tab bar — scrollable on mobile so tabs never wrap */}
-      <div className="flex gap-1 border-b border-siege-border overflow-x-auto">
-        {tabs.map(tab => (
-          <button
-            key={tab}
-            onClick={() => setActiveTab(tab)}
-            className={`px-4 py-2.5 text-sm font-medium transition-colors border-b-2 -mb-px flex items-center gap-1.5 whitespace-nowrap flex-shrink-0 ${
-              activeTab === tab
-                ? 'border-siege-accent text-siege-accent'
-                : 'border-transparent text-siege-muted hover:text-white'
-            }`}
-          >
-            {tabLabels[tab] || tab}
-            {tabMatches[tab] && (
-              <span className="text-[10px] px-1.5 py-0.5 rounded bg-siege-border text-siege-muted font-normal leading-none">
-                {tabMatches[tab]}M
-              </span>
-            )}
-          </button>
-        ))}
+      {/* Primary stats */}
+      <div className="card space-y-2">
+        <h3 className="text-siege-accent font-semibold text-xs uppercase tracking-wider">Current Season</h3>
+        <div className="grid grid-cols-5 gap-1 sm:gap-2">
+          <StatBox label="K/D"     value={stats.kd}      accent={kdColor(stats.kd)}                tip={GLOSSARY.KD} />
+          <StatBox label="Win%"    value={stats.winRate}  accent={wrColor(parseFloat(stats.winRate))} tip={GLOSSARY.WR} />
+          <StatBox label="Matches" value={stats.matches}  tip={GLOSSARY.MATCHES} />
+          <StatBox label="RP"      value={stats.rp} />
+          <StatBox label="RIS"     value={stats.ris}      accent={risTextColor(stats.ris)}           tip={GLOSSARY.RIS} />
+        </div>
+        <div className="grid grid-cols-5 gap-1 sm:gap-2">
+          <StatBox label="KDA"      value={stats.kda}      accent={kdColor(stats.kda)} />
+          <StatBox label="HS%"      value={hsVal}          accent={hsColor(stats.hs)} />
+          <StatBox label="ESR"      value={stats.esr}      accent={esrColor(stats.esr)} tip={GLOSSARY.ESR} />
+          <StatBox label="Clutches" value={stats.clutches} />
+          <StatBox label="Clutch W%" value={clutchWrVal}   accent={clutchWrColor(stats.clutchWR)} />
+        </div>
+        {(stats.maxRp || stats.level || stats.aces) && (
+          <div className="grid grid-cols-3 gap-1 sm:gap-2">
+            {stats.maxRp  && <StatBox label="Peak RP" value={stats.maxRp} small />}
+            {stats.level  && <StatBox label="Level"   value={stats.level} small />}
+            {stats.aces   && <StatBox label="Aces"    value={stats.aces}  small />}
+          </div>
+        )}
       </div>
 
-      {/* Tab content */}
-      {activeTab === 'alltime' && <AllTimeTab player={player} />}
+      {/* Operator breakdown */}
+      <div className="card">
+        <h3 className="text-siege-accent font-semibold text-xs uppercase tracking-wider mb-4">Operators — Current Season</h3>
+        <OpsTable operators={operators} />
+      </div>
 
-      {activeTab === 'coaching' && <CoachingTab player={player} />}
-
-      {activeTab === player.prevSeason && player.prevSeasonStats && (
-        <SeasonTab
-          stats={player.prevSeasonStats}
-          operators={player.prevSeasonOperators}
-          mapPerformance={player.prevSeasonMapPerformance}
-          notes={prevNotes}
-          priorities={player.prevSeasonPriorities || []}
-        />
-      )}
-
-      {activeTab === player.prevSeason && !player.prevSeasonStats && (
-        <div className="card text-siege-muted text-sm text-center py-8">
-          No {player.prevSeason} data available.
-        </div>
-      )}
-
-      {activeTab === player.season && (
-        <SeasonTab
-          stats={player.stats}
-          operators={player.operators}
-          mapPerformance={player.mapPerformance}
-          notes={currentNotes}
-          priorities={player.coachingPriorities}
-        />
-      )}
+      {/* Career history */}
+      <div className="card">
+        <h3 className="text-siege-accent font-semibold text-xs uppercase tracking-wider mb-4">Career History</h3>
+        <p className="text-siege-muted text-xs mb-3">Click any row to expand that season's full operator breakdown.</p>
+        <CareerHistory careerHistory={careerHistory} tracker={tracker} />
+      </div>
 
     </div>
   )
