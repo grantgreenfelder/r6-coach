@@ -117,6 +117,13 @@ export default function Maps() {
   )
 }
 
+// Small pill shown on cards for maps that aren't in the pool all season
+function PoolPill({ rankedPool }) {
+  if (rankedPool === 'first')  return <span className="text-[10px] px-1.5 py-0.5 rounded bg-yellow-500/15 text-yellow-400 border border-yellow-500/20 leading-none flex-shrink-0">Leaving at split</span>
+  if (rankedPool === 'second') return <span className="text-[10px] px-1.5 py-0.5 rounded bg-blue-500/15 text-blue-300 border border-blue-500/20 leading-none flex-shrink-0">Returns at split</span>
+  return null
+}
+
 function MapCard({ map, season, getWr, getWrM, getRating }) {
   const wr      = getWr(map)
   const wrM     = getWrM(map)
@@ -150,7 +157,7 @@ function MapCard({ map, season, getWr, getWrM, getRating }) {
       {/* Card body */}
       <div className="p-3">
         {/* Win rate bar */}
-        <div className="mb-3">
+        <div>
           <div className="flex justify-between text-xs mb-1">
             {wr !== null ? (
               <>
@@ -172,6 +179,11 @@ function MapCard({ map, season, getWr, getWrM, getRating }) {
           </div>
         </div>
 
+        {map.rankedPool === 'first' || map.rankedPool === 'second' ? (
+          <div className="mt-2.5">
+            <PoolPill rankedPool={map.rankedPool} />
+          </div>
+        ) : null}
       </div>
     </Link>
   )

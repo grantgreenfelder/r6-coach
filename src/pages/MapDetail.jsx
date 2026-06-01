@@ -13,7 +13,7 @@ function getPoolBanner(season) {
     first: {
       bg: 'bg-yellow-500/10 border-yellow-500/30 text-yellow-400',
       icon: '⚠',
-      text: <>In ranked pool now — <strong>leaving at the {season} mid-season split</strong>. Strat this map before it rotates out.</>,
+      text: <>In ranked pool now — <strong>leaving at the {season} mid-season split</strong>.</>,
     },
     both: {
       bg: 'bg-siege-green/10 border-siege-green/30 text-siege-green',
@@ -23,7 +23,7 @@ function getPoolBanner(season) {
     second: {
       bg: 'bg-blue-500/10 border-blue-500/30 text-blue-300',
       icon: '↩',
-      text: <>Not in the current pool — <strong>returns at the {season} mid-season split</strong>. Good time to build strats now.</>,
+      text: <>Not in the current pool — <strong>returns at the {season} mid-season split</strong>.</>,
     },
     none: {
       bg: 'bg-siege-border/30 border-siege-border text-siege-muted',
@@ -37,7 +37,7 @@ export default function MapDetail() {
   const mapsData = use(mapsPromise)
   const { mapName } = useParams()
   const map = mapsData.find(m => m.name === mapName)
-  const [activeTab, setActiveTab] = useState('overview')
+  const [activeTab, setActiveTab] = useState(() => map?.overviewContent ? 'overview' : 'stats')
 
   const availableSeasons = map
     ? Object.keys(map.playerStats || {}).sort().reverse()
@@ -158,8 +158,7 @@ export default function MapDetail() {
         <div className="space-y-4">
           {availableSeasons.length === 0 ? (
             <div className="card text-center py-10">
-              <p className="text-siege-muted">No player map data available yet.</p>
-              <p className="text-siege-muted text-sm mt-1">Players appear here once they have 3+ ranked matches on this map.</p>
+              <p className="text-siege-muted">No player stats tracked for this map yet.</p>
             </div>
           ) : (
             <>
