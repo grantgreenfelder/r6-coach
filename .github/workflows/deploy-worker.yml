@@ -18,3 +18,7 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           workingDirectory: worker
+          secrets: |
+            R6DATA_API_KEY
+        env:
+          R6DATA_API_KEY: ${{ secrets.R6DATA_API_KEY }}
