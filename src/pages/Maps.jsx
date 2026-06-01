@@ -4,6 +4,7 @@ import { mapsPromise } from '../data/mapsResource'
 import RatingBadge from '../components/RatingBadge'
 import { wrColor, wrBgColor } from '../utils/constants'
 import { getMapThumbnailUrl } from '../utils/mapThumbnails'
+import { MAP_SNAPSHOT_NOTE } from '../utils/snapshot'
 
 // Derive rating for a given win rate (used when viewing previous season to show contextual badge)
 function ratingFromWr(wr) {
@@ -49,7 +50,10 @@ export default function Maps() {
     <div className="max-w-6xl mx-auto space-y-8">
       {/* Header + controls */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-        <h1 className="text-2xl font-bold text-white">Maps</h1>
+        <div>
+          <h1 className="text-2xl font-bold text-white">Maps</h1>
+          <p className="text-siege-muted text-xs mt-1">{MAP_SNAPSHOT_NOTE}</p>
+        </div>
         {/* Unified filter bar */}
         <div className="flex items-center gap-2 bg-siege-card border border-siege-border rounded-lg px-3 py-2 flex-wrap">
           <input

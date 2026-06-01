@@ -6,6 +6,7 @@ import { risTextColor, risColor, wrColor, wrTileClass, kdColor, RIS_MIN, RIS_MAX
 import HelpTip from '../components/HelpTip'
 import { GLOSSARY } from '../utils/glossary'
 import { getMapThumbnailUrl } from '../utils/mapThumbnails'
+import { SNAPSHOT_DATE } from '../utils/snapshot'
 import PlayerAvatar from '../components/PlayerAvatar.jsx'
 import RisBar from '../components/RisBar.jsx'
 import PortraitChip from '../components/PortraitChip.jsx'
@@ -262,7 +263,7 @@ export default function Dashboard() {
               <span className="text-[10px] font-semibold tracking-widest uppercase text-siege-accent border border-siege-accent/30 px-1.5 py-0.5 rounded">DOE</span>
             </div>
             <p className="text-siege-muted text-xs mt-0.5">
-              {updatedLabel ? `Live · updated ${updatedLabel}` : 'Season Dashboard'}
+              {updatedLabel ? `Player stats live · updated ${updatedLabel}` : 'Season Dashboard'}
             </p>
           </div>
         </div>
@@ -276,7 +277,7 @@ export default function Dashboard() {
         <InsightCard
           label="Best Map"
           value={bestMap ? bestMap.displayName : '—'}
-          sub={bestMap ? `${bestMap.teamWinRate}% win rate` : 'no data'}
+          sub={bestMap ? `${bestMap.teamWinRate}% WR · snapshot` : 'no data'}
           color="text-siege-green"
           to={bestMap ? `/maps/${bestMap.name}` : undefined}
           thumbnailUrl={bestMap ? getMapThumbnailUrl(bestMap.name) : undefined}
@@ -284,7 +285,7 @@ export default function Dashboard() {
         <InsightCard
           label="Ban Target"
           value={banTarget ? banTarget.displayName : '—'}
-          sub={banTarget ? `${banTarget.teamWinRate}% win rate` : 'no data'}
+          sub={banTarget ? `${banTarget.teamWinRate}% WR · snapshot` : 'no data'}
           color="text-siege-red"
           to={banTarget ? `/maps/${banTarget.name}` : undefined}
           thumbnailUrl={banTarget ? getMapThumbnailUrl(banTarget.name) : undefined}
@@ -307,7 +308,10 @@ export default function Dashboard() {
       {/* Map heatmap */}
       <div>
         <div className="flex flex-wrap items-start justify-between gap-2 mb-3">
-          <h2 className="text-white font-semibold text-sm uppercase tracking-wider">Ranked Pool — Win% Heatmap</h2>
+          <h2 className="text-white font-semibold text-sm uppercase tracking-wider">
+            Ranked Pool — Win% Heatmap
+            {SNAPSHOT_DATE && <span className="text-siege-muted text-[10px] font-normal normal-case tracking-normal ml-2">snapshot · {SNAPSHOT_DATE}</span>}
+          </h2>
           <div className="hidden sm:flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-siege-muted">
             <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-siege-green inline-block" />≥60%</span>
             <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-blue-400 inline-block" />50–59%</span>

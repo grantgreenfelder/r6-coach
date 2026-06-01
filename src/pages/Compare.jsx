@@ -6,6 +6,7 @@ import RisBar from '../components/RisBar.jsx'
 import { risTextColor, wrColor, kdColor, esrColor, hsColor, clutchWrColor } from '../utils/constants'
 import HelpTip from '../components/HelpTip'
 import { GLOSSARY } from '../utils/glossary'
+import { MAP_SNAPSHOT_NOTE } from '../utils/snapshot'
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
@@ -230,7 +231,7 @@ function MapComparison({ players }) {
 
   return (
     <div className="card overflow-x-auto">
-      <div className="flex items-center justify-between mb-4 flex-wrap gap-2">
+      <div className="flex items-center justify-between mb-1 flex-wrap gap-2">
         <h2 className="text-white font-semibold text-sm">Map Win Rate — Side by Side</h2>
         <div className="flex items-center gap-1">
           <span className="text-siege-muted text-xs mr-1">Sort:</span>
@@ -244,6 +245,7 @@ function MapComparison({ players }) {
           ))}
         </div>
       </div>
+      <p className="text-siege-muted text-[11px] mb-3">{MAP_SNAPSHOT_NOTE}</p>
       <table className="w-full text-sm min-w-[400px]">
         <thead>
           <tr className="border-b border-siege-border">

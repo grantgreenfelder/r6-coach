@@ -6,6 +6,7 @@ import { NotFound } from '../components/EmptyState'
 import MarkdownContent from '../components/MarkdownContent'
 import { wrColor, wrBgColor, kdColor } from '../utils/constants'
 import { getMapThumbnailUrl } from '../utils/mapThumbnails'
+import { MAP_SNAPSHOT_NOTE } from '../utils/snapshot'
 
 
 function getPoolBanner(season) {
@@ -125,6 +126,8 @@ export default function MapDetail() {
               </div>
             )
           })()}
+
+          <p className="text-siege-muted text-[11px]">{MAP_SNAPSHOT_NOTE}</p>
 
         </div>
       </div>
