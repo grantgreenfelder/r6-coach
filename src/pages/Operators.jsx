@@ -1,7 +1,7 @@
 import { useState, use } from 'react'
 import { Link } from 'react-router-dom'
 import { operatorsPromise } from '../data/operatorsResource'
-import { playersPromise } from '../data/playersResource'
+import { playersPromise, normalizeOp } from '../data/playersResource'
 import { getPortraitUrl } from '../utils/operatorPortraits'
 import PlayerAvatar from '../components/PlayerAvatar.jsx'
 
@@ -10,22 +10,13 @@ const SIDE_COLORS = {
   DEF: { dot: 'bg-blue-400',   text: 'text-blue-400',   badge: 'bg-blue-400/10 text-blue-400 border-blue-400/30' },
 }
 
-// Build a lookup: normalized op name → [full player names] who play it
-function buildMainsMap(playersData) {
-  const allPlayers = [
-    ...(playersData.mainStack || []),
-    ...(playersData.bTeam || []),
-  ]
+// Build a lookup: normalized op name → [player names] who main it, derived from
+// live data (a "main" is an operator in a player's top 2 by rounds for that side).
+function buildMainsMap(operatorStats) {
   const map = {}
-  const normalize = s => s.toLowerCase().replace(/\s+/g, '_').replace(/-/g, '').replace(/ü/g, 'u')
-  for (const player of allPlayers) {
-    const ops = [...(player.atkOps || '').split(/[,/]/), ...(player.defOps || '').split(/[,/]/)]
-      .map(s => s.trim()).filter(Boolean)
-    for (const op of ops) {
-      const key = normalize(op)
-      if (!map[key]) map[key] = []
-      map[key].push(player.name)
-    }
+  for (const [key, { rows }] of Object.entries(operatorStats || {})) {
+    const mains = rows.filter(r => r.isMain).map(r => r.player)
+    if (mains.length > 0) map[key] = mains
   }
   return map
 }
@@ -33,8 +24,7 @@ function buildMainsMap(playersData) {
 function OperatorTile({ op, mainsMap }) {
   const [imgError, setImgError] = useState(false)
   const portraitSrc = getPortraitUrl(op.name)
-  const normalizedKey = op.name.toLowerCase().replace(/\s+/g, '_').replace(/-/g, '').replace(/ü/g, 'u')
-  const mains = mainsMap[normalizedKey] || []
+  const mains = mainsMap[normalizeOp(op.name)] || []
 
   return (
     <Link
@@ -97,7 +87,7 @@ function CategoryGroup({ category, operators, side, mainsMap }) {
 export default function Operators() {
   const operatorsData = use(operatorsPromise)
   const playersData = use(playersPromise)
-  const mainsMap = buildMainsMap(playersData)
+  const mainsMap = buildMainsMap(playersData._operatorStats)
   const [activeSide, setActiveSide] = useState('ATK')
   const [search, setSearch] = useState('')
   const ops = activeSide === 'ATK' ? operatorsData.atk : operatorsData.def
@@ -156,7 +146,7 @@ export default function Operators() {
       <p className="text-siege-muted text-xs -mt-3">
         <span className="inline-flex items-center gap-1">
           <PlayerAvatar name={playersData.mainStack?.[0]?.name || 'Grant'} size="xs" />
-          {' '}= roster main — hover chip for player name
+          {' '}= one of this player's most-played ops — hover chip for name
         </span>
       </p>
 

@@ -1,7 +1,7 @@
 import { use, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { operatorsPromise } from '../data/operatorsResource'
-import { playersPromise } from '../data/playersResource'
+import { playersPromise, normalizeOp } from '../data/playersResource'
 import { opWrColor, opWrBgColor, kdColor } from '../utils/constants'
 import { getPortraitUrl } from '../utils/operatorPortraits'
 import { NotFound } from '../components/EmptyState'
@@ -14,9 +14,6 @@ const SIDE_COLORS = {
   ATK: { text: 'text-orange-400', badge: 'border-orange-400/40 text-orange-400 bg-orange-400/10' },
   DEF: { text: 'text-blue-400',   badge: 'border-blue-400/40 text-blue-400 bg-blue-400/10' },
 }
-
-const SEASON_LABELS = { y11s1: 'Y11S1', y10s4: 'Y10S4' }
-function seasonLabel(key) { return SEASON_LABELS[key] || key.replace(/^y(\d+)s(\d+)$/i, 'Y$1S$2') }
 
 // ─── Small shared components ──────────────────────────────────────────────────
 
@@ -55,38 +52,6 @@ function LoadoutTable({ rows }) {
           <span className="text-gray-400 text-xs mt-0.5 flex-1">{r.notes || r.type}</span>
         </div>
       ))}
-    </div>
-  )
-}
-
-function CoachingRec({ rec }) {
-  const FIELD_LABELS = {
-    primary: 'Primary',
-    muzzle: 'Muzzle',
-    grip: 'Grip',
-    scope: 'Scope',
-    laser: 'Laser',
-    secondary: 'Secondary',
-    'secondary gadget': 'Sec. Gadget',
-  }
-  const entries = Object.entries(rec).filter(([k]) => k !== 'rationale' && FIELD_LABELS[k])
-  if (!entries.length && !rec.rationale) return <p className="text-siege-muted text-sm">No recommendation available</p>
-
-  return (
-    <div className="space-y-3">
-      {entries.length > 0 && (
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-          {entries.map(([field, val]) => (
-            <div key={field} className="bg-black/30 rounded p-2">
-              <div className="text-siege-muted text-[10px] uppercase tracking-wider mb-0.5">{FIELD_LABELS[field] || field}</div>
-              <div className="text-white text-sm font-medium">{val}</div>
-            </div>
-          ))}
-        </div>
-      )}
-      {rec.rationale && (
-        <p className="text-gray-400 text-xs leading-relaxed italic">{rec.rationale}</p>
-      )}
     </div>
   )
 }
@@ -152,21 +117,7 @@ function WikiTab({ op }) {
             )}
           </div>
         </div>
-
-        {op.loadout.coachingRec && Object.keys(op.loadout.coachingRec).length > 0 && (
-          <div className="mt-4 pt-4 border-t border-siege-border">
-            <p className="text-siege-muted text-xs uppercase tracking-wider mb-3">Coaching Recommendation</p>
-            <CoachingRec rec={op.loadout.coachingRec} />
-          </div>
-        )}
       </SectionCard>
-
-      {/* Stack Notes */}
-      {op.stackNotes && (
-        <SectionCard title="Stack Coaching Notes">
-          <p className="text-gray-300 text-sm leading-relaxed">{op.stackNotes}</p>
-        </SectionCard>
-      )}
     </div>
   )
 }
@@ -220,27 +171,20 @@ function PlayerStatRow({ entry, maxRounds, mainStack }) {
   )
 }
 
-function StatsTab({ op, playerOrder, mainStack }) {
-  const seasons = Object.keys(op.stats || {})
-    .filter(k => op.stats[k]?.length > 0)
-    .sort().reverse()
-    .map(k => ({ key: k, label: seasonLabel(k) }))
-
-  const [activeSeason, setActiveSeason] = useState(seasons[0]?.key || 'y11s1')
+function StatsTab({ rows, playerOrder, mainStack }) {
   const [showAll, setShowAll] = useState(false)
 
-  if (seasons.length === 0) {
+  if (!rows || rows.length === 0) {
     return (
       <div className="card text-center py-12">
-        <p className="text-siege-muted">No tracked data for {op.name.replace(/_/g, ' ')} yet.</p>
-        <p className="text-siege-muted text-xs mt-2">Stats appear here once players log rounds on this operator.</p>
+        <p className="text-siege-muted">No stack data this season.</p>
+        <p className="text-siege-muted text-xs mt-2">Player rows appear here once someone on the roster logs ranked rounds on this operator.</p>
       </div>
     )
   }
 
-  const rawRows = op.stats[activeSeason] || []
-  // Sort by rounds descending, maintain player order as tiebreaker
-  const sorted = [...rawRows].sort((a, b) => {
+  // Sort by rounds descending, maintain roster order as tiebreaker
+  const sorted = [...rows].sort((a, b) => {
     const roundsDiff = b.rounds - a.rounds
     if (roundsDiff !== 0) return roundsDiff
     return (playerOrder.indexOf(a.player) + 99) - (playerOrder.indexOf(b.player) + 99)
@@ -248,34 +192,17 @@ function StatsTab({ op, playerOrder, mainStack }) {
   const displayed = showAll ? sorted : sorted.filter(e => mainStack.has(e.player) || e.rounds >= 5)
   const maxRounds = sorted[0]?.rounds || 1
 
-  // Aggregate totals
+  // Round-weighted aggregate totals
   const total = sorted.reduce((acc, e) => ({
     rounds: acc.rounds + e.rounds,
-    wrSum: acc.wrSum + e.winRate * e.rounds,
-    kdSum: acc.kdSum + e.kd * e.rounds,
+    wrSum:  acc.wrSum + e.winRate * e.rounds,
+    kdSum:  acc.kdSum + e.kd * e.rounds,
   }), { rounds: 0, wrSum: 0, kdSum: 0 })
   const avgWr = total.rounds > 0 ? (total.wrSum / total.rounds).toFixed(1) : '—'
   const avgKd = total.rounds > 0 ? (total.kdSum / total.rounds).toFixed(2) : '—'
 
   return (
     <div className="space-y-4">
-      {/* Season selector */}
-      <div className="flex gap-1 border-b border-siege-border">
-        {seasons.map(s => (
-          <button
-            key={s.key}
-            onClick={() => setActiveSeason(s.key)}
-            className={`px-4 py-2 text-sm font-medium transition-colors border-b-2 -mb-px ${
-              activeSeason === s.key
-                ? 'border-siege-accent text-siege-accent'
-                : 'border-transparent text-siege-muted hover:text-white'
-            }`}
-          >
-            {s.label}
-          </button>
-        ))}
-      </div>
-
       {/* Summary stats */}
       <div className="grid grid-cols-3 gap-2">
         {[
@@ -309,7 +236,7 @@ function StatsTab({ op, playerOrder, mainStack }) {
         </div>
         {displayed.length > 0
           ? displayed.map((e, i) => <PlayerStatRow key={i} entry={e} maxRounds={maxRounds} mainStack={mainStack} />)
-          : <p className="text-siege-muted text-sm py-4 text-center">No data for this season</p>
+          : <p className="text-siege-muted text-sm py-4 text-center">No qualifying rows — tap "show more".</p>
         }
       </div>
     </div>
@@ -328,6 +255,12 @@ export default function OperatorDetail() {
   const { name } = useParams()
   const allOps = [...operatorsData.atk, ...operatorsData.def]
   const op = allOps.find(o => o.name.toLowerCase() === name?.toLowerCase())
+
+  // Live current-season stack rows for this operator
+  const liveRows = op ? (playersData._operatorStats?.[normalizeOp(op.name)]?.rows ?? []) : []
+  const updatedLabel = playersData._updatedAt
+    ? new Date(playersData._updatedAt).toLocaleString('en-US', { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' })
+    : null
 
   const [activeTab, setActiveTab] = useState('wiki')
   const [imgError, setImgError] = useState(false)
@@ -413,13 +346,14 @@ export default function OperatorDetail() {
       {/* Tab context label */}
       {activeTab === 'stats' && (
         <p className="text-siege-muted text-xs -mt-4">
-          Team performance data for {op.name.replace(/_/g, ' ')} across all tracked players and seasons.
+          Current-season ranked stats for {op.name.replace(/_/g, ' ')} across the roster
+          {updatedLabel ? ` · live, updated ${updatedLabel}` : ''}.
         </p>
       )}
 
       {/* Tab content */}
       {activeTab === 'wiki'  && <WikiTab  op={op} />}
-      {activeTab === 'stats' && <StatsTab op={op} playerOrder={PLAYER_ORDER} mainStack={MAIN_STACK} />}
+      {activeTab === 'stats' && <StatsTab rows={liveRows} playerOrder={PLAYER_ORDER} mainStack={MAIN_STACK} />}
     </div>
   )
 }
