@@ -82,11 +82,11 @@ export default function Maps() {
         </div>
       </div>
 
-      {/* Tracked */}
+      {/* Maps with win-rate data for the selected season */}
       {tracked.length > 0 && (
         <div>
           <div className="flex items-center gap-3 mb-4">
-            <h2 className="text-white font-semibold text-sm uppercase tracking-wider">Tracked</h2>
+            <h2 className="text-white font-semibold text-sm uppercase tracking-wider">Win Rates</h2>
             <div className="flex-1 h-px bg-siege-border" />
             <span className="text-siege-muted text-xs">{tracked.length} maps · {season}</span>
           </div>
@@ -96,13 +96,13 @@ export default function Maps() {
         </div>
       )}
 
-      {/* Untracked */}
+      {/* Maps with no recorded matches for the selected season */}
       {untracked.length > 0 && (
         <div>
           <div className="flex items-center gap-3 mb-4">
-            <h2 className="text-siege-muted font-semibold text-sm uppercase tracking-wider">Untracked</h2>
+            <h2 className="text-siege-muted font-semibold text-sm uppercase tracking-wider">No {season} Data</h2>
             <div className="flex-1 h-px bg-siege-border/40" />
-            <span className="text-siege-muted text-xs">{untracked.length} maps · {season}</span>
+            <span className="text-siege-muted text-xs">{untracked.length} maps</span>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 opacity-50">
             {untracked.map(map => <MapCard key={map.name} map={map} season={season} getWr={getWr} getWrM={getWrM} getRating={getRating} />)}
