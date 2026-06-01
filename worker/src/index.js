@@ -24,6 +24,29 @@ function normalizeRank(rank) {
     .replace(/ 4$/, ' IV').replace(/ 5$/, ' V')
 }
 
+// ── RIS (Round Impact Score) ──────────────────────────────────────────────────
+// Weighted composite of KDA, ESR, WR, ClutchWR, HS%. Scale: 25–75, baseline 50.
+// Requires ≥30 matches; clutchWR substitutes neutral (20%) if <8 attempts.
+const RIS_MIN_MATCHES       = 30
+const RIS_MIN_CLUTCH_TRIES  = 8
+const RIS_NEUTRAL_CLUTCH_WR = 20   // neutral stand-in when clutch attempts too low
+
+function normRIS(x, lo, hi) {
+  return Math.min(1, Math.max(0, (x - lo) / (hi - lo)))
+}
+
+function computeRIS(matches, kda, esr, wr, clutchWR, clutchAttempts, hs) {
+  if (!matches || matches < RIS_MIN_MATCHES) return null
+  const cwrVal = clutchAttempts >= RIS_MIN_CLUTCH_TRIES ? clutchWR : RIS_NEUTRAL_CLUTCH_WR
+  const composite =
+    0.30 * normRIS(kda,    0.70, 2.00) +
+    0.30 * normRIS(esr,    0.25, 0.70) +
+    0.20 * normRIS(wr,     35,   60)   +
+    0.10 * normRIS(cwrVal, 5,    35)   +
+    0.10 * normRIS(hs,     20,   60)
+  return Math.round((25 + 50 * composite) * 10) / 10
+}
+
 function computeFlag(rounds, winRate) {
   if (rounds < SMALL_SAMPLE) return ''
   if (winRate >= 60) return '⭐'
@@ -118,12 +141,23 @@ function transformPlayer(rawSeasons, rawSeasonal, rawOperators) {
     totalAces        += o.aces         ?? 0
   })
 
-  const hs       = totalKills > 0 ? parseFloat((totalHeadshots / totalKills * 100).toFixed(1)) : null
-  const kda      = totalDeaths > 0 ? parseFloat(((totalKills + totalAssists) / totalDeaths).toFixed(2)) : null
-  const esr      = (totalFB + totalFD) > 0 ? parseFloat((totalFB / (totalFB + totalFD)).toFixed(2)) : null
-  const clutches = totalClutches
-  const clutchWR = (totalClutches + totalClutchesLost) > 0
-    ? parseFloat((totalClutches / (totalClutches + totalClutchesLost) * 100).toFixed(1)) : null
+  const hs             = totalKills > 0 ? parseFloat((totalHeadshots / totalKills * 100).toFixed(1)) : null
+  const kda            = totalDeaths > 0 ? parseFloat(((totalKills + totalAssists) / totalDeaths).toFixed(2)) : null
+  const esr            = (totalFB + totalFD) > 0 ? parseFloat((totalFB / (totalFB + totalFD)).toFixed(2)) : null
+  const clutches       = totalClutches
+  const clutchAttempts = totalClutches + totalClutchesLost
+  const clutchWR       = clutchAttempts > 0
+    ? parseFloat((totalClutches / clutchAttempts * 100).toFixed(1)) : null
+
+  const ris = computeRIS(
+    matches,
+    kda    ?? 0,
+    esr    ?? 0,
+    winRate ?? 0,
+    clutchWR ?? RIS_NEUTRAL_CLUTCH_WR,
+    clutchAttempts,
+    hs     ?? 0,
+  )
 
   // ── Career history (ranked seasons only, most recent first) ───────────────
   const careerHistory = segments
@@ -182,6 +216,7 @@ function transformPlayer(rawSeasons, rawSeasonal, rawOperators) {
       ...(clutchWR != null && { clutchWR: String(clutchWR) }),
       ...(level   != null && { level: String(level) }),
       ...(totalAces > 0  && { aces: String(totalAces) }),
+      ...(ris     != null && { ris: String(ris) }),
     },
     operators:      { atk: makeOpList('Attacker'), def: makeOpList('Defender') },
     careerHistory,
