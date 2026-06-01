@@ -58,7 +58,7 @@ function LoadoutTable({ rows }) {
               {hasStats ? (
                 <div className="flex gap-3 text-xs text-gray-400 tabular-nums">
                   <span><span className="text-siege-muted">DMG</span> {r.damage}</span>
-                  <span><span className="text-siege-muted">RPM</span> {r.firerate || '—'}</span>
+                  {r.firerate > 1 && <span><span className="text-siege-muted">RPM</span> {r.firerate}</span>}
                   <span><span className="text-siege-muted">Mag</span> {r.ammo ?? '—'}</span>
                 </div>
               ) : (
@@ -75,6 +75,14 @@ function LoadoutTable({ rows }) {
 function WikiTab({ op }) {
   return (
     <div className="space-y-4">
+      {op._isNew && (
+        <div className="card border border-siege-accent/30 bg-siege-accent/5">
+          <p className="text-gray-300 text-sm">
+            <span className="text-siege-accent font-semibold">Recently added.</span>{' '}
+            Profile and loadout are live; the tactical writeup (gadget, strengths, weaknesses) is pending.
+          </p>
+        </div>
+      )}
       {/* Gadget */}
       <SectionCard title={`Gadget — ${op.gadget.name || 'Unknown'}`}>
         {op.gadget.description && (
@@ -187,19 +195,37 @@ function PlayerStatRow({ entry, maxRounds, mainStack }) {
   )
 }
 
-function StatsTab({ rows, playerOrder, mainStack }) {
+// Fetch one operator's per-player rows for a past season by fanning out across
+// the roster's /api/season endpoints.
+async function fetchSeasonRows(normName, players, season) {
+  const results = await Promise.all(players.map(async p => {
+    try {
+      const r = await fetch(`/api/season?tracker=${encodeURIComponent(p.tracker)}&season=${season}`)
+      if (!r.ok) return null
+      const data = await r.json()
+      if (data.empty || !data.operators) return null
+      const all = [...(data.operators.atk || []), ...(data.operators.def || [])]
+      const op = all.find(o => normalizeOp(o.name) === normName)
+      return op ? { player: p.name, rounds: op.rounds, winRate: op.winRate, kd: op.kd } : null
+    } catch {
+      return null
+    }
+  }))
+  return results.filter(Boolean)
+}
+
+function StatsTable({ rows, playerOrder, mainStack }) {
   const [showAll, setShowAll] = useState(false)
 
   if (!rows || rows.length === 0) {
     return (
-      <div className="card text-center py-12">
-        <p className="text-siege-muted">No stack data this season.</p>
-        <p className="text-siege-muted text-xs mt-2">Player rows appear here once someone on the roster logs ranked rounds on this operator.</p>
+      <div className="card text-center py-10">
+        <p className="text-siege-muted">No stack data for this season.</p>
+        <p className="text-siege-muted text-xs mt-2">Nobody on the roster logged ranked rounds on this operator.</p>
       </div>
     )
   }
 
-  // Sort by rounds descending, maintain roster order as tiebreaker
   const sorted = [...rows].sort((a, b) => {
     const roundsDiff = b.rounds - a.rounds
     if (roundsDiff !== 0) return roundsDiff
@@ -208,7 +234,6 @@ function StatsTab({ rows, playerOrder, mainStack }) {
   const displayed = showAll ? sorted : sorted.filter(e => mainStack.has(e.player) || e.rounds >= 5)
   const maxRounds = sorted[0]?.rounds || 1
 
-  // Round-weighted aggregate totals
   const total = sorted.reduce((acc, e) => ({
     rounds: acc.rounds + e.rounds,
     wrSum:  acc.wrSum + e.winRate * e.rounds,
@@ -219,7 +244,6 @@ function StatsTab({ rows, playerOrder, mainStack }) {
 
   return (
     <div className="space-y-4">
-      {/* Summary stats */}
       <div className="grid grid-cols-3 gap-2">
         {[
           { label: 'Total Rounds', value: total.rounds || '—', tip: null },
@@ -235,17 +259,13 @@ function StatsTab({ rows, playerOrder, mainStack }) {
         ))}
       </div>
 
-      {/* Player rows */}
       <div className="card">
         <div className="flex items-center gap-2 mb-1">
           <p className="text-siege-muted text-xs flex-1 flex items-center gap-1.5">
             Win% bar <HelpTip text={GLOSSARY.WR} /> · K/D <HelpTip text={GLOSSARY.KD} /> · Rounds Played
           </p>
           {sorted.length > displayed.length && (
-            <button
-              onClick={() => setShowAll(!showAll)}
-              className="text-xs text-siege-accent hover:underline"
-            >
+            <button onClick={() => setShowAll(!showAll)} className="text-xs text-siege-accent hover:underline">
               {showAll ? 'Show less' : `+${sorted.length - displayed.length} more`}
             </button>
           )}
@@ -255,6 +275,50 @@ function StatsTab({ rows, playerOrder, mainStack }) {
           : <p className="text-siege-muted text-sm py-4 text-center">No qualifying rows — tap "show more".</p>
         }
       </div>
+    </div>
+  )
+}
+
+function StatsTab({ normName, currentRows, currentSeason, pastSeasons, players, playerOrder, mainStack }) {
+  const [season, setSeason]   = useState(currentSeason)
+  const [cache, setCache]     = useState({ [currentSeason]: currentRows })
+  const [loading, setLoading] = useState(false)
+
+  const pickSeason = async (s) => {
+    setSeason(s)
+    if (cache[s] !== undefined) return
+    setLoading(true)
+    const rows = await fetchSeasonRows(normName, players, s)
+    setCache(c => ({ ...c, [s]: rows }))
+    setLoading(false)
+  }
+
+  const seasonTabs = [currentSeason, ...pastSeasons]
+  const rows = cache[season]
+
+  return (
+    <div className="space-y-4">
+      {/* Season selector */}
+      {seasonTabs.length > 1 && (
+        <div className="flex gap-1 border-b border-siege-border overflow-x-auto">
+          {seasonTabs.map(s => (
+            <button
+              key={s}
+              onClick={() => pickSeason(s)}
+              className={`px-3 py-2 text-sm font-medium transition-colors border-b-2 -mb-px whitespace-nowrap flex-shrink-0 ${
+                season === s ? 'border-siege-accent text-siege-accent' : 'border-transparent text-siege-muted hover:text-white'
+              }`}
+            >
+              {s}{s === currentSeason ? ' · current' : ''}
+            </button>
+          ))}
+        </div>
+      )}
+
+      {loading
+        ? <div className="card text-center py-10"><p className="text-siege-muted text-sm">Loading {season}…</p></div>
+        : <StatsTable rows={rows} playerOrder={playerOrder} mainStack={mainStack} />
+      }
     </div>
   )
 }
@@ -277,6 +341,19 @@ export default function OperatorDetail() {
   const updatedLabel = playersData._updatedAt
     ? new Date(playersData._updatedAt).toLocaleString('en-US', { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' })
     : null
+
+  // Roster players + the seasons available for historical operator lookups
+  const rosterPlayers = [...(playersData.mainStack || []), ...(playersData.bTeam || [])]
+    .map(p => ({ name: p.name, tracker: p.tracker }))
+  const seasonKey = s => { const m = /Y(\d+)S(\d+)/.exec(s); return m ? +m[1] * 10 + +m[2] : 0 }
+  const seasonSet = new Set()
+  for (const p of [...(playersData.mainStack || []), ...(playersData.bTeam || [])]) {
+    for (const s of (p.careerHistory || [])) if (s.matches > 0) seasonSet.add(s.season)
+  }
+  const allSeasons   = [...seasonSet].sort((a, b) => seasonKey(b) - seasonKey(a))
+  const currentSeason = allSeasons[0] || 'Y11S1'
+  // Offer current + up to 5 recent past seasons (older seasons have no operator data)
+  const pastSeasons  = allSeasons.slice(1, 6)
 
   const [activeTab, setActiveTab] = useState('wiki')
   const [imgError, setImgError] = useState(false)
@@ -362,14 +439,24 @@ export default function OperatorDetail() {
       {/* Tab context label */}
       {activeTab === 'stats' && (
         <p className="text-siege-muted text-xs -mt-4">
-          Current-season ranked stats for {op.name.replace(/_/g, ' ')} across the roster
+          Ranked stats for {op.name.replace(/_/g, ' ')} across the roster
           {updatedLabel ? ` · live, updated ${updatedLabel}` : ''}.
         </p>
       )}
 
       {/* Tab content */}
       {activeTab === 'wiki'  && <WikiTab  op={op} />}
-      {activeTab === 'stats' && <StatsTab rows={liveRows} playerOrder={PLAYER_ORDER} mainStack={MAIN_STACK} />}
+      {activeTab === 'stats' && (
+        <StatsTab
+          normName={normalizeOp(op.name)}
+          currentRows={liveRows}
+          currentSeason={currentSeason}
+          pastSeasons={pastSeasons}
+          players={rosterPlayers}
+          playerOrder={PLAYER_ORDER}
+          mainStack={MAIN_STACK}
+        />
+      )}
     </div>
   )
 }

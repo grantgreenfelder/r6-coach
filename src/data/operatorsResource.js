@@ -29,7 +29,7 @@ function synthNewOp(live, opWeapons, statsByKey) {
   return {
     name: live.name,
     side: live.side,
-    category: (live.roles && live.roles[0]) || 'Other',
+    category: 'New Operators',
     imageUrl: live.iconUrl,
     profile: {
       realName:   live.realName,
