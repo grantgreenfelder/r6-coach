@@ -6,8 +6,8 @@ import { getPlayerPhotoUrl } from '../utils/playerPhotos'
  *
  * Props:
  *   name   — player display name
- *   size   — 'sm' (32px, Roster/Dashboard cards)
- *            'md' (40px, StratViewer player focus)
+ *   size   — 'xs' (20px, leaderboard rows)
+ *            'sm' (32px, Roster/Dashboard cards)
  *            'lg' (56px, Player Detail header)
  */
 export default function PlayerAvatar({ name, size = 'sm' }) {
