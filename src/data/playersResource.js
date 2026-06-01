@@ -2,7 +2,18 @@ import playersUrl from './players.json?url'
 
 const staticPromise = fetch(playersUrl).then(r => r.json())
 
-const livePromise = fetch('/api/stats').then(r => r.json()).catch(() => null)
+// Live fetch with an 8s timeout so a slow/hanging API degrades to static data
+// rather than blocking the whole render indefinitely.
+function fetchLive(url, ms = 8000) {
+  const ctrl = new AbortController()
+  const t = setTimeout(() => ctrl.abort(), ms)
+  return fetch(url, { signal: ctrl.signal })
+    .then(r => (r.ok ? r.json() : null))
+    .catch(() => null)
+    .finally(() => clearTimeout(t))
+}
+
+const livePromise = fetchLive('/api/stats')
 
 // Normalize operator names across sources: strips diacritics, spaces, underscores,
 // hyphens and punctuation so "Solid_Snake", "Solid Snake", "Capitão", "Jäger ",
@@ -20,14 +31,12 @@ function mergePlayer(player, live) {
   const liveData = live[player.tracker]
   if (!liveData) return player
 
-  const mergedStats = { ...player.stats }
-  for (const [k, v] of Object.entries(liveData.stats)) {
-    if (v !== null) mergedStats[k] = v
-  }
-
-  const hasLiveOps =
-    liveData.operators?.atk?.length > 0 || liveData.operators?.def?.length > 0
-  const mergedOperators = hasLiveOps ? liveData.operators : player.operators
+  // In the live feed → live data is authoritative for the current season. Do NOT
+  // layer it over the frozen KB stats: at season rollover a player with 0 new
+  // matches would otherwise bleed last season's frozen numbers through, still
+  // labelled "live". An empty current season honestly shows as no data yet.
+  const mergedStats = { ...liveData.stats }
+  const mergedOperators = liveData.operators ?? { atk: [], def: [] }
 
   // Derive primary ops from live data for display on cards
   const _topAtkOps = mergedOperators?.atk?.slice(0, 2).map(o => o.name) ?? []

@@ -1,7 +1,19 @@
 import operatorsUrl from './operators.json?url'
 
-const kbPromise  = fetch(operatorsUrl).then(r => r.json())
-const refPromise = fetch('/api/operators').then(r => r.json()).catch(() => null)
+const kbPromise = fetch(operatorsUrl).then(r => r.json())
+
+// Live reference fetch with an 8s timeout — degrades to the KB-only catalog if
+// the API is slow or down rather than blocking the operators pages.
+function fetchLive(url, ms = 8000) {
+  const ctrl = new AbortController()
+  const t = setTimeout(() => ctrl.abort(), ms)
+  return fetch(url, { signal: ctrl.signal })
+    .then(r => (r.ok ? r.json() : null))
+    .catch(() => null)
+    .finally(() => clearTimeout(t))
+}
+
+const refPromise = fetchLive('/api/operators')
 
 const normName   = s => (s || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/ø/g, 'o').replace(/ð/g, 'd').replace(/[^a-z0-9]/g, '')
 const normWeapon = s => (s || '').toLowerCase().replace(/[^a-z0-9]/g, '')
