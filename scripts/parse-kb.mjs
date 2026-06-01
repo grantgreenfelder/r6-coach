@@ -935,16 +935,22 @@ const searchIndex = [
 ]
 
 try {
+  // Strip fields the site no longer uses — the strat system and map reference/Wiki
+  // tab were removed, so these just bloat maps.json (~500KB of dead data).
+  for (const m of maps) {
+    delete m.strats
+    delete m.referenceContent
+    delete m.stratCount
+  }
+
   fs.writeFileSync(path.join(OUT, 'players.json'), JSON.stringify(players, null, 2))
   fs.writeFileSync(path.join(OUT, 'maps.json'), JSON.stringify(maps, null, 2))
-  fs.writeFileSync(path.join(OUT, 'stack.json'), JSON.stringify(stack, null, 2))
   fs.writeFileSync(path.join(OUT, 'operators.json'), JSON.stringify(operators, null, 2))
   fs.writeFileSync(path.join(OUT, 'search-index.json'), JSON.stringify(searchIndex))
   fs.writeFileSync(path.join(OUT, 'meta.json'), JSON.stringify({
     parsedAt: new Date().toISOString(),
     playerCount: players.mainStack.length + players.bTeam.length,
     mapCount: maps.length,
-    stratCount: maps.reduce((a, m) => a + m.strats.length, 0),
     operatorCount: operators.atk.length + operators.def.length,
   }, null, 2))
   console.log(`\n✅ Done — data written to src/data/`)
