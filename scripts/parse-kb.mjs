@@ -935,12 +935,34 @@ const searchIndex = [
 ]
 
 try {
-  // Strip fields the site no longer uses — the strat system and map reference/Wiki
-  // tab were removed, so these just bloat maps.json (~500KB of dead data).
+  // Strip fields the site no longer uses (the overhaul moved stats live and
+  // removed the coaching / strat / Wiki layers). Keeps the committed JSON lean.
+
+  // Maps: strat system + map reference/Wiki tab were removed (~500KB).
   for (const m of maps) {
     delete m.strats
     delete m.referenceContent
     delete m.stratCount
+  }
+
+  // Players: coaching prose, teaching, and prev-season blobs are no longer
+  // rendered (stats are live now) — ~210KB of dead data.
+  const DEAD_PLAYER = ['atkOps', 'defOps', 'coachingAreas', 'coachingContent',
+    'coachingPriorities', 'coachingPrioritiesText', 'coachingRole', 'coachingWorking',
+    'profileContent', 'seasonContent', 'teachingPattern', 'teachingPriorities',
+    'prevSeason', 'prevSeasonAtkOps', 'prevSeasonDefOps', 'prevSeasonContent',
+    'prevSeasonMapPerformance', 'prevSeasonOperators', 'prevSeasonStats']
+  for (const tier of ['mainStack', 'bTeam', 'other']) {
+    for (const pl of (players[tier] || [])) for (const f of DEAD_PLAYER) delete pl[f]
+  }
+
+  // Operators: stack coaching notes, loadout coaching recs, frozen KB stats
+  // (replaced by live /api/operators), and unused imageUrl — ~120KB.
+  for (const op of [...operators.atk, ...operators.def]) {
+    delete op.stackNotes
+    delete op.stats
+    delete op.imageUrl
+    if (op.loadout) delete op.loadout.coachingRec
   }
 
   fs.writeFileSync(path.join(OUT, 'players.json'), JSON.stringify(players, null, 2))
