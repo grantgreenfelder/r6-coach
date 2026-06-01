@@ -24,8 +24,24 @@
 /players/*.jpg
   Cache-Control: public, no-cache
 
-# ── Favicon and icons — medium cache ─────────────────────────────────────────
+# ── Favicon, app icons, social image — medium cache ──────────────────────────
 /favicon.svg
   Cache-Control: public, max-age=86400
-/icons.svg
-  Cache-Control: public, max-age=86400
+/doe-seal.png
+  Cache-Control: public, max-age=604800
+/icon-192.png
+  Cache-Control: public, max-age=604800
+/icon-512.png
+  Cache-Control: public, max-age=604800
+/apple-touch-icon.png
+  Cache-Control: public, max-age=604800
+/og-image.png
+  Cache-Control: public, max-age=604800
+
+# ── Manifest / robots / sitemap — short cache (may change between deploys) ────
+/manifest.webmanifest
+  Cache-Control: public, max-age=3600
+/robots.txt
+  Cache-Control: public, max-age=3600
+/sitemap.xml
+  Cache-Control: public, max-age=3600
