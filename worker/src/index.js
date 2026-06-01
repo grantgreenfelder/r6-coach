@@ -359,24 +359,17 @@ async function updateOperatorReference(env) {
 }
 
 // ── Backfill past seasons for one player ─────────────────────────────────────
-// Capped at MAX_BACKFILL_PER_RUN seasons per player to stay under Cloudflare's
-// 50 subrequest limit on the free tier. All seasons fill in over several runs.
+// Draws from a shared per-run budget so the whole invocation stays under
+// Cloudflare's 50-subrequest free-tier limit. All seasons fill in over time.
 
-const MAX_BACKFILL_PER_RUN = 3
-
-async function backfillHistory(player, currentSeason, careerHistory, env) {
-  const allSeasons = pastSeasons(currentSeason)   // Y6S1 → current-1
-
-  // One KV list call instead of N individual reads — far cheaper on subrequests
-  const { keys: existingKeys } = await env.R6_STATS.list({ prefix: `season:${player.tracker}:` })
-  const existingSet = new Set(existingKeys.map(k => k.name))
-
+async function backfillHistory(player, currentSeason, careerHistory, existingSet, budget, env) {
+  if (budget.n <= 0) return
+  const allSeasons = pastSeasons(currentSeason)
   const missing = allSeasons.filter(s => !existingSet.has(`season:${player.tracker}:${s.str}`))
   if (missing.length === 0) return
 
-  // Process oldest missing seasons first, capped per run
-  const batch = missing.slice(0, MAX_BACKFILL_PER_RUN)
-  console.log(`  ${player.name}: backfilling ${batch.length} of ${missing.length} missing seasons`)
+  const batch = missing.slice(0, budget.n)
+  budget.n -= batch.length
 
   const results = await Promise.allSettled(
     batch.map(async s => {
@@ -386,60 +379,64 @@ async function backfillHistory(player, currentSeason, careerHistory, env) {
         const data        = transformHistoricalSeason(s.str, raw, careerEntry)
         await env.R6_STATS.put(`season:${player.tracker}:${s.str}`, JSON.stringify(data))
         return s.str
-      } catch (err) {
+      } catch {
         // Store an empty stub so we don't retry a season the API can't serve
-        await env.R6_STATS.put(
-          `season:${player.tracker}:${s.str}`,
-          JSON.stringify({ season: s.str, empty: true })
-        )
-        throw err
+        await env.R6_STATS.put(`season:${player.tracker}:${s.str}`, JSON.stringify({ season: s.str, empty: true }))
+        throw new Error(s.str)
       }
     })
   )
-
-  const stored  = results.filter(r => r.status === 'fulfilled').map(r => r.value)
-  const errored = results.filter(r => r.status === 'rejected').length
-  console.log(`  ${player.name}: stored ${stored.length}${errored ? `, ${errored} stubbed (no API data)` : ''}`)
+  const stored  = results.filter(r => r.status === 'fulfilled').length
+  const stubbed = results.filter(r => r.status === 'rejected').length
+  console.log(`  ${player.name}: backfilled ${stored}${stubbed ? `, ${stubbed} stubbed` : ''} (${missing.length - batch.length} left)`)
 }
 
 // ── Worker entry ──────────────────────────────────────────────────────────────
 
+// Total season backfills allowed per run (each costs ~2 subrequests). Kept low
+// so the invocation stays well under the 50-subrequest limit; backfill is a
+// one-time catch-up that completes over several runs.
+const BACKFILL_BUDGET_PER_RUN = 6
+
 export default {
-  async scheduled(_event, env) {
-    console.log('Stats update started:', new Date().toISOString())
+  async scheduled(event, env) {
+    // Split the roster across the two daily runs so each invocation stays under
+    // the subrequest limit. Each player updates once per day.
+    const hour   = new Date(event?.scheduledTime ?? Date.now()).getUTCHours()
+    const slot   = hour < 16 ? 'morning' : 'evening'
+    const roster = slot === 'morning' ? PLAYERS.slice(0, 5) : PLAYERS.slice(5)
+    console.log(`Stats update (${slot}) started:`, new Date().toISOString(), '—', roster.map(p => p.name).join(', '))
+
     const failed = []
 
-    // Operator reference (roster, profiles, loadouts) — once per run
+    // Operator reference (roster, profiles, loadouts) — every run, it's cheap
     await updateOperatorReference(env)
 
-    for (const player of PLAYERS) {
+    // One global list of existing season keys (cheap vs one list per player)
+    const { keys } = await env.R6_STATS.list({ prefix: 'season:' })
+    const existingSet = new Set(keys.map(k => k.name))
+    const budget = { n: BACKFILL_BUDGET_PER_RUN }
+
+    for (const player of roster) {
       try {
-        // 1. Fetch seasons stats first — gives us currentSeason + careerHistory
         const rawSeasons    = await fetchSeasonsStats(player.tracker, env.R6DATA_API_KEY)
         const currentSeason = rawSeasons?.data?.metadata?.currentSeason
         if (!currentSeason) throw new Error('could not detect current season')
 
         const seasonYear = seasonNumToStr(currentSeason)
-
-        // 2. Fetch current season details in parallel
         const [rawSeasonal, rawOperators] = await Promise.all([
           fetchSeasonalStats(player.tracker, env.R6DATA_API_KEY),
           fetchOperatorStats(player.tracker, seasonYear, env.R6DATA_API_KEY),
         ])
 
-        // 3. Store current season
         const data = transformCurrentSeason(rawSeasons, rawSeasonal, rawOperators)
         await env.R6_STATS.put(`player:${player.tracker}`, JSON.stringify(data))
         console.log(
           `✓ ${player.name} — ${data.stats.rank ?? 'unranked'} | ` +
-          `KD ${data.stats.kd} | WR ${data.stats.winRate} | ` +
-          `KDA ${data.stats.kda} | ESR ${data.stats.esr} | ` +
-          `RIS ${data.stats.ris ?? '—'}`
+          `KD ${data.stats.kd} | WR ${data.stats.winRate} | RIS ${data.stats.ris ?? '—'}`
         )
 
-        // 4. Backfill any missing past seasons (no-op once all are cached)
-        await backfillHistory(player, currentSeason, data.careerHistory, env)
-
+        await backfillHistory(player, currentSeason, data.careerHistory, existingSet, budget, env)
       } catch (err) {
         console.error(`✗ ${player.name} failed:`, err.message)
         failed.push(player.name)
@@ -447,6 +444,6 @@ export default {
     }
 
     if (failed.length) console.error('Failed:', failed.join(', '))
-    console.log('Stats update complete:', new Date().toISOString())
+    console.log(`Stats update (${slot}) complete:`, new Date().toISOString())
   },
 }
