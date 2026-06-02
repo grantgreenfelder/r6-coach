@@ -7,6 +7,9 @@
     background-color: #0a0f1a;
     color: #f0f0f0;
     font-family: 'Inter', system-ui, sans-serif;
+    /* Guard against stray edge overflow (e.g. a tap-tooltip near the screen
+       edge) creating a horizontal scrollbar. clip preserves the sticky header. */
+    overflow-x: clip;
   }
   ::-webkit-scrollbar { width: 6px; height: 6px; }
   ::-webkit-scrollbar-track { background: #0e1726; }

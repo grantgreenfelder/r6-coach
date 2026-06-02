@@ -76,7 +76,7 @@ function OpRow({ op, maxRounds, showExtra, dim }) {
             </div>
           </>
         ) : (
-          <div className="text-right w-7 sm:w-8 hidden sm:block">
+          <div className="text-right w-8">
             <span className="text-siege-muted text-xs tabular-nums">{op.rounds}r</span>
           </div>
         )}
@@ -132,9 +132,10 @@ function OpsTable({ operators }) {
           <span className="flex items-center gap-1.5"><span className="w-6 h-1 bg-siege-muted/40 rounded-full inline-block" />Rounds</span>
           <span className="flex items-center gap-1.5"><span className="w-6 h-1.5 bg-siege-green rounded-full inline-block" />Win%</span>
         </div>
+        {/* Toggle only affects sm+ (HS%/ESR columns are hidden on mobile) */}
         <button
           onClick={() => setShowExtra(x => !x)}
-          className={`text-xs px-2.5 py-1 rounded border transition-colors ${showExtra ? 'border-siege-border text-siege-muted hover:text-white' : 'border-siege-accent text-siege-accent'}`}
+          className={`hidden sm:block text-xs px-2.5 py-1 rounded border transition-colors ${showExtra ? 'border-siege-border text-siege-muted hover:text-white' : 'border-siege-accent text-siege-accent'}`}
         >
           {showExtra ? 'View K/D + Rounds' : 'View HS% + ESR'}
         </button>

@@ -12,6 +12,7 @@ import { useState, useRef, useEffect } from 'react'
  */
 export default function HelpTip({ text, position = 'top' }) {
   const [open, setOpen] = useState(false)
+  const [align, setAlign] = useState('center') // 'left' | 'center' | 'right'
   const ref = useRef(null)
 
   // Close on outside click (handles mobile tap-away)
@@ -28,19 +29,37 @@ export default function HelpTip({ text, position = 'top' }) {
     }
   }, [open])
 
+  // Edge-aware: align the ~176px tooltip inward when the icon is near a screen
+  // edge. Measured at open time (in the handler, not an effect).
+  function openTip() {
+    if (ref.current) {
+      const rect = ref.current.getBoundingClientRect()
+      const center = rect.left + rect.width / 2
+      const half = 90, margin = 8
+      setAlign(center - half < margin ? 'left' : center + half > window.innerWidth - margin ? 'right' : 'center')
+    }
+    setOpen(true)
+  }
+
   const isAbove = position === 'top'
+  const alignCls = align === 'left'  ? 'left-0'
+                 : align === 'right' ? 'right-0'
+                 :                     'left-1/2 -translate-x-1/2'
+  const arrowCls = align === 'left'  ? 'left-2'
+                 : align === 'right' ? 'right-2'
+                 :                     'left-1/2 -translate-x-1/2'
 
   return (
     <span
       ref={ref}
       className="relative inline-flex items-center"
       // Desktop: open on hover
-      onMouseEnter={() => setOpen(true)}
+      onMouseEnter={openTip}
       onMouseLeave={() => setOpen(false)}
       // Mobile: toggle on tap
-      onClick={e => { e.preventDefault(); e.stopPropagation(); setOpen(v => !v) }}
+      onClick={e => { e.preventDefault(); e.stopPropagation(); open ? setOpen(false) : openTip() }}
       // Keyboard: open on focus
-      onFocus={() => setOpen(true)}
+      onFocus={openTip}
       onBlur={() => setOpen(false)}
     >
       {/* The ? icon */}
@@ -62,14 +81,14 @@ export default function HelpTip({ text, position = 'top' }) {
       {open && (
         <span
           role="tooltip"
-          className={`absolute z-50 w-44 rounded-lg border border-siege-border bg-siege-surface shadow-lg px-3 py-2 text-xs text-gray-300 leading-relaxed pointer-events-none
-            left-1/2 -translate-x-1/2
+          className={`absolute z-50 w-44 max-w-[calc(100vw-1rem)] rounded-lg border border-siege-border bg-siege-surface shadow-lg px-3 py-2 text-xs text-gray-300 leading-relaxed pointer-events-none
+            ${alignCls}
             ${isAbove ? 'bottom-full mb-2' : 'top-full mt-2'}
           `}
         >
           {/* Arrow */}
           <span
-            className={`absolute left-1/2 -translate-x-1/2 w-2 h-2 bg-siege-surface border-siege-border rotate-45
+            className={`absolute ${arrowCls} w-2 h-2 bg-siege-surface border-siege-border rotate-45
               ${isAbove
                 ? 'bottom-[-5px] border-r border-b'
                 : 'top-[-5px] border-l border-t'

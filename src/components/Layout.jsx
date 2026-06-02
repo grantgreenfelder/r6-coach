@@ -73,7 +73,7 @@ export default function Layout() {
               alt="Department of Eh"
               className="w-9 h-9 rounded-full flex-shrink-0 ring-1 ring-doe-gold/30"
             />
-            <div className="flex flex-col leading-tight">
+            <div className="hidden sm:flex flex-col leading-tight">
               <span className="text-white font-bold text-sm tracking-wider uppercase leading-none">Department of Eh</span>
               <span className="text-siege-accent text-[10px] font-semibold tracking-widest uppercase leading-none mt-0.5">R6 Division</span>
             </div>
