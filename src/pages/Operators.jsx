@@ -202,8 +202,8 @@ export default function Operators() {
             <button
               key={key}
               onClick={() => setLens(key)}
-              className={`px-2.5 py-1 rounded text-xs font-medium transition-colors ${
-                lens === key ? 'bg-siege-accent text-siege-bg' : 'text-siege-muted hover:text-white border border-siege-border'
+              className={`px-2.5 py-1.5 sm:py-1 rounded text-xs font-medium border transition-colors ${
+                lens === key ? 'bg-siege-accent text-siege-bg border-transparent' : 'text-siege-muted hover:text-white border-siege-border'
               }`}
             >
               {label}

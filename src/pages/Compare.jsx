@@ -349,7 +349,7 @@ function OperatorOverlap({ players }) {
       <div className="flex items-center justify-between mb-4 flex-wrap gap-2">
         <h2 className="text-white font-semibold text-sm">Operator Overlap</h2>
         <div className="flex items-center gap-1">
-          {[['atk', 'Attack'], ['def', 'Defence']].map(([val, label]) => (
+          {[['atk', 'Attack'], ['def', 'Defense']].map(([val, label]) => (
             <button key={val} onClick={() => setSide(val)}
               className={`px-2.5 py-1 rounded text-xs font-medium transition-colors ${
                 side === val ? 'bg-siege-accent text-siege-bg' : 'text-siege-muted hover:text-white'
@@ -476,7 +476,7 @@ export function ComparePanel() {
 
           {/* View Toggle */}
           <div className="flex items-center gap-1 bg-siege-card border border-siege-border rounded-lg p-1 w-fit">
-            {[['stats', 'Season Stats'], ['maps', 'Map WR'], ['ops', 'Operator Overlap']].map(([val, label]) => (
+            {[['stats', 'Season Stats'], ['maps', 'Map WR'], ['ops', 'Operators']].map(([val, label]) => (
               <button key={val} onClick={() => setActiveView(val)}
                 className={`px-3 py-1.5 rounded text-sm font-medium transition-colors ${
                   activeView === val
